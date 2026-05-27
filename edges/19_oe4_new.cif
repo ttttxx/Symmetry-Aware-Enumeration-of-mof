@@ -1,0 +1,60 @@
+data_oe4_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+C1     C     0.20513   0.06578   0.09012   0.00000  Uiso   1.00
+X2     C     0.2401   0.06927   0.05058   0.00000  Uiso   1.00
+C3     C     0.16896   0.04072   0.11049   0.00000  Uiso   1.00
+C4     C     0.19183   0.0415   0.09444   0.00000  Uiso   1.00
+C5     C     0.22464   0.06777   0.06903   0.00000  Uiso   1.00
+X6     C     0.15926   0.06426   0.12234   0.00000  Uiso   1.00
+H7     H     0.15809   0.0221   0.11271   0.00000  Uiso   1.00
+H8     H     0.19843   0.0235   0.08433   0.00000  Uiso   1.00
+C9     C     0.19668   0.08887   0.10362   0.00000  Uiso   1.00
+C10     C     0.17386   0.08808   0.11981   0.00000  Uiso   1.00
+H11     H     0.20702   0.10768   0.10058   0.00000  Uiso   1.00
+H12     H     0.16666   0.1063   0.12907   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+C1     C9      1.402   .     A
+C1     C4      1.401   .     A
+C1     C5      1.44   .     S
+X2     C5      1.206   .     T
+C3     C4      1.398   .     A
+C3     X6      1.404   .     A
+C3     H7      1.084   .     S
+C4     H8      1.084   .     S
+X6     C10      1.403   .     A
+C9     C10      1.4   .     A
+C9     H11      1.084   .     S
+C10     H12      1.084   .     S
+loop_
+_modify_baseline_atom_site_label
+_modified_remove_atom_site_label
+C1 H11
+C9
+C10

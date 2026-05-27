@@ -1,0 +1,66 @@
+data_oe64_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+C1     C     0.0896   0.1552   0.03456   0.00000  Uiso   1.00
+C2     C     0.11872   0.20563   0.03456   0.00000  Uiso   1.00
+C3     C     0.11736   0.1565   0.03456   0.00000  Uiso   1.00
+O4     O     0.13358   0.1355   0.03456   0.00000  Uiso   1.00
+C5     C     0.09096   0.20432   0.03456   0.00000  Uiso   1.00
+O6     O     0.07474   0.22533   0.03456   0.00000  Uiso   1.00
+C7     C     0.07686   0.17989   0.03456   0.00000  Uiso   1.00
+O8     O     0.05055   0.18343   0.03456   0.00000  Uiso   1.00
+C9     C     0.13146   0.18093   0.03456   0.00000  Uiso   1.00
+O10     O     0.15777   0.17739   0.03456   0.00000  Uiso   1.00
+X11     B     0.15897   0.14877   0.03456   0.00000  Uiso   1.00
+X12     B     0.04935   0.21205   0.03456   0.00000  Uiso   1.00
+H13     H     0.07942   0.13755   0.03456   0.00000  Uiso   1.00
+H14     H     0.1289   0.22327   0.03456   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+C1     C3      1.389   .     A
+C1     C7      1.389   .     A
+C1     H13      1.019   .     S
+C2     C9      1.389   .     A
+C2     C5      1.389   .     A
+C2     H14      1.018   .     S
+C3     C9      1.41   .     A
+C3     O4      1.327   .     S
+O4     X11      1.432   .     S
+C5     C7      1.41   .     A
+C5     O6      1.327   .     S
+O6     X12      1.432   .     S
+C7     O8      1.327   .     S
+O8     X12      1.432   .     S
+C9     O10      1.327   .     S
+O10     X11      1.432   .     S
+loop_
+_modify_baseline_atom_site_label
+_modified_remove_atom_site_label
+C3 H13
+C1
+C7

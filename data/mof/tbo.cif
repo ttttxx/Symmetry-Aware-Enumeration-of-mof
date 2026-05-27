@@ -1,0 +1,260 @@
+data_0-TOPOS_DOTSOV42_tbo
+_database_code_CSD                  DOTSOV42
+_audit_creation_date                12/23/2020
+_audit_creation_method              ToposPro
+_chemical_formula_structural        tbo
+_chemical_name_systematic
+;
+catena-(tetrakis(\m~6~-1,3,5-Benzenetricarboxylato)-hexa-copper). 
+;
+_chemical_formula_sum               'Ti0 Sc0'
+_citation_journal_abbrev            J.AM.CHEM.SOC.
+_citation_year                      2009
+_citation_journal_volume            131
+_citation_page_first                12415
+_citation_special_details
+;
+Experiment details: powder data. File: search24.cif. 
+CENTAT: none
+
+SIMPLIG: Sc=C6H3 Ti=C4O8Cu2| 
+;
+loop_
+_publ_author_name
+'Shengchang XIANG'
+'Wei ZHOU'
+'Gallegos J.M.'
+'Yun LIU'
+'Banglin CHEN'
+_cell_length_a                      26.28791
+_cell_length_b                      26.28791
+_cell_length_c                      26.28791
+_cell_angle_alpha                   90
+_cell_angle_beta                    90
+_cell_angle_gamma                   90
+_cell_volume                        18166.37
+_cell_formula_units_Z               8
+_symmetry_space_group_name_H-M      'F m -3 m'
+_symmetry_Int_Tables_number         225
+_refine_ls_R_factor_all             0
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1 x,y,z
+2 -x,-y,z
+3 x,-y,-z
+4 -x,y,-z
+5 z,x,y
+6 y,z,x
+7 -z,-x,y
+8 -y,z,-x
+9 z,-x,-y
+10 -y,-z,x
+11 -z,x,-y
+12 y,-z,-x
+13 -y,-x,-z
+14 y,x,-z
+15 y,-x,z
+16 -y,x,z
+17 -x,-z,-y
+18 -z,-y,-x
+19 x,z,-y
+20 -z,y,x
+21 x,-z,y
+22 z,y,-x
+23 -x,z,y
+24 z,-y,x
+25 -x,-y,-z
+26 x,y,-z
+27 -x,y,z
+28 x,-y,z
+29 -z,-x,-y
+30 -y,-z,-x
+31 z,x,-y
+32 y,-z,x
+33 -z,x,y
+34 y,z,-x
+35 z,-x,y
+36 -y,z,x
+37 y,x,z
+38 -y,-x,z
+39 -y,x,-z
+40 y,-x,-z
+41 x,z,y
+42 z,y,x
+43 -x,-z,y
+44 z,-y,-x
+45 -x,z,-y
+46 -z,-y,x
+47 x,-z,-y
+48 -z,y,-x
+49 x,1/2+y,1/2+z
+50 1/2+x,y,1/2+z
+51 1/2+x,1/2+y,z
+52 -x,1/2-y,1/2+z
+53 1/2-x,-y,1/2+z
+54 1/2-x,1/2-y,z
+55 x,1/2-y,1/2-z
+56 1/2+x,-y,1/2-z
+57 1/2+x,1/2-y,-z
+58 -x,1/2+y,1/2-z
+59 1/2-x,y,1/2-z
+60 1/2-x,1/2+y,-z
+61 z,1/2+x,1/2+y
+62 1/2+z,x,1/2+y
+63 1/2+z,1/2+x,y
+64 y,1/2+z,1/2+x
+65 1/2+y,z,1/2+x
+66 1/2+y,1/2+z,x
+67 -z,1/2-x,1/2+y
+68 1/2-z,-x,1/2+y
+69 1/2-z,1/2-x,y
+70 -y,1/2+z,1/2-x
+71 1/2-y,z,1/2-x
+72 1/2-y,1/2+z,-x
+73 z,1/2-x,1/2-y
+74 1/2+z,-x,1/2-y
+75 1/2+z,1/2-x,-y
+76 -y,1/2-z,1/2+x
+77 1/2-y,-z,1/2+x
+78 1/2-y,1/2-z,x
+79 -z,1/2+x,1/2-y
+80 1/2-z,x,1/2-y
+81 1/2-z,1/2+x,-y
+82 y,1/2-z,1/2-x
+83 1/2+y,-z,1/2-x
+84 1/2+y,1/2-z,-x
+85 -y,1/2-x,1/2-z
+86 1/2-y,-x,1/2-z
+87 1/2-y,1/2-x,-z
+88 y,1/2+x,1/2-z
+89 1/2+y,x,1/2-z
+90 1/2+y,1/2+x,-z
+91 y,1/2-x,1/2+z
+92 1/2+y,-x,1/2+z
+93 1/2+y,1/2-x,z
+94 -y,1/2+x,1/2+z
+95 1/2-y,x,1/2+z
+96 1/2-y,1/2+x,z
+97 -x,1/2-z,1/2-y
+98 1/2-x,-z,1/2-y
+99 1/2-x,1/2-z,-y
+100 -z,1/2-y,1/2-x
+101 1/2-z,-y,1/2-x
+102 1/2-z,1/2-y,-x
+103 x,1/2+z,1/2-y
+104 1/2+x,z,1/2-y
+105 1/2+x,1/2+z,-y
+106 -z,1/2+y,1/2+x
+107 1/2-z,y,1/2+x
+108 1/2-z,1/2+y,x
+109 x,1/2-z,1/2+y
+110 1/2+x,-z,1/2+y
+111 1/2+x,1/2-z,y
+112 z,1/2+y,1/2-x
+113 1/2+z,y,1/2-x
+114 1/2+z,1/2+y,-x
+115 -x,1/2+z,1/2+y
+116 1/2-x,z,1/2+y
+117 1/2-x,1/2+z,y
+118 z,1/2-y,1/2+x
+119 1/2+z,-y,1/2+x
+120 1/2+z,1/2-y,x
+121 -x,1/2-y,1/2-z
+122 1/2-x,-y,1/2-z
+123 1/2-x,1/2-y,-z
+124 x,1/2+y,1/2-z
+125 1/2+x,y,1/2-z
+126 1/2+x,1/2+y,-z
+127 -x,1/2+y,1/2+z
+128 1/2-x,y,1/2+z
+129 1/2-x,1/2+y,z
+130 x,1/2-y,1/2+z
+131 1/2+x,-y,1/2+z
+132 1/2+x,1/2-y,z
+133 -z,1/2-x,1/2-y
+134 1/2-z,-x,1/2-y
+135 1/2-z,1/2-x,-y
+136 -y,1/2-z,1/2-x
+137 1/2-y,-z,1/2-x
+138 1/2-y,1/2-z,-x
+139 z,1/2+x,1/2-y
+140 1/2+z,x,1/2-y
+141 1/2+z,1/2+x,-y
+142 y,1/2-z,1/2+x
+143 1/2+y,-z,1/2+x
+144 1/2+y,1/2-z,x
+145 -z,1/2+x,1/2+y
+146 1/2-z,x,1/2+y
+147 1/2-z,1/2+x,y
+148 y,1/2+z,1/2-x
+149 1/2+y,z,1/2-x
+150 1/2+y,1/2+z,-x
+151 z,1/2-x,1/2+y
+152 1/2+z,-x,1/2+y
+153 1/2+z,1/2-x,y
+154 -y,1/2+z,1/2+x
+155 1/2-y,z,1/2+x
+156 1/2-y,1/2+z,x
+157 y,1/2+x,1/2+z
+158 1/2+y,x,1/2+z
+159 1/2+y,1/2+x,z
+160 -y,1/2-x,1/2+z
+161 1/2-y,-x,1/2+z
+162 1/2-y,1/2-x,z
+163 -y,1/2+x,1/2-z
+164 1/2-y,x,1/2-z
+165 1/2-y,1/2+x,-z
+166 y,1/2-x,1/2-z
+167 1/2+y,-x,1/2-z
+168 1/2+y,1/2-x,-z
+169 x,1/2+z,1/2+y
+170 1/2+x,z,1/2+y
+171 1/2+x,1/2+z,y
+172 z,1/2+y,1/2+x
+173 1/2+z,y,1/2+x
+174 1/2+z,1/2+y,x
+175 -x,1/2-z,1/2+y
+176 1/2-x,-z,1/2+y
+177 1/2-x,1/2-z,y
+178 z,1/2-y,1/2-x
+179 1/2+z,-y,1/2-x
+180 1/2+z,1/2-y,-x
+181 -x,1/2+z,1/2-y
+182 1/2-x,z,1/2-y
+183 1/2-x,1/2+z,-y
+184 -z,1/2-y,1/2+x
+185 1/2-z,-y,1/2+x
+186 1/2-z,1/2-y,x
+187 x,1/2-z,1/2-y
+188 1/2+x,-z,1/2-y
+189 1/2+x,1/2-z,-y
+190 -z,1/2+y,1/2-x
+191 1/2-z,y,1/2-x
+192 1/2-z,1/2+y,-x
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Sc1 Sc 32 0.34313 0.15687 0.84313 1.0000
+Ti1 Ti 24 0.25000 0.25000 0.00000 1.0000
+loop_
+_topol_link.node_label_1
+_topol_link.node_label_2
+_topol_link.distance
+_topol_link.site_symmetry_symop_1
+_topol_link.site_symmetry_translation_1_x
+_topol_link.site_symmetry_translation_1_y
+_topol_link.site_symmetry_translation_1_z
+_topol_link.site_symmetry_symop_2
+_topol_link.site_symmetry_translation_2_x
+_topol_link.site_symmetry_translation_2_y
+_topol_link.site_symmetry_translation_2_z
+_topol_link.type
+_topol_link.multiplicity
+Sc1 Ti1 5.3845 1 0 0 0 75 0 0 1 v 96
+#End of data_0-TOPOS_DOTSOV42_tbo

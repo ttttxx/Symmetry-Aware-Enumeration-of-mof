@@ -1,0 +1,76 @@
+data_0-TOPOS_BUKLOJ01_lil;cai-3,4-Imma
+_database_code_CSD                  BUKLOJ01
+_audit_creation_date                9/7/2021
+_audit_creation_method              ToposPro
+_chemical_formula_structural        lil;cai-3,4-Imma
+_chemical_name_systematic
+;
+catena-((\m~4~-Terephthalato)-trans-diaqua-cobalt(ii)). 
+;
+_chemical_formula_sum               'C0 Ti0'
+_citation_journal_abbrev            'ACTA CRYSTALLOGR.,SECT.B:STRUCT.SCI.'
+_citation_year                      2002
+_citation_journal_volume            58
+_citation_page_first                815
+_citation_special_details
+;
+Experiment details: powder dataisostructural with the magnesium, mang
+anese and iron analogues. Experiment details: The study was carried o
+ut at room temperature,in the range 283-303K. File: search24.cif. 
+C
+ENTAT: none
+SIMPLIG: Sc=C6H4 Ti=H4O2Co| 
+;
+loop_
+_publ_author_name
+'Kaduk J.A.'
+_cell_length_a                      18.2731
+_cell_length_b                      6.5417
+_cell_length_c                      7.2966
+_cell_angle_alpha                   90
+_cell_angle_beta                    98.653
+_cell_angle_gamma                   90
+_cell_volume                        862.2868
+_cell_formula_units_Z               4
+_symmetry_space_group_name_H-M      'C 2/c'
+_symmetry_Int_Tables_number         15
+_refine_ls_R_factor_all             0
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1 x,y,z
+2 -x,y,1/2-z
+3 -x,-y,-z
+4 x,-y,1/2+z
+5 1/2+x,1/2+y,z
+6 1/2-x,1/2+y,1/2-z
+7 1/2-x,1/2-y,-z
+8 1/2+x,1/2-y,1/2+z
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Ti1 Ti 4 0.25000 0.25000 0.00000 1.0000
+C1 C 8 0.14780 0.00100 0.21100 1.0000
+loop_
+_topol_link.node_label_1
+_topol_link.node_label_2
+_topol_link.distance
+_topol_link.site_symmetry_symop_1
+_topol_link.site_symmetry_translation_1_x
+_topol_link.site_symmetry_translation_1_y
+_topol_link.site_symmetry_translation_1_z
+_topol_link.site_symmetry_symop_2
+_topol_link.site_symmetry_translation_2_x
+_topol_link.site_symmetry_translation_2_y
+_topol_link.site_symmetry_translation_2_z
+_topol_link.type
+_topol_link.multiplicity
+Ti1 C1 3.0621 1 0 0 0 1 0 0 0 v 8
+Ti1 C1 3.0733 1 0 0 0 4 0 0 -1 v 8
+C1 C1 5.8011 1 0 0 0 3 0 0 0 v 4
+#End of data_0-TOPOS_BUKLOJ01_lil;cai-3,4-Imma

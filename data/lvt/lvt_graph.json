@@ -1,0 +1,340 @@
+{
+  "n_nodes": 8,
+  "lattice": [
+    [
+      11.047,
+      -6.764336595090405e-16,
+      0.0
+    ],
+    [
+      0.0,
+      11.047,
+      0.0
+    ],
+    [
+      6.764336595090405e-16,
+      6.764336595090405e-16,
+      10.89
+    ]
+  ],
+  "nodes": [
+    {
+      "id": 0,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.06023,
+        0.25,
+        0.125
+      ],
+      "coord": [
+        0.06023,
+        0.25,
+        0.125
+      ],
+      "cart": [
+        0.6653608099999998,
+        2.76175,
+        1.3612500000000003
+      ],
+      "degree": 5
+    },
+    {
+      "id": 1,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.93977,
+        0.75,
+        0.125
+      ],
+      "coord": [
+        0.93977,
+        0.75,
+        0.125
+      ],
+      "cart": [
+        10.381639190000001,
+        8.285250000000001,
+        1.3612500000000012
+      ],
+      "degree": 5
+    },
+    {
+      "id": 2,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.25,
+        0.56023,
+        0.375
+      ],
+      "coord": [
+        0.25,
+        0.56023,
+        0.375
+      ],
+      "cart": [
+        2.7617499999999997,
+        6.18886081,
+        4.083750000000001
+      ],
+      "degree": 5
+    },
+    {
+      "id": 3,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.75,
+        0.43977,
+        0.375
+      ],
+      "coord": [
+        0.75,
+        0.43977,
+        0.375
+      ],
+      "cart": [
+        8.285250000000001,
+        4.85813919,
+        4.083750000000001
+      ],
+      "degree": 5
+    },
+    {
+      "id": 4,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.75,
+        0.06023,
+        0.875
+      ],
+      "coord": [
+        0.75,
+        0.06023,
+        0.875
+      ],
+      "cart": [
+        8.285250000000001,
+        0.66536081,
+        9.52875
+      ],
+      "degree": 5
+    },
+    {
+      "id": 5,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.25,
+        0.93977,
+        0.875
+      ],
+      "coord": [
+        0.25,
+        0.93977,
+        0.875
+      ],
+      "cart": [
+        2.7617499999999997,
+        10.381639190000001,
+        9.52875
+      ],
+      "degree": 5
+    },
+    {
+      "id": 6,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.56023,
+        0.75,
+        0.625
+      ],
+      "coord": [
+        0.56023,
+        0.75,
+        0.625
+      ],
+      "cart": [
+        6.1888608099999995,
+        8.285250000000001,
+        6.806250000000001
+      ],
+      "degree": 5
+    },
+    {
+      "id": 7,
+      "element": "Zn",
+      "label": "Zn1",
+      "type": "metal",
+      "frac": [
+        0.43977,
+        0.25,
+        0.625
+      ],
+      "coord": [
+        0.43977,
+        0.25,
+        0.625
+      ],
+      "cart": [
+        4.85813919,
+        2.76175,
+        6.806250000000001
+      ],
+      "degree": 5
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "length": 5.681537844627583,
+      "sym": "1_455",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "length": 4.8530343487314935,
+      "sym": "1_455",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "length": 4.8530343487314935,
+      "sym": "1_454",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "length": 4.8530343487314935,
+      "sym": "1_544",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "length": 4.8530343487314935,
+      "sym": "1_655",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "length": 4.8530343487314935,
+      "sym": "1_564",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "length": 4.8530343487314935,
+      "sym": "1_654",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "length": 5.681537844627582,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 3,
+      "target": 6,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "length": 5.681537844627582,
+      "sym": "1_545",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "length": 4.8530343487314935,
+      "sym": "1_545",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 4,
+      "target": 7,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "length": 4.8530343487314935,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "length": 4.8530343487314935,
+      "sym": "1_565",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "length": 5.681537844627582,
+      "sym": ".",
+      "bond_type": "topology_link"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+numpy
+pymatgen
+networkx
+matplotlib
+ase
+chgnet
+# frontend
+streamlit>=1.35
+py3Dmol>=2.1
+stmol>=0.0.9

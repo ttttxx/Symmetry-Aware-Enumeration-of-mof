@@ -1,0 +1,61 @@
+data_oe20_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+C1     C     0.1909   0.01591   0.0119   0.00000  Uiso   1.00
+C2     C     0.18434   0.03793   0.02812   0.00000  Uiso   1.00
+N3     N     0.20026   0.05987   0.02802   0.00000  Uiso   1.00
+X4     C     0.22233   0.06089   0.01215   0.00000  Uiso   1.00
+C5     C     0.22987   0.03814   -0.00256   0.00000  Uiso   1.00
+N6     N     0.21396   0.01613   -0.0024   0.00000  Uiso   1.00
+N7     N     0.17253   -0.00356   0.0077   0.00000  Uiso   1.00
+N8     N     0.16041   0.03853   0.04092   0.00000  Uiso   1.00
+H9     H     0.24787   0.03821   -0.01459   0.00000  Uiso   1.00
+X10     C     0.14758   -0.00162   0.01838   0.00000  Uiso   1.00
+C11     C     0.14194   0.0191   0.03651   0.00000  Uiso   1.00
+H12     H     0.12227   0.02083   0.04541   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+C1     C2      1.406   .     A
+C1     N6      1.357   .     A
+C1     N7      1.355   .     A
+C2     N3      1.356   .     A
+C2     N8      1.357   .     A
+N3     X4      1.36   .     A
+X4     C5      1.406   .     A
+C5     N6      1.358   .     A
+C5     H9      1.082   .     S
+N7     X10      1.36   .     A
+N8     C11      1.358   .     A
+X10     C11      1.405   .     A
+C11     H12      1.083   .     S
+loop_
+_modify_baseline_atom_site_label
+_modified_remove_atom_site_label
+N8 H12
+C11
+X10

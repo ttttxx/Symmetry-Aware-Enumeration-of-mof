@@ -1,0 +1,42 @@
+data_oe44_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+X1     C     0.1543   0.1051   0.06764   0.00000  Uiso   1.00
+X2     C     0.14558   0.14361   0.06764   0.00000  Uiso   1.00
+C3     C     0.16911   0.12865   0.06764   0.00000  Uiso   1.00
+C4     C     0.13077   0.12006   0.06764   0.00000  Uiso   1.00
+X5     O     0.19353   0.13412   0.06764   0.00000  Uiso   1.00
+X6     O     0.10635   0.1146   0.06764   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X1     C3      1.391   .     S
+X1     C4      1.394   .     S
+X2     C3      1.394   .     S
+X2     C4      1.391   .     S
+C3     X5      1.251   .     D
+C4     X6      1.251   .     D

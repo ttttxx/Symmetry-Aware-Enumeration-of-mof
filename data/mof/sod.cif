@@ -1,0 +1,86 @@
+data_0-TOPOS_MAPFER_sod;4/4/c1;sqc970;SOD
+_database_code_CSD                  MAPFER
+_audit_creation_date                9/7/2021
+_audit_creation_method              ToposPro
+_chemical_formula_structural        sod;4/4/c1;sqc970;SOD
+_chemical_name_systematic
+;
+catena-[hexakis(\m-hydrogen2,5-bis[(1-phenylethyl)amino]bicyclo[2.2.2
+]octane-1,4-dicarboxylato)-tri-zincunknown solvate]. 
+;
+_chemical_formula_sum               ZB0
+_citation_journal_abbrev            CRYSTENGCOMM
+_citation_year                      2017
+_citation_journal_volume            19
+_citation_page_first                2494
+_citation_special_details
+;
+Experiment details: Absolute configurationMoisture-sensitiveWe have a
+dded a hydrogen atom to each ligand to balance the charge. Experiment
+ details: The SQUEEZE/PLATON program has been used to model some diso
+rder.. File: M.cif. 
+CENTAT: Zn1 Zn2
+SIMPLIG: ZA=C26H30N2O4 ZB=Zn
+
+SIMPPAR: METH=Stand; INTRA=V| 
+;
+loop_
+_publ_author_name
+'Kutzscher C.'
+'Janssen-Muller D.'
+'Notzon A.'
+'Stoeck U.'
+'Bon V.'
+'Senkovska I.'
+'Kaskel S.'
+'Glorius F.'
+_cell_length_a                      32.49
+_cell_length_b                      32.49
+_cell_length_c                      25.78
+_cell_angle_alpha                   90
+_cell_angle_beta                    90
+_cell_angle_gamma                   90
+_cell_volume                        27213.37
+_cell_formula_units_Z               12
+_symmetry_space_group_name_H-M      'I 4'
+_symmetry_Int_Tables_number         79
+_refine_ls_R_factor_all             0
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1 x,y,z
+2 -x,-y,z
+3 -y,x,z
+4 y,-x,z
+5 1/2+x,1/2+y,1/2+z
+6 1/2-x,1/2-y,1/2+z
+7 1/2-y,1/2+x,1/2+z
+8 1/2+y,1/2-x,1/2+z
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+ZB1 ZB 8 0.26466 0.49999 0.38379 1.0000
+ZB2 ZB 4 0.00000 0.50000 0.13392 1.0000
+loop_
+_topol_link.node_label_1
+_topol_link.node_label_2
+_topol_link.distance
+_topol_link.site_symmetry_symop_1
+_topol_link.site_symmetry_translation_1_x
+_topol_link.site_symmetry_translation_1_y
+_topol_link.site_symmetry_translation_1_z
+_topol_link.site_symmetry_symop_2
+_topol_link.site_symmetry_translation_2_x
+_topol_link.site_symmetry_translation_2_y
+_topol_link.site_symmetry_translation_2_z
+_topol_link.type
+_topol_link.multiplicity
+ZB1 ZB2 10.7440 1 0 0 0 1 0 0 0 v 8
+ZB1 ZB1 10.8134 1 0 0 0 3 1 0 0 v 8
+ZB2 ZB1 10.7480 1 0 0 0 7 0 0 -1 v 8
+#End of data_0-TOPOS_MAPFER_sod;4/4/c1;sqc970;SOD

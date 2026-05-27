@@ -1,0 +1,19 @@
+data_Zn_tetrahedral
+_cell_length_a 10.0000
+_cell_length_b 10.0000
+_cell_length_c 10.0000
+_cell_angle_alpha 90.0000
+_cell_angle_beta 90.0000
+_cell_angle_gamma 90.0000
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Zn1 Zn 0.500000 0.500000 0.500000
+X1 X 0.600000 0.600000 0.600000
+X2 X 0.400000 0.400000 0.600000
+X3 X 0.600000 0.400000 0.400000
+X4 X 0.400000 0.600000 0.400000

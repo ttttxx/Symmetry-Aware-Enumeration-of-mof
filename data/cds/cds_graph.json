@@ -1,0 +1,284 @@
+{
+  "n_nodes": 8,
+  "lattice": [
+    [
+      20.0,
+      -1.2246467991473533e-15,
+      0.0
+    ],
+    [
+      0.0,
+      20.0,
+      0.0
+    ],
+    [
+      1.2246467991473533e-15,
+      1.2246467991473533e-15,
+      20.0001
+    ]
+  ],
+  "nodes": [
+    {
+      "id": 0,
+      "element": "V",
+      "label": "V1",
+      "type": "metal",
+      "frac": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "coord": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "cart": [
+        0.0,
+        0.0,
+        10.00005
+      ],
+      "degree": 3
+    },
+    {
+      "id": 1,
+      "element": "V",
+      "label": "V2",
+      "type": "metal",
+      "frac": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "coord": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "cart": [
+        -6.123233995736766e-16,
+        10.0,
+        10.00005
+      ],
+      "degree": 3
+    },
+    {
+      "id": 2,
+      "element": "V",
+      "label": "V3",
+      "type": "metal",
+      "frac": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "coord": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "cart": [
+        10.0,
+        0.0,
+        10.00005
+      ],
+      "degree": 3
+    },
+    {
+      "id": 3,
+      "element": "V",
+      "label": "V4",
+      "type": "metal",
+      "frac": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "coord": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "cart": [
+        10.0,
+        10.0,
+        10.000050000000002
+      ],
+      "degree": 3
+    },
+    {
+      "id": 4,
+      "element": "V",
+      "label": "V5",
+      "type": "metal",
+      "frac": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coord": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cart": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "degree": 3
+    },
+    {
+      "id": 5,
+      "element": "V",
+      "label": "V6",
+      "type": "metal",
+      "frac": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "coord": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "cart": [
+        -6.123233995736766e-16,
+        10.0,
+        6.123233995736766e-16
+      ],
+      "degree": 3
+    },
+    {
+      "id": 6,
+      "element": "V",
+      "label": "V7",
+      "type": "metal",
+      "frac": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "coord": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "cart": [
+        10.0,
+        0.0,
+        6.123233995736766e-16
+      ],
+      "degree": 3
+    },
+    {
+      "id": 7,
+      "element": "V",
+      "label": "V8",
+      "type": "metal",
+      "frac": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "coord": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "cart": [
+        10.0,
+        10.0,
+        1.2246467991473533e-15
+      ],
+      "degree": 3
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "length": 10.00005,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "length": 10.00005,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "length": 10.00005,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "length": 10.00005,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "length": 10.0,
+      "sym": ".",
+      "bond_type": "topology_link"
+    }
+  ]
+}

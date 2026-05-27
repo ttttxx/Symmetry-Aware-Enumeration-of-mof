@@ -1,0 +1,73 @@
+data_0-TOPOS_CUACDH03_pcu;6/4/c1;sqc1
+_database_code_CSD                  CUACDH03
+_audit_creation_date                12/23/2020
+_audit_creation_method              ToposPro
+_chemical_formula_structural        pcu;6/4/c1;sqc1
+_chemical_name_systematic
+;
+trans-Diaqua-bis(methoxyacetato)-copper(ii). 
+;
+_chemical_formula_sum               Sc0
+_citation_journal_abbrev            INORG.CHEM.
+_citation_year                      1997
+_citation_journal_volume            36
+_citation_page_first                2820
+_citation_special_details
+;
+Experiment details: Isomorphous with the nickel analogue. File: searc
+h24.cif. 
+CENTAT: none
+SIMPLIG: Sc=C6H14O8Cu| 
+;
+loop_
+_publ_author_name
+'Prout K.'
+'Edwards A.'
+'Mtetwa V.'
+'Murray J.'
+'Saunders J.F.'
+'Rossotti F.J.C.'
+_cell_length_a                      6.9
+_cell_length_b                      7.19
+_cell_length_c                      9.874
+_cell_angle_alpha                   90
+_cell_angle_beta                    90
+_cell_angle_gamma                   95.7
+_cell_volume                        487.4369
+_cell_formula_units_Z               2
+_symmetry_space_group_name_H-M      'P 1 1 21/n'
+_symmetry_Int_Tables_number         14
+_refine_ls_R_factor_all             0
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1 x,y,z
+2 1/2-x,1/2-y,1/2+z
+3 -x,-y,-z
+4 1/2+x,1/2+y,1/2-z
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Sc1 Sc 2 0.00000 0.00000 0.00000 1.0000
+loop_
+_topol_link.node_label_1
+_topol_link.node_label_2
+_topol_link.distance
+_topol_link.site_symmetry_symop_1
+_topol_link.site_symmetry_translation_1_x
+_topol_link.site_symmetry_translation_1_y
+_topol_link.site_symmetry_translation_1_z
+_topol_link.site_symmetry_symop_2
+_topol_link.site_symmetry_translation_2_x
+_topol_link.site_symmetry_translation_2_y
+_topol_link.site_symmetry_translation_2_z
+_topol_link.type
+_topol_link.multiplicity
+Sc1 Sc1 6.9000 1 0 0 0 1 1 0 0 v 2
+Sc1 Sc1 7.1878 1 0 0 0 2 0 -1 0 v 4
+#End of data_0-TOPOS_CUACDH03_pcu;6/4/c1;sqc1

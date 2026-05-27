@@ -1,0 +1,81 @@
+data_mn3_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+Cu1     Cu     0.21987   0.16151   0.03127   0.00000  Uiso   1.00
+Cu2     Cu     0.16953   0.19601   0.01593   0.00000  Uiso   1.00
+X3     C     0.20001   0.16222   -0.02296   0.00000  Uiso   1.00
+O4     O     0.23518   0.19851   0.02238   0.00000  Uiso   1.00
+O5     O     0.17824   0.16553   0.03622   0.00000  Uiso   1.00
+O6     O     0.23804   0.12589   0.03554   0.00000  Uiso   1.00
+O7     O     0.18826   0.18533   -0.01773   0.00000  Uiso   1.00
+O8     O     0.13941   0.18179   0.07385   0.00000  Uiso   1.00
+X9     C     0.12433   0.19135   0.05437   0.00000  Uiso   1.00
+X10     C     0.2227   0.2206   0.0297   0.00000  Uiso   1.00
+O11     O     0.19806   0.2193   0.03845   0.00000  Uiso   1.00
+O12     O     0.1348   0.20396   0.03365   0.00000  Uiso   1.00
+O13     O     0.21572   0.15046   -0.00523   0.00000  Uiso   1.00
+X14     C     0.22652   0.10682   0.0496   0.00000  Uiso   1.00
+H15     H     0.16691   0.14965   0.03281   0.00000  Uiso   1.00
+Cu16     Cu     0.21837   0.14057   0.09332   0.00000  Uiso   1.00
+Cu17     Cu     0.17787   0.17797   0.07259   0.00000  Uiso   1.00
+X18     C     0.19555   0.17801   0.12952   0.00000  Uiso   1.00
+O19     O     0.21709   0.17105   0.06956   0.00000  Uiso   1.00
+O20     O     0.20959   0.11321   0.06856   0.00000  Uiso   1.00
+O21     O     0.17733   0.18499   0.11155   0.00000  Uiso   1.00
+O22     O     0.21726   0.1647   0.12275   0.00000  Uiso   1.00
+H23     H     0.22825   0.18635   0.07536   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Cu1     O4      2.051   .     S
+Cu1     O5      2.106   .     S
+Cu1     O19      1.978   .     S
+Cu1     O6      2.011   .     S
+Cu1     O13      1.918   .     S
+Cu2     O5      1.882   .     S
+Cu2     O7      1.999   .     S
+Cu2     O11      2.158   .     S
+Cu2     O12      1.99   .     S
+X3     O7      1.322   .     A
+X3     O13      1.322   .     S
+O4     X10      1.32   .     A
+O5     Cu17      1.922   .     S
+O5     H15      0.99   .     S
+O6     X14      1.317   .     A
+O8     Cu17      1.933   .     S
+O8     X9      1.321   .     A
+X9     O12      1.321   .     A
+X10     O11      1.309   .     S
+X14     O20      1.31   .     S
+Cu16     O19      1.933   .     S
+Cu16     O20      1.897   .     S
+Cu16     O22      1.904   .     S
+Cu17     O19      1.997   .     S
+Cu17     O21      1.98   .     S
+X18     O21      1.326   .     A
+X18     O22      1.317   .     S
+O19     H23      0.99   .     S

@@ -1,0 +1,68 @@
+data_oe68_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+X1     C     0.16257   0.2961   0.03312   0.00000  Uiso   1.00
+C2     C     0.16137   0.26623   0.04083   0.00000  Uiso   1.00
+C3     C     0.18868   0.25408   0.04746   0.00000  Uiso   1.00
+H4     H     0.16471   0.297   0.01044   0.00000  Uiso   1.00
+H5     H     0.14772   0.26389   0.05894   0.00000  Uiso   1.00
+H6     H     0.15215   0.25506   0.02323   0.00000  Uiso   1.00
+H7     H     0.18812   0.23167   0.04332   0.00000  Uiso   1.00
+H8     H     0.19337   0.2575   0.06951   0.00000  Uiso   1.00
+X9     C     0.18738   0.31042   0.04508   0.00000  Uiso   1.00
+C10     C     0.21384   0.29652   0.03737   0.00000  Uiso   1.00
+C11     C     0.21071   0.2668   0.03074   0.00000  Uiso   1.00
+H12     H     0.18553   0.30902   0.06776   0.00000  Uiso   1.00
+H13     H     0.2227   0.30718   0.01926   0.00000  Uiso   1.00
+H14     H     0.22813   0.29892   0.05497   0.00000  Uiso   1.00
+H15     H     0.2304   0.25608   0.03488   0.00000  Uiso   1.00
+H16     H     0.2054   0.26445   0.00869   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X1     H4      1.14   .     S
+X1     C2      1.543   .     A
+X1     X9      1.553   .     A
+C2     C3      1.531   .     A
+C2     H6      1.14   .     S
+C2     H5      1.14   .     S
+C3     H7      1.14   .     S
+C3     H8      1.14   .     S
+C3     C11      1.522   .     A
+X9     C10      1.544   .     A
+X9     H12      1.14   .     S
+C10     H13      1.14   .     S
+C10     H14      1.14   .     S
+C10     C11      1.531   .     A
+C11     H15      1.14   .     S
+C11     H16      1.14   .     S
+loop_
+_modify_baseline_atom_site_label
+_modified_remove_atom_site_label
+C2 H7
+C3
+C11

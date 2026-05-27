@@ -1,0 +1,101 @@
+data_oe89_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+N1     N     0.8291   0.68363   0.02929   0.00000  Uiso   1.00
+S2     S     0.85195   0.70021   0.02929   0.00000  Uiso   1.00
+N3     N     0.87477   0.68361   0.02929   0.00000  Uiso   1.00
+X4     C     0.96972   0.63255   0.02929   0.00000  Uiso   1.00
+C5     C     0.95419   0.60874   0.02929   0.00000  Uiso   1.00
+C6     C     0.92596   0.60875   0.02929   0.00000  Uiso   1.00
+C7     C     0.91041   0.63261   0.02929   0.00000  Uiso   1.00
+C8     C     0.92597   0.65637   0.02929   0.00000  Uiso   1.00
+C9     C     0.95412   0.65633   0.02929   0.00000  Uiso   1.00
+H10     H     0.96558   0.58898   0.02929   0.00000  Uiso   1.00
+H11     H     0.91455   0.58901   0.02929   0.00000  Uiso   1.00
+H12     H     0.91569   0.67673   0.02929   0.00000  Uiso   1.00
+H13     H     0.96555   0.67606   0.02929   0.00000  Uiso   1.00
+X14     C     0.73513   0.63217   0.02929   0.00000  Uiso   1.00
+C15     C     0.7501   0.60828   0.02929   0.00000  Uiso   1.00
+C16     C     0.77822   0.60872   0.02929   0.00000  Uiso   1.00
+C17     C     0.79344   0.63284   0.02929   0.00000  Uiso   1.00
+C18     C     0.77772   0.65666   0.02929   0.00000  Uiso   1.00
+C19     C     0.74952   0.65645   0.02929   0.00000  Uiso   1.00
+H20     H     0.73901   0.58835   0.02929   0.00000  Uiso   1.00
+H21     H     0.78993   0.58916   0.02929   0.00000  Uiso   1.00
+H22     H     0.78792   0.67705   0.02929   0.00000  Uiso   1.00
+H23     H     0.73797   0.67611   0.02929   0.00000  Uiso   1.00
+C24     C     0.82228   0.63296   0.02929   0.00000  Uiso   1.00
+C25     C     0.83781   0.65678   0.02929   0.00000  Uiso   1.00
+C26     C     0.86604   0.65677   0.02929   0.00000  Uiso   1.00
+C27     C     0.88158   0.63291   0.02929   0.00000  Uiso   1.00
+C28     C     0.86603   0.60914   0.02929   0.00000  Uiso   1.00
+C29     C     0.83787   0.60919   0.02929   0.00000  Uiso   1.00
+H30     H     0.8763   0.58879   0.02929   0.00000  Uiso   1.00
+H31     H     0.82644   0.58946   0.02929   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+N1     S2      1.411   .     S
+N1     C25      1.411   .     D
+S2     N3      1.411   .     S
+N3     C26      1.411   .     D
+X4     C9      1.422   .     A
+X4     C5      1.422   .     A
+C5     H10      1.14   .     S
+C5     C6      1.411   .     S
+C6     C7      1.424   .     A
+C6     H11      1.14   .     S
+C7     C27      1.442   .     S
+C7     C8      1.42   .     A
+C8     H12      1.14   .     S
+C8     C9      1.408   .     A
+C9     H13      1.14   .     S
+X14     C19      1.411   .     A
+X14     C15      1.41   .     A
+C15     C16      1.406   .     S
+C15     H20      1.14   .     S
+C16     H21      1.14   .     S
+C16     C17      1.426   .     A
+C17     C18      1.427   .     A
+C17     C24      1.442   .     S
+C18     H22      1.14   .     S
+C18     C19      1.41   .     A
+C19     H23      1.14   .     S
+C24     C29      1.422   .     A
+C24     C25      1.422   .     A
+C25     C26      1.411   .     S
+C26     C27      1.424   .     A
+C27     C28      1.42   .     A
+C28     H30      1.14   .     S
+C28     C29      1.408   .     S
+C29     H31      1.14   .     S
+loop_
+_modify_baseline_atom_site_label
+_modified_remove_atom_site_label
+C24 H31
+C29
+C28

@@ -1,0 +1,79 @@
+data_mn29_new
+_audit_creation_date              2023-11-30
+_audit_creation_method            'mat-cloud'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+	x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+O1     O     0.00423   0.44929   -0.02747   0.00000  Uiso   1.00
+O2     O     -0.043   0.42221   -0.02926   0.00000  Uiso   1.00
+X3     C     -0.04688   0.40057   -0.04229   0.00000  Uiso   1.00
+O4     O     -0.04312   0.37856   -0.02986   0.00000  Uiso   1.00
+O5     O     0.00396   0.35118   -0.02882   0.00000  Uiso   1.00
+X6     C     0.02535   0.35856   -0.0407   0.00000  Uiso   1.00
+O7     O     0.04181   0.37288   -0.02739   0.00000  Uiso   1.00
+O8     O     0.04196   0.42735   -0.02664   0.00000  Uiso   1.00
+X9     C     0.02558   0.44212   -0.03955   0.00000  Uiso   1.00
+O10     O     0.00252   0.44852   0.0295   0.00000  Uiso   1.00
+O11     O     -0.04471   0.42143   0.02771   0.00000  Uiso   1.00
+X12     C     -0.04934   0.39944   0.03989   0.00000  Uiso   1.00
+O13     O     -0.04483   0.37778   0.02711   0.00000  Uiso   1.00
+O14     O     0.00226   0.3504   0.02815   0.00000  Uiso   1.00
+X15     C     0.02289   0.35743   0.04148   0.00000  Uiso   1.00
+O16     O     0.0401   0.3721   0.02958   0.00000  Uiso   1.00
+O17     O     0.04025   0.42657   0.03033   0.00000  Uiso   1.00
+X18     C     0.02312   0.441   0.04263   0.00000  Uiso   1.00
+Cr19     Cr     -0.01939   0.43388   0.00012   0.00000  Uiso   1.00
+Cr20     Cr     -0.01958   0.36596   -0.00081   0.00000  Uiso   1.00
+Cr21     Cr     0.03932   0.39973   0.00142   0.00000  Uiso   1.00
+O22     O     0.00012   0.39986   0.00024   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+O1     Cr19      1.973   .     S
+O1     X9      1.278   .     A
+O2     X3      1.278   .     A
+O2     Cr19      1.973   .     S
+X3     O4      1.278   .     A
+O4     Cr20      1.973   .     S
+O5     X6      1.278   .     A
+O5     Cr20      1.973   .     S
+X6     O7      1.278   .     A
+O7     Cr21      1.973   .     S
+O8     X9      1.278   .     A
+O8     Cr21      1.973   .     S
+O10     Cr19      1.973   .     S
+O10     X18      1.278   .     A
+O11     X12      1.278   .     A
+O11     Cr19      1.973   .     S
+X12     O13      1.278   .     A
+O13     Cr20      1.973   .     S
+O14     X15      1.277   .     A
+O14     Cr20      1.973   .     S
+X15     O16      1.278   .     A
+O16     Cr21      1.973   .     S
+O17     X18      1.278   .     A
+O17     Cr21      1.973   .     S
+Cr19     O22      1.961   .     S
+Cr20     O22      1.961   .     S
+Cr21     O22      1.961   .     S
