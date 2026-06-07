@@ -157,13 +157,19 @@ class MOFEnumerator:
 
     # ---------------- [核心] 统一的 Lattice DFS (含早期剪枝) ----------------
     def _dfs_lattice_pruning(self, orbit_idx, orbits, atom_types, current_coloring, active_perm_indices,
-                             current_degree_counts=None):
+                             current_degree_counts=None,
+                             identity_start: int = None,
+                             identity_budget: int = None):
         # 初始化按度数计数的计数器 (首次调用)
         if current_degree_counts is None and self.topology_requirements:
             current_degree_counts = {deg: 0 for deg in self.topology_requirements}
 
         # Base Case
         if orbit_idx == len(orbits):
+            # 预算检查：限额模式下超额则跳过
+            if identity_start is not None and identity_budget is not None:
+                if len(self.classes) - identity_start >= identity_budget:
+                    return
             self._try_add_result(current_coloring)
             return
 
@@ -221,7 +227,8 @@ class MOFEnumerator:
 
             if not is_pruned:
                 self._dfs_lattice_pruning(orbit_idx + 1, orbits, atom_types, current_coloring,
-                                          next_active_indices, current_degree_counts)
+                                          next_active_indices, current_degree_counts,
+                                          identity_start, identity_budget)
 
             # Backtrack 按度数计数器
             if self.topology_requirements and current_degree_counts is not None and orbit_degree is not None:
