@@ -171,10 +171,6 @@ class MOFEnumerator:
 
         # Base Case
         if orbit_idx == len(orbits):
-            # 预算检查：限额模式下超额则跳过（保留，作为安全网）
-            if identity_start is not None and identity_budget is not None:
-                if len(self.classes) - identity_start >= identity_budget:
-                    return
             self._try_add_result(current_coloring)
             return
 

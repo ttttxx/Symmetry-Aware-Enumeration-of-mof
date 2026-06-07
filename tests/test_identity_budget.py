@@ -70,7 +70,11 @@ def test_large_input_partial_enumeration_via_low_limit():
         enum_module.IDENTITY_NEW_LIMIT = 3
         en, ligs = _make_ffc_enumerator()
         results = en.enumerate(ligs)
-        assert len(results) >= 0
+        # Partial mode should still return some results (not zero) and not crash
+        assert len(results) > 0, "Partial Identity enumeration should still return some results"
+        # With IDENTITY_NEW_LIMIT=3, Identity adds at most 3 new structures.
+        # Higher-symmetry tasks may have already found some, so total can be more than 3.
+        # But the run must complete without hanging.
     finally:
         enum_module.IDENTITY_ORBIT_LIMIT = original_limit
         enum_module.IDENTITY_NEW_LIMIT = original_new
