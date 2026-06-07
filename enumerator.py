@@ -340,7 +340,31 @@ class MOFEnumerator:
 
         # 3. 恒等群 (Identity) — 子群格底端
         identity_orbits = [[i] for i in range(self.n)]
-        heapq.heappush(task_heap, (self.n, _task_idx, {"name": "Identity ({e})", "orbits": identity_orbits, "score": self.n}))
+
+        # 预估 Identity 任务的轨道规模，决定是否切换为限额枚举
+        if self.topology_requirements and self.user_selected_ligands:
+            _naive_space = 1
+            for _deg, _cnt in self.topology_requirements.items():
+                _n_ch = len(self.user_selected_ligands.get(_deg, atom_types))
+                _naive_space *= _n_ch ** _cnt
+        else:
+            _naive_space = len(atom_types) ** self.n
+
+        _estimated_orbits = _naive_space / max(1, len(self.perms))
+        _identity_budget = None  # None = 完整枚举
+        if _estimated_orbits > IDENTITY_ORBIT_LIMIT:
+            _identity_budget = IDENTITY_NEW_LIMIT
+            if self.verbose:
+                print(f"    [Identity] Partial enumeration mode: "
+                      f"estimated ~{_estimated_orbits:.2e} orbits > limit {IDENTITY_ORBIT_LIMIT:.0e}. "
+                      f"Budget = {IDENTITY_NEW_LIMIT} new results.")
+
+        heapq.heappush(task_heap, (self.n, _task_idx, {
+            "name": "Identity ({e})",
+            "orbits": identity_orbits,
+            "score": self.n,
+            "identity_budget": _identity_budget,
+        }))
         _task_idx += 1
 
         if self.verbose:
@@ -359,7 +383,17 @@ class MOFEnumerator:
                 print(f"    [Run] {name} (Orbits: {n_orbits})...")
 
             current_coloring = [None] * self.n
-            self._dfs_lattice_pruning(0, orbits, atom_types, current_coloring, initial_active)
+            _task_identity_budget = task.get("identity_budget", None)
+            _task_identity_start = len(self.classes) if _task_identity_budget is not None else None
+            self._dfs_lattice_pruning(
+                0, orbits, atom_types, current_coloring, initial_active,
+                identity_start=_task_identity_start,
+                identity_budget=_task_identity_budget,
+            )
+            if _task_identity_budget is not None and self.verbose:
+                _added = len(self.classes) - _task_identity_start
+                print(f"    [Identity] Stopped after adding {_added} new structures "
+                      f"(budget={_task_identity_budget}).")
 
     # ---------------- 主入口 ----------------
     def enumerate(self, atom_types: List[str], composition: Dict[str, int] = None):
