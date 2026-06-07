@@ -164,9 +164,14 @@ class MOFEnumerator:
         if current_degree_counts is None and self.topology_requirements:
             current_degree_counts = {deg: 0 for deg in self.topology_requirements}
 
+        # 早期退出：预算耗尽时剪掉整棵子树
+        if identity_start is not None and identity_budget is not None:
+            if len(self.classes) - identity_start >= identity_budget:
+                return
+
         # Base Case
         if orbit_idx == len(orbits):
-            # 预算检查：限额模式下超额则跳过
+            # 预算检查：限额模式下超额则跳过（保留，作为安全网）
             if identity_start is not None and identity_budget is not None:
                 if len(self.classes) - identity_start >= identity_budget:
                     return

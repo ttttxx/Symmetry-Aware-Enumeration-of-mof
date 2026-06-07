@@ -43,4 +43,4 @@ def test_budget_limits_new_results():
         identity_start=start, identity_budget=budget
     )
     added = len(enumerator.classes) - start
-    assert added <= budget, f"Expected ≤{budget} new results, got {added}"
+    assert 1 <= added <= budget, f"Expected 1..{budget} new results, got {added}"
