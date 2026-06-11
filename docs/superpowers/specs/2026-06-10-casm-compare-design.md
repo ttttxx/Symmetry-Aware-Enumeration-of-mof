@@ -1,7 +1,7 @@
 # CASM Enumeration Comparison Experiment — Design Spec
 
 **Date:** 2026-06-10
-**Status:** Approved (with corrections applied)
+**Status:** Approved (rev 2 — subprocess memory, psutil watchdog, budget CLI flag)
 
 ---
 
@@ -43,8 +43,8 @@ budget-truncated non-exhaustive cases (vba × 2).
 
 | File | Change |
 |------|--------|
-| `enumerator.py` | Add `--benchmark-json` output port only (non-invasive) |
-| `main.py` | Add `argparse` flag + timing/memory wrapper calling the same `enumerator.enumerate()` |
+| `enumerator.py` | Add `identity_orbit_limit` / `identity_new_limit` instance variables (replace module-constant reads in `enumerate_subgroups`); no other logic changes |
+| `main.py` | Add `--benchmark-json <path>` output port + `--disable-budget` flag (both off by default); `ENUM_DISABLE_BUDGET=1` env var also accepted |
 | `experiment/casm_compare.py` | New script (CASM prim build, symmetry filter, enumeration, harness) |
 | `experiment/casm_compare_README.md` | New documentation |
 
@@ -54,13 +54,31 @@ No changes to enumeration logic, pruning, deduplication, or any code that affect
 
 ## Step 1 — Non-invasive Benchmark Output Port
 
-### CLI flag
+### CLI flags (same batch, both default off)
 
 ```
 python main.py --benchmark-json results/bench_ffc_c3x2c4x2.json
+python main.py --benchmark-json results/bench.json --disable-budget
 ```
 
-Default off; absent flag → behaviour identical to current.
+- `--benchmark-json <path>`: writes one JSON record after enumeration; absent → current behaviour unchanged
+- `--disable-budget` (or env var `ENUM_DISABLE_BUDGET=1`): passes `task_time_limit=None`,
+  `max_total_results=None`, `identity_orbit_limit=inf`, `identity_new_limit=inf` to the
+  enumerator. Required for exhaustive benchmark runs.
+
+### Budget control wiring
+
+`MOFEnumerator.__init__()` gains two new optional parameters:
+```python
+identity_orbit_limit: float = IDENTITY_ORBIT_LIMIT   # default = module constant
+identity_new_limit: int    = IDENTITY_NEW_LIMIT       # default = module constant
+```
+Inside `enumerate_subgroups()`, the two module-constant references (`IDENTITY_ORBIT_LIMIT`,
+`IDENTITY_NEW_LIMIT`) are replaced by `self._identity_orbit_limit` /
+`self._identity_new_limit`. No other logic changes.
+
+`budget_triggered` in the JSON output is `True` if `task_time_limit` fired on any subgroup
+**or** if `identity_new_limit` was the binding constraint for the identity task.
 
 ### Timing boundary
 
@@ -68,12 +86,15 @@ Default off; absent flag → behaviour identical to current.
 pymatgen symmetry extraction and Kabsch reconstruction. This matches CASM's enumeration
 boundary defined in Step 4.
 
-### Memory boundary
+### Memory measurement — subprocess isolation
 
-`resource.getrusage(resource.RUSAGE_SELF).ru_maxrss` is read immediately before and after
-`enumerate()`. On **macOS** the unit is **bytes** (not kilobytes). The delta from the
-pre-measurement baseline is stored; if the OS did not update RSS during the call the
-post-call value is used directly. `tracemalloc` is **not** used.
+`ru_maxrss` is a **high-watermark** counter: if earlier code in the same process already
+set a high RSS, the before/after delta is zero or negative and the measurement is useless.
+
+Instead, each `(case, side, rep)` tuple is run in a **fresh subprocess** whose peak RSS
+is collected after it exits. The harness script (`casm_compare.py`) spawns each worker
+with `subprocess.run()` and captures peak RSS via `resource.getrusage` inside the worker
+(the worker itself has no prior high-watermark). On macOS the unit is **bytes**.
 
 ### JSON record schema
 
@@ -223,46 +244,76 @@ single-BLAS-thread execution.
 
 Both sides measure **only** the enumeration core call:
 
-- **CASM**: `perf_counter()` around `list(ConfigEnumAllOccupations(...))` (forces full iteration)
-- **Ours**: `perf_counter()` around `enumerator.enumerate(all_ligands)` (same as Step 1 port)
+- **CASM**: `perf_counter()` around the iteration loop (see below); symmetry setup outside.
+- **Ours**: `perf_counter()` around `enumerator.enumerate(all_ligands)` (same as Step 1 port).
 
 Symmetry analysis (pymatgen `SpacegroupAnalyzer`, CASM `prim.factor_group()`) is **outside**
 the timing boundary on both sides.
 
-### Memory boundary
+**Note:** CASM timing includes Python iteration overhead because we count configurations via a
+`for` loop — this is documented in the README as a known discrepancy.
 
-Same function call boundaries as timing. On macOS:
+### Memory measurement — subprocess isolation (both sides)
 
+Each `(topology, ligand_pool, side, rep)` runs in a **fresh isolated subprocess**. The
+subprocess calls `resource.getrusage(resource.RUSAGE_SELF).ru_maxrss` once, immediately
+after the enumeration call completes. Because the subprocess has no prior RSS high-watermark,
+this value is the subprocess's peak RSS for the entire run. On macOS, the unit is **bytes**.
+
+Worker subprocess skeleton:
 ```python
-import resource
-rss_before = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss  # bytes on macOS
-[enumeration call]
-rss_after = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss   # bytes on macOS
-peak_mem_mb = (rss_after - rss_before) / 1_048_576
+# run in subprocess; prints JSON result to stdout
+import resource, time, json
+t0 = time.perf_counter()
+[enumeration call — see side-specific details below]
+t1 = time.perf_counter()
+rss_bytes = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+print(json.dumps({"time_s": t1 - t0, "peak_mem_mb": rss_bytes / 1_048_576, "orbits": n}))
 ```
 
-If `peak_mem_mb < 0` (RSS only increases), use `rss_after / 1_048_576` as absolute RSS.
+The harness reads the JSON from stdout after `subprocess.run()` returns.
+
+### CASM enumeration in subprocess (normal cases)
+
+```python
+n = 0
+for _ in ConfigEnumAllOccupations(supercell, sym_group=proper_symgroup):
+    n += 1
+```
+
+`list()` is **prohibited** — it would materialise all configurations in memory at once.
+
+### vba / CASM intractable detection (psutil watchdog)
+
+For vba cases on the CASM side, the subprocess runs the same counting loop. The **parent**
+process monitors it with psutil, polling every **5 seconds**:
+
+```python
+proc = psutil.Process(child.pid)
+while child.poll() is None:
+    rss_gb = proc.memory_info().rss / 1_073_741_824
+    elapsed = time.monotonic() - start
+    if elapsed > 1800 or rss_gb > 8.0:
+        child.terminate(); child.wait()
+        record = {"status": "intractable", "trigger": "time" if elapsed > 1800 else "mem"}
+        break
+    time.sleep(5)
+```
+
+On timeout or OOM: `orbits_casm`, `time_casm_s`, `mem_casm_mb` all set to `"intractable"`;
+`status_casm = "intractable"`.
 
 ### Repetitions
 
-Each (topology, ligand_pool, side) combination is run **3 times**; the **median** wall-clock
-time is recorded. Peak RSS is taken from the run with the median time.
+Each `(topology, ligand_pool, side)` is run **3 times** (3 separate subprocess invocations);
+the **median** wall-clock time and the peak RSS from the median-time run are recorded.
 
 ### Exhaustive vs. budgeted configuration
 
-- Exhaustive cases: `task_time_limit=None`, `IDENTITY_ORBIT_LIMIT=inf`, `IDENTITY_NEW_LIMIT=inf`
-  on our side (disable all budget triggers). CASM has no budget concept.
-- vba cases: our side runs with default budgets. CASM side runs until intractable threshold.
-
-### Intractable threshold (vba / CASM side)
-
-A CASM run is declared **intractable** if either:
-- Wall-clock time > **30 minutes**, or
-- Process RSS > **8 GB**
-
-Whichever is reached first → kill the process, record `orbits_casm = "intractable"`,
-`time_casm_s = "intractable"`, `mem_casm_mb = "intractable"`. The threshold values
-are documented in `experiment/casm_compare_README.md`.
+- Exhaustive cases (ffc, fjh): our side invokes `main.py --benchmark-json … --disable-budget`.
+  CASM has no budget concept.
+- vba cases: our side runs with default budgets (no `--disable-budget`). CASM side runs
+  under the psutil watchdog.
 
 ---
 
@@ -309,10 +360,13 @@ Single Python script. Sections in order:
 Must document:
 - libcasm version installed
 - Symmetry restriction implementation (primary path or fallback, and which was used)
-- Timing boundary definition (both sides)
-- Memory boundary definition and macOS-specific unit note
+- Timing boundary definition (both sides); explicit note: **CASM timing includes Python
+  iteration overhead** from the `for _ in enum: n += 1` counting loop
+- Memory boundary: subprocess-isolation approach; why before/after RSS delta is unreliable
+  (ru_maxrss is high-watermark); macOS bytes unit
 - Thread-limit approach (env vars, no taskset)
-- Intractable threshold values (30 min / 8 GB) and rationale
+- Intractable threshold values (30 min wall-clock **or** 8 GB RSS) and rationale;
+  psutil polling interval (5 s)
 - Run command: `python experiment/casm_compare.py`
 - Per-case status summary table
 
@@ -328,5 +382,9 @@ Must document:
   - Intractable threshold: 30 min or 8 GB ✓
 - **Internal consistency**: symmetry group sizes (ffc=8, fjh=16, vba=16) match
   `performance_experiment.py` line 118 comment.
-- **Scope**: only `experiment/` additions + Step 1 port in `enumerator.py`/`main.py`.
+- **Scope**: only `experiment/` additions + two flags in `enumerator.py`/`main.py`.
+- **Memory measurement**: subprocess-isolation prevents high-watermark pollution; documented.
+- **Budget controls**: `identity_orbit_limit`/`identity_new_limit` promoted to instance
+  variables so `--disable-budget` can override them without touching core logic.
+- **CASM iteration**: `for` loop (not `list()`) prevents OOM for large cases; timing overhead noted.
 - **Ambiguity**: fallback P=A+2C formula unambiguous; vba status_ours vs status_casm separated.
