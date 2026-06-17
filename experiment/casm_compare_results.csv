@@ -1,3 +1,8 @@
 topology,ligand_pool,orbits_ours,orbits_casm,orbits_casm_full,time_ours_s,time_casm_s,mem_ours_mb,mem_casm_mb,status_ours,status_casm,fg_size,proper_size
-ffc,"C3=2,C4=2",42,42,42,0.121448,0.000149,285.61,79.06,exhaustive,exhaustive,16,8
-ffc,"C3=3,C4=3",513,513,513,0.13406,0.001675,283.78,78.84,exhaustive,exhaustive,16,8
+ffc,"C3=2,C4=2",42,42,42,0.097797,0.000148,124.89,79.95,exhaustive,exhaustive,16,8
+ffc,"C3=3,C4=3",513,513,513,0.099661,0.001656,124.89,78.25,exhaustive,exhaustive,16,8
+fjh,"C3=1,C4=2",394,394,265,0.193816,0.003309,127.27,79.56,exhaustive,exhaustive,32,16
+fjh,"C3=2,C4=1",4756,4756,2476,0.290948,0.056483,127.09,79.55,exhaustive,exhaustive,32,16
+fjh,"C3=1,C4=3",36369,36369,20655,2.11639,0.401791,300.06,80.66,exhaustive,exhaustive,32,16
+vba,C4=2,100000,intractable,intractable,4.69569,intractable,444.66,intractable,budgeted,intractable,8,8
+vba,C4=3,100000,intractable,intractable,4.714565,intractable,497.44,intractable,budgeted,intractable,8,8
