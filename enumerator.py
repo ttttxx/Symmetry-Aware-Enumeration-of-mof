@@ -1,5 +1,6 @@
 # core/enumerator.py
 import heapq
+import time
 from collections import defaultdict
 from typing import List, Tuple, Dict, Optional, Set
 
@@ -51,7 +52,12 @@ class MOFEnumerator:
                  verbose: bool = True,
                  topology_requirements: Optional[Dict[int, int]] = None,
                  user_selected_ligands: Optional[Dict[int, List[str]]] = None,
-                 node_degrees: Optional[List[int]] = None):
+                 node_degrees: Optional[List[int]] = None,
+                 task_time_limit: Optional[float] = None, # 每个子群任务的时间上限(秒); None=无限枚举
+                 max_total_results: Optional[int] = 500_000,  # 全局结构数上限，防止内存爆炸; None=无限
+                 identity_orbit_limit: Optional[float] = None,  # 开启Identity限额的估算轨道数阈值; None=使用模块常量
+                 identity_new_limit: Optional[int] = None):  # Identity限额模式下最多新增的不等价结构数; None=使用模块常量
+
         self.n = num_nodes
         self.perms = permutations
         self.perms_inv = self._compute_inverses(permutations)
@@ -59,7 +65,19 @@ class MOFEnumerator:
         self.topology_requirements = topology_requirements or {}
         self.user_selected_ligands = user_selected_ligands or {}
         self.node_degrees = node_degrees or []
+        self.max_total_results = max_total_results
+        # 解析 identity 预算参数：None 回退到模块常量，保持向后兼容
+        self._identity_orbit_limit = (
+            identity_orbit_limit if identity_orbit_limit is not None
+            else IDENTITY_ORBIT_LIMIT
+        )
+        self._identity_new_limit = (
+            identity_new_limit if identity_new_limit is not None
+            else IDENTITY_NEW_LIMIT
+        )
 
+
+        self.task_time_limit = task_time_limit  # 秒; None = 无上限（原始行为）
         self._trie_root = _TrieNode()
         self.classes: Dict[int, Dict] = {}
 
@@ -159,7 +177,14 @@ class MOFEnumerator:
     def _dfs_lattice_pruning(self, orbit_idx, orbits, atom_types, current_coloring, active_perm_indices,
                              current_degree_counts=None,
                              identity_start: int = None,
-                             identity_budget: int = None):
+                             identity_budget: int = None,
+                             deadline: float = None):        # ← 新增: monotonic时间戳上限; None=无限
+        # 时限检查（deadline 由 enumerate_subgroups 按 task_time_limit 计算后传入）
+        if deadline is not None and time.monotonic() >= deadline:
+            return
+        if self.max_total_results is not None and len(self.classes) >= self.max_total_results:
+            return  # ← 全局结构数上限，防止 trie 膨胀到 GB 级
+
         # 初始化按度数计数的计数器 (首次调用)
         if current_degree_counts is None and self.topology_requirements:
             current_degree_counts = {deg: 0 for deg in self.topology_requirements}
@@ -184,6 +209,8 @@ class MOFEnumerator:
             tryable_atoms = self.user_selected_ligands[orbit_degree]
 
         for atom in tryable_atoms:
+            if deadline is not None and time.monotonic() >= deadline:
+                break  # ← 加这两行，超时立即退出循环
             for node in current_nodes:
                 current_coloring[node] = atom
 
@@ -229,7 +256,7 @@ class MOFEnumerator:
             if not is_pruned:
                 self._dfs_lattice_pruning(orbit_idx + 1, orbits, atom_types, current_coloring,
                                           next_active_indices, current_degree_counts,
-                                          identity_start, identity_budget)
+                                          identity_start, identity_budget, deadline)
 
             # Backtrack 按度数计数器
             if self.topology_requirements and current_degree_counts is not None and orbit_degree is not None:
@@ -348,12 +375,12 @@ class MOFEnumerator:
 
         _estimated_orbits = _naive_space / max(1, len(self.perms))
         _identity_budget = None  # None = 完整枚举
-        if _estimated_orbits > IDENTITY_ORBIT_LIMIT:
-            _identity_budget = IDENTITY_NEW_LIMIT
+        if self._identity_orbit_limit is not None and _estimated_orbits > self._identity_orbit_limit:
+            _identity_budget = self._identity_new_limit
             if self.verbose:
                 print(f"    [Identity] Partial enumeration mode: "
-                      f"estimated ~{_estimated_orbits:.2e} orbits > limit {IDENTITY_ORBIT_LIMIT:.0e}. "
-                      f"Budget = {IDENTITY_NEW_LIMIT} new results.")
+                      f"estimated ~{_estimated_orbits:.2e} orbits > limit {self._identity_orbit_limit:.0e}. "
+                      f"Budget = {self._identity_new_limit} new results.")
 
         heapq.heappush(task_heap, (self.n, _task_idx, {
             "name": "Identity ({e})",
@@ -381,11 +408,16 @@ class MOFEnumerator:
             current_coloring = [None] * self.n
             _task_identity_budget = task.get("identity_budget", None)
             _task_identity_start = len(self.classes) if _task_identity_budget is not None else None
+            _deadline = time.monotonic() + self.task_time_limit if self.task_time_limit else None  #TODO： 注释此行恢复无限枚举
             self._dfs_lattice_pruning(
                 0, orbits, atom_types, current_coloring, initial_active,
                 identity_start=_task_identity_start,
                 identity_budget=_task_identity_budget,
+                deadline=_deadline,
             )
+            if _deadline is not None and time.monotonic() >= _deadline and self.verbose:
+                print(f"    [Timeout] {name} 超时截断 (limit={self.task_time_limit}s), "
+                      f"已累计 {len(self.classes)} 个结构.")
             if _task_identity_budget is not None and self.verbose:
                 _added = len(self.classes) - _task_identity_start
                 print(f"    [Identity] Stopped after adding {_added} new structures "

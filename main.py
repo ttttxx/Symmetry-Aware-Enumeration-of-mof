@@ -1,6 +1,7 @@
 # mof/main.py
 import os
 import json
+import random
 import numpy as np
 from datetime import datetime
 from symmetry import SymmetryEngine
@@ -116,10 +117,79 @@ def generate_output_filename(prefix, atom_names):
     return os.path.join("results", filename)
 
 
-def run_enumeration(data_prefix, user_selected_ligands, forced_edge, max_cifs=5, max_results=10000):
+# ══════════════════════════════════════════════════════════════════════════════
+# 对称性分层抽样
+# ══════════════════════════════════════════════════════════════════════════════
+
+def sample_by_symmetry(results, group_size,
+                        n_per_cat=20,
+                        high_rho=0.75, low_rho=0.25,
+                        seed=42):
+    """
+    将枚举结果按归一化对称指数 ρ = |Stab(c)| / |Γ| 分为三类，
+    每类随机抽取最多 n_per_cat 个结构。
+
+    分类规则（与 run_analysis_plot_CHGnet.py 保持一致）：
+      High : ρ ∈ [high_rho, 1.0]   — 高度有序，对称性最高
+      Med  : ρ ∈ (low_rho, high_rho) — 中等对称
+      Low  : ρ ∈ [0,  low_rho]     — 低对称 / 非晶态
+
+    参数
+    ----
+    results    : enumerator 返回的结构列表（含 'stabilizer_size', 'coloring'）
+    group_size : 自同构群阶数 |Γ|
+    n_per_cat  : 每类最多抽取的结构数量
+    high_rho   : High/Med 分界阈值
+    low_rho    : Med/Low  分界阈值
+    seed       : 随机种子，保证可重现
+
+    返回
+    ----
+    list of (res_data, category_str, rho_value)
+    """
+    rng = random.Random(seed)
+
+    pools = {'High': [], 'Med': [], 'Low': []}
+    for r in results:
+        rho = r['stabilizer_size'] / group_size
+        if rho >= high_rho:
+            pools['High'].append(r)
+        elif rho > low_rho:
+            pools['Med'].append(r)
+        else:
+            pools['Low'].append(r)
+
+    sampled = []
+    for cat in ['High', 'Med', 'Low']:
+        pool = pools[cat]
+        chosen = pool if len(pool) <= n_per_cat else rng.sample(pool, n_per_cat)
+        print(f"    [{cat:4s}] pool={len(pool):5d}  sampled={len(chosen)}")
+        for r in chosen:
+            rho = r['stabilizer_size'] / group_size
+            sampled.append((r, cat, rho))
+
+    total = len(sampled)
+    print(f"    → 共抽取 {total} 个结构"
+          f"（High={len([s for s in sampled if s[1]=='High'])}"
+          f" Med={len([s for s in sampled if s[1]=='Med'])}"
+          f" Low={len([s for s in sampled if s[1]=='Low'])}）")
+    return sampled
+
+
+def run_enumeration(data_prefix, user_selected_ligands, forced_edge,
+                    max_cifs=5, max_results=10_000,
+                    sample_mode=False, n_per_cat=20,
+                    high_rho=0.75, low_rho=0.25):
     """
     Parameterized entry point for the Streamlit frontend.
     user_selected_ligands: dict[int, list[str]] — e.g. {3: ["3c_B_Ch"], 4: ["4c_Cu_1_Ch"]}
+
+    sample_mode : False（默认）→ 按 stabilizer_size 排序，输出前 max_cifs 个（原行为）
+                  True         → 按 ρ 阈值分层，每类输出最多 n_per_cat 个 CIF
+    n_per_cat   : sample_mode=True 时每类的抽样上限
+    high_rho    : High/Med 分界（默认 0.75）
+    low_rho     : Med/Low  分界（默认 0.25）
+
     Returns: (cif_paths: list[str], json_path: str, output_data: dict)
     """
     graph_path = os.path.join("data", data_prefix, f"{data_prefix}_graph.json")
@@ -152,8 +222,11 @@ def run_enumeration(data_prefix, user_selected_ligands, forced_edge, max_cifs=5,
                                topology_requirements=topology_requirements,
                                user_selected_ligands=user_selected_ligands,
                                node_degrees=node_degrees)
-    results = enumerator.enumerate(all_ligands, max_results=max_results)
+    results = enumerator.enumerate(all_ligands)
     print(f"  Found {len(results)} unique structures (early-pruned by degree & count constraints).")
+    if len(results) > max_results:
+        print(f"  Limiting to {max_results} results.")
+        results = results[:max_results]
 
     print("\n--- Step 3: Verification ---")
     verifier = BridgeVerifier(group_size)
@@ -162,8 +235,6 @@ def run_enumeration(data_prefix, user_selected_ligands, forced_edge, max_cifs=5,
                                           user_selected_ligands=user_selected_ligands)
 
     print("\n--- Step 4: Assembler (Generate CIFs) ---")
-    results.sort(key=lambda x: x['stabilizer_size'], reverse=True)
-
     atoms_str = "".join(sorted(all_ligands))
     cif_subdir = f"{data_prefix}_{atoms_str}_cifs"
     cif_output_path = os.path.join("results", cif_subdir)
@@ -171,17 +242,39 @@ def run_enumeration(data_prefix, user_selected_ligands, forced_edge, max_cifs=5,
 
     assembler = StructureAssembler(output_dir=cif_output_path)
     cif_paths = []
-    print(f"  Generating CIFs for Top-{min(len(results), max_cifs)} structures...")
-    for i, res_data in enumerate(results[:max_cifs]):
-        stab_size = res_data['stabilizer_size']
-        fname = os.path.join(cif_output_path, f"{data_prefix}_{atoms_str}_rank{i}_sym{stab_size}.cif")
-        coloring_list = res_data['coloring']
-        structure_map = {str(idx): elem for idx, elem in enumerate(coloring_list)}
-        try:
-            assembler.assemble_and_save(fname, structure_map, graph_data, forced_edge=forced_edge)
-            cif_paths.append(fname)
-        except Exception as e:
-            print(f"  [Error] Failed to assemble {fname}: {e}")
+
+    if sample_mode:
+        # ── 分层抽样模式 ────────────────────────────────────────────────────
+        print(f"  [采样模式] ρ 阈值: High≥{high_rho} / Med ({low_rho},{high_rho}) / Low≤{low_rho}")
+        print(f"  [采样模式] 每类最多 {n_per_cat} 个 CIF …")
+        sampled = sample_by_symmetry(results, group_size,
+                                      n_per_cat=n_per_cat,
+                                      high_rho=high_rho, low_rho=low_rho)
+        for i, (res_data, cat, rho) in enumerate(sampled):
+            stab = res_data['stabilizer_size']
+            fname = os.path.join(
+                cif_output_path,
+                f"{data_prefix}_{atoms_str}_{cat}_sym{stab}_rho{rho:.3f}_{i:03d}.cif")
+            smap = {str(j): elem for j, elem in enumerate(res_data['coloring'])}
+            try:
+                assembler.assemble_and_save(fname, smap, graph_data, forced_edge=forced_edge)
+                cif_paths.append(fname)
+            except Exception as e:
+                print(f"  [Error] {os.path.basename(fname)}: {e}")
+    else:
+        # ── 原始 Top-K 模式 ─────────────────────────────────────────────────
+        results.sort(key=lambda x: x['stabilizer_size'], reverse=True)
+        print(f"  Generating CIFs for Top-{min(len(results), max_cifs)} structures...")
+        for i, res_data in enumerate(results[:max_cifs]):
+            stab_size = res_data['stabilizer_size']
+            fname = os.path.join(cif_output_path,
+                                  f"{data_prefix}_{atoms_str}_rank{i}_sym{stab_size}.cif")
+            smap = {str(j): elem for j, elem in enumerate(res_data['coloring'])}
+            try:
+                assembler.assemble_and_save(fname, smap, graph_data, forced_edge=forced_edge)
+                cif_paths.append(fname)
+            except Exception as e:
+                print(f"  [Error] Failed to assemble {fname}: {e}")
 
     out_path = generate_output_filename(data_prefix, all_ligands)
     final_output = {
@@ -196,11 +289,49 @@ def run_enumeration(data_prefix, user_selected_ligands, forced_edge, max_cifs=5,
 
 
 def main():
+    import argparse
+    import resource
+    import time as time_module
+
+    parser = argparse.ArgumentParser(description="MOF structure enumeration")
+    parser.add_argument("--benchmark-json", type=str, default=None,
+                        help="If set, write a benchmark JSON record to this path after enumeration")
+    parser.add_argument("--disable-budget", action="store_true", default=False,
+                        help="Disable all enumeration budget limits for exhaustive runs")
+    args = parser.parse_args()
+
+    # ENUM_DISABLE_BUDGET=1 env var also disables budget
+    if os.environ.get("ENUM_DISABLE_BUDGET") == "1":
+        args.disable_budget = True
+
     # ================= 配置区 =================
-    DATA_PREFIX = "ffc"
-    ATOM_CHOICES = ["4c_Cu_1_Ch", "4c_B_Ch", "3c_B_Ch"]
+    DATA_PREFIX = "vba"
+    ATOM_CHOICES = ["4c_B_Ch", "4c_Cd_1_Ch"]
+    # ATOM_CHOICES = ["4c_Cu_1_Ch", "4c_B_Ch", "3c_B_Ch"]
     FORCED_EDGE = "1B_4H_Ch"
+
+    # ── CIF 生成模式 ──────────────────────────────────────────────────────────
+    SAMPLE_MODE = True
+
+    MAX_CIFS    = 5
+    N_PER_CAT   = 20
+    HIGH_RHO    = 0.75
+    LOW_RHO     = 0.25
+    TASK_TIME_LIMIT = 60
+    MAX_TOTAL_RESULTS = 100_000
     # =========================================
+
+    # ── Budget override ──────────────────────────────────────────────────────
+    if args.disable_budget:
+        enum_task_time_limit = None
+        enum_max_total = None
+        enum_orbit_limit = float('inf')
+        enum_new_limit = None
+    else:
+        enum_task_time_limit = TASK_TIME_LIMIT
+        enum_max_total = MAX_TOTAL_RESULTS
+        enum_orbit_limit = None   # None = use module-constant default
+        enum_new_limit = None     # None = use module-constant default
 
     graph_path = os.path.join("data", DATA_PREFIX, f"{DATA_PREFIX}_graph.json")
     if not os.path.exists(graph_path):
@@ -241,39 +372,94 @@ def main():
     enumerator = MOFEnumerator(perms, num_nodes, verbose=True,
                                topology_requirements=topology_requirements,
                                user_selected_ligands=user_selected_ligands,
-                               node_degrees=node_degrees)
-    results = enumerator.enumerate(all_ligands, max_results=10000)
+                               node_degrees=node_degrees,
+                               task_time_limit=enum_task_time_limit,
+                               max_total_results=enum_max_total,
+                               identity_orbit_limit=enum_orbit_limit,
+                               identity_new_limit=enum_new_limit)
+
+    # ── Benchmark timing/memory (only wraps enumerate()) ──────────────────────
+    _bench_t0 = time_module.perf_counter()
+    _rss_before = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    results = enumerator.enumerate(all_ligands)
+    _rss_after = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    _bench_t1 = time_module.perf_counter()
+    _bench_time_s = _bench_t1 - _bench_t0
+    # macOS ru_maxrss is bytes; compute peak as post-call high-watermark
+    _bench_peak_mb = _rss_after / 1_048_576
+
     print(f"  Found {len(results)} unique structures (early-pruned by degree & count constraints).")
 
     # Step 3: 验证
+    print("\n--- Step 3: Verification ---")
     verifier = BridgeVerifier(group_size)
     is_verified, stats = verifier.verify(results, num_nodes, all_ligands, None,
                                           topology_requirements=topology_requirements,
                                           user_selected_ligands=user_selected_ligands)
 
-    print("\n--- Step 4: Assembler (Generate CIFs) ---")
+    # ── Benchmark JSON output (only when --benchmark-json is set) ─────────────
+    if args.benchmark_json:
+        _ligand_parts = []
+        for deg in sorted(user_selected_ligands.keys()):
+            _ligand_parts.append(f"C{deg}={len(user_selected_ligands[deg])}")
+        _ligand_pool = ",".join(_ligand_parts)
+        _bench_record = {
+            "topology": DATA_PREFIX,
+            "ligand_pool": _ligand_pool,
+            "orbits": len(results),
+            "time_s": round(_bench_time_s, 6),
+            "peak_mem_mb": round(_bench_peak_mb, 2),
+            "exhaustive": bool(args.disable_budget),
+            "budget_triggered": not is_verified and not args.disable_budget,
+        }
+        _bench_path = os.path.abspath(args.benchmark_json)
+        os.makedirs(os.path.dirname(_bench_path) or ".", exist_ok=True)
+        with open(_bench_path, 'w') as _f:
+            json.dump(_bench_record, _f, indent=2)
+        print(f"  [Benchmark] Wrote {_bench_path}")
 
-    results.sort(key=lambda x: x['stabilizer_size'], reverse=True)
+    # Step 4: 生成 CIF
+    print("\n--- Step 4: Assembler (Generate CIFs) ---")
 
     atoms_str = "".join(sorted(all_ligands))
     cif_subdir = f"{DATA_PREFIX}_{atoms_str}_cifs"
     cif_output_path = os.path.join("results", cif_subdir)
     os.makedirs(cif_output_path, exist_ok=True)
 
-    max_cifs = 5
-    print(f"  Generating CIFs for Top-{min(len(results), max_cifs)} Highest Symmetry structures...")
     assembler = StructureAssembler(output_dir=cif_output_path)
-    for i, res_data in enumerate(results[:max_cifs]):
-        stab_size = res_data['stabilizer_size']
-        fname = os.path.join(cif_output_path, f"{DATA_PREFIX}_{atoms_str}_rank{i}_sym{stab_size}.cif")
 
-        coloring_list = res_data['coloring']
-        structure_map = {str(idx): elem for idx, elem in enumerate(coloring_list)}
+    if SAMPLE_MODE:
+        # ── 分层抽样模式 ────────────────────────────────────────────────────
+        print(f"  [采样模式] ρ 阈值: High≥{HIGH_RHO} / Med ({LOW_RHO},{HIGH_RHO}) / Low≤{LOW_RHO}")
+        print(f"  [采样模式] 每类最多 {N_PER_CAT} 个 CIF，共最多 {N_PER_CAT * 3} 个 …")
+        sampled = sample_by_symmetry(results, group_size,
+                                      n_per_cat=N_PER_CAT,
+                                      high_rho=HIGH_RHO, low_rho=LOW_RHO)
+        for i, (res_data, cat, rho) in enumerate(sampled):
+            stab = res_data['stabilizer_size']
+            fname = os.path.join(
+                cif_output_path,
+                f"{DATA_PREFIX}_{atoms_str}_{cat}_sym{stab}_rho{rho:.3f}_{i:03d}.cif")
+            smap = {str(j): elem for j, elem in enumerate(res_data['coloring'])}
+            try:
+                assembler.assemble_and_save(fname, smap, graph_data, forced_edge=FORCED_EDGE)
+                print(f"    [{cat}] {os.path.basename(fname)}")
+            except Exception as e:
+                print(f"  [Error] {os.path.basename(fname)}: {e}")
 
-        try:
-            assembler.assemble_and_save(fname, structure_map, graph_data, forced_edge=FORCED_EDGE)
-        except Exception as e:
-            print(f"  [Error] Failed to assemble {fname}: {e}")
+    else:
+        # ── 原始 Top-K 模式 ─────────────────────────────────────────────────
+        results.sort(key=lambda x: x['stabilizer_size'], reverse=True)
+        print(f"  Generating CIFs for Top-{min(len(results), MAX_CIFS)} Highest Symmetry structures...")
+        for i, res_data in enumerate(results[:MAX_CIFS]):
+            stab_size = res_data['stabilizer_size']
+            fname = os.path.join(cif_output_path,
+                                  f"{DATA_PREFIX}_{atoms_str}_rank{i}_sym{stab_size}.cif")
+            smap = {str(j): elem for j, elem in enumerate(res_data['coloring'])}
+            try:
+                assembler.assemble_and_save(fname, smap, graph_data, forced_edge=FORCED_EDGE)
+            except Exception as e:
+                print(f"  [Error] Failed to assemble {fname}: {e}")
 
     out_path = generate_output_filename(DATA_PREFIX, all_ligands)
     final_output = {
