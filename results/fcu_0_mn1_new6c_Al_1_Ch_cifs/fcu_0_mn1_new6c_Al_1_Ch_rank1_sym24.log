@@ -1,0 +1,10 @@
+Assembly Log for results/fcu_0_mn1_new6c_Al_1_Ch_cifs/fcu_0_mn1_new6c_Al_1_Ch_rank1_sym24.cif
+Lattice: [[3.748, -2.29498810160214e-16, 0.0], [0.0, 3.748, 0.0], [2.29498810160214e-16, 2.29498810160214e-16, 3.748]]
+----------------------------------------
+Edge 0 (Node 0->1): Target Len=2.65 A, Selected='37_oe22_new' (Diff=0.03 A)
+Edge 1 (Node 0->2): Target Len=2.65 A, Selected='37_oe22_new' (Diff=0.03 A)
+Edge 2 (Node 0->3): Target Len=2.65 A, Selected='37_oe22_new' (Diff=0.03 A)
+Edge 3 (Node 1->2): Target Len=2.65 A, Selected='37_oe22_new' (Diff=0.03 A)
+Edge 4 (Node 1->3): Target Len=2.65 A, Selected='37_oe22_new' (Diff=0.03 A)
+Edge 5 (Node 2->3): Target Len=2.65 A, Selected='37_oe22_new' (Diff=0.03 A)
+[Warning] Severe atomic overlaps detected (Min Dist < 0.8 A)

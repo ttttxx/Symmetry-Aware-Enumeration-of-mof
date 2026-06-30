@@ -1,0 +1,165 @@
+{
+  "software_name": "金属有机框架（MOF）对称性感知结构枚举与可视化系统V1.0",
+  "version": "V1.0",
+  "project_root": "/Users/jing/PyCharmMiscProject/mof",
+  "file_count": 14,
+  "material_line_count": 4289,
+  "source_line_count": 4261,
+  "selected_source_line_count": 4261,
+  "lines_per_page": 50,
+  "total_pages": 70,
+  "target_pages": 60,
+  "available_candidate_line_count": 617836,
+  "available_candidate_pages": 12357,
+  "supplement_status": "候选源码可达到前30页/后30页要求",
+  "mode": "front30_back30",
+  "selection_file": "软件著作权申请资料/草稿/代码文件选择.json",
+  "outputs": [
+    "代码-前30页.md",
+    "代码-后30页.md"
+  ],
+  "files": [
+    {
+      "path": "external_lib/utils/parameter.py",
+      "source_line_count": 146,
+      "selected_line_start": 1,
+      "selected_line_end": 146,
+      "selected_line_count": 146,
+      "material_line_start": 1,
+      "material_line_end": 148,
+      "line_count": 0
+    },
+    {
+      "path": "external_lib/utils/periodic_structure_analysis.py",
+      "source_line_count": 940,
+      "selected_line_start": 1,
+      "selected_line_end": 940,
+      "selected_line_count": 940,
+      "material_line_start": 149,
+      "material_line_end": 1090,
+      "line_count": 0
+    },
+    {
+      "path": "app.py",
+      "source_line_count": 351,
+      "selected_line_start": 1,
+      "selected_line_end": 351,
+      "selected_line_count": 351,
+      "material_line_start": 1091,
+      "material_line_end": 1443,
+      "line_count": 0
+    },
+    {
+      "path": "assembler.py",
+      "source_line_count": 385,
+      "selected_line_start": 1,
+      "selected_line_end": 385,
+      "selected_line_count": 385,
+      "material_line_start": 1444,
+      "material_line_end": 1830,
+      "line_count": 0
+    },
+    {
+      "path": "enumerator.py",
+      "source_line_count": 338,
+      "selected_line_start": 1,
+      "selected_line_end": 338,
+      "selected_line_count": 338,
+      "material_line_start": 1831,
+      "material_line_end": 2170,
+      "line_count": 0
+    },
+    {
+      "path": "external_lib/edge.py",
+      "source_line_count": 263,
+      "selected_line_start": 1,
+      "selected_line_end": 263,
+      "selected_line_count": 263,
+      "material_line_start": 2171,
+      "material_line_end": 2435,
+      "line_count": 0
+    },
+    {
+      "path": "external_lib/node.py",
+      "source_line_count": 190,
+      "selected_line_start": 1,
+      "selected_line_end": 190,
+      "selected_line_count": 190,
+      "material_line_start": 2436,
+      "material_line_end": 2627,
+      "line_count": 0
+    },
+    {
+      "path": "main.py",
+      "source_line_count": 285,
+      "selected_line_start": 1,
+      "selected_line_end": 285,
+      "selected_line_count": 285,
+      "material_line_start": 2628,
+      "material_line_end": 2914,
+      "line_count": 0
+    },
+    {
+      "path": "structure_validator.py",
+      "source_line_count": 482,
+      "selected_line_start": 1,
+      "selected_line_end": 482,
+      "selected_line_count": 482,
+      "material_line_start": 2915,
+      "material_line_end": 3398,
+      "line_count": 0
+    },
+    {
+      "path": "symmetry.py",
+      "source_line_count": 139,
+      "selected_line_start": 1,
+      "selected_line_end": 139,
+      "selected_line_count": 139,
+      "material_line_start": 3399,
+      "material_line_end": 3539,
+      "line_count": 0
+    },
+    {
+      "path": "utils/build_graph.py",
+      "source_line_count": 328,
+      "selected_line_start": 1,
+      "selected_line_end": 328,
+      "selected_line_count": 328,
+      "material_line_start": 3540,
+      "material_line_end": 3869,
+      "line_count": 0
+    },
+    {
+      "path": "utils/get_node_edge.py",
+      "source_line_count": 167,
+      "selected_line_start": 1,
+      "selected_line_end": 167,
+      "selected_line_count": 167,
+      "material_line_start": 3870,
+      "material_line_end": 4038,
+      "line_count": 0
+    },
+    {
+      "path": "utils/parse_cif.py",
+      "source_line_count": 160,
+      "selected_line_start": 1,
+      "selected_line_end": 160,
+      "selected_line_count": 160,
+      "material_line_start": 4039,
+      "material_line_end": 4200,
+      "line_count": 0
+    },
+    {
+      "path": "verification.py",
+      "source_line_count": 87,
+      "selected_line_start": 1,
+      "selected_line_end": 87,
+      "selected_line_count": 87,
+      "material_line_start": 4201,
+      "material_line_end": 4289,
+      "line_count": 0
+    }
+  ],
+  "safe_software_filename": "金属有机框架（MOF）对称性感知结构枚举与可视化系统V1.0",
+  "total_lines": 3459
+}

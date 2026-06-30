@@ -17,7 +17,7 @@ project_root = os.path.dirname(current_dir)
 sys.path.append(current_dir)
 
 try:
-    from main import load_graph
+    from main import load_graph, calculate_topology_requirements
     from symmetry import SymmetryEngine
     from enumerator import MOFEnumerator
 except ImportError:
@@ -28,9 +28,9 @@ def get_data_path(topology_name):
     return os.path.join(project_root, "data", topology_name, f"{topology_name}_graph.json")
 
 
-def run_sampling_experiment_improved(topology_name, atom_choices, num_samples=5000):
+def run_sampling_experiment_improved(topology_name, user_selected_ligands, num_samples=5000):
     print(f"\n>>> Running Baseline Experiment on [{topology_name}]")
-    print(f"    Atom Choices ({len(atom_choices)} types): {atom_choices}")
+    print(f"    Ligands: {user_selected_ligands}")
 
     graph_path = get_data_path(topology_name)
     if not os.path.exists(graph_path):
@@ -38,15 +38,20 @@ def run_sampling_experiment_improved(topology_name, atom_choices, num_samples=50
         return [], [], []
 
     graph_data = load_graph(graph_path)
+    all_ligands = sorted(set(lig for ligs in user_selected_ligands.values() for lig in ligs))
+    node_degrees = [n.get('degree', 0) for n in graph_data['nodes']]
+    topology_requirements = calculate_topology_requirements(graph_data)
 
     # --- 1. 获取 Ground Truth (理论全集) ---
     print("1. Computing Ground Truth (Burnside)...")
     sym = SymmetryEngine(graph_data, verbose=False)
     perms = sym.compute_automorphism_group()
 
-    enum = MOFEnumerator(perms, graph_data['n_nodes'], verbose=False)
-    # 获取所有唯一结构的集合（作为参考系）
-    all_unique_structures = enum.enumerate(atom_choices)
+    enum = MOFEnumerator(perms, graph_data['n_nodes'], verbose=False,
+                         topology_requirements=topology_requirements,
+                         user_selected_ligands=user_selected_ligands,
+                         node_degrees=node_degrees)
+    all_unique_structures = enum.enumerate(all_ligands)
 
     # 建立查找表：Canonical -> 是否高对称
     # [定义] 高对称性：stabilizer_size > 1 (非对称结构 stab=1)
@@ -76,7 +81,7 @@ def run_sampling_experiment_improved(topology_name, atom_choices, num_samples=50
     high_sym_coverage_history = []
 
     nodes = graph_data['n_nodes']
-    atoms_pool = sorted(atom_choices)
+    atoms_pool = all_ligands
 
     start_time = time.time()
 
@@ -131,15 +136,27 @@ def run_sampling_experiment_improved(topology_name, atom_choices, num_samples=50
 
 if __name__ == "__main__":
     # ================= 配置区 =================
-    TOPOLOGY = "sod"  # 拓扑名称
     SAMPLES = 10000  # 采样次数
-    # 原子组合
-    ATOMS = ["6c_CdZn_1_Ch", "8c_Co_1_Ch", "0_mn1_new"]
-    # ATOMS = ["6c_CdZn_1_Ch", "8c_Co_1_Ch"]
+    test_cases = [
+        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
+        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch", "3c_Cu_imadazoline_Ch"],4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
+        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch", "3c_Cu_imadazoline_Ch"],
+        #          4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
+        #
+        # # ---- fjh: 中等拓扑 (28 nodes), 控制 naive space ----
+        # # 3c×1, 4c×2 → naive=1^16*2^12=4096
+        # ("fjh", {3: ["3c_B_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
+        # # 3c×2, 4c×1 → naive=2^16*1^12=65536
+        # ("fjh", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch"]}),
+        # # 3c×1, 4c×3 → naive=1^16*3^12=531441
+        ("fjh", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
+
+
+    ]
+    TOPOLOGY, ATOMS = test_cases[0]
     # =========================================
 
-
-    atom_count = len(ATOMS)
+    atom_count = sum(len(v) for v in ATOMS.values())
 
     # 运行实验
     history_unique, history_red, history_high_cov = run_sampling_experiment_improved(TOPOLOGY, ATOMS,

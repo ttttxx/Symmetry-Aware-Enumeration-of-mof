@@ -1,0 +1,198 @@
+
+
+## 0. 执行约束
+
+- **顺序**：先做 §3（装 CP2K 并验证）→ 跑通后再 `/superpowers:brainstorming` 与我确认 §7 的两处 profile 取舍 → 然后才写代码。
+- **复用不重写**：枚举/对称/装配逻辑已存在（§1），一律 import；新代码全部放进新包，不改业务文件。
+- 唯一允许的对现有代码改动：见 §1「必需的两处兼容修复」，且要在新包里以最小侵入方式处理（优先 monkeypatch / 版本固定，其次才改源文件并注释说明）。
+- 可读、配置集中在 `config.py`；少 token：别逐行解释、别贴大段已有文件。
+
+---
+
+## 1. 现有可复用接口（已确认）
+
+```python
+from main import load_graph, enrich_graph_data_with_topology, calculate_topology_requirements
+from symmetry import SymmetryEngine          # SymmetryEngine(graph_data).compute_automorphism_group() -> perms
+from enumerator import MOFEnumerator
+from assembler import StructureAssembler     # .assemble_and_save(fname, structure_map, graph_data, forced_edge=...)
+```
+
+**枚举与装配的正确调用方式：以 `main.py` 的 `main()` 为唯一范本**（不要用 `physical_validation.py` 的简化调用，那个不带度约束，会导致 topology fail）：
+1. `graph_data = enrich_graph_data_with_topology(load_graph(path))`  ← **装配前必须调用，否则缺 `alpha_matrix`/`Bstar`**
+2. `topology_requirements = calculate_topology_requirements(graph_data)`；`node_degrees = [n.get('degree',0) for n in graph_data['nodes']]`
+3. `user_selected_ligands` = 直接用 `config` 里 degree-keyed 的 `atom_choices`；`all_ligands = sorted(set(展平))`
+4. `MOFEnumerator(perms, graph_data['n_nodes'], verbose=False, topology_requirements=..., user_selected_ligands=..., node_degrees=...).enumerate(all_ligands, max_results=...)`
+5. 每个 `res` 含 `res['coloring']`、`res['stabilizer_size']`；`rho = stabilizer_size / len(perms)`
+6. 装配：`structure_map = {str(i): c for i, c in enumerate(res['coloring'])}` → `assemble_and_save(...)` → `pymatgen.Structure.from_file(cif)`
+
+**必需的两处兼容修复**（探查已验证）：
+- `external_lib/utils/periodic_structure_analysis.py` 中 `nx.shortest_path(TG)` 在 NetworkX v3 返回生成器，需 `dict(...)` 包裹。
+  → 优先在新包里 `import networkx` 后做兼容封装或 `pip install "networkx<3"` 固定版本；二选一，brainstorm 时定。
+- 装配前务必调用 `enrich_graph_data_with_topology`（见上）。
+
+---
+
+## 2. 任务目标（DFT 为主，CHGNet 默认弃用）
+
+按**对称性**（你的群论指标，非 CHGNet）将枚举构型分 High/Med/Low 三档，每档抽 `N_PER_CLASS` 个，
+经「净化+预弛豫」得到干净几何后，用 CP2K(PBE-D3(BJ)) 做能量/弛豫，检验 **DFT 能量是否随对称性升高而降低**，
+报告 **Spearman ρ_s(ρ, E_DFT)（单拓扑内部）** 与「最低能是否落在高对称档」。
+
+- **CHGNet 默认关闭**（`USE_CHGNET=False`）。仅两种可选用途，均不进入主证据：
+  (a) `CHGNET_PRECLEAN=False` —— 可选用 CHGNet `StructOptimizer` 仅做几何去碰撞（默认改用 §6 的 xTB 预弛豫）；
+  (b) `CHGNET_COMPARE=False` —— 可选额外算一组 CHGNet 能量，仅用于画一张「CHGNet vs DFT 排序不一致」的佐证图（可写进论文支撑「为何弃用 CHGNet 改上 DFT」）。
+
+---
+
+## 3. 第一步：安装并验证 CP2K（CC 直接执行，无需 brainstorm）
+
+环境：macOS、10 核、16 GB、已有 conda（`/opt/anaconda3`）、conda 自带 `mpirun`。CP2K 当前**未安装**。
+
+1. 用 conda-forge 安装（建议建独立 env 避免污染）：
+   ```bash
+   conda create -n cp2k -c conda-forge cp2k ase scipy -y   # [可改] 或装进现有 env
+   conda activate cp2k
+   ```
+2. 验证可执行：优先 `cp2k.psmp --version`；若无 MPI 版则用 `cp2k.ssmp`（OpenMP，靠 `OMP_NUM_THREADS`）。记录实际可用的二进制。
+3. 定位数据目录：`CP2K_DATA_DIR="$CONDA_PREFIX/share/cp2k/data"`，确认其中存在 `BASIS_MOLOPT`、`GTH_POTENTIALS`、`dftd3.dat`（缺则 `find $CONDA_PREFIX -name BASIS_MOLOPT`）。
+4. 探测 GFN-xTB 是否可用（用于预弛豫）：跑一个 2~3 原子的极小 `RUN_TYPE ENERGY` + `METHOD GFN1_XTB` 测试输入；不可用则把预弛豫回退到 CHGNet。
+5. 把第 2/3 步得到的真实 `CP2K_RUN_CMD` 与 `CP2K_DATA_DIR` 写回 `config.py`，并在报告里告知我。
+
+---
+
+## 4. 目录结构（新建）
+
+```
+dft_validation/
+├── __init__.py
+├── config.py                # 所有可调项（§5）
+├── select_structures.py     # 枚举 → 按对称分档 → 抽样 N → 装配 → 落盘
+├── sanitize.py              # 净化关卡：wrap、最小间距检测、元素覆盖检查、（可选）预弛豫
+├── cp2k_runner.py           # 生成 CP2K 输入 → 运行 → 解析能量/弛豫结构（含鲁棒 SCF 策略）
+├── analyze.py               # 弛豫后对称复算 + DFT ρ–E + Spearman + 出图
+└── run_dft_validation.py    # 入口：select → sanitize → run → analyze，一条命令跑完
+```
+运行：`python dft_validation/run_dft_validation.py`
+
+---
+
+## 5. config.py（已回填）
+
+```python
+# ===== 验证目标（degree-keyed，同 main.py 的 user_selected_ligands）=====
+# 默认用你填的 Cu 变体；强烈建议本地冒烟先用 Cd 闭壳层变体（无自旋、SCF 易收敛）。
+USE_CLOSED_SHELL_VARIANT = True   # True→把 4c_Cu_1_Ch 自动替换为 4c_Cd_1_Ch；False→保留 Cu
+VALIDATION_TARGETS = [
+    {"topology": "ffc",
+     "atom_choices": {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]},
+     "forced_edge": "1B_4H_Ch"},
+    {"topology": "fjh",
+     "atom_choices": {3: ["3c_B_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]},
+     "forced_edge": "1B_4H_Ch"},
+]
+
+# ===== 抽样窗口（核心可调）=====
+N_PER_CLASS  = 2            # 本地冒烟=1~2；服务器放量改 10
+SYM_CLASSES  = ["High", "Med", "Low"]   # 复用 physical_validation.py 的分桶逻辑
+RANDOM_SEED  = 42          # 抽样可复现
+MAX_ATOMS    = 250         # 本地：250→只跑 ffc(~200)，自动跳过 fjh(~800)；服务器：改 1000
+
+# ===== CHGNet（默认全关）=====
+USE_CHGNET       = False
+CHGNET_PRECLEAN  = False   # 预弛豫默认用 xTB（见下），仅在 xTB 不可用时回退 True
+CHGNET_COMPARE   = False   # 设 True 可额外产出 CHGNet-vs-DFT 佐证图
+
+# ===== CP2K（§3 安装后由 CC 写回真实值）=====
+CP2K_RUN_CMD   = "mpirun -np 4 cp2k.psmp"          # <<确认: §3 实测；ssmp 则改写>>
+CP2K_DATA_DIR  = "$CONDA_PREFIX/share/cp2k/data"   # <<确认: §3 实测绝对路径>>
+
+# ===== 电子结构（按所含元素自动判定，可覆盖）=====
+SPIN_POLARIZED = "auto"    # auto: 含 Cu/Ni/V/Fe/Co/Mn/U → True；纯 Cd/Zn/In/有机 → False
+DFT_PLUS_U     = None      # 默认不加；如需对 Cu 加 U 用 {"Cu": 4.0} 并人工核值
+SMEARING       = "auto"    # auto: 开壳层/金属性 → Fermi-Dirac 300K + 对角化; 闭壳层绝缘体 → OT 无展宽
+
+# ===== 计算规格（对标文献）=====
+XC_FUNCTIONAL  = "PBE"
+DISPERSION     = "DFTD3(BJ)"          # MOF 必须加色散
+BASIS_SET      = "DZVP-MOLOPT-SR-GTH" # [可改] 精度优先→TZV2P-MOLOPT
+PW_CUTOFF_RY   = 600
+REL_CUTOFF_RY  = 60
+RELAX_MODE     = "auto"   # auto 按原子数: <100→CELL_OPT; 100-300→GEO_OPT; >300→ENERGY(单点)
+SYMPREC_POSTRELAX = 0.3   # 与项目 Phase III 一致
+
+# ===== 净化关卡 =====
+MIN_DIST_FLOOR = 0.9      # Å，小于此判为碰撞 → 触发预弛豫；预弛豫后仍 <0.6 则丢弃该结构
+PRECLEAN_ENGINE = "xtb"   # "xtb"(默认, CP2K GFN1-xTB) | "chgnet" | "none"
+
+RESULTS_DIR = "results/dft_validation"
+```
+
+---
+
+## 6. 各文件职责
+
+### select_structures.py
+- 按 §1 范本枚举；按 `stabilizer_size` 分 High/Med/Low（照搬 `physical_validation.py` 分桶）。
+- 每档用 `RANDOM_SEED` 随机抽 `N_PER_CLASS` 个；装配 CIF（`>MAX_ATOMS` 跳过，记录原因）。
+- 若 `USE_CLOSED_SHELL_VARIANT`：把 `atom_choices` 里的 `4c_Cu_1_Ch` 替换为 `4c_Cd_1_Ch` 再枚举。
+- 落盘 `selected_structures.json`：`topology, coloring, stabilizer_size, gamma_size, rho, sym_class, n_atoms, init_cif`；CIF 存 `<RESULTS_DIR>/<topology>/init/`。
+
+### sanitize.py（关键：解决 DFT 总失败）
+对每个 init 结构按序：
+1. `pymatgen` 把分数坐标 wrap 进胞；确认 3D 周期、晶胞合理（无零/超大真空）。
+2. **元素覆盖检查**：结构中每种元素都要在 `BASIS_MOLOPT`/`GTH_POTENTIALS` 里有 `DZVP-MOLOPT-SR-GTH` 与 `GTH-PBE` 条目；缺失则该结构 `status=missing_kind` 跳过并打印缺失元素。
+3. **最小非键间距**检测；`< MIN_DIST_FLOOR` → 触发预弛豫：
+   - `PRECLEAN_ENGINE=="xtb"`：CP2K `RUN_TYPE GEO_OPT` + `METHOD GFN1_XTB`（快、稳），输出去碰撞几何；
+   - `=="chgnet"`：`from chgnet.model import StructOptimizer; StructOptimizer().relax(struct)` 仅取几何；
+   - `=="none"`：不预弛豫（仅适合本来就干净的结构）。
+   预弛豫后最小间距仍 `<0.6 Å` → `status=clash_unfixable` 丢弃。
+4. 干净几何存 `<topology>/clean/`，记入 json。**预弛豫只用于几何，绝不进入能量排序。**
+
+### cp2k_runner.py
+- 读 clean 几何，生成 CP2K 输入：`FORCE_EVAL` = PBE + `&VDW_POTENTIAL`/`DFTD3(BJ)`（`PARAMETER_FILE_NAME dftd3.dat`、`REFERENCE_FUNCTIONAL PBE`）、GTH 赝势、MOLOPT 基组、`&MGRID CUTOFF/REL_CUTOFF`、大胞默认 **Γ 点**。
+- **鲁棒 SCF（按 `SMEARING`/`SPIN_POLARIZED` 自动选）**：
+  - 闭壳层绝缘体：`&OT MINIMIZER DIIS, PRECONDITIONER FULL_SINGLE_INVERSE` + `&OUTER_SCF`；
+  - 开壳层/金属性（含 Cu 等）：**关 OT，改对角化** + `&SMEAR METHOD FERMI_DIRAC ELECTRONIC_TEMPERATURE 300` + `ADDED_MOS` + `&MIXING METHOD BROYDEN_MIXING`；`UKS`+按金属数估 `MULTIPLICITY`。
+  - `SCF_GUESS ATOMIC`（**首跑禁用 RESTART**）；`MAX_SCF 200` + 合理 `EPS_SCF 1e-6`。
+  - 可选 `DFT_PLUS_U`：注入 `&DFT_PLUS_U`（对应金属 `L 2`）。
+- 按 `RELAX_MODE` 写 `GLOBAL%RUN_TYPE`（GEO_OPT/CELL_OPT/ENERGY）与 `&MOTION`（含 `MAX_FORCE 4.5e-4`/`RMS` 等）。
+- 用 `CP2K_RUN_CMD` 在各自 run 目录执行；**try/except 包裹**：不收敛/超时/崩溃 → `status=failed`，记日志，**不中断整批**；已完成的可断点续跑。
+- 解析末步总能 → `dft_e_per_atom = E_total / n_atoms`；导出弛豫后结构到 `<topology>/relaxed/`。
+
+### analyze.py
+- 弛豫后用 `SpacegroupAnalyzer(symprec=SYMPREC_POSTRELAX)` 复算对称（记弛豫前后空间群变化）。
+- 汇总 `dft_vs_symmetry.csv`：`topology, sym_class, rho, dft_e_per_atom, spacegroup_before/after, status`（若 `CHGNET_COMPARE` 再加 `chgnet_e_per_atom`）。
+- **单拓扑内部**计算 `scipy.stats.spearmanr(rho, dft_e_per_atom)`，打印各拓扑 ρ_s 与 p 值，并标注「最低能结构所属对称档」。
+- 主图：DFT 能量 vs ρ 散点（按 sym_class 着色，每拓扑一张/或子图）。
+  若 `CHGNET_COMPARE`：附 CHGNet vs DFT 散点 + 对角线 + ρ_s（佐证 CHGNet 不可靠）。dpi=300，存 `RESULTS_DIR`。
+
+### run_dft_validation.py
+- import `config`，`main()` 依次 select→sanitize→run→analyze，每步打印进度与计数；
+- 末尾一行总结：各拓扑 `Spearman ρ_s`、`收敛 n/N`、`丢弃/跳过 计数`、图与 CSV 路径。风格仿 `main.py` 的 `main()`。
+
+---
+
+## 7. 本地 vs 服务器 profile（brainstorm 确认）
+
+- **本地冒烟（默认值已设好）**：`N_PER_CLASS=2`、`MAX_ATOMS=250`（只跑 ffc）、`USE_CLOSED_SHELL_VARIANT=True`（Cd 无自旋）、`RELAX_MODE="auto"`（ffc→GEO_OPT）。目标：**验证整条管线跑通、产物齐全**，不追求统计量。
+- **服务器放量**：`N_PER_CLASS=10`、`MAX_ATOMS=1000`（纳入 fjh）、`CP2K_RUN_CMD` 换集群 srun + sbatch、fjh 因 ~800 原子建议 `RELAX_MODE` 对 fjh 单独设 `ENERGY`。
+- 需与我确认：(A) 本地是否接受用 Cd 变体冒烟、Cu 留到服务器；(B) fjh 是「单点能 + 小 N」还是「等集群全弛豫」。
+
+---
+
+## 8. 验收标准
+- `python dft_validation/run_dft_validation.py` 在本地默认 profile 下端到端跑通（ffc、小 N）。
+- 产物齐全：`selected_structures.json`、init/clean/relaxed CIF、`dft_vs_symmetry.csv`、ρ–E 图。
+- 控制台输出各拓扑 Spearman ρ_s 与 收敛/丢弃 计数。
+- 碰撞结构被净化或明确丢弃（不再出现 SCF 直接发散导致整批中断）。
+- 单结构失败不影响整批；可断点续跑；不改业务文件（除 §1 允许的兼容修复）。
+
+---
+
+## 9. 需我（用户）确认的项
+- [ ] §5 `CP2K_RUN_CMD` / `CP2K_DATA_DIR`（§3 实测后回填）
+- [ ] 本地冒烟是否用 Cd 变体（`USE_CLOSED_SHELL_VARIANT`）
+- [ ] fjh 策略：单点能+小 N / 等集群全弛豫
+- [ ] 是否需要 `DFT_PLUS_U`（Cu 的 U 值需查文献，默认 None）
+- [ ] `3c_triazine_Ch` 与 Cu/B 组合的化学合理性（探查仅按度匹配提议）

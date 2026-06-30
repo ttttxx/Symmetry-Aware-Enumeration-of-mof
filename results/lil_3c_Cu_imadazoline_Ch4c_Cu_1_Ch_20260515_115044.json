@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "topology": "lil",
+    "group_size": 4,
+    "verification": {
+      "LHS": 0.25,
+      "RHS": 1024.0,
+      "diff": 1023.75,
+      "verified": false
+    }
+  },
+  "structures": [
+    {
+      "id": 0,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 1
+    }
+  ]
+}

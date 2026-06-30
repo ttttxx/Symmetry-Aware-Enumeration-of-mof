@@ -871,7 +871,7 @@ def round_down_to_decimal_places(n, decimals=0):
 def calculate_scaled_coordinates(start, TG, sc_omega_plus, uc_params, num_vertices, template, g):
     sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma = uc_params
 
-    shortest_path_dict = nx.shortest_path(TG)
+    shortest_path_dict = dict(nx.shortest_path(TG))
     # 增加 str() 防止类型错误
     SN = sorted(TG.nodes(), key=lambda x: int(re.sub('[A-Za-z]', '', str(x))))
 

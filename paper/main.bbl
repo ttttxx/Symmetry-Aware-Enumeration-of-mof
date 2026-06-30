@@ -1,0 +1,526 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{29}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\bibcommenthead
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem[\protect\citeauthoryear{Zhou et~al.}{2012}]{zhou2012introduction}
+\begin{botherref}
+\oauthor{\bsnm{Zhou}, \binits{H.-C.}},
+\oauthor{\bsnm{Long}, \binits{J.R.}},
+\oauthor{\bsnm{Yaghi}, \binits{O.M.}}:
+Introduction to metal--organic frameworks.
+ACS Publications
+(2012)
+\end{botherref}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{Furukawa et~al.}{2013}]{furukawa2013chemistry}
+\begin{barticle}
+\bauthor{\bsnm{Furukawa}, \binits{H.}},
+\bauthor{\bsnm{Cordova}, \binits{K.E.}},
+\bauthor{\bsnm{O’Keeffe}, \binits{M.}},
+\bauthor{\bsnm{Yaghi}, \binits{O.M.}}:
+\batitle{The chemistry and applications of metal-organic frameworks}.
+\bjtitle{Science}
+\bvolume{341}(\bissue{6149}),
+\bfpage{1230444}
+(\byear{2013})
+\end{barticle}
+\endbibitem
+
+%%% 3
+\bibitem[\protect\citeauthoryear{Wilmer et~al.}{2012}]{wilmer2012large}
+\begin{barticle}
+\bauthor{\bsnm{Wilmer}, \binits{C.E.}},
+\bauthor{\bsnm{Leaf}, \binits{M.}},
+\bauthor{\bsnm{Lee}, \binits{C.Y.}},
+\bauthor{\bsnm{Farha}, \binits{O.K.}},
+\bauthor{\bsnm{Hauser}, \binits{B.G.}},
+\bauthor{\bsnm{Hupp}, \binits{J.T.}},
+\bauthor{\bsnm{Snurr}, \binits{R.Q.}}:
+\batitle{Large-scale screening of hypothetical metal--organic frameworks}.
+\bjtitle{Nature chemistry}
+\bvolume{4}(\bissue{2}),
+\bfpage{83}--\blpage{89}
+(\byear{2012})
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{Col{\'o}n and Snurr}{2014}]{colon2014high}
+\begin{barticle}
+\bauthor{\bsnm{Col{\'o}n}, \binits{Y.J.}},
+\bauthor{\bsnm{Snurr}, \binits{R.Q.}}:
+\batitle{High-throughput computational screening of metal--organic frameworks}.
+\bjtitle{Chemical Society Reviews}
+\bvolume{43}(\bissue{16}),
+\bfpage{5735}--\blpage{5749}
+(\byear{2014})
+\end{barticle}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Park et~al.}{2024}]{park2024data}
+\begin{barticle}
+\bauthor{\bsnm{Park}, \binits{J.}},
+\bauthor{\bsnm{Kim}, \binits{H.}},
+\bauthor{\bsnm{Kang}, \binits{Y.}},
+\bauthor{\bsnm{Lim}, \binits{Y.}},
+\bauthor{\bsnm{Kim}, \binits{J.}}:
+\batitle{From data to discovery: Recent trends of machine learning in
+  metal–organic frameworks}.
+\bjtitle{JACS Au}
+\bvolume{4}(\bissue{10}),
+\bfpage{3727}--\blpage{3743}
+(\byear{2024})
+\doiurl{10.1021/jacsau.4c00618}
+{\href{https://arxiv.org/abs/https://doi.org/10.1021/jacsau.4c00618}{{https://doi.org/10.1021/jacsau.4c00618}}}
+\end{barticle}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Kim et~al.}{2025}]{kim2025machine}
+\begin{barticle}
+\bauthor{\bsnm{Kim}, \binits{W.-T.}},
+\bauthor{\bsnm{Lee}, \binits{W.-G.}},
+\bauthor{\bsnm{An}, \binits{H.-E.}},
+\bauthor{\bsnm{Furukawa}, \binits{H.}},
+\bauthor{\bsnm{Jeong}, \binits{W.}},
+\bauthor{\bsnm{Kim}, \binits{S.-C.}},
+\bauthor{\bsnm{Long}, \binits{J.R.}},
+\bauthor{\bsnm{Jeong}, \binits{S.}},
+\bauthor{\bsnm{Lee}, \binits{J.-H.}}:
+\batitle{Machine learning-assisted design of metal–organic frameworks for
+  hydrogen storage: A high-throughput screening and experimental approach}.
+\bjtitle{Chemical Engineering Journal}
+\bvolume{507},
+\bfpage{160766}
+(\byear{2025})
+\doiurl{10.1016/j.cej.2025.160766}
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Col{\'o}n
+  et~al.}{2017}]{colon2017topologically}
+\begin{barticle}
+\bauthor{\bsnm{Col{\'o}n}, \binits{Y.J.}},
+\bauthor{\bsnm{G{\'o}mez-Gualdr{\'o}n}, \binits{D.A.}},
+\bauthor{\bsnm{Snurr}, \binits{R.Q.}}:
+\batitle{Topologically guided, automated construction of metal--organic
+  frameworks and their evaluation for energy-related applications}.
+\bjtitle{Crystal Growth \& Design}
+\bvolume{17}(\bissue{11}),
+\bfpage{5801}--\blpage{5810}
+(\byear{2017})
+\end{barticle}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Jin et~al.}{2025}]{jin2025intelligent}
+\begin{barticle}
+\bauthor{\bsnm{Jin}, \binits{G.}},
+\bauthor{\bsnm{Ran}, \binits{W.}},
+\bauthor{\bsnm{Zhang}, \binits{M.}},
+\bauthor{\bsnm{Li}, \binits{Y.}}:
+\batitle{An intelligent prediction model for the synthesis conditions of
+  metal--organic frameworks utilizing artificial neural networks enhanced by
+  genetic algorithm optimization}.
+\bjtitle{Journal of Chemical Information and Modeling}
+\bvolume{65}(\bissue{3}),
+\bfpage{1085}--\blpage{1100}
+(\byear{2025})
+\end{barticle}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{Badrinarayanan
+  et~al.}{2025}]{badrinarayanan2025mofgpt}
+\begin{barticle}
+\bauthor{\bsnm{Badrinarayanan}, \binits{S.}},
+\bauthor{\bsnm{Magar}, \binits{R.}},
+\bauthor{\bsnm{Antony}, \binits{A.}},
+\bauthor{\bsnm{Meda}, \binits{R.S.}},
+\bauthor{\bsnm{Barati~Farimani}, \binits{A.}}:
+\batitle{Mofgpt: Generative design of metal–organic frameworks using language
+  models}.
+\bjtitle{Journal of Chemical Information and Modeling}
+\bvolume{65}(\bissue{17}),
+\bfpage{9049}--\blpage{9060}
+(\byear{2025})
+\doiurl{10.1021/acs.jcim.5c01625}
+{\href{https://arxiv.org/abs/https://doi.org/10.1021/acs.jcim.5c01625}{{https://doi.org/10.1021/acs.jcim.5c01625}}}.
+\bcomment{PMID: 40875331}
+\end{barticle}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Kim et~al.}{2024}]{Kim2024MOFFlowFM}
+\begin{botherref}
+\oauthor{\bsnm{Kim}, \binits{N.}},
+\oauthor{\bsnm{Kim}, \binits{S.}},
+\oauthor{\bsnm{Kim}, \binits{M.}},
+\oauthor{\bsnm{Park}, \binits{J.}},
+\oauthor{\bsnm{Ahn}, \binits{S.}}:
+Mofflow: Flow matching for structure prediction of metal-organic frameworks.
+ArXiv
+\textbf{abs/2410.17270}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Alimardani et~al.}{2026}]{ALIMARDANI20267967}
+\begin{barticle}
+\bauthor{\bsnm{Alimardani}, \binits{H.}},
+\bauthor{\bsnm{Abaei}, \binits{S.}},
+\bauthor{\bsnm{Asgari}, \binits{M.}}:
+\batitle{Decoding the unseen: unsupervised anomaly detection in metal–organic
+  frameworks for discovery beyond the norm}.
+\bjtitle{Chemical Science}
+\bvolume{17}(\bissue{16}),
+\bfpage{7967}--\blpage{7985}
+(\byear{2026})
+\doiurl{10.1039/d5sc06431g}
+\end{barticle}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Jin et~al.}{2025}]{jin2025mofchecker}
+\begin{botherref}
+\oauthor{\bsnm{Jin}, \binits{X.}},
+\oauthor{\bsnm{Jablonka}, \binits{K.}},
+\oauthor{\bsnm{Moubarak}, \binits{E.}},
+\oauthor{\bsnm{Li}, \binits{Y.}},
+\oauthor{\bsnm{Smit}, \binits{B.}}:
+Mofchecker: An algorithm for validating and correcting metal-organic framework
+  (mof) structures
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Trejo et~al.}{2026}]{trejo2026assessing}
+\begin{barticle}
+\bauthor{\bsnm{Trejo}, \binits{S.}},
+\bauthor{\bsnm{Antonio}, \binits{J.J.}},
+\bauthor{\bsnm{Kraka}, \binits{E.}},
+\bauthor{\bsnm{Chen}, \binits{H.}}:
+\batitle{Assessing the stability of metal--organic frameworks with local
+  vibrational mode theory}.
+\bjtitle{The Journal of Physical Chemistry C}
+\bvolume{130}(\bissue{7}),
+\bfpage{2847}--\blpage{2854}
+(\byear{2026})
+\doiurl{10.1021/acs.jpcc.6c00408}
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Peng et~al.}{2024}]{peng2024learning}
+\begin{botherref}
+\oauthor{\bsnm{Peng}, \binits{J.}},
+\oauthor{\bsnm{Damewood}, \binits{J.}},
+\oauthor{\bsnm{Karaguesian}, \binits{J.}},
+\oauthor{\bsnm{Lunger}, \binits{J.R.}},
+\oauthor{\bsnm{G{\'o}mez-Bombarelli}, \binits{R.}}:
+Learning ordering in crystalline materials with symmetry-aware graph neural
+  networks.
+arXiv preprint arXiv:2409.13851
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{Zeni et~al.}{2023}]{zeni2023mattergen}
+\begin{botherref}
+\oauthor{\bsnm{Zeni}, \binits{C.}},
+\oauthor{\bsnm{Pinsler}, \binits{R.}},
+\oauthor{\bsnm{Z{\"u}gner}, \binits{D.}},
+\oauthor{\bsnm{Fowler}, \binits{A.}},
+\oauthor{\bsnm{Horton}, \binits{M.}},
+\oauthor{\bsnm{Fu}, \binits{X.}},
+\oauthor{\bsnm{Shysheya}, \binits{S.}},
+\oauthor{\bsnm{Crabb{\'e}}, \binits{J.}},
+\oauthor{\bsnm{Sun}, \binits{L.}},
+\oauthor{\bsnm{Smith}, \binits{J.}}, et al.:
+Mattergen: a generative model for inorganic materials design.
+arXiv preprint arXiv:2312.03687
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{Okabe et~al.}{2025}]{okabe2025structural}
+\begin{botherref}
+\oauthor{\bsnm{Okabe}, \binits{R.}},
+\oauthor{\bsnm{Cheng}, \binits{M.}},
+\oauthor{\bsnm{Chotrattanapituk}, \binits{A.}},
+\oauthor{\bsnm{Mandal}, \binits{M.}},
+\oauthor{\bsnm{Mak}, \binits{K.}},
+\oauthor{\bsnm{C{\'o}rdova~Carrizales}, \binits{D.}},
+\oauthor{\bsnm{Hung}, \binits{N.T.}},
+\oauthor{\bsnm{Fu}, \binits{X.}},
+\oauthor{\bsnm{Han}, \binits{B.}},
+\oauthor{\bsnm{Wang}, \binits{Y.}}, et al.:
+Structural constraint integration in a generative model for the discovery of
+  quantum materials.
+Nature Materials,
+1--8
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{McKay}{1998}]{mckay1998isomorph}
+\begin{barticle}
+\bauthor{\bsnm{McKay}, \binits{B.D.}}:
+\batitle{Isomorph-free exhaustive generation}.
+\bjtitle{Journal of Algorithms}
+\bvolume{26}(\bissue{2}),
+\bfpage{306}--\blpage{324}
+(\byear{1998})
+\doiurl{10.1006/jagm.1997.0898}
+\end{barticle}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{McKay and Piperno}{2014}]{mckay2014practical}
+\begin{barticle}
+\bauthor{\bsnm{McKay}, \binits{B.D.}},
+\bauthor{\bsnm{Piperno}, \binits{A.}}:
+\batitle{Practical graph isomorphism, ii}.
+\bjtitle{Journal of Symbolic Computation}
+\bvolume{60},
+\bfpage{94}--\blpage{112}
+(\byear{2014})
+\doiurl{10.1016/j.jsc.2013.09.003}
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{Hart and Forcade}{2008}]{hart2008algorithm}
+\begin{barticle}
+\bauthor{\bsnm{Hart}, \binits{G.L.}},
+\bauthor{\bsnm{Forcade}, \binits{R.W.}}:
+\batitle{Algorithm for generating derivative structures}.
+\bjtitle{Physical Review B—Condensed Matter and Materials Physics}
+\bvolume{77}(\bissue{22}),
+\bfpage{224115}
+(\byear{2008})
+\end{barticle}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Hart and Forcade}{2009}]{hart2009generating}
+\begin{barticle}
+\bauthor{\bsnm{Hart}, \binits{G.L.W.}},
+\bauthor{\bsnm{Forcade}, \binits{R.W.}}:
+\batitle{Generating derivative structures from multilattices: Algorithm and
+  application to hcp alloys}.
+\bjtitle{Phys. Rev. B}
+\bvolume{80},
+\bfpage{014120}
+(\byear{2009})
+\doiurl{10.1103/PhysRevB.80.014120}
+\end{barticle}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Hart et~al.}{2012}]{hart2012generating}
+\begin{barticle}
+\bauthor{\bsnm{Hart}, \binits{G.L.W.}},
+\bauthor{\bsnm{Nelson}, \binits{L.J.}},
+\bauthor{\bsnm{Forcade}, \binits{R.W.}}:
+\batitle{Generating derivative structures at a fixed concentration}.
+\bjtitle{Computational Materials Science}
+\bvolume{59},
+\bfpage{101}--\blpage{107}
+(\byear{2012})
+\doiurl{10.1016/j.commatsci.2012.02.015}
+\end{barticle}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Morgan et~al.}{2017}]{morgan2017generating}
+\begin{barticle}
+\bauthor{\bsnm{Morgan}, \binits{W.S.}},
+\bauthor{\bsnm{Hart}, \binits{G.L.W.}},
+\bauthor{\bsnm{Forcade}, \binits{R.W.}}:
+\batitle{Generating derivative superstructures for systems with high
+  configurational freedom}.
+\bjtitle{Computational Materials Science}
+\bvolume{136},
+\bfpage{144}--\blpage{149}
+(\byear{2017})
+\doiurl{10.1016/j.commatsci.2017.04.015}
+\end{barticle}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{{van de Walle}
+  et~al.}{2002}]{VANDEWALLE2002539}
+\begin{barticle}
+\bauthor{\bsnm{{van de Walle}}, \binits{A.}},
+\bauthor{\bsnm{Asta}, \binits{M.}},
+\bauthor{\bsnm{Ceder}, \binits{G.}}:
+\batitle{The alloy theoretic automated toolkit: A user guide}.
+\bjtitle{Calphad}
+\bvolume{26}(\bissue{4}),
+\bfpage{539}--\blpage{553}
+(\byear{2002})
+\doiurl{10.1016/S0364-5916(02)80006-2}
+\end{barticle}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{Puchala et~al.}{2023}]{PUCHALA2023111897}
+\begin{barticle}
+\bauthor{\bsnm{Puchala}, \binits{B.}},
+\bauthor{\bsnm{Thomas}, \binits{J.C.}},
+\bauthor{\bsnm{Natarajan}, \binits{A.R.}},
+\bauthor{\bsnm{Goiri}, \binits{J.G.}},
+\bauthor{\bsnm{Behara}, \binits{S.S.}},
+\bauthor{\bsnm{Kaufman}, \binits{J.L.}},
+\bauthor{\bsnm{{Van der Ven}}, \binits{A.}}:
+\batitle{Casm — a software package for first-principles based study of
+  multicomponent crystalline solids}.
+\bjtitle{Computational Materials Science}
+\bvolume{217},
+\bfpage{111897}
+(\byear{2023})
+\doiurl{10.1016/j.commatsci.2022.111897}
+\end{barticle}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2023}]{wang2023magus}
+\begin{barticle}
+\bauthor{\bsnm{Wang}, \binits{J.}},
+\bauthor{\bsnm{Gao}, \binits{H.}},
+\bauthor{\bsnm{Han}, \binits{Y.}},
+\bauthor{\bsnm{Ding}, \binits{C.}},
+\bauthor{\bsnm{Pan}, \binits{S.}},
+\bauthor{\bsnm{Wang}, \binits{Y.}},
+\bauthor{\bsnm{Jia}, \binits{Q.}},
+\bauthor{\bsnm{Wang}, \binits{H.-T.}},
+\bauthor{\bsnm{Xing}, \binits{D.}},
+\bauthor{\bsnm{Sun}, \binits{J.}}:
+\batitle{Magus: machine learning and graph theory assisted universal structure
+  searcher}.
+\bjtitle{National Science Review}
+\bvolume{10}(\bissue{7}),
+\bfpage{128}
+(\byear{2023})
+\end{barticle}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{Boyd and Woo}{2016}]{boyd2016generalized}
+\begin{barticle}
+\bauthor{\bsnm{Boyd}, \binits{P.G.}},
+\bauthor{\bsnm{Woo}, \binits{T.K.}}:
+\batitle{A generalized method for constructing hypothetical nanoporous
+  materials of any net topology from graph theory}.
+\bjtitle{CrystEngComm}
+\bvolume{18},
+\bfpage{3777}--\blpage{3792}
+(\byear{2016})
+\doiurl{10.1039/C6CE00407E}
+\end{barticle}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{K{\"u}hne et~al.}{2020}]{cp2k2020}
+\begin{botherref}
+\oauthor{\bsnm{K{\"u}hne}, \binits{T.D.}},
+\oauthor{\bsnm{Iannuzzi}, \binits{M.}},
+\oauthor{\bsnm{Del~Ben}, \binits{M.}},
+\oauthor{\bsnm{Rybkin}, \binits{V.V.}},
+\oauthor{\bsnm{Seewald}, \binits{P.}},
+\oauthor{\bsnm{Stein}, \binits{F.}},
+\oauthor{\bsnm{Laino}, \binits{T.}},
+\oauthor{\bsnm{Khaliullin}, \binits{R.Z.}},
+\oauthor{\bsnm{Sch{\"u}tt}, \binits{O.}},
+\oauthor{\bsnm{Schiffmann}, \binits{F.}}, et al.:
+Cp2k: An electronic structure and molecular dynamics software
+  package-quickstep: Efficient and accurate electronic structure calculations.
+The Journal of Chemical Physics
+\textbf{152}(19)
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Perdew et~al.}{1996}]{perdew1996pbe}
+\begin{barticle}
+\bauthor{\bsnm{Perdew}, \binits{J.P.}},
+\bauthor{\bsnm{Burke}, \binits{K.}},
+\bauthor{\bsnm{Ernzerhof}, \binits{M.}}:
+\batitle{Generalized gradient approximation made simple}.
+\bjtitle{Phys. Rev. Lett.}
+\bvolume{77},
+\bfpage{3865}--\blpage{3868}
+(\byear{1996})
+\doiurl{10.1103/PhysRevLett.77.3865}
+\end{barticle}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Grimme et~al.}{2010}]{grimme2010d3}
+\begin{botherref}
+\oauthor{\bsnm{Grimme}, \binits{S.}},
+\oauthor{\bsnm{Antony}, \binits{J.}},
+\oauthor{\bsnm{Ehrlich}, \binits{S.}},
+\oauthor{\bsnm{Krieg}, \binits{H.}}:
+A consistent and accurate ab initio parametrization of density functional
+  dispersion correction (dft-d) for the 94 elements h-pu.
+The Journal of chemical physics
+\textbf{132}(15)
+(2010)
+\end{botherref}
+\endbibitem
+
+\end{thebibliography}

@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "topology": "nfc",
+    "group_size": 128,
+    "verification": {
+      "LHS": 0.0078125,
+      "RHS": 0.0078125,
+      "diff": 0.0,
+      "verified": true
+    }
+  },
+  "structures": [
+    {
+      "id": 0,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 128,
+      "orbit_size": 1
+    }
+  ]
+}

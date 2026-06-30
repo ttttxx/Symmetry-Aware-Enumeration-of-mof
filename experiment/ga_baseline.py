@@ -4,6 +4,7 @@ import json
 import random
 import time
 import csv
+import math
 from deap import base, creator, tools
 
 # [配置] 解决 macOS 下 matplotlib 报错并设置为后台绘图
@@ -27,7 +28,8 @@ sys.path.append(project_root)
 try:
     from symmetry import SymmetryEngine
     from enumerator import MOFEnumerator
-    from assembler import StructureAssembler  # [新增导入] 引入组装器
+    from assembler import StructureAssembler
+    from main import calculate_topology_requirements
 except ImportError:
     print("Warning: Custom modules 'symmetry', 'enumerator' or 'assembler' not found.")
 
@@ -91,6 +93,49 @@ def evaluate_chgnet_energy(individual, graph_data, atom_choices, assembler, chgn
         return (9999.0,)
 
 
+# ================= [新增] 枚举集合的全局最小能量 =================
+def compute_ground_truth_min_energy(all_unique_structures, graph_data, assembler,
+                                    chgnet_model, max_eval=2000):
+    """对枚举得到的全部对称唯一结构评估 CHGNet，返回配置空间的精确全局最小能量。
+
+    返回 (min_energy, stabilizer_of_min, n_evaluated)；当结构数超过 max_eval 时跳过，返回
+    (nan, None, n)。该上限用于避免对大型用例（如 fjh, 3.6e4 结构）产生不可接受的开销——
+    图 C 仅需要一个小的代表性用例（ffc, 5）的参考线。
+    """
+    n = len(all_unique_structures)
+    if n > max_eval:
+        print(f"  [GT-Energy] Skipped: {n} structures exceed max_eval={max_eval}; "
+              f"reference line will be unavailable for this case.")
+        return (float('nan'), None, n)
+
+    best_e = float('inf')
+    best_stab = None
+    for k, res in enumerate(all_unique_structures):
+        coloring = res['coloring']
+        structure_map = {str(i): color for i, color in enumerate(coloring)}
+        temp_cif = os.path.join(assembler.output_dir, f"temp_gt_{k}.cif")
+        try:
+            assembler.assemble_and_save(filename=temp_cif,
+                                        structure_map=structure_map,
+                                        graph_data=graph_data)
+            struct = Structure.from_file(temp_cif)
+            e = chgnet_model.predict_structure(struct)['e']
+        except Exception:
+            e = 9999.0  # 与 GA 评估一致的失败惩罚
+        finally:
+            if os.path.exists(temp_cif):
+                os.remove(temp_cif)
+            logf = temp_cif.replace(".cif", ".log")
+            if os.path.exists(logf):
+                os.remove(logf)
+
+        if e < best_e:
+            best_e = e
+            best_stab = res.get('stabilizer_size', None)
+
+    return (best_e, best_stab, n)
+
+
 def main():
     # ================= 0. 初始化深度学习模型与组装器 =================
     print(">>> Loading CHGNet Universal Potential...")
@@ -101,9 +146,22 @@ def main():
     assembler = StructureAssembler(output_dir=ga_temp_dir)
 
     # ================= 1. 实验配置区 =================
-    TOPOLOGY = "sod"
-    # ATOM_CHOICES = ["6c_CdZn_1_Ch", "8c_Co_1_Ch", "0_mn1_new"]
-    ATOM_CHOICES = ["8c_Co_1_Ch", "0_mn1_new"]
+    test_cases = [
+        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
+        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch", "3c_Cu_imadazoline_Ch"],4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
+        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch", "3c_Cu_imadazoline_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
+        #
+        # # ---- fjh: 中等拓扑 (28 nodes), 控制 naive space ----
+        # # 3c×1, 4c×2 → naive=1^16*2^12=4096
+        # ("fjh", {3: ["3c_B_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
+        # # 3c×2, 4c×1 → naive=2^16*1^12=65536
+        # ("fjh", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch"]}),
+        # # 3c×1, 4c×3 → naive=1^16*3^12=531441
+        ("fjh", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
+
+    ]
+    TOPOLOGY, USER_SELECTED_LIGANDS = test_cases[0]
+    ATOM_CHOICES = sorted(set(lig for ligs in USER_SELECTED_LIGANDS.values() for lig in ligs))
 
     NUM_GENERATIONS = 150
     POPULATION_SIZE = 300
@@ -123,6 +181,8 @@ def main():
     print(f"--- Loading Topology: {TOPOLOGY} ---")
     graph_data = load_graph(graph_path)
     num_nodes = graph_data["n_nodes"]
+    node_degrees = [n.get('degree', 0) for n in graph_data['nodes']]
+    topology_requirements = calculate_topology_requirements(graph_data)
 
     # ================= 2. 获取对称性与 Ground Truth =================
     print("\n--- Step 1: Pre-computing Symmetry and Ground Truth ---")
@@ -131,7 +191,10 @@ def main():
     print(f"  Automorphism Group Size |G|: {len(perms)}")
 
     print("  Computing Ground Truth (Burnside/Stratified Enumerator)...")
-    enum = MOFEnumerator(perms, num_nodes, verbose=False)
+    enum = MOFEnumerator(perms, num_nodes, verbose=False,
+                         topology_requirements=topology_requirements,
+                         user_selected_ligands=USER_SELECTED_LIGANDS,
+                         node_degrees=node_degrees)
     all_unique_structures = enum.enumerate(ATOM_CHOICES)
 
     # 获取目标高对称性结构 (Stabilizer > 1)
@@ -147,6 +210,15 @@ def main():
 
     if total_high_sym_targets == 0:
         print("   -> Warning: No High-Symmetry targets found in Ground Truth.")
+
+    # [新增] 枚举集合的全局最小能量（图 C 参考线）；此时 assembler 与 chgnet_model 均已就绪
+    print("  Computing exhaustive global-minimum energy (reference for energy-convergence panel)...")
+    gt_min_energy, gt_min_stab, gt_n = compute_ground_truth_min_energy(
+        all_unique_structures, graph_data, assembler, chgnet_model
+    )
+    if not math.isnan(gt_min_energy):
+        print(f"   -> Enumerated global minimum = {gt_min_energy:.4f} eV/atom "
+              f"(|Stab|={gt_min_stab}, over {gt_n} structures)")
 
     # ================= 3. DEAP GA 环境设置 =================
     print("\n--- Step 2: Initializing Advanced Genetic Algorithm ---")
@@ -305,9 +377,14 @@ def main():
     filename_base = f"experiment_data_{TOPOLOGY}_{TOTAL_EVALS_ESTIMATE}_{atom_count}"
     csv_path = os.path.join(output_dir, f"{filename_base}.csv")
 
+    # [修改] 新增两列 GT_Min_Energy / GT_Min_Stab（每行常量；供 baseline_fig 面板 C 的参考线读取）
     fieldnames = ["Generation", "Total_Evaluations", "Unique_Explored",
                   "Redundant_Evaluations", "Redundancy_Rate",
-                  "Best_Energy", "High_Sym_Coverage_Pct"]
+                  "Best_Energy", "High_Sym_Coverage_Pct",
+                  "GT_Min_Energy", "GT_Min_Stab"]
+
+    gt_energy_str = "" if math.isnan(gt_min_energy) else f"{gt_min_energy:.6f}"
+    gt_stab_str = "" if gt_min_stab is None else str(gt_min_stab)
 
     print(f"\n>>> Saving data to {csv_path}...")
     with open(csv_path, 'w', newline='', encoding='utf-8') as csvfile:
@@ -318,6 +395,8 @@ def main():
             row_copy = row.copy()
             row_copy['Redundancy_Rate'] = f"{row['Redundancy_Rate']:.4f}"
             row_copy['High_Sym_Coverage_Pct'] = f"{row['High_Sym_Coverage_Pct']:.4f}"
+            row_copy['GT_Min_Energy'] = gt_energy_str   # 常量列：枚举集合全局最小能量
+            row_copy['GT_Min_Stab'] = gt_stab_str       # 常量列：该最小能量结构的稳定子阶
             writer.writerow(row_copy)
 
     print(">>> Plotting...")
@@ -338,6 +417,9 @@ def main():
     plt.savefig(img_path, dpi=300)
     print(f"   -> Plot Saved to {img_path}")
     print(f"   -> Final Redundancy Rate: {csv_data[-1]['Redundancy_Rate']:.1%}")
+    if not math.isnan(gt_min_energy):
+        print(f"   -> GA best = {global_min_energy:.4f} | Enumerated global min = {gt_min_energy:.4f} "
+              f"| gap = {global_min_energy - gt_min_energy:.4f} eV/atom")
 
 
 if __name__ == "__main__":

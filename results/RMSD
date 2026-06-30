@@ -1,0 +1,348 @@
+/Users/xushi/anaconda3/envs/mof/bin/python /Users/xushi/PycharmProjects/mof/main.py
+--- Loading Topology: lil ---
+
+--- Step 1: Symmetry Analysis ---
+  [Init] Structure loaded: C12 (12 atoms)
+  [Symmetry] Analyzing symmetry...
+  [Symmetry] Generated 4 valid permutations (from 8 ops).
+  Automorphism Group Size |G|: 4
+
+--- Step 2: Structure Enumeration ---
+  [Lattice] Generated 4 tasks. Executing Best-N Strategy...
+    [Run] Full Group (G) (Orbits: 3)...
+    [Run] Cyclic Type (2, 2)... (Orbits: 6)...
+    [Run] Cyclic Type (1, 1)... (Orbits: 12)...
+    [Run] Identity (Fallback) (Orbits: 12)...
+  [Verification] Sum(1/|Stab|) = 1024.0000
+  Found 1072 unique structures.
+
+=== Algorithmic Self-Verification ===
+  Total Schemes |Fix(e)|: 4096
+  Group Size    |G|     : 4
+  ----------------------------------------
+  LHS (Constructive Sum): 1024.0000000000
+  RHS (Counting Value)  : 1024.0000000000
+  Diff                  : 0.0000000000e+00
+  [SUCCESS] Identity Verified! The enumeration is Complete.
+
+--- Step 4: Assembler (Generate CIFs) ---
+[Assembler] Loaded 92 edges from library.
+  Generating CIFs for Top-5 Highest Symmetry structures...
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 1 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 2 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 3 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 4 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 5 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 6 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 7 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 8 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 9 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 10 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 11 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank0_sym4.cif
+  [Info] Assembly log saved to: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank0_sym4.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 1 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 2 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 3 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 4 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 5 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+    [QA] Node 8 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 9 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 10 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 11 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank1_sym4.cif
+  [Info] Assembly log saved to: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank1_sym4.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 1 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 2 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 3 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 4 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 5 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+    [QA] Node 6 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 7 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 8 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 9 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+    [QA] Node 10 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 11 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank2_sym4.cif
+  [Info] Assembly log saved to: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank2_sym4.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 1 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 2 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 3 (0_mn1_new) Align RMSD: 0.3287 (Normalized)
+    [QA] Node 4 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 5 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+    [QA] Node 8 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 9 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+    [QA] Node 10 (6c_Al_1_Ch) Align RMSD: 0.1422 (Normalized)
+    [QA] Node 11 (6c_Al_1_Ch) Align RMSD: 0.1413 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank3_sym4.cif
+  [Info] Assembly log saved to: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank3_sym4.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (6c_Al_1_Ch) Align RMSD: 0.4845 (Normalized)
+    [QA] Node 1 (6c_Al_1_Ch) Align RMSD: 0.4845 (Normalized)
+    [QA] Node 2 (6c_Al_1_Ch) Align RMSD: 0.4845 (Normalized)
+    [QA] Node 3 (6c_Al_1_Ch) Align RMSD: 0.4845 (Normalized)
+    [QA] Node 4 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 5 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 6 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 7 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 8 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 9 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+    [QA] Node 10 (0_mn1_new) Align RMSD: 0.1615 (Normalized)
+    [QA] Node 11 (0_mn1_new) Align RMSD: 0.1599 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank4_sym4.cif
+  [Info] Assembly log saved to: results/lil_0_mn1_new6c_Al_1_Ch_cifs/lil_0_mn1_new6c_Al_1_Ch_rank4_sym4.log
+
+Results saved to: results/lil_0_mn1_new6c_Al_1_Ch_20260130_152132.json
+
+Process finished with exit code 0
+
+
+--- Step 4: Assembler (Generate CIFs) ---
+[Assembler] Loaded 92 edges from library.
+  Generating CIFs for Top-5 Highest Symmetry structures...
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 1 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 2 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 3 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 4 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 5 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 8 (6c_Al_1_Ch) Align RMSD: 0.3027 (Normalized)
+    [QA] Node 9 (6c_Al_1_Ch) Align RMSD: 0.3027 (Normalized)
+    [QA] Node 10 (6c_Al_1_Ch) Align RMSD: 0.3028 (Normalized)
+    [QA] Node 11 (6c_Al_1_Ch) Align RMSD: 0.3028 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank0_sym16.cif
+  [Info] Assembly log saved to: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank0_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 1 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 2 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 3 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 4 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 5 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 8 (3c_B_Ch) Align RMSD: 0.0602 (Normalized)
+    [QA] Node 9 (3c_B_Ch) Align RMSD: 0.0602 (Normalized)
+    [QA] Node 10 (3c_B_Ch) Align RMSD: 0.0604 (Normalized)
+    [QA] Node 11 (3c_B_Ch) Align RMSD: 0.0604 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank1_sym16.cif
+  [Info] Assembly log saved to: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank1_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 1 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 2 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 3 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 4 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 5 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 6 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 7 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 8 (6c_Al_1_Ch) Align RMSD: 0.3027 (Normalized)
+    [QA] Node 9 (6c_Al_1_Ch) Align RMSD: 0.3027 (Normalized)
+    [QA] Node 10 (6c_Al_1_Ch) Align RMSD: 0.3028 (Normalized)
+    [QA] Node 11 (6c_Al_1_Ch) Align RMSD: 0.3028 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank2_sym16.cif
+  [Info] Assembly log saved to: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank2_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 1 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 2 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 3 (3c_B_Ch) Align RMSD: 0.1420 (Normalized)
+    [QA] Node 4 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 5 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 6 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 7 (3c_B_Ch) Align RMSD: 0.1419 (Normalized)
+    [QA] Node 8 (3c_B_Ch) Align RMSD: 0.0602 (Normalized)
+    [QA] Node 9 (3c_B_Ch) Align RMSD: 0.0602 (Normalized)
+    [QA] Node 10 (3c_B_Ch) Align RMSD: 0.0604 (Normalized)
+    [QA] Node 11 (3c_B_Ch) Align RMSD: 0.0604 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank3_sym16.cif
+  [Info] Assembly log saved to: results/sod_3c_B_Ch6c_Al_1_Ch_cifs/sod_3c_B_Ch6c_Al_1_Ch_rank3_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 1 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 2 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 3 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 4 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 5 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.1804 (Normalized)
+    [QA] Node 8 (3c_B_Ch) Align RMSD: 0.0602 (Normalized)
+    [QA] Node 9 (3c_B_Ch) Align RMSD: 0.0602 (Normalized)
+    [QA] Node 10 (6c_Al_1_Ch) Align RMSD: 0.3028 (Normalized)
+    [QA] Node 11 (6c_Al_1_Ch) Align RMSD: 0.3028 (Normalized)
+  [Assembler] Assembling edges...
+
+
+
+
+/Users/xushi/anaconda3/envs/mof/bin/python /Users/xushi/PycharmProjects/mof/main.py
+--- Loading Topology: rht ---
+
+--- Step 1: Symmetry Analysis ---
+  [Init] Structure loaded: C18 (18 atoms)
+  [Symmetry] Analyzing symmetry...
+  [Symmetry] Generated 16 valid permutations (from 32 ops).
+  Automorphism Group Size |G|: 16
+
+--- Step 2: Structure Enumeration ---
+  [Lattice] Generated 7 tasks. Executing Best-N Strategy...
+    [Run] Full Group (G) (Orbits: 2)...
+    [Run] Cyclic Type (2, 4)... (Orbits: 5)...
+    [Run] Cyclic Type (1, 1)... (Orbits: 6)...
+    [Run] Cyclic Type (2, 2)... (Orbits: 9)...
+    [Run] Cyclic Type (1, 1)... (Orbits: 10)...
+    [Run] Cyclic Type (1, 1)... (Orbits: 18)...
+    [Run] Identity (Fallback) (Orbits: 18)...
+  [Verification] Sum(1/|Stab|) = 9673.5000
+  Found 9999 unique structures.
+
+=== Algorithmic Self-Verification ===
+  Total Schemes |Fix(e)|: 262144
+  Group Size    |G|     : 16
+  ----------------------------------------
+  LHS (Constructive Sum): 9673.5000000000
+  RHS (Counting Value)  : 16384.0000000000
+  Diff                  : 6.7105000000e+03
+  [FAILURE] Mismatch detected. The enumeration is likely incomplete.
+
+--- Step 4: Assembler (Generate CIFs) ---
+[Assembler] Loaded 92 edges from library.
+  Generating CIFs for Top-5 Highest Symmetry structures...
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (0_mn1_new) Align RMSD: 0.1977 (Normalized)
+    [QA] Node 1 (0_mn1_new) Align RMSD: 0.5009 (Normalized)
+    [QA] Node 2 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 3 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 4 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 5 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 6 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 7 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 8 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 9 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 10 (0_mn1_new) Align RMSD: 0.3145 (Normalized)
+    [QA] Node 11 (0_mn1_new) Align RMSD: 0.4233 (Normalized)
+    [QA] Node 12 (0_mn1_new) Align RMSD: 0.2503 (Normalized)
+    [QA] Node 13 (0_mn1_new) Align RMSD: 0.2503 (Normalized)
+    [QA] Node 14 (0_mn1_new) Align RMSD: 0.3120 (Normalized)
+    [QA] Node 15 (0_mn1_new) Align RMSD: 0.3120 (Normalized)
+    [QA] Node 16 (0_mn1_new) Align RMSD: 0.2975 (Normalized)
+    [QA] Node 17 (0_mn1_new) Align RMSD: 0.3961 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank0_sym16.cif
+  [Info] Assembly log saved to: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank0_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (0_mn1_new) Align RMSD: 0.1977 (Normalized)
+    [QA] Node 1 (0_mn1_new) Align RMSD: 0.5009 (Normalized)
+    [QA] Node 2 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 3 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 4 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 5 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 8 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 9 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 10 (6c_Al_1_Ch) Align RMSD: 0.3969 (Normalized)
+    [QA] Node 11 (6c_Al_1_Ch) Align RMSD: 0.3986 (Normalized)
+    [QA] Node 12 (6c_Al_1_Ch) Align RMSD: 0.3574 (Normalized)
+    [QA] Node 13 (6c_Al_1_Ch) Align RMSD: 0.3574 (Normalized)
+    [QA] Node 14 (6c_Al_1_Ch) Align RMSD: 0.4019 (Normalized)
+    [QA] Node 15 (6c_Al_1_Ch) Align RMSD: 0.4019 (Normalized)
+    [QA] Node 16 (6c_Al_1_Ch) Align RMSD: 0.3019 (Normalized)
+    [QA] Node 17 (6c_Al_1_Ch) Align RMSD: 0.3193 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank1_sym16.cif
+  [Info] Assembly log saved to: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank1_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (6c_Al_1_Ch) Align RMSD: 0.4129 (Normalized)
+    [QA] Node 1 (6c_Al_1_Ch) Align RMSD: 0.4627 (Normalized)
+    [QA] Node 2 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 3 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 4 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 5 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 6 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 7 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 8 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 9 (0_mn1_new) Align RMSD: 0.2205 (Normalized)
+    [QA] Node 10 (0_mn1_new) Align RMSD: 0.3145 (Normalized)
+    [QA] Node 11 (0_mn1_new) Align RMSD: 0.4233 (Normalized)
+    [QA] Node 12 (0_mn1_new) Align RMSD: 0.2503 (Normalized)
+    [QA] Node 13 (0_mn1_new) Align RMSD: 0.2503 (Normalized)
+    [QA] Node 14 (0_mn1_new) Align RMSD: 0.3120 (Normalized)
+    [QA] Node 15 (0_mn1_new) Align RMSD: 0.3120 (Normalized)
+    [QA] Node 16 (0_mn1_new) Align RMSD: 0.2975 (Normalized)
+    [QA] Node 17 (0_mn1_new) Align RMSD: 0.3961 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank2_sym16.cif
+  [Info] Assembly log saved to: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank2_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (6c_Al_1_Ch) Align RMSD: 0.4129 (Normalized)
+    [QA] Node 1 (6c_Al_1_Ch) Align RMSD: 0.4627 (Normalized)
+    [QA] Node 2 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 3 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 4 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 5 (6c_Al_1_Ch) Align RMSD: 0.3272 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 8 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 9 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 10 (6c_Al_1_Ch) Align RMSD: 0.3969 (Normalized)
+    [QA] Node 11 (6c_Al_1_Ch) Align RMSD: 0.3986 (Normalized)
+    [QA] Node 12 (6c_Al_1_Ch) Align RMSD: 0.3574 (Normalized)
+    [QA] Node 13 (6c_Al_1_Ch) Align RMSD: 0.3574 (Normalized)
+    [QA] Node 14 (6c_Al_1_Ch) Align RMSD: 0.4019 (Normalized)
+    [QA] Node 15 (6c_Al_1_Ch) Align RMSD: 0.4019 (Normalized)
+    [QA] Node 16 (6c_Al_1_Ch) Align RMSD: 0.3019 (Normalized)
+    [QA] Node 17 (6c_Al_1_Ch) Align RMSD: 0.3193 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank3_sym16.cif
+  [Info] Assembly log saved to: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank3_sym16.log
+  [Assembler] Assembling nodes...
+    [QA] Node 0 (0_mn1_new) Align RMSD: 0.1977 (Normalized)
+    [QA] Node 1 (0_mn1_new) Align RMSD: 0.5009 (Normalized)
+    [QA] Node 2 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 3 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 4 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 5 (0_mn1_new) Align RMSD: 0.2463 (Normalized)
+    [QA] Node 6 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 7 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 8 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 9 (6c_Al_1_Ch) Align RMSD: 0.3142 (Normalized)
+    [QA] Node 10 (0_mn1_new) Align RMSD: 0.3145 (Normalized)
+    [QA] Node 11 (0_mn1_new) Align RMSD: 0.4233 (Normalized)
+    [QA] Node 12 (0_mn1_new) Align RMSD: 0.2503 (Normalized)
+    [QA] Node 13 (0_mn1_new) Align RMSD: 0.2503 (Normalized)
+    [QA] Node 14 (6c_Al_1_Ch) Align RMSD: 0.4019 (Normalized)
+    [QA] Node 15 (6c_Al_1_Ch) Align RMSD: 0.4019 (Normalized)
+    [QA] Node 16 (6c_Al_1_Ch) Align RMSD: 0.3019 (Normalized)
+    [QA] Node 17 (6c_Al_1_Ch) Align RMSD: 0.3193 (Normalized)
+  [Assembler] Assembling edges...
+  [Success] Saved clean structure: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank4_sym8.cif
+  [Info] Assembly log saved to: results/rht_0_mn1_new6c_Al_1_Ch_cifs/rht_0_mn1_new6c_Al_1_Ch_rank4_sym8.log
+
+Results saved to: results/rht_0_mn1_new6c_Al_1_Ch_20260130_152332.json
+
+Process finished with exit code 0

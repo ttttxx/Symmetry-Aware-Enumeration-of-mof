@@ -1,4 +1,5 @@
 import os
+import json
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
@@ -23,25 +24,24 @@ plt.rcParams['legend.fontsize'] = 9.5
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIR = os.path.join(SCRIPT_DIR, '..', 'results')
 
-# 修改核心1：将 1x3 布局改为 2x2 布局以容纳拆分后的图
+# 2x2 布局
 fig, axes = plt.subplots(2, 2, figsize=(16, 11))
 plt.subplots_adjust(wspace=0.25, hspace=0.35)
 
 current_palette = sns.color_palette("colorblind", 3)
 colors = {
-    'sod': current_palette[0],
-    'lil': current_palette[1],
-    'rht': current_palette[2]
+    'ffc': current_palette[0],
+    'fjh': current_palette[1],
 }
 
 styles_2 = {'linestyle': '-', 'linewidth': 2.8, 'marker': 'o', 'markersize': 5, 'markevery': 0.1}
 styles_3 = {'linestyle': '--', 'linewidth': 1.6, 'marker': 's', 'markersize': 4, 'markevery': 0.15}
 
-topologies = ['sod', 'lil', 'rht']
-atom_counts = [2, 3]
+topologies = ['ffc', 'fjh']
+atom_counts = [3, 4, 5, 6]
 
 # ==========================================
-# 面板 A: 随机搜索的“空间稀释”
+# 面板 A: 随机采样的对称覆盖率（不是 GA/随机的优化目标，仅说明对称集不会被顺带覆盖）
 # ==========================================
 ax1 = axes[0, 0]
 for topo in topologies:
@@ -61,12 +61,12 @@ ax1.set_xlim(1, 45000)
 ax1.set_ylim(-5, 105)
 ax1.set_xlabel('Number of Random Samples (Log Scale)', fontsize=12, fontweight='bold')
 ax1.set_ylabel('Symmetric Target Coverage (%)', fontsize=12, fontweight='bold')
-ax1.set_title('A. Stochastic Search Complexity', fontsize=14, fontweight='bold', pad=15)
+ax1.set_title('A. Random Sampling: Symmetric Coverage', fontsize=14, fontweight='bold', pad=15)
 ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
 ax1.legend(loc='upper left', fontsize=9, frameon=True, edgecolor='black', ncol=2)
 
 # ==========================================
-# 面板 B: 遗传算法的覆盖率瓶颈
+# 面板 B: 能量制导 GA 的对称覆盖率（覆盖率非其目标，仅说明对称集不会被顺带枚举）
 # ==========================================
 ax2 = axes[0, 1]
 for topo in topologies:
@@ -74,7 +74,6 @@ for topo in topologies:
     file_path_fill = os.path.join(RESULTS_DIR, 'ga_baseline', f'experiment_data_{topo}_45000_{atoms_fill}.csv')
     if os.path.exists(file_path_fill):
         df_fill = pd.read_csv(file_path_fill)
-        # 兼容处理 Generation
         if 'Generation' not in df_fill.columns:
             df_fill['Generation'] = np.arange(1, len(df_fill) + 1)
         ax2.fill_between(df_fill['Generation'], 0, df_fill['High_Sym_Coverage_Pct'],
@@ -100,65 +99,100 @@ ax2.set_xlim(0, 150)
 ax2.set_ylim(-5, 105)
 ax2.set_xlabel('GA Generations', fontsize=12, fontweight='bold')
 ax2.set_ylabel('Symmetric Target Coverage (%)', fontsize=12, fontweight='bold')
-ax2.set_title('B. GA Performance Ceiling', fontsize=14, fontweight='bold', pad=15)
+ax2.set_title('B. GA Coverage (energy-guided, not its objective)', fontsize=14, fontweight='bold', pad=15)
 ax2.yaxis.set_major_formatter(mtick.PercentFormatter())
 
 # ==========================================
-# 面板 C & 面板 D: 拆分“同构陷阱”的双轴图
+# 面板 C: GA 在其自身目标上的收敛 —— 最优能量 vs 评估次数，并与枚举全局最小对比
+# 面板 D: 同构冗余（核心公平论点）
 # ==========================================
-ax3 = axes[1, 0]  # 新的面板 C
-ax4 = axes[1, 1]  # 新的面板 D
+ax3 = axes[1, 0]  # Panel C: energy convergence
+ax4 = axes[1, 1]  # Panel D: isomorphic redundancy
 
-topo_case = 'rht'  # 保持展示瓶颈最严重的 rht
-atom_case = 2
+topo_case = 'ffc'
+atom_case = 5
 file_path_ga = os.path.join(RESULTS_DIR, 'ga_baseline', f'experiment_data_{topo_case}_45000_{atom_case}.csv')
+
+PENALTY = 9000.0  # 组装失败惩罚阈值（>=此值视为无效，作图时剔除）
 
 if os.path.exists(file_path_ga):
     df_ga = pd.read_csv(file_path_ga)
 
-    # 动态数据兼容：如果你的旧CSV没这两个字段，我们向下兼容计算
     if 'Total_Evaluations' not in df_ga.columns:
-        pop_size = len(df_ga)  # fallback
-        df_ga['Total_Evaluations'] = np.arange(1, len(df_ga) + 1) * pop_size
+        df_ga['Total_Evaluations'] = np.arange(1, len(df_ga) + 1)
     if 'Generation' not in df_ga.columns:
         df_ga['Generation'] = np.arange(1, len(df_ga) + 1)
 
     color_cov = colors[topo_case]
-    color_red = '#d62728'
+    color_ref = '#d62728'
 
-    # --- 绘制图 C: 计算代价与性能天花板 ---
-    ax3.plot(df_ga['Total_Evaluations'], df_ga['High_Sym_Coverage_Pct'],
-             color=color_cov, linewidth=3.2, label='Target Coverage', alpha=0.9)
+    # --- 面板 C: 最优能量收敛 + 枚举全局最小参考线 ---
+    e_best = pd.to_numeric(df_ga['Best_Energy'], errors='coerce')
+    e_best = e_best.where(e_best < PENALTY)  # 剔除惩罚值，避免纵轴被拉飞
+
+    ax3.plot(df_ga['Total_Evaluations'], e_best,
+             color=color_cov, linewidth=3.0, label='GA best energy', alpha=0.95)
+
+    # 参考线：枚举集合的全局最小能量，由 ga_baseline.py 写入同一 CSV 的 GT_Min_Energy 常量列
+    gmin = None
+    gstab = None
+    if 'GT_Min_Energy' in df_ga.columns:
+        col = pd.to_numeric(df_ga['GT_Min_Energy'], errors='coerce').dropna()
+        if len(col) > 0 and col.iloc[0] < PENALTY:
+            gmin = float(col.iloc[0])
+        if 'GT_Min_Stab' in df_ga.columns:
+            scol = pd.to_numeric(df_ga['GT_Min_Stab'], errors='coerce').dropna()
+            if len(scol) > 0:
+                gstab = int(scol.iloc[0])
+
+    if gmin is not None:
+        ref_label = 'Enumerated global minimum'
+        if gstab is not None:
+            ref_label += f' (|Stab|={gstab})'
+        ax3.axhline(gmin, color=color_ref, linestyle='--', linewidth=2.0, label=ref_label)
+        # 阴影标出 GA 与枚举最优之间的能量差（未达/浪费部分）
+        ax3.fill_between(df_ga['Total_Evaluations'], gmin, e_best,
+                         where=(e_best > gmin), color=color_ref, alpha=0.10, label='_nolegend_')
+    else:
+        print("[Panel C] GT_Min_Energy column not found or empty in the CSV; reference line omitted. "
+              "Run the updated ga_baseline.py (it writes GT_Min_Energy into the same CSV).")
+
+    # 设定纵轴范围
+    valid = e_best.dropna()
+    if len(valid) > 0:
+        lo = valid.min() if gmin is None else min(valid.min(), gmin)
+        hi = valid.max()
+        pad = max(0.02 * abs(hi - lo), 0.02)
+        ax3.set_ylim(lo - pad, hi + pad)
+
+    ax3.set_xlim(0, df_ga['Total_Evaluations'].max())
     ax3.set_xlabel('Total Evaluations (Computational Cost)', fontsize=12, fontweight='bold')
-    ax3.set_ylabel('Symmetric Target Coverage (%)', color=color_cov, fontsize=12, fontweight='bold')
-    ax3.set_xlim(0, max(df_ga['Total_Evaluations']))
-    ax3.set_ylim(-5, 105)
-    ax3.yaxis.set_major_formatter(mtick.PercentFormatter())
-    ax3.set_title(f'C. Evaluation Efficiency Ceiling ({topo_case}, {atom_case})', fontsize=14, fontweight='bold',
-                  pad=15)
-    ax3.legend(loc='lower right', frameon=True, edgecolor='black')
+    ax3.set_ylabel('Best Energy (eV/atom)', fontsize=12, fontweight='bold')
+    ax3.set_title(f'C. Energy Convergence vs. Enumerated Optimum ({topo_case}, {atom_case})',
+                  fontsize=14, fontweight='bold', pad=15)
+    ax3.legend(loc='upper right', frameon=True, edgecolor='black')
 
-    # --- 绘制图 D: 搜索迭代次数与冗余率 (真正的搜索迭代分析) ---
+    # --- 面板 D: 同构冗余率 ---
     ax4.plot(df_ga['Generation'], df_ga['Redundancy_Rate'] * 100,
-             color=color_red, linewidth=2.5, linestyle='-.', label='Isomorphic Redundancy')
-    # 红色面积填充表示浪费计算量
+             color=color_ref, linewidth=2.5, linestyle='-.', label='Isomorphic Redundancy')
     ax4.fill_between(df_ga['Generation'], 0, df_ga['Redundancy_Rate'] * 100,
-                     color=color_red, alpha=0.18, label='_nolegend_')
+                     color=color_ref, alpha=0.18, label='_nolegend_')
 
     ax4.set_xlabel('Search Iterations (GA Generations)', fontsize=12, fontweight='bold')
-    ax4.set_ylabel('Computational Waste / Redundancy (%)', color=color_red, fontsize=12, fontweight='bold')
-    ax4.set_xlim(0, max(df_ga['Generation']))
+    ax4.set_ylabel('Computational Waste / Redundancy (%)', color=color_ref, fontsize=12, fontweight='bold')
+    ax4.set_xlim(0, df_ga['Generation'].max())
     ax4.set_ylim(-5, 105)
     ax4.yaxis.set_major_formatter(mtick.PercentFormatter())
-    ax4.set_title(f'D. The "Isomorphism Trap" ({topo_case}, {atom_case})', fontsize=14, fontweight='bold', pad=15)
+    ax4.set_title(f'D. Isomorphic Redundancy ({topo_case}, {atom_case})', fontsize=14, fontweight='bold', pad=15)
 
-    # 在图 D 中添加 Waste Area 标注
     redundant_area_max_y = df_ga['Redundancy_Rate'].max() * 100
     final_gen = df_ga['Generation'].iloc[-1]
     ax4.text(final_gen * 0.75, redundant_area_max_y * 0.82, "Waste Area",
-             fontsize=11, fontweight='bold', color=color_red,
+             fontsize=11, fontweight='bold', color=color_ref,
              alpha=0.6, rotation=15, ha='center', style='italic')
     ax4.legend(loc='lower right', frameon=True, edgecolor='black')
+else:
+    print(f"[Panels C/D] GA data file not found: {file_path_ga}")
 
 # ==========================================
 # 保存矢量 PDF 图片

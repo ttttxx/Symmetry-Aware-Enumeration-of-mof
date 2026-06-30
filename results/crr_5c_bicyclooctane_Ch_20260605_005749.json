@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "topology": "crr",
+    "group_size": 12,
+    "verification": {
+      "LHS": 0.08333333333333333,
+      "RHS": 0.08333333333333333,
+      "diff": 0.0,
+      "verified": true
+    }
+  },
+  "structures": [
+    {
+      "id": 0,
+      "coloring": [
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch",
+        "5c_bicyclooctane_Ch"
+      ],
+      "stabilizer_size": 12,
+      "orbit_size": 1
+    }
+  ]
+}

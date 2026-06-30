@@ -1,0 +1,8 @@
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x1016ce547
+#1  0x1016cd443
+#2  0x182cdd6a3
+#3  0x10043dd7b

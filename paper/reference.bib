@@ -1,0 +1,368 @@
+@article{cp2k2020,
+  title={CP2K: An electronic structure and molecular dynamics software package-Quickstep: Efficient and accurate electronic structure calculations},
+  author={K{\"u}hne, Thomas D and Iannuzzi, Marcella and Del Ben, Mauro and Rybkin, Vladimir V and Seewald, Patrick and Stein, Frederick and Laino, Teodoro and Khaliullin, Rustam Z and Sch{\"u}tt, Ole and Schiffmann, Florian and others},
+  journal={The Journal of Chemical Physics},
+  volume={152},
+  number={19},
+  year={2020},
+  publisher={AIP Publishing}
+}
+@article{perdew1996pbe,
+  title = {Generalized Gradient Approximation Made Simple},
+  author = {Perdew, John P. and Burke, Kieron and Ernzerhof, Matthias},
+  journal = {Phys. Rev. Lett.},
+  volume = {77},
+  issue = {18},
+  pages = {3865--3868},
+  numpages = {0},
+  year = {1996},
+  month = {Oct},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.77.3865},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.77.3865}
+}
+
+
+@article{grimme2010d3,
+  title={A consistent and accurate ab initio parametrization of density functional dispersion correction (DFT-D) for the 94 elements H-Pu},
+  author={Grimme, Stefan and Antony, Jens and Ehrlich, Stephan and Krieg, Helge},
+  journal={The Journal of chemical physics},
+  volume={132},
+  number={15},
+  year={2010},
+  publisher={AIP Publishing}
+}
+
+
+@article{mckay1998isomorph,
+title = {Isomorph-Free Exhaustive Generation},
+journal = {Journal of Algorithms},
+volume = {26},
+number = {2},
+pages = {306-324},
+year = {1998},
+issn = {0196-6774},
+doi = {https://doi.org/10.1006/jagm.1997.0898},
+url = {https://www.sciencedirect.com/science/article/pii/S0196677497908981},
+author = {Brendan D McKay},
+abstract = {We describe a very general technique for generating families of combinatorial objects without isomorphs. It applies to almost any class of objects for which an inductive construction process exists. In one form of our technique, no explicit isomorphism testing is required. In the other form, isomorph testing is restricted to within small subsets of the entire set of objects. A variety of different examples are presented, including the generation of graphs with some hereditary property, the generation of Latin rectangles and the generation of balanced incomplete block designs. The technique can also be used to perform unbiased statistical analysis, including approximate counting, of sets of objects too large to generate exhaustively.}
+}
+
+@article{mckay2014practical,
+title = {Practical graph isomorphism, II},
+journal = {Journal of Symbolic Computation},
+volume = {60},
+pages = {94-112},
+year = {2014},
+issn = {0747-7171},
+doi = {https://doi.org/10.1016/j.jsc.2013.09.003},
+author = {Brendan D. McKay and Adolfo Piperno},
+keywords = {Graph isomorphism, Canonical labelling, Nauty, Traces, Partition refinement},
+abstract = {We report the current state of the graph isomorphism problem from the practical point of view. After describing the general principles of the refinement-individualization paradigm and pro ving its validity, we explain how it is implemented in several of the key implementations. In particular, we bring the description of the best known program nauty up to date and describe an innovative approach called Traces that outperforms the competitors for many difficult graph classes. Detailed comparisons against saucy, Bliss and conauto are presented.}
+}
+
+@article{hart2009generating,
+  title = {Generating derivative structures from multilattices: Algorithm and application to hcp alloys},
+  author = {Hart, Gus L. W. and Forcade, Rodney W.},
+  journal = {Phys. Rev. B},
+  volume = {80},
+  issue = {1},
+  pages = {014120},
+  numpages = {8},
+  year = {2009},
+  month = {Jul},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.80.014120},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.80.014120}
+}
+
+@article{hart2012generating,
+title = {Generating derivative structures at a fixed concentration},
+journal = {Computational Materials Science},
+volume = {59},
+pages = {101-107},
+year = {2012},
+issn = {0927-0256},
+doi = {https://doi.org/10.1016/j.commatsci.2012.02.015},
+url = {https://www.sciencedirect.com/science/article/pii/S092702561200081X},
+author = {Gus L.W. Hart and Lance J. Nelson and Rodney W. Forcade},
+keywords = {Alloys, Cluster expansion, Derivative structures, Enumeration, Ag–Pt, Silver–platinum},
+abstract = {We present an algorithm for generating derivative superstructures for large unit cells at a fixed concentration. The algorithm is useful when partial crystallographic information of an ordered phase is known. This work builds on the previous work of Hart and Forcade [Phys. Rev. B 77 224115, 2008; Phys. Rev. B 80 014120, 2009]. This extension of the original algorithm provides a mapping from atomic configurations to consecutive integers when only a subset (fixed concentration) of all possible configurations is under consideration. As in the earlier algorithm, this mapping results in a minimal hash table and perfect hash function that enables an efficient method for enumerating the configurations of large unit cells; the run time scales linearly with the number of symmetrically-distinct configurations. We demonstrate the algorithm for a proposed structure in the Ag–Pt system comprising 32 atoms, with stoichiometry 15:17, a configuration space of ∼400,000.}
+}
+
+@article{morgan2017generating,
+title = {Generating derivative superstructures for systems with high configurational freedom},
+journal = {Computational Materials Science},
+volume = {136},
+pages = {144-149},
+year = {2017},
+issn = {0927-0256},
+doi = {https://doi.org/10.1016/j.commatsci.2017.04.015},
+url = {https://www.sciencedirect.com/science/article/pii/S0927025617302069},
+author = {Wiley S. Morgan and Gus L.W. Hart and Rodney W. Forcade},
+keywords = {Enumeration, Derivative superstructures, Displacement patterns},
+abstract = {Modeling alloys requires the exploration of all possible configurations of atoms. Additionally, modeling the thermal properties of materials requires knowledge of the possible ways of displacing the atoms. One solution to finding all symmetrically unique configurations and displacements is to generate the complete list of possible configurations and remove those that are symmetrically equivalent. This approach, however, suffers from a combinatorial explosion when the supercell size is large, when there are more than two atom types, or when there are many displaced atoms. This problem persists even when there are only a relatively small number of unique arrangements that survive the elimination process. Here, we extend an existing algorithm to include the extra configurational degrees of freedom from the inclusion of displacement directions. The algorithm uses group theory and a tree-like data structure to eliminate large classes of configurations, avoiding the typical combinatoric explosion. With this approach we can now enumerate previously inaccessible cases, including atomic displacements.}
+}
+@article{boyd2016generalized,
+author ="Boyd, Peter G. and Woo, Tom K.",
+title  ="A generalized method for constructing hypothetical nanoporous materials of any net topology from graph theory",
+journal  ="CrystEngComm",
+year  ="2016",
+volume  ="18",
+issue  ="21",
+pages  ="3777-3792",
+publisher  ="The Royal Society of Chemistry",
+doi  ="10.1039/C6CE00407E",
+url  ="http://dx.doi.org/10.1039/C6CE00407E",
+abstract  ="Here we present a method for constructing hypothetical crystalline nanoporous materials{,} such as metal–organic frameworks (MOFs){,} using a graph theoretical approach. The method takes as input the discrete secondary (or structural) building units (SBUs) with defined connection points{,} and a desired 3-dimensional net topology in the form of a labelled quotient graph. The hypothetical materials are constructed based on the principle that using a labelled quotient graph obtained{,} for example from the reticular chemistry structure resource (RCSR){,} one can construct a net embedding in 3-D Euclidean space with an infinite number of different representations. Thus{,} crystalline structures can be realized by manipulating a net{'}s embedding such that vertices of the net match the geometries of the desired SBUs. To demonstrate the methodology{,} 46 different network topologies (i.e.tbo{,} pcu){,} are used to build MOFs from the same pair of 4-coordinate and 3-coordinate SBUs. We further show that the method can be used to generate hypothetical MOFs where the most common realization of a net{,} called the barycentric representation{,} will not produce a viable structure. When combined with a robust force field based geometry optimizer{,} the method can be used to generate large and structurally diverse hypothetical databases for virtual screening purposes."}
+
+
+@article{trejo2026assessing,
+  title={Assessing the Stability of Metal--Organic Frameworks with Local Vibrational Mode Theory},
+  author={Sophia Trejo and Juliana J Antonio and Elfi Kraka and Haoyuan Chen},
+  journal={The Journal of Physical Chemistry C},
+  volume = {130},
+  number = {7},
+  pages = {2847-2854},
+  year={2026},
+  doi={10.1021/acs.jpcc.6c00408}
+}
+
+@article{park2024data,
+author = {Park, Junkil and Kim, Honghui and Kang, Yeonghun and Lim, Yunsung and Kim, Jihan},
+title = {From Data to Discovery: Recent Trends of Machine Learning in Metal–Organic Frameworks},
+journal = {JACS Au},
+volume = {4},
+number = {10},
+pages = {3727-3743},
+year = {2024},
+doi = {10.1021/jacsau.4c00618},
+URL = { https://doi.org/10.1021/jacsau.4c00618},
+eprint = {  https://doi.org/10.1021/jacsau.4c00618}
+}
+@article{kim2025machine,
+title = {Machine learning-assisted design of metal–organic frameworks for hydrogen storage: A high-throughput screening and experimental approach},
+journal = {Chemical Engineering Journal},
+volume = {507},
+pages = {160766},
+year = {2025},
+issn = {1385-8947},
+doi = {https://doi.org/10.1016/j.cej.2025.160766},
+url = {https://www.sciencedirect.com/science/article/pii/S1385894725015876},
+author = {Wan-Tae Kim and Weon-Gyu Lee and Hong-Eun An and Hiroyasu Furukawa and WooSeok Jeong and Sung-Chul Kim and Jeffrey R. Long and Sohee Jeong and Jung-Hoon Lee},
+keywords = {Metal-organic frameworks, Hydrogen storage, Synthesizability, High-throughput screening},
+abstract = {Various theoretical approaches, including big data and high-throughput screening techniques, have been explored in developing new materials due to their significant potential time-saving advantages. However, it remains a significant challenge to experimentally realize new materials that are predicted. In this study, we propose a novel materials design strategy that utilizes machine-learning (ML) techniques to predict new porous materials that show promise for hydrogen storage and are likely to be feasible to synthesize. By leveraging ML techniques and metal–organic framework (MOF) databases, we are able to predict the synthesizability of MOF structures. This is evidenced by the successful synthesis of a new vanadium-based MOF that exhibits excellent performance for cryogenic H2 storage. Notably, the total gravimetric and volumetric H2 uptakes are as high as 9.0 wt% and 50.0 g/L at 77 K and 150 bar. This ML-assisted materials design offers an efficient and promising approach for developing hydrogen storage materials.}
+}
+@article{ALIMARDANI20267967,
+title = {Decoding the unseen: unsupervised anomaly detection in metal–organic frameworks for discovery beyond the norm},
+journal = {Chemical Science},
+volume = {17},
+number = {16},
+pages = {7967-7985},
+year = {2026},
+issn = {2041-6520},
+doi = {https://doi.org/10.1039/d5sc06431g},
+url = {https://www.sciencedirect.com/science/article/pii/S2041652026003846},
+author = {Hosein Alimardani and Shayan Abaei and Mehrdad Asgari},
+abstract = {The discovery of chemically novel or structurally anomalous metal–organic frameworks (MOFs) is essential for expanding reticular design space and enhancing dataset reliability. We present CHEM-AD (Chemically Unusual Metal–organic Frameworks via Autoencoder-based Detection), a label-free, CPU-efficient pipeline that detects anomalous MOFs using 81 engineered descriptors (32 geometric/chemical/topological scalars plus a 49-dimensional metal-composition encoding). A compact symmetric autoencoder (∼1.8 × 105 trainable parameters) learns the latent distribution of typical MOFs and assigns anomaly scores based on reconstruction error. Applied to 26 025 entries from MOFxDB, CHEM-AD identifies 488 outliers (∼1.87%) featuring distinctive topologies, unusual pore metrics (PLD: 2.56–29.48 Å; LCD: 4.89–63.59 Å), and extreme densities (0.057–4.27 g cm−3). These anomalies consistently occupy peripheral clusters in PCA embeddings and exhibit substantial Mahalanobis distances from normal MOFs, indicating multivariate deviation. Feature attribution reveals connectivity (e.g., edge/node counts, degree dispersion) as the primary driver of anomalies, followed by window-limited geometry and linker–metal composition. We categorize results into three groups: (A) topologically unusual yet plausible candidates, (B) anomalies with chemically resolvable issues, and (C) likely structural artifacts. The full pipeline executes in under six minutes on standard CPUs and does not require 3D structure fitting or graph parsing. CHEM-AD generalizes to other porous materials, providing a scalable framework for discovery, database curation, and robust preprocessing in materials informatics.}
+}
+@article{badrinarayanan2025mofgpt,
+author = {Badrinarayanan, Srivathsan and Magar, Rishikesh and Antony, Akshay and Meda, Radheesh Sharma and Barati Farimani, Amir},
+title = {MOFGPT: Generative Design of Metal–Organic Frameworks using Language Models},
+journal = {Journal of Chemical Information and Modeling},
+volume = {65},
+number = {17},
+pages = {9049-9060},
+year = {2025},
+doi = {10.1021/acs.jcim.5c01625},
+    note ={PMID: 40875331},
+URL = { 
+    
+        https://doi.org/10.1021/acs.jcim.5c01625
+},
+eprint = { 
+        https://doi.org/10.1021/acs.jcim.5c01625
+}
+}
+@article{Kim2024MOFFlowFM,
+  title={MOFFlow: Flow Matching for Structure Prediction of Metal-Organic Frameworks},
+  author={Nayoung Kim and Seongsu Kim and Minsu Kim and Jinkyoo Park and Sungsoo Ahn},
+  journal={ArXiv},
+  year={2024},
+  volume={abs/2410.17270},
+  url={https://api.semanticscholar.org/CorpusID:273532392}
+}
+@article{VANDEWALLE2002539,
+title = {The alloy theoretic automated toolkit: A user guide},
+journal = {Calphad},
+volume = {26},
+number = {4},
+pages = {539-553},
+year = {2002},
+issn = {0364-5916},
+doi = {https://doi.org/10.1016/S0364-5916(02)80006-2},
+url = {https://www.sciencedirect.com/science/article/pii/S0364591602800062},
+author = {A. {van de Walle} and M. Asta and G. Ceder},
+abstract = {Although the formalism that allows the calculation of alloy thermodynamic properties from first-principles has been known for decades, its practical implementation has so far remained a tedious process. The Alloy Theoretic Automated Toolkit (ATAT) drastically simplifies this procedure by implementing decision rules based on formal statistical analysis that frees the researchers from a constant monitoring during the calculation process and automatically “glues” together the input and the output of various codes, in order to provide a high-level interface to the calculation of alloy thermodynamic properties from first-principles. ATAT implements the Structure Inversion Method (SIM), also known as the Connolly-Williams method, in combination with semi-grand-canonical Monte Carlo simulations. In order to make this powerful toolkit available to the wide community of researchers who could benefit from it, this article present a concise user guide outlining the steps required to obtain thermodynamic information from ab initio calculations.}
+}
+@article{PUCHALA2023111897,
+title = {CASM — A software package for first-principles based study of multicomponent crystalline solids},
+journal = {Computational Materials Science},
+volume = {217},
+pages = {111897},
+year = {2023},
+issn = {0927-0256},
+doi = {https://doi.org/10.1016/j.commatsci.2022.111897},
+url = {https://www.sciencedirect.com/science/article/pii/S0927025622006085},
+author = {Brian Puchala and John C. Thomas and Anirudh Raju Natarajan and Jon Gabriel Goiri and Sesha Sai Behara and Jonas L. Kaufman and Anton {Van der Ven}},
+keywords = {Software, Casm, Ab initio, First principles, Open source, Thermodynamics, Kinetics, Alloy, Crystal structure, Symmetry, Crystal structure enumeration, Cluster expansion, Effective Hamiltonian, Monte Carlo, Kinetic Monte Carlo},
+abstract = {CASM is a software package that enables first-principles based studies of crystalline materials. It has been designed to treat coupled chemical, mechanical, vibrational, and magnetic degrees of freedom to determine ground state and finite temperature properties of crystals. The symmetry of the underlying parent crystal structure is used to enumerate perturbations of the parent crystal structure and generate derivative structures which can be input to first-principles calculations in order to explore the ground state energy landscape. CASM algorithmically constructs cluster expansions that fully couple discrete and continuous degrees of freedom, and generates highly efficient code to evaluate the cluster expansion basis functions. Widely used machine learning methods are integrated for fitting expansion coefficients to first-principle calculations. The fully parameterized cluster expansions can be combined with (kinetic) Monte Carlo methods to calculate finite temperature thermodynamic and kinetic properties. CASM Alloy Manager identifies distinct parent crystal structures in an alloy system, creating individual projects for each, and integrating the results. The integrated infrastructure facilitates the linkage between first-principles statistical mechanics predictions with higher length scale computational methods, such as phase field simulations. CASM projects are designed to be easy to share in repositories, to re-use, and to extend to include additional chemical species or types of degrees of freedom.}
+}
+@article{deng2023chgnet,
+  title={CHGNet as a pretrained universal neural network potential for charge-informed atomistic modelling},
+  author={Deng, Bowen and Zhong, Peichen and Jun, KyuJung and Riebesell, Janosh and Han, Kevin and Bartel, Christopher J. and Ceder, Gerbrand},
+  journal={Nature Machine Intelligence},
+  volume={5},
+  number={9},
+  pages={1031--1041},
+  year={2023},
+  publisher={Nature Publishing Group UK London},
+  doi={10.1038/s42256-023-00716-3},
+  url={https://doi.org/10.1038/s42256-023-00716-3}
+}
+@article{furukawa2013chemistry,
+  title={The chemistry and applications of metal-organic frameworks},
+  author={Furukawa, Hiroyasu and Cordova, Kyle E and O’Keeffe, Michael and Yaghi, Omar M},
+  journal={Science},
+  volume={341},
+  number={6149},
+  pages={1230444},
+  year={2013},
+  publisher={American Association for the Advancement of Science}
+}
+@misc{zhou2012introduction,
+  title={Introduction to metal--organic frameworks},
+  author={Zhou, Hong-Cai and Long, Jeffrey R and Yaghi, Omar M},
+  journal={Chemical reviews},
+  volume={112},
+  number={2},
+  pages={673--674},
+  year={2012},
+  publisher={ACS Publications}
+}
+@article{colon2017topologically,
+  title={Topologically guided, automated construction of metal--organic frameworks and their evaluation for energy-related applications},
+  author={Col{\'o}n, Yamil J and G{\'o}mez-Gualdr{\'o}n, Diego A and Snurr, Randall Q},
+  journal={Crystal Growth \& Design},
+  volume={17},
+  number={11},
+  pages={5801--5810},
+  year={2017},
+  publisher={ACS Publications}
+}
+@article{colon2014high,
+  title={High-throughput computational screening of metal--organic frameworks},
+  author={Col{\'o}n, Yamil J and Snurr, Randall Q},
+  journal={Chemical Society Reviews},
+  volume={43},
+  number={16},
+  pages={5735--5749},
+  year={2014},
+  publisher={Royal Society of Chemistry}
+}
+@article{chung2014computation,
+  title={Computation-ready, experimental metal--organic frameworks: A tool to enable high-throughput screening of nanoporous crystals},
+  author={Chung, Yongchul G and Camp, Jeffrey and Haranczyk, Maciej and Sikora, Benjamin J and Bury, Wojciech and Krungleviciute, Vaiva and Yildirim, Taner and Farha, Omar K and Sholl, David S and Snurr, Randall Q},
+  journal={Chemistry of Materials},
+  volume={26},
+  number={21},
+  pages={6185--6192},
+  year={2014},
+  publisher={ACS Publications}
+}
+@article{wilmer2012large,
+  title={Large-scale screening of hypothetical metal--organic frameworks},
+  author={Wilmer, Christopher E and Leaf, Michael and Lee, Chang Yeon and Farha, Omar K and Hauser, Brad G and Hupp, Joseph T and Snurr, Randall Q},
+  journal={Nature chemistry},
+  volume={4},
+  number={2},
+  pages={83--89},
+  year={2012},
+  publisher={Nature Publishing Group UK London}
+}
+@article{peng2024learning,
+  title={Learning ordering in crystalline materials with symmetry-aware graph neural networks},
+  author={Peng, Jiayu and Damewood, James and Karaguesian, Jessica and Lunger, Jaclyn R and G{\'o}mez-Bombarelli, Rafael},
+  journal={arXiv preprint arXiv:2409.13851},
+  year={2024}
+}
+@article{zeni2023mattergen,
+  title={Mattergen: a generative model for inorganic materials design},
+  author={Zeni, Claudio and Pinsler, Robert and Z{\"u}gner, Daniel and Fowler, Andrew and Horton, Matthew and Fu, Xiang and Shysheya, Sasha and Crabb{\'e}, Jonathan and Sun, Lixin and Smith, Jake and others},
+  journal={arXiv preprint arXiv:2312.03687},
+  year={2023}
+}
+@article{okabe2025structural,
+  title={Structural constraint integration in a generative model for the discovery of quantum materials},
+  author={Okabe, Ryotaro and Cheng, Mouyang and Chotrattanapituk, Abhijatmedhi and Mandal, Manasi and Mak, Kiran and C{\'o}rdova Carrizales, Denisse and Hung, Nguyen Tuan and Fu, Xiang and Han, Bowen and Wang, Yao and others},
+  journal={Nature Materials},
+  pages={1--8},
+  year={2025},
+  publisher={Nature Publishing Group UK London}
+}
+@article{boyd2019data,
+  title={Data-driven design of metal--organic frameworks for wet flue gas CO2 capture},
+  author={Boyd, Peter G and Chidambaram, Arunraj and Garc{\'\i}a-D{\'\i}ez, Enrique and Ireland, Christopher P and Daff, Thomas D and Bounds, Richard and G{\l}adysiak, Andrzej and Schouwink, Pascal and Moosavi, Seyed Mohamad and Maroto-Valer, M Mercedes and others},
+  journal={Nature},
+  volume={576},
+  number={7786},
+  pages={253--256},
+  year={2019},
+  publisher={Nature Publishing Group UK London}
+}
+@article{yao2021inverse,
+  title={Inverse design of nanoporous crystalline reticular materials with deep generative models},
+  author={Yao, Zhenpeng and S{\'a}nchez-Lengeling, Benjam{\'\i}n and Bobbitt, N Scott and Bucior, Benjamin J and Kumar, Sai Govind Hari and Collins, Sean P and Burns, Thomas and Woo, Tom K and Farha, Omar K and Snurr, Randall Q and others},
+  journal={Nature Machine Intelligence},
+  volume={3},
+  number={1},
+  pages={76--86},
+  year={2021},
+  publisher={Nature Publishing Group UK London}
+}
+@article{jin2025intelligent,
+  title={An Intelligent Prediction Model for the Synthesis Conditions of Metal--Organic Frameworks Utilizing Artificial Neural Networks Enhanced by Genetic Algorithm Optimization},
+  author={Jin, Guangying and Ran, Wei and Zhang, Manyue and Li, Yun},
+  journal={Journal of Chemical Information and Modeling},
+  volume={65},
+  number={3},
+  pages={1085--1100},
+  year={2025},
+  publisher={ACS Publications}
+}
+@article{hart2008algorithm,
+  title={Algorithm for generating derivative structures},
+  author={Hart, Gus LW and Forcade, Rodney W},
+  journal={Physical Review B—Condensed Matter and Materials Physics},
+  volume={77},
+  number={22},
+  pages={224115},
+  year={2008},
+  publisher={APS}
+}
+@article{jin2025mofchecker,
+  title={MOFChecker: An algorithm for Validating and Correcting Metal-Organic Framework (MOF) Structures},
+  author={Jin, Xin and Jablonka, Kevin and Moubarak, Elias and Li, Yutao and Smit, Berend},
+  year={2025},
+  publisher={ChemRxiv}
+}
+@article{wang2023magus,
+  title={MAGUS: machine learning and graph theory assisted universal structure searcher},
+  author={Wang, Junjie and Gao, Hao and Han, Yu and Ding, Chi and Pan, Shuning and Wang, Yong and Jia, Qiuhan and Wang, Hui-Tian and Xing, Dingyu and Sun, Jian},
+  journal={National Science Review},
+  volume={10},
+  number={7},
+  pages={nwad128},
+  year={2023},
+  publisher={Oxford University Press}
+}

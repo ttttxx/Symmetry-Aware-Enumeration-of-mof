@@ -1,0 +1,602 @@
+{
+  "meta": {
+    "topology": "ffc",
+    "group_size": 8,
+    "verification": {
+      "LHS": 16.0,
+      "RHS": 2048.0,
+      "diff": 2032.0,
+      "verified": false
+    }
+  },
+  "structures": [
+    {
+      "id": 0,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 1,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 2,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 3,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 4,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 5,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 6,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 7,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 8,
+      "orbit_size": 1
+    },
+    {
+      "id": 8,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 9,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 10,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 11,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 12,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 13,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 14,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 15,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 16,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 17,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 18,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 19,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 4,
+      "orbit_size": 2
+    },
+    {
+      "id": 20,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 21,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 22,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 23,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 24,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 25,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 26,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 27,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 28,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 29,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 30,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 31,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 32,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 33,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 34,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 35,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 36,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 37,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_Cu_1_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 38,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 39,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "stabilizer_size": 2,
+      "orbit_size": 4
+    },
+    {
+      "id": 40,
+      "coloring": [
+        "4c_Cu_1_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 1,
+      "orbit_size": 8
+    },
+    {
+      "id": 41,
+      "coloring": [
+        "4c_4B_fused_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "3c_B_Ch",
+        "3c_Cu_imadazoline_Ch",
+        "4c_4B_fused_Ch",
+        "4c_Cu_1_Ch"
+      ],
+      "stabilizer_size": 1,
+      "orbit_size": 8
+    }
+  ]
+}
