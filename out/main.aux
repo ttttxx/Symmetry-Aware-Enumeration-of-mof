@@ -7,7 +7,6 @@
 \citation{wilmer2012large}
 \citation{colon2014high,park2024data,kim2025machine}
 \Newlabel{1}{1}
-\newlabel{sec:intro}{{1}{1}{Introduction}{section*.2}{}}
 \citation{colon2017topologically}
 \citation{jin2025intelligent}
 \citation{badrinarayanan2025mofgpt}
@@ -21,68 +20,5 @@
 \citation{VANDEWALLE2002539,PUCHALA2023111897,wang2023magus}
 \citation{morgan2017generating}
 \citation{boyd2016generalized,colon2017topologically}
-\citation{mckay1998isomorph}
-\citation{hart2008algorithm,morgan2017generating}
-\newlabel{sec:theory}{{1}{3}{Theoretical Framework}{section*.4}{}}
-\newlabel{the:symmetry-complexity}{{1}{3}{Orbit-Stabilizer Theorem}{theorem.1}{}}
-\citation{hart2008algorithm}
-\newlabel{def:symmetry_index}{{3}{4}{Symmetry Index}{definition.3}{}}
-\newlabel{prop:dim_reduction}{{1}{4}{Subspace Dimensionality Reduction}{proposition.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Topological Symmetry Extraction}{4}{section*.6}\protected@file@percent }
-\citation{mckay1998isomorph,morgan2017generating}
-\@writefile{toc}{\contentsline {paragraph}{Subgroup Lattice Descent.}{5}{section*.7}\protected@file@percent }
-\newlabel{par:enum}{{1}{5}{Subgroup Lattice Descent}{section*.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Pipeline of the symmetry-aware enumeration.} Subfigures (a) through (d) sequentially correspond to the framework search, atomic replacement, bonding enumeration, and topological validation stages, highlighting the symmetry-assisted pruning strategy.}}{5}{figure.1}\protected@file@percent }
-\newlabel{fig:pipeline}{{1}{5}{\textbf {Pipeline of the symmetry-aware enumeration.} Subfigures (a) through (d) sequentially correspond to the framework search, atomic replacement, bonding enumeration, and topological validation stages, highlighting the symmetry-assisted pruning strategy}{figure.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Geometric Reconstruction.}{6}{section*.8}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Subgroup Lattice Descent}}{7}{algorithm.1}\protected@file@percent }
-\newlabel{alg:enum}{{1}{7}{Subgroup Lattice Descent}{algorithm.1}{}}
-\citation{PUCHALA2023111897}
-\@writefile{toc}{\contentsline {paragraph}{Implementation Details.}{8}{section*.9}\protected@file@percent }
-\newlabel{sec:searchEC}{{1}{8}{Cross-Validation and Benchmarking against Algebraic Enumeration}{section*.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \textbf  {Cross-validation against CASM algebraic enumeration on identical quotient graphs (exhaustive cases).} ``Orbits ($\Gamma $)'' is the proper-rotation count from our enumerator; it equals the CASM full-group count after enantiomer reconciliation ($P=A+2C$) in every row. ``CASM (full grp)'' is the raw count modulo the complete crystallographic factor group, and the undercount is $(P-F_{\mathrm  {total}})/P$, i.e.\ the fraction of physically distinct configurations a full-symmetry substitutional count omits. Times are single-core wall-clock for the enumeration core only (median of three runs); sub-$0.1$\,s values for the Python implementation are startup-dominated and not algorithmically meaningful, and CASM (C++) is faster on these small spaces (see text).}}{9}{table.1}\protected@file@percent }
-\newlabel{tab:casm}{{1}{9}{\textbf {Cross-validation against CASM algebraic enumeration on identical quotient graphs (exhaustive cases).} ``Orbits ($\Gamma $)'' is the proper-rotation count from our enumerator; it equals the CASM full-group count after enantiomer reconciliation ($P=A+2C$) in every row. ``CASM (full grp)'' is the raw count modulo the complete crystallographic factor group, and the undercount is $(P-F_{\mathrm {total}})/P$, i.e.\ the fraction of physically distinct configurations a full-symmetry substitutional count omits. Times are single-core wall-clock for the enumeration core only (median of three runs); sub-$0.1$\,s values for the Python implementation are startup-dominated and not algorithmically meaningful, and CASM (C++) is faster on these small spaces (see text)}{table.1}{}}
-\newlabel{sec:validation}{{1}{9}{Validation of Geometric Assembly}{section*.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Validation of geometric assembly across diverse representative topologies: (a) \texttt  {ffc}, (b) \texttt  {fjh}, and (c) \texttt  {vba}. The insets highlight the geometric consistency between SBUs and linkers, demonstrating the reliability of the assembly process across different framework architectures.}}{9}{figure.2}\protected@file@percent }
-\newlabel{fig:reconstruction_gallery}{{2}{9}{Validation of geometric assembly across diverse representative topologies: (a) \texttt {ffc}, (b) \texttt {fjh}, and (c) \texttt {vba}. The insets highlight the geometric consistency between SBUs and linkers, demonstrating the reliability of the assembly process across different framework architectures}{figure.2}{}}
-\citation{zeni2023mattergen}
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.1}Directional Enumeration in Reticular Chemistry}{10}{subsection.0.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Pooled \texttt  {ffc} single-point DFT energies classified by fixed Symmetry Index intervals. Low, medium, and high symmetry correspond to $0<\rho \leq 0.25$, $0.25<\rho \leq 0.75$, and $0.75<\rho \leq 1$, respectively. Open circles mark the lowest-energy candidate within each fixed composition. The plot is used as a descriptive screening view rather than as a composition-controlled statistical test.}}{11}{figure.3}\protected@file@percent }
-\newlabel{fig:ffc_pooled_symmetry}{{3}{11}{Pooled \texttt {ffc} single-point DFT energies classified by fixed Symmetry Index intervals. Low, medium, and high symmetry correspond to $0<\rho \leq 0.25$, $0.25<\rho \leq 0.75$, and $0.75<\rho \leq 1$, respectively. Open circles mark the lowest-energy candidate within each fixed composition. The plot is used as a descriptive screening view rather than as a composition-controlled statistical test}{figure.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Composition-controlled relationship between Symmetry Index $\rho (c)$ and DFT energy per atom for the \texttt  {ffc} and \texttt  {fjh} topologies (PBE+D3, CP2K). Each panel is analyzed within fixed chemical compositions, and the trend is assessed using the Spearman rank correlation together with whether the lowest-energy structure falls in the maximum-$\rho $ subset sampled for that composition.}}{11}{figure.4}\protected@file@percent }
-\newlabel{fig:symmetry_stability}{{4}{11}{Composition-controlled relationship between Symmetry Index $\rho (c)$ and DFT energy per atom for the \texttt {ffc} and \texttt {fjh} topologies (PBE+D3, CP2K). Each panel is analyzed within fixed chemical compositions, and the trend is assessed using the Spearman rank correlation together with whether the lowest-energy structure falls in the maximum-$\rho $ subset sampled for that composition}{figure.4}{}}
-\citation{cp2k2020}
-\citation{perdew1996pbe,grimme2010d3}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces CASM cross-validation for one (topology $\tau $, ligand pool)}}{13}{algorithm.2}\protected@file@percent }
-\newlabel{alg:casm}{{2}{13}{CASM Comparison Protocol}{algorithm.2}{}}
-\bibdata{reference}
-\bibcite{zhou2012introduction}{{1}{2012}{{Zhou et~al.}}{{}}}
-\bibcite{furukawa2013chemistry}{{2}{2013}{{Furukawa et~al.}}{{}}}
-\bibcite{wilmer2012large}{{3}{2012}{{Wilmer et~al.}}{{}}}
-\bibcite{colon2014high}{{4}{2014}{{Col{\'o}n and Snurr}}{{}}}
-\bibcite{park2024data}{{5}{2024}{{Park et~al.}}{{}}}
-\bibcite{kim2025machine}{{6}{2025}{{Kim et~al.}}{{}}}
-\bibcite{colon2017topologically}{{7}{2017}{{Col{\'o}n et~al.}}{{}}}
-\bibcite{jin2025intelligent}{{8}{2025}{{Jin et~al.}}{{}}}
-\bibcite{badrinarayanan2025mofgpt}{{9}{2025}{{Badrinarayanan et~al.}}{{}}}
-\bibcite{Kim2024MOFFlowFM}{{10}{2024}{{Kim et~al.}}{{}}}
-\bibcite{ALIMARDANI20267967}{{11}{2026}{{Alimardani et~al.}}{{}}}
-\bibcite{jin2025mofchecker}{{12}{2025}{{Jin et~al.}}{{}}}
-\bibcite{trejo2026assessing}{{13}{2026}{{Trejo et~al.}}{{}}}
-\bibcite{peng2024learning}{{14}{2024}{{Peng et~al.}}{{}}}
-\bibcite{zeni2023mattergen}{{15}{2023}{{Zeni et~al.}}{{}}}
-\bibcite{okabe2025structural}{{16}{2025}{{Okabe et~al.}}{{}}}
-\bibcite{mckay1998isomorph}{{17}{1998}{{McKay}}{{}}}
-\bibcite{mckay2014practical}{{18}{2014}{{McKay and Piperno}}{{}}}
-\bibcite{hart2008algorithm}{{19}{2008}{{Hart and Forcade}}{{}}}
-\bibcite{hart2009generating}{{20}{2009}{{Hart and Forcade}}{{}}}
-\bibcite{hart2012generating}{{21}{2012}{{Hart et~al.}}{{}}}
-\bibcite{morgan2017generating}{{22}{2017}{{Morgan et~al.}}{{}}}
-\bibcite{VANDEWALLE2002539}{{23}{2002}{{{van de Walle} et~al.}}{{}}}
-\bibcite{PUCHALA2023111897}{{24}{2023}{{Puchala et~al.}}{{}}}
-\bibcite{wang2023magus}{{25}{2023}{{Wang et~al.}}{{}}}
-\bibcite{boyd2016generalized}{{26}{2016}{{Boyd and Woo}}{{}}}
-\bibcite{cp2k2020}{{27}{2020}{{K{\"u}hne et~al.}}{{}}}
-\bibcite{perdew1996pbe}{{28}{1996}{{Perdew et~al.}}{{}}}
-\bibcite{grimme2010d3}{{29}{2010}{{Grimme et~al.}}{{}}}
-\gdef \@abspage@last{17}
+\newlabel{sec:intro}{{1}{2}{Introduction}{section*.2}{}}
+\citation{morgan2017generating}

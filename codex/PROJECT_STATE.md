@@ -56,6 +56,20 @@ rho(c) = |Stab(c)| / |Gamma|
 
 这个设计比直接把所有结构混在一起更科学，因为能量强烈受局部组分和配体摆放影响。
 
+关于当前 `ffc` 结果的解释边界，也需要固定下来：
+
+- 当前 `ffc` 已收敛 21 个 single-point，分布在 8 个 composition groups。
+- 其中只有少数组分有 4--5 个点；大多数组分只有 2--3 个点，因此不适合写成“有统计显著性的 symmetry--energy trend”。
+- 目前可以守住的说法是：在这 8 个组分里，组内最低能点均落在 `Med/High` 区，而不是 `Low` 区；这支持 symmetry-prioritized traversal 的 candidate-retention 口径，但只是有限的定性证据。
+- 不建议把 `ffc` 改写成“全局 pooled 最低能点”论证，因为不同 composition 的绝对 single-point energy 仍受 building-block identity 强烈影响；去掉组分控制会削弱而不是增强论证。
+- 图中的 open-circle markers 目前是必要的，因为它们明确对应“固定组成内最低能点”这一受控比较；若只标全局最低点，读者会更容易质疑 composition confound。
+
+另一个代码层面的注意点：
+
+- 当前 `dft_validation/select_structures.py` 的 `ffc` 选择并不会读取 `FFC_COMPOSITIONS`/`FFC_COMP_LABELS`，而是对满足 `distinct-rho >= FFC_MIN_RHO` 的所有组分做 exhaustive selection。
+- 因此，如果仅把 `VALIDATION_TARGETS` 里的 `ffc.atom_choices` 从两种 3c ligand 改成三种 3c ligand，确实会改变枚举空间，但不会自动得到“更干净、更好看”的验证；它更可能引入更多 chemistry variation，使 pooled 图更杂。
+- 若真要扩充 `ffc` 证据，更合理的方向是增加当前 chemistry family 内、固定 composition 下的样本深度，或等待 `fjh` 完整后把主要论点转交给 `fjh`。
+
 ## CP2K / DFT Method
 
 服务器：
@@ -137,6 +151,8 @@ ps aux | grep '[c]p2k'
 注意事项：
 
 - `Ctrl+C` 停止 `tail` 不会停止 nohup Python。
+- 若日志出现 `KeyboardInterrupt: received signal 15; stopped CP2K`，这不是“正常跑完”，而是外部向外层 Python 发了 `SIGTERM`，脚本随后主动停止对应 CP2K 进程组；这一轮不会继续向后跑，需先确认原因再 `--resume`。
+- `tail -f "$LOG"` 若报 `cannot open ''`，通常表示当前 shell 中 `LOG` 变量为空（例如开了新终端、断线重连或重新登录后环境变量未继承），不等于日志文件本身不存在。
 - 要停任务时，先 kill 外层 Python，再确认 CP2K 没残留。
 - 不要在 CP2K 运行中删除 `runs/` 或 `relaxed/`。
 - 如果要部署新的并发代码，先停止旧的串行 nohup Python 和它启动的 CP2K，避免同一结构重复跑。

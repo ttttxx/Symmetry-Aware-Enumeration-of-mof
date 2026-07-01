@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1782810391.60515 "main.aux" "main.bbl" "main" 1782810392.74556 0
+["bibtex main"] 1782884764.3464 "main.aux" "main.bbl" "main" 1782884765.31125 0
   "./reference.bib" 1782699660 24543 5aa4ac31d0b72dac0d9df6bb37a207a2 ""
   "./sn-mathphys-num.bst" 1782699660 64166 9adad5d5c1e00c8b866e91fad1a03aa0 ""
-  "main.aux" 1782810392.57299 7987 df81e3bb733b62437e6ac47db1a96830 "pdflatex"
+  "main.aux" 1782884765.15699 8532 a829fe12c1511f8e92c3f7d71a2317b5 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782810391.6319 "main.tex" "main.pdf" "main" 1782810392.74571 0
+["pdflatex"] 1782884764.38285 "main.tex" "main.pdf" "main" 1782884765.31136 0
   "/Users/jing/Library/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1782730863 79288 801d59c674eef1680178ff87daa0aaee ""
   "/Users/jing/Library/texmf/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/Users/jing/Library/texmf/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -244,10 +244,10 @@
   "/usr/local/texlive/2026basic/texmf.cnf" 1772405582 628 bbc09d6d38872d53c11bb48dc9b14e88 ""
   "ffc_fjh_vba.png" 1782699660 716273 645e6514572315118825d116dcbf4bb6 ""
   "ffc_pooled_symmetry_energy.png" 1782795057.01367 164415 ba7a02fb7aa1a543f9fbee524f50f55a ""
-  "main.aux" 1782810392.57299 7987 df81e3bb733b62437e6ac47db1a96830 "pdflatex"
-  "main.bbl" 1782810391.62942 16950 a729cc3c69394a5b3c5a1edd586ab005 "bibtex main"
-  "main.out" 1782810392.57374 999 77fdc8eb9502410f5baab42fc8a72bf0 "pdflatex"
-  "main.tex" 1782810379.66966 62072 d6e95325e60b55f5ed5908c08bfff41c ""
+  "main.aux" 1782884765.15699 8532 a829fe12c1511f8e92c3f7d71a2317b5 "pdflatex"
+  "main.bbl" 1782884764.38044 16950 a729cc3c69394a5b3c5a1edd586ab005 "bibtex main"
+  "main.out" 1782884765.15774 1235 74b2abac481b73dd7fb8fafcf82c33c8 "pdflatex"
+  "main.tex" 1782884726.07161 72709 be91fd3b01039b3be6aaaa0ce62870d2 ""
   "pipline.png" 1782699660 1640505 4f9337a847cde86a872bdc8c86b19751 ""
   "sn-jnl.cls" 1782699660 55857 7d4515312123fd1744517a7415d792ff ""
   (generated)

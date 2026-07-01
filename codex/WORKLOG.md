@@ -57,3 +57,26 @@ Tightened the paper defense around pooled DFT figures:
 - Made the primary visual criterion explicit: composition-wise lowest-energy open markers, not a global pooled slope.
 - Strengthened the single-point DFT caveat: energies are geometry-consistent screening scores, not relaxed formation energies or a full stability ranking.
 - Recompiled `paper/main.tex` successfully after the wording update.
+
+Recorded a server-side DFT interruption pattern for future resume/debugging:
+
+- A traceback ending with `KeyboardInterrupt: received signal 15; stopped CP2K` comes from `dft_validation/cp2k_runner.py`, which converts external `SIGTERM` into a controlled stop of the whole CP2K process group.
+- Interpretation: the nohup Python driver did not simply keep running in the background after that message; the current batch was interrupted and needs explicit status checking or `--resume`.
+- `tail -f "$LOG"` failing with `cannot open ''` was traced to an empty `LOG` environment variable in the current shell, most likely because the original variable assignment was made in an earlier shell session.
+- Practical follow-up on the server: check `ps -fp "$(cat run_parallel.pid)"` if the pid file exists, otherwise `ps aux | grep '[r]un_dft_validation.py'`; if nothing is alive, restart with `--resume` and record the new log filename explicitly.
+
+Reviewed the current `ffc` evidence against likely reviewer criticism and tightened the manuscript accordingly:
+
+- Confirmed from the latest `selected_structures.json` that `ffc` currently has 21 converged single-point calculations across 8 composition groups.
+- Composition-wise minima fall in `Med/High` symmetry for all 8 groups (`High=6`, `Med=2`, `Low=0`), which supports a limited candidate-retention claim.
+- Also confirmed that this dataset is too small and too imbalanced across compositions to defend as a strong statistical symmetry--energy trend.
+- Updated `paper/main.tex` to reflect this more carefully: `ffc` is now framed as a limited qualitative check, not a universal trend claim; the unrelaxed single-point protocol is described more explicitly as a screening-stage comparison on a common assembled-geometry manifold.
+- Recorded a design warning for future experiments: removing composition-controlled minima markers from the `ffc` pooled figure, or replacing them with only global minima, would weaken the argument rather than strengthen it.
+- Recorded a code warning: adding `3c_Cu_imadazoline_Ch` to `ffc.atom_choices` would change the chemistry pool, but by itself does not guarantee a stronger validation dataset and may worsen composition confounding.
+
+Assessed `fjh` runtime expectations and acceleration options:
+
+- A wall time of roughly 3 hours per `fjh` single-point on the current CPU-only shared server is plausible for the present setup: ~760-atom cells, diagonalization SCF, and PBE+D3 with `500/60 Ry`.
+- If the scientific settings must remain unchanged, the safest way to reduce total calendar time is throughput parallelism rather than trying to make each individual `fjh` job dramatically faster.
+- The first practical knob to test is lower OpenMP per job with more concurrent `fjh` jobs, e.g. `CP2K_OMP=16` and `DFT_MAX_WORKERS["fjh"]=2`, provided memory stays within budget and the server is not crowded.
+- More aggressive accelerations such as lower cutoffs, smaller basis, or weaker SCF settings would change the protocol and should not be adopted for the main paper results without an explicit methods decision.
