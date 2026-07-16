@@ -3,13 +3,11 @@ import numpy as np
 from pymatgen.core import Structure
 from dft_validation import config
 
-
 def check_element_coverage(struct: Structure) -> list:
     """Return list of element symbols not in config.ELEMENT_KIND."""
     known = set(config.ELEMENT_KIND.keys())
     present = {str(sp.symbol) for sp in struct.composition.elements}
     return sorted(present - known)
-
 
 def compute_electron_parity(struct: Structure) -> tuple:
     """
@@ -24,7 +22,6 @@ def compute_electron_parity(struct: Structure) -> tuple:
     mult = 2 if n_e % 2 == 1 else 1
     return n_e, mult
 
-
 def min_nonbond_distance(struct: Structure) -> float:
     """Return the minimum pairwise distance between all sites."""
     min_d = float("inf")
@@ -34,7 +31,6 @@ def min_nonbond_distance(struct: Structure) -> float:
             if d < min_d:
                 min_d = d
     return min_d
-
 
 def preclean_xtb(struct: Structure) -> Structure | None:
     """
@@ -56,7 +52,6 @@ def preclean_xtb(struct: Structure) -> Structure | None:
         print(f"  [sanitize] xTB failed: {e}")
         return None
 
-
 def _preclean(struct: Structure) -> Structure | None:
     """Dispatch to the configured pre-clean engine."""
     engine = config.PRECLEAN_ENGINE
@@ -71,7 +66,6 @@ def _preclean(struct: Structure) -> Structure | None:
             print(f"  [sanitize] CHGNet failed: {e}")
             return None
     return struct  # "none" engine — return as-is
-
 
 def sanitize_one(record: dict, results_dir: str) -> dict:
     """
@@ -138,7 +132,6 @@ def sanitize_one(record: dict, results_dir: str) -> dict:
             "n_electrons": n_e,
             "multiplicity": mult,
             "n_atoms": len(struct)}
-
 
 def sanitize_all(records: list, results_dir: str) -> list:
     """Sanitize every record; write updated JSON; return updated list."""

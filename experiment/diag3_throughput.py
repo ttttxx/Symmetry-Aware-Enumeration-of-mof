@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+# !/usr/bin/env python3.11
 """Diagnostic 3: CASM throughput measurement and vba extrapolation.
 
 Measures CASM enumeration throughput on the largest feasible case (fjh C3=1,C4=3)
@@ -13,7 +13,6 @@ import libcasm.configuration as config_mod
 import libcasm.enumerate as enum_mod
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 def measure_throughput(topology, c3, c4):
     """Measure CASM enumeration throughput (naive_configs/sec and orbits/sec)."""
@@ -71,7 +70,6 @@ def measure_throughput(topology, c3, c4):
         "orbits_per_sec": throughput_orbits,
     }
 
-
 def extrapolate_vba(throughput_naive_per_sec):
     """Extrapolate vba wall-clock from naive-space throughput."""
     results = []
@@ -95,7 +93,6 @@ def extrapolate_vba(throughput_naive_per_sec):
             "intractable_by_8GB": True,  # Memory also a concern
         })
     return results
-
 
 def main():
     print("=" * 60)
@@ -151,7 +148,6 @@ def main():
     c4_3_time = (3**32) / tp
     print(f"  vba C4=3 would need ~{c4_3_time/8760:.1f} years")
     print(f"  → Clearly intractable by many orders of magnitude")
-
 
 if __name__ == "__main__":
     main()

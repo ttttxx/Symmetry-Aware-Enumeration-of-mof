@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 """Finalize CSV with 3-rep medians for exhaustive cases. Skips vba."""
 import json, os, sys, subprocess, csv
 from statistics import median

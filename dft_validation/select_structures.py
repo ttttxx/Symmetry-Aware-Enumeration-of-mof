@@ -2,7 +2,6 @@ import os, sys, json, random
 from collections import Counter, defaultdict
 sys.path.insert(0, '.')
 
-# ── NetworkX v3 compat: shortest_path returns generator in v3 ─────────────
 import networkx as nx
 _nx_sp = nx.shortest_path
 nx.shortest_path = lambda *a, **kw: dict(_nx_sp(*a, **kw))
@@ -13,13 +12,9 @@ from enumerator import MOFEnumerator
 from assembler import StructureAssembler
 from dft_validation import config
 
-
-# ═══════════════════════════════════════════════════════════════════════════
 # Pure helpers (unit-tested independently of pymatgen / assembler)
-# ═══════════════════════════════════════════════════════════════════════════
 def _graph_path(topology: str) -> str:
     return os.path.join("data", topology, f"{topology}_graph.json")
-
 
 def _apply_cd_substitution(atom_choices: dict) -> dict:
     """Replace 4c_Cu_1_Ch → 4c_Cd_1_Ch in atom_choices if USE_CLOSED_SHELL_VARIANT."""
@@ -30,16 +25,13 @@ def _apply_cd_substitution(atom_choices: dict) -> dict:
         for deg, ligs in atom_choices.items()
     }
 
-
 def comp_key(coloring: list) -> dict:
     """Return {ligand_name: count} composition dict for a coloring."""
     return dict(Counter(coloring))
 
-
 def comp_label_key(coloring: list) -> str:
     """Canonical, sortable string key for a composition (chemistry fingerprint)."""
     return ",".join(f"{k}:{v}" for k, v in sorted(comp_key(coloring).items()))
-
 
 def classify_sym_classes(results: list) -> list:
     """
@@ -70,7 +62,6 @@ def classify_sym_classes(results: list) -> list:
         out.append({**r, "sym_class": cls})
     return out
 
-
 def group_by_composition(classified: list) -> dict:
     """{composition_key_string: [records]}."""
     groups = defaultdict(list)
@@ -78,14 +69,11 @@ def group_by_composition(classified: list) -> dict:
         groups[comp_label_key(r["coloring"])].append(r)
     return dict(groups)
 
-
 def _distinct_rho(recs: list) -> int:
     return len(set(r["stabilizer_size"] for r in recs))
 
-
 def _has_high(recs: list) -> bool:
     return any(r["sym_class"] == "High" for r in recs)
-
 
 def select_compositions(groups: dict, min_rho_values: int,
                         n_compositions: int, exhaustive: bool) -> list:
@@ -100,7 +88,6 @@ def select_compositions(groups: dict, min_rho_values: int,
                               -len(kv[1]), kv[0]))
     return elig if exhaustive else elig[:n_compositions]
 
-
 def stratified_sample_by_rho(recs: list, n_per_rho: int, seed: int) -> list:
     """Sample up to n_per_rho structures from each distinct stabilizer_size (=rho)."""
     rng = random.Random(seed)
@@ -114,10 +101,7 @@ def stratified_sample_by_rho(recs: list, n_per_rho: int, seed: int) -> list:
         out.extend(bucket[:n_per_rho])
     return out
 
-
-# ═══════════════════════════════════════════════════════════════════════════
 # Enumeration + assembly
-# ═══════════════════════════════════════════════════════════════════════════
 def _enumerate_topology(topology: str, atom_choices: dict):
     """Return (results, graph_data, perms) for a topology + atom_choices."""
     graph_data = enrich_graph_data_with_topology(load_graph(_graph_path(topology)))
@@ -132,7 +116,6 @@ def _enumerate_topology(topology: str, atom_choices: dict):
         node_degrees=node_degs,
     ).enumerate(all_ligs)
     return results, graph_data, perms
-
 
 def _topology_selection_params(topology: str) -> dict:
     """Per-topology knobs, with safe fallbacks if config lacks the new fields."""
@@ -151,10 +134,8 @@ def _topology_selection_params(topology: str) -> dict:
         n_per_rho=getattr(config, "FJH_N_PER_RHO", 2),
     )
 
-
 def _make_label(idx: int) -> str:
     return f"comp_{chr(ord('a') + idx)}" if idx < 26 else f"comp_{idx}"
-
 
 def _build_records_for_topology(target: dict):
     """
@@ -205,7 +186,6 @@ def _build_records_for_topology(target: dict):
             })
     return pending, graph_data, perms
 
-
 def _assemble_records_with_graph(records: list, graph_data: dict, forced_edge: str,
                                  out_dir: str, topology: str) -> list:
     """Assemble CIFs, update n_atoms + init_cif. Returns updated records."""
@@ -235,7 +215,6 @@ def _assemble_records_with_graph(records: list, graph_data: dict, forced_edge: s
         updated.append(rec)
     return updated
 
-
 def _cu_probe_record(target: dict, ffc_perms) -> dict | None:
     """Pick 1 High-sym ffc structure using ORIGINAL Cu atom_choices (open-shell)."""
     if not config.CU_PROBE:
@@ -264,10 +243,6 @@ def _cu_probe_record(target: dict, ffc_perms) -> dict | None:
         "status": "selected",
     }
 
-
-# ═══════════════════════════════════════════════════════════════════════════
-# Main entry
-# ═══════════════════════════════════════════════════════════════════════════
 def run_selection(results_dir: str = None) -> list:
     """
     Phase 1. Iterate VALIDATION_TARGETS in order (ffc first, fast → fjh last).

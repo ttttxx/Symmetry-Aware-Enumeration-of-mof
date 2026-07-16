@@ -5,7 +5,6 @@ import numpy as np
 from external_lib.utils.crystal_structure_optimization import adjust_coordinates_periodic_boundary
 from external_lib.utils.parameter import judge_vertex, judge_edge, fractional_to_cartesian_matrix
 
-
 class Node():
 
     def __init__(self, node_path):
@@ -45,7 +44,7 @@ class Node():
         labeled_node_coords = []
         labeled_node_coords_append = labeled_node_coords.append
 
-        for line in cif:  # 获取文件中的相关信息
+        for line in cif:
             s = line.split()
             if '_cell_length_a' in line:
                 a = s[1]
@@ -59,17 +58,15 @@ class Node():
                 beta = s[1]
             if '_cell_angle_gamma' in line:
                 gamma = s[1]
-            if judge_vertex(s) and 'X' in s[0]:  # 如果存在某条边的结点类型包含X，则提取坐标
+            if judge_vertex(s) and 'X' in s[0]:
                 coord_vector = np.array([float(q) for q in s[2:5]])
                 labeled_node_coords_append([s[0], coord_vector])
 
         a, b, c, alpha, beta, gamma = list(map(float, (a, b, c, alpha, beta, gamma)))
         unit_cell = fractional_to_cartesian_matrix(a, b, c, alpha, beta, gamma)
 
-        # 计算最小分数坐标
         mic_labeled_node_coords = [[vec[0], adjust_coordinates_periodic_boundary(labeled_node_coords[0][1], vec[1])] for vec in labeled_node_coords]
 
-        # 计算笛卡尔坐标
         if label:
             cart_coords = [[vec[0], np.dot(unit_cell, vec[1])] for vec in mic_labeled_node_coords]
             center_of_mass = np.average(np.asarray([vec[1] for vec in cart_coords]), axis=0)

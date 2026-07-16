@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+# !/usr/bin/env python3.11
 """CASM enumeration worker — runs under python3.11 with libcasm v2.
 
 Uses CASM's full factor group (proper + improper) for enumeration, then the
@@ -25,21 +25,17 @@ import libcasm.xtal as xtal
 import libcasm.configuration as config_mod
 import libcasm.enumerate as enum_mod
 
-# ── Thread control ────────────────────────────────────────────────────────────
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
 
-# ── Expected proper-rotation group sizes (graph automorphism |Γ|) ─────────────
 EXPECTED_PROPER = {"ffc": 8, "fjh": 16, "vba": 16}
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 def load_graph(topology: str) -> dict:
     path = os.path.join(PROJECT_ROOT, "data", topology, f"{topology}_graph.json")
     with open(path) as f:
         return json.load(f)
-
 
 def build_prim(topology: str, c3_count: int, c4_count: int):
     """Construct CASM Prim from CIF with placeholder species.
@@ -53,7 +49,6 @@ def build_prim(topology: str, c3_count: int, c4_count: int):
     node_degrees = [n.get("degree", 0) for n in graph["nodes"]]
     n_sites = len(structure.sites)
 
-    # ── Site mapping validation ───────────────────────────────────────────
     assert n_sites == graph["n_nodes"], (
         f"CIF sites ({n_sites}) != graph nodes ({graph['n_nodes']})"
     )
@@ -70,7 +65,6 @@ def build_prim(topology: str, c3_count: int, c4_count: int):
     print(f"  [validate] {topology}: {n_sites} sites, CIF↔graph OK",
           file=sys.stderr)
 
-    # ── Species labels ────────────────────────────────────────────────────
     deg3_species = [chr(ord("A") + i) for i in range(c3_count)] if c3_count > 0 else []
     deg4_species = [chr(ord("X") + i) for i in range(c4_count)] if c4_count > 0 else []
 
@@ -88,12 +82,10 @@ def build_prim(topology: str, c3_count: int, c4_count: int):
         all_species.update(lst)
     occupants = {s: xtal.Occupant(s) for s in all_species}
 
-    # ── Construct xtal.Prim (3×N coordinate convention) ────────────────────
     lattice = xtal.Lattice(structure.lattice.matrix)
     frac_coords = np.array([s.frac_coords for s in structure.sites]).T  # 3×N
     xtal_prim = xtal.Prim(lattice, frac_coords, occ_dof, occupants=occupants)
 
-    # ── Check proper-rotation subgroup ─────────────────────────────────────
     fg = xtal.make_prim_factor_group(xtal_prim)
     proper_ops = [op for op in fg if np.linalg.det(np.array(op.matrix())) > 0]
     expected = EXPECTED_PROPER[topology]
@@ -120,18 +112,15 @@ def build_prim(topology: str, c3_count: int, c4_count: int):
     config_prim = config_mod.Prim(xtal_prim)
     return config_prim, node_degrees, len(fg), len(proper_ops)
 
-
 def run_casm_enumeration(topology: str, c3_count: int, c4_count: int) -> dict:
     """Run CASM enumeration with full factor group. Returns full-group orbit count."""
     config_prim, _, fg_size, proper_size = build_prim(topology, c3_count, c4_count)
 
-    # ── Volume-1 supercell ─────────────────────────────────────────────────
     supercell = config_mod.Supercell(
         config_prim,
         transformation_matrix_to_super=np.eye(3, dtype=int),
     )
 
-    # ── Enumerate (full factor group) ──────────────────────────────────────
     enumerator = enum_mod.ConfigEnumAllOccupations(config_prim)
 
     t0 = time.perf_counter()
@@ -149,7 +138,6 @@ def run_casm_enumeration(topology: str, c3_count: int, c4_count: int) -> dict:
         "peak_mem_mb": round(rss_bytes / 1_048_576, 2),
         "status": "exhaustive",
     }
-
 
 def main():
     if len(sys.argv) != 4:
@@ -172,7 +160,6 @@ def main():
 
     # Print clean JSON to (the real) stdout
     print(json.dumps(result))
-
 
 if __name__ == "__main__":
     main()

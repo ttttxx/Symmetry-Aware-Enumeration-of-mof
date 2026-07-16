@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 """Diagnostic 2: vba 8 vs 16 symmetry anomaly investigation.
 
 Dumps vba's graph automorphism group Γ, runs SpacegroupAnalyzer at multiple
@@ -18,7 +18,6 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from symmetry import SymmetryEngine
 from main import load_graph, enrich_graph_data_with_topology
-
 
 def analyze_sga(structure, label, symprec_values=(0.01, 0.1, 0.3)):
     """Run SpacegroupAnalyzer at multiple symprec, report ops counts."""
@@ -43,7 +42,6 @@ def analyze_sga(structure, label, symprec_values=(0.01, 0.1, 0.3)):
         except Exception as e:
             print(f"  symprec={prec:4.2f}: ERROR {e}")
     print()
-
 
 def dump_automorphism_group(graph_data):
     """Extract and dump the automorphism group Γ from SymmetryEngine."""
@@ -87,14 +85,10 @@ def dump_automorphism_group(graph_data):
         # Try to find the crystallographic operation that maps to this permutation
         # The SymmetryEngine already mapped this — each perm came from an op with det>0.
         # But can we reconstruct the op?
-        #
         # SymmetryEngine code: for each op in sga_ops (already det>0 filtered):
-        #   for each node i, find target_idx where distance < tol
-        #   → builds perm
-        #
+        # → builds perm
         # So every perm in Γ was derived FROM a crystallographic op with det>0.
         # We need to find which one.
-        #
         # Strategy: try each op, apply to frac_coords, and see which gives this perm
 
         matched_op = None
@@ -151,12 +145,10 @@ def dump_automorphism_group(graph_data):
 
     return perms, proper_count, improper_count, has_crystallographic, no_crystallographic
 
-
 def analyze_cif_directly(cif_path, label):
     """Run SpacegroupAnalyzer directly on the CIF (what CASM sees)."""
     structure = Structure.from_file(cif_path)
     analyze_sga(structure, f"CIF: {label}")
-
 
 def analyze_graph_structure(graph_data, label):
     """Run SpacegroupAnalyzer on the graph-baked structure (what SymmetryEngine sees)."""
@@ -164,31 +156,25 @@ def analyze_graph_structure(graph_data, label):
     # The structure is sym.structure
     analyze_sga(sym.structure, f"Graph-baked: {label}")
 
-
 def main():
-    # ── 1. Load vba graph, dump Γ ──
     vba_graph = load_graph(os.path.join(PROJECT_ROOT, "data", "vba", "vba_graph.json"))
     vba_graph = enrich_graph_data_with_topology(vba_graph)
     perms, proper, improper, has_crys, no_crys = dump_automorphism_group(vba_graph)
 
-    # ── 2. Multi-symprec on vba CIF ──
     analyze_cif_directly(
         os.path.join(PROJECT_ROOT, "data", "mof", "vba.cif"),
         "vba CIF (data/mof/vba.cif)"
     )
 
-    # ── 3. Multi-symprec on vba graph-baked structure ──
     vba_graph_raw = load_graph(os.path.join(PROJECT_ROOT, "data", "vba", "vba_graph.json"))
     analyze_graph_structure(vba_graph_raw, "vba graph-baked")
 
-    # ── 4. Sanity: ffc and fjh on CIF ──
     for topo in ["ffc", "fjh"]:
         analyze_cif_directly(
             os.path.join(PROJECT_ROOT, "data", "mof", f"{topo}.cif"),
             f"{topo} CIF (data/mof/{topo}.cif)"
         )
 
-    # ── 5. Classification ──
     print(f"\n{'='*60}")
     print(f"  CLASSIFICATION")
     print(f"{'='*60}")
@@ -205,7 +191,6 @@ def main():
         print(f"    coordinate precision between CIF and graph-baked structure.")
     else:
         print(f"  → Mixed: {has_crys} with (R,t), {no_crys} without. Need further investigation.")
-
 
 if __name__ == "__main__":
     main()

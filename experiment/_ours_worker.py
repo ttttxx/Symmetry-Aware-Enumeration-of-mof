@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 """Our enumerator worker — runs under project python3, calls MOFEnumerator directly.
 
 Usage:
@@ -14,7 +14,6 @@ import sys
 import time
 import resource
 
-# ── Thread control ────────────────────────────────────────────────────────────
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
@@ -26,12 +25,10 @@ from main import load_graph, enrich_graph_data_with_topology, calculate_topology
 from symmetry import SymmetryEngine
 from enumerator import MOFEnumerator
 
-# ── Available ligands per degree ──────────────────────────────────────────────
 DEGREE_LIGANDS = {
     3: ["3c_B_Ch", "3c_triazine_Ch", "3c_Cu_imadazoline_Ch"],
     4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"],
 }
-
 
 def build_ligand_dict(c3_count: int, c4_count: int) -> dict:
     """Select first |C3| and first |C4| ligands from the available pools."""
@@ -42,13 +39,11 @@ def build_ligand_dict(c3_count: int, c4_count: int) -> dict:
         ligands[4] = DEGREE_LIGANDS[4][:c4_count]
     return ligands
 
-
 def ligand_pool_label(ligands: dict) -> str:
     parts = []
     for d in sorted(ligands):
         parts.append(f"C{d}={len(ligands[d])}")
     return ",".join(parts)
-
 
 def run_ours_enumeration(topology: str, c3_count: int, c4_count: int,
                          disable_budget: bool = False) -> dict:
@@ -62,11 +57,9 @@ def run_ours_enumeration(topology: str, c3_count: int, c4_count: int,
     ligands = build_ligand_dict(c3_count, c4_count)
     all_ligs = sorted(set(l for ls in ligands.values() for l in ls))
 
-    # ── Symmetry (outside timing) ─────────────────────────────────────────
     sym = SymmetryEngine(graph_data, verbose=False)
     perms = sym.compute_automorphism_group()
 
-    # ── Budget control ────────────────────────────────────────────────────
     if disable_budget:
         enum_task_time_limit = None
         enum_max_total = None
@@ -89,7 +82,6 @@ def run_ours_enumeration(topology: str, c3_count: int, c4_count: int,
         identity_new_limit=enum_new_limit,
     )
 
-    # ── Timing + RSS around enumerate() only ──────────────────────────────
     t0 = time.perf_counter()
     results = enumerator.enumerate(all_ligs)
     t1 = time.perf_counter()
@@ -110,7 +102,6 @@ def run_ours_enumeration(topology: str, c3_count: int, c4_count: int,
         "budget_triggered": budget_triggered,
         "status": "budgeted" if budget_triggered else "exhaustive",
     }
-
 
 def main():
     import argparse
@@ -135,7 +126,6 @@ def main():
 
     # Print clean JSON to (the real) stdout
     print(json.dumps(result))
-
 
 if __name__ == "__main__":
     main()

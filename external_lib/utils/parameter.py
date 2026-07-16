@@ -4,10 +4,6 @@ import numpy as np
 
 PARALLEl = True
 
-# MOF_MODE = False
-# COF_MODE = True
-# MODIFIED_MODE = False
-
 ONLY_MOF = False
 SINGAL_METAL = False
 IGNORE_WRONG = False
@@ -61,17 +57,9 @@ PT = ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg', 'Al', 'S
       'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf', 'Es', 'Fm', 'Md', 'No', 'Lr', 'FG', 'X']
 
 class ShapeMismatchError(ValueError):
-    """配体连接点数量与拓扑锚点不匹配时抛出。"""
     pass
 
-
 def fractional_to_cartesian_matrix(a, b, c, alpha, beta, gamma):
-    """将晶胞参数转换为笛卡尔变换矩阵 (3x3)。
-
-    Returns:
-        3x3矩阵 M, 满足 Cartesian = M @ Fractional。
-        M 的列向量为晶格基矢 a, b, c 在笛卡尔坐标系中的表示。
-    """
     pi = np.pi
     ax = a
     ay = 0.0
@@ -83,7 +71,6 @@ def fractional_to_cartesian_matrix(a, b, c, alpha, beta, gamma):
     cy = (c * b * np.cos(alpha * pi / 180.0) - bx * cx) / by
     cz = (c ** 2.0 - cx ** 2.0 - cy ** 2.0) ** 0.5
     return np.asarray([[ax, ay, az], [bx, by, bz], [cx, cy, cz]]).T
-
 
 def isfloat(value):
     """
@@ -97,7 +84,6 @@ def isfloat(value):
     except ValueError:
         return False
 
-
 def judge_vertex(line):
 
     if nn(line[0]) in PT and line[1] in PT and False not in map(isfloat, line[2:5]):
@@ -105,7 +91,6 @@ def judge_vertex(line):
         return True
     else:
         return False
-
 
 def judge_edge(line):
 
@@ -115,9 +100,7 @@ def judge_edge(line):
     else:
         return False
 
-
 def is_metalvertex(line):
-
 
     if len(line) >= 5:
         line_state = map(isfloat, line[2:5])
@@ -128,9 +111,7 @@ def is_metalvertex(line):
         else:
             return False
 
-
 def is_metaledge(line):
-    #
     if len(line) >= 5:
         replaced_line0 = re.sub('[^a-zA-Z]', '', line[0])
         replaced_line1 = re.sub('[^a-zA-Z]', '', line[1])

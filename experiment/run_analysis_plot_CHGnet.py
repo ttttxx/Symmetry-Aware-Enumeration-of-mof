@@ -1,25 +1,3 @@
-"""
-CHGNet Symmetry–Stability Analysis  (ffc / fjh / vba) – 优化版 v2
-===================================================================
-优化项 (vs 原版)
------------------
-  1. TORCH_THREADS 常量限制 PyTorch CPU 线程数，防止整机卡死
-  2. 枚举使用 multiprocessing.Process + Queue 替代 threading
-  3. 临时 CIF 用 tempfile.mkstemp 写入系统 tmp 目录（RAM 盘）
-  4. 每个实验完成后立即保存独立 PNG，边跑边看结果
-  5. --exp N 参数：只跑第 N 个实验（0-based），便于单步调试
-
-绘图更新 (v2)
---------------
-  6. 对称性分类基于归一化对称指数 ρ = |Stab| / |Γ|：
-       High : ρ ∈ [0.75, 1]
-       Med  : ρ ∈ (0.25, 0.75)
-       Low  : ρ ∈ [0,    0.25]
-  7. 基态（最低能量点）标注，带弯曲箭头 + 白底文字框，自动避开遮挡
-  8. 添加线性趋势线（log ρ vs E）及 Pearson r 值，直观展示对称–稳定关联
-  9. 论文级绘图风格：Nature/ACS 风格 rcParams，去上/右轴脊，
-     分区背景色带，colorblind-friendly 配色
-"""
 
 import os, sys, csv, random, re, time, warnings, tempfile, argparse
 import multiprocessing as mp
@@ -34,7 +12,6 @@ from matplotlib.lines import Line2D
 
 warnings.filterwarnings('ignore')
 
-# ── paths ──────────────────────────────────────────────────────────────────
 current_dir  = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.insert(0, project_root)
@@ -49,11 +26,7 @@ from assembler  import StructureAssembler
 results_root = os.path.join(project_root, "results", "structure_selection")
 cifs_root    = os.path.join(project_root, "results")
 
-# ══════════════════════════════════════════════════════════════════════════════
-# EXPERIMENT DEFINITIONS
-# ══════════════════════════════════════════════════════════════════════════════
 EXPERIMENTS = [
-    # ffc: 7 nodes, 4 deg-3 + 3 deg-4, |Γ|=8  (CIF gen ≈3 s)
     ("ffc",
      {3: ["3c_B_Ch", "3c_triazine_Ch"],
       4: ["4c_Cu_1_Ch", "4c_B_Ch"]},
@@ -63,7 +36,6 @@ EXPERIMENTS = [
       4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]},
      "3c×3 + 4c×3", "enumerate", None),
 
-    # fjh: 28 nodes, 16 deg-3 + 12 deg-4, |Γ|=16  (CIF gen ≈3 min)
     ("fjh",
      {3: ["3c_B_Ch"],
       4: ["4c_Cu_1_Ch", "4c_B_Ch"]},
@@ -75,8 +47,6 @@ EXPERIMENTS = [
       4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}
      ),
 
-    # vba: 32 nodes, all deg-4, |Γ|=16  (CIF gen ~800 s + topology failure)
-    # 优先读预生成目录；目录不存在时用第 5 个元素（fallback_ligands）枚举兜底。
     ("vba",
      ["vba_4c_B_Ch4c_Cu_1_Ch_cifs"],
      "4c×2 (pre-gen)", "cif_dirs",
@@ -88,47 +58,34 @@ EXPERIMENTS = [
      {4: ["4c_B_Ch", "4c_Cd_1_Ch", "4c_Cu_1_Ch"]}),                       # fallback
 ]
 
-# ── tunable parameters ──────────────────────────────────────────────────────
 ENUM_TIMEOUT  = 600
 MAX_HIGH      = 50
 MAX_MED       = 12
 MAX_LOW       = 12
 MAX_ATOMS     = 3000
-TORCH_THREADS = 4   # 建议值：物理核数的一半；仍卡则改为 2
+TORCH_THREADS = 4
 
-# ── energy sanity bounds (eV/atom) ─────────────────────────────────────────
-# CHGNet 对真实晶体结构的合理输出范围。超出则说明 CIF 组装产生了
-# 非物理结构（原子重叠/晶格异常），直接丢弃，避免污染图表。
-E_MIN = -200   # 最低合理值（非常稳定的氧化物约 -12 eV/atom）
-E_MAX =  1000.0   # 最高合理值（强烈排斥时约 +5 eV/atom，给宽裕余量）
+E_MIN = -200
+E_MAX =  1000.0
 
-# ── vba fallback (cif_dirs 失败时的枚举兜底) ──────────────────────────────
-# vba CIF 组装约 800 s/个，每类 N 个 × 3 类 × 800 s ≈ N×40 分钟。
-# 默认 5 → ~3.3 h，可在命令行用 --vba-n 覆盖。
 VBA_FALLBACK_MAX = 5
 
-# ── minimum points to draw annotation + trend ──────────────────────────────
-MIN_POINTS_ANNOTATE = 3   # 数据点少于此数时跳过基态标注和趋势线
+MIN_POINTS_ANNOTATE = 3
 
-# ── ρ-based symmetry thresholds (v2 新增) ──────────────────────────────────
 HIGH_RHO = 0.75   # ρ >= HIGH_RHO  → High
 LOW_RHO  = 0.25   # ρ <= LOW_RHO   → Low  |  (LOW_RHO, HIGH_RHO) → Med
 
-# ── publication-quality color / marker style ────────────────────────────────
 STYLE = {
-    #              color (colorblind-safe)  marker  size   alpha  zorder
     'High': dict(color='#C62828', marker='o', s=90,  alpha=0.92, zorder=5),
     'Med':  dict(color='#1565C0', marker='^', s=65,  alpha=0.80, zorder=4),
     'Low':  dict(color='#78909C', marker='D', s=45,  alpha=0.65, zorder=3),
 }
-# zone background tints
 ZONE_COLOR = {
     'High': '#FFCDD2',  # light red
     'Med':  '#BBDEFB',  # light blue
     'Low':  '#ECEFF1',  # light grey-blue
 }
 
-# ── CHGNet singleton ────────────────────────────────────────────────────────
 _chgnet_model = None
 
 def get_chgnet():
@@ -141,11 +98,6 @@ def get_chgnet():
         _chgnet_model = CHGNet.load()
         print(">>> CHGNet ready.")
     return _chgnet_model
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# ENUMERATION WORKER  (顶层函数，multiprocessing 序列化要求)
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _enum_worker(queue, topology, user_selected_ligands):
     path = os.path.join(project_root, "data", topology, f"{topology}_graph.json")
@@ -162,11 +114,6 @@ def _enum_worker(queue, topology, user_selected_ligands):
                             node_degrees=ndeg)
     results = enum.enumerate(ligands)
     queue.put((results, len(perms), g))
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# MODE A: ENUMERATE → CHGNet  (ffc, fjh)
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _enumerate_with_timeout(topology, user_selected_ligands):
     ctx   = mp.get_context('spawn')
@@ -186,22 +133,12 @@ def _enumerate_with_timeout(topology, user_selected_ligands):
           + (" [超时截断]" if timed_out else ""))
     return results, group_size, g
 
-
 def _rho_category(rho):
-    """将归一化对称指数 ρ 映射到分类标签。"""
     if rho >= HIGH_RHO: return 'High'
     if rho <= LOW_RHO:  return 'Low'
     return 'Med'
 
-
 def _stratified_sample(results, group_size, max_per_cat=None):
-    """
-    按 ρ = stab/|Γ| 阈值分区：
-      High : ρ ∈ [HIGH_RHO, 1]
-      Med  : ρ ∈ (LOW_RHO, HIGH_RHO)
-      Low  : ρ ∈ [0, LOW_RHO]
-    max_per_cat: 自定义每类上限（vba fallback 时传入较小的值）
-    """
     pool = {'High': [], 'Med': [], 'Low': []}
     for r in results:
         cat = _rho_category(r['stabilizer_size'] / group_size)
@@ -216,14 +153,7 @@ def _stratified_sample(results, group_size, max_per_cat=None):
         print(f"    {cat}: pool={len(pool[cat])}  sampled={len(lst)}")
     return sampled
 
-
 def _assemble_and_evaluate(coloring, graph_data, assembler, tag):
-    """临时 CIF 写入系统 tmp（RAM 盘）→ CHGNet 预测 → 删除。返回 E 或 None。
-
-    能量熔断：CHGNet 对合法晶体结构的输出范围约 [-20, +10] eV/atom。
-    超出此范围说明 CIF 组装产生了非物理结构（原子严重重叠或晶格异常），
-    直接丢弃，防止单个离群点撑爆 y 轴。
-    """
     from pymatgen.core import Structure
     fd, tmp = tempfile.mkstemp(suffix='.cif', prefix=f'chgnet_{tag}_')
     os.close(fd)
@@ -250,12 +180,8 @@ def _assemble_and_evaluate(coloring, graph_data, assembler, tag):
             except OSError:
                 pass
 
-
 def run_enumerate_experiment(exp_idx, topology, user_selected_ligands, label,
                               max_per_cat=None):
-    """
-    max_per_cat: 覆盖每类采样上限，vba fallback 时传入 VBA_FALLBACK_MAX。
-    """
     print(f"\n{'='*62}")
     print(f"[实验 {exp_idx+1}]  {topology.upper()} | {label}  [枚举模式]")
     print('='*62)
@@ -298,18 +224,8 @@ def run_enumerate_experiment(exp_idx, topology, user_selected_ligands, label,
           f"耗时 {(time.time()-t0)/60:.1f} min")
     return data_points, meta
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# MODE B: READ EXISTING CIFs  (vba)
-# ══════════════════════════════════════════════════════════════════════════════
-
 def run_cif_dirs_experiment(exp_idx, topology, cif_dir_names, label,
                              fallback_ligands=None, vba_fallback_max=None):
-    """
-    优先从预生成 CIF 目录读取并评估。
-    若所有目录均不存在且提供了 fallback_ligands，则自动切换为枚举模式，
-    每类最多评估 vba_fallback_max（默认 VBA_FALLBACK_MAX）个结构。
-    """
     print(f"\n{'='*62}")
     print(f"[实验 {exp_idx+1}]  {topology.upper()} | {label}  [预生成CIF模式]")
     print('='*62)
@@ -327,7 +243,6 @@ def run_cif_dirs_experiment(exp_idx, topology, cif_dir_names, label,
             sym = int(m.group(1)) if m else 1
             cif_entries.append((os.path.join(d, f), sym))
 
-    # ── Fallback: 预生成目录全部缺失时，切换枚举模式 ─────────────────────────
     if not cif_entries:
         if fallback_ligands is not None:
             n = vba_fallback_max or VBA_FALLBACK_MAX
@@ -345,7 +260,6 @@ def run_cif_dirs_experiment(exp_idx, topology, cif_dir_names, label,
             print("  [Error] 无CIF文件且未配置 fallback_ligands，跳过此实验。")
             return [], _empty_meta(label, topology, 16)
 
-    # ── 正常：读预生成 CIF ────────────────────────────────────────────────────
     group_size  = 16
     data_points = []
     model       = get_chgnet()
@@ -374,14 +288,8 @@ def run_cif_dirs_experiment(exp_idx, topology, cif_dir_names, label,
     print(f"\n  完成: {len(data_points)} 点")
     return data_points, meta
 
-
 def _empty_meta(label, topology, group_size):
     return dict(label=label, topology=topology, group_size=group_size)
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# OUTPUT
-# ══════════════════════════════════════════════════════════════════════════════
 
 def save_csv(data_points, meta, filepath):
     with open(filepath, 'w', newline='') as f:
@@ -398,11 +306,6 @@ def save_csv(data_points, meta, filepath):
                 p['category'],
             ])
     print(f"  [CSV] {filepath}")
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# PLOTTING  — publication quality
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _setup_style():
     """Apply Nature / ACS journal–style rcParams globally."""
@@ -435,18 +338,12 @@ def _setup_style():
         'savefig.bbox':          'tight',
     })
 
-
 def _fmt(val, _pos=None):
     return f"{val:.4f}".rstrip('0').rstrip('.')
 
-
 def _draw_zone_bands(ax, data_points):
-    """
-    绘制 ρ 区间背景色带（High/Med/Low），增强分类的视觉辨识度。
-    必须在 scatter 之前调用，这样色带在数据点下方。
-    """
     rhos = [p['rho'] for p in data_points]
-    x_lo = min(rhos) * 0.7   # 留一点边距（log 空间）
+    x_lo = min(rhos) * 0.7
     x_hi = max(rhos) * 1.4
 
     bands = [
@@ -459,17 +356,11 @@ def _draw_zone_bands(ax, data_points):
             ax.axvspan(x0, x1, alpha=0.07,
                        color=ZONE_COLOR[cat], zorder=0, lw=0)
 
-    # threshold lines
     for thresh in [HIGH_RHO, LOW_RHO]:
         if min(rhos) < thresh < max(rhos):
             ax.axvline(thresh, color='#bbbbbb', lw=0.7, ls=':', zorder=1)
 
-
 def _draw_trend(ax, data_points):
-    """
-    对 log(ρ) ~ E 做线性回归，绘制虚线趋势线，
-    并在图内标注 Pearson r 值（体现对称–稳定负相关）。
-    """
     if len(data_points) < 4:
         return
     log_rho  = np.array([np.log10(p['rho'])    for p in data_points])
@@ -481,7 +372,6 @@ def _draw_trend(ax, data_points):
     ax.plot(x_trend, y_trend, '--', color='#444444',
             lw=1.1, alpha=0.50, zorder=2, label=f'Linear fit')
 
-    # Pearson r 标注（右上角）
     sig = '***' if p_val < 0.001 else ('**' if p_val < 0.01 else
           ('*' if p_val < 0.05 else 'n.s.'))
     ax.text(0.97, 0.96,
@@ -493,18 +383,11 @@ def _draw_trend(ax, data_points):
                       facecolor='white', edgecolor='#cccccc',
                       alpha=0.85, lw=0.6))
 
-
 def _annotate_ground_state(ax, data_points):
-    """
-    标注全局最低能量点。
-    样式：粗体文字在点正上方，垂直向下的黑色实心箭头，无边框。
-    文字偏移量基于 y 轴数据范围自动计算，确保不与数据点重叠。
-    """
     best  = min(data_points, key=lambda p: p['energy'])
     enes  = [p['energy'] for p in data_points]
     y_range = max(enes) - min(enes)
 
-    # 文字位置：点正上方，偏移量为 y 轴范围的 18%
     y_text = best['energy'] + y_range * 0.08
 
     ax.annotate(
@@ -517,17 +400,15 @@ def _annotate_ground_state(ax, data_points):
         fontweight='bold',
         color='#111111',
         arrowprops=dict(
-            arrowstyle='-|>',          # 实心箭头头部，与参考图一致
+            arrowstyle='-|>',
             color='#111111',
             lw=1.5,
-            mutation_scale=10,         # 箭头头部大小
+            mutation_scale=10,
         ),
         zorder=10,
     )
 
-
 def _draw_ax(ax, data_points, meta):
-    """主绘图函数：色带 → 趋势线 → 散点 → 基态标注 → 格式化。"""
     if not data_points:
         ax.text(0.5, 0.5, "No data\n(CIF generation\nnot feasible)",
                 ha='center', va='center', transform=ax.transAxes,
@@ -535,19 +416,12 @@ def _draw_ax(ax, data_points, meta):
         ax.set_title(f"{meta['topology'].upper()} | {meta['label']}")
         return
 
-    # ── 1. 背景色带（zorder=0，最底层）──────────────────────────────────────
     _draw_zone_bands(ax, data_points)
 
-    # ── 2. 趋势线（数据点足够时才画）──────────────────────────────────────
-    # if len(data_points) >= MIN_POINTS_ANNOTATE:
-        # _draw_trend(ax, data_points)
-
-    # ── 3. 散点（zorder=3-5）──────────────────────────────────────────────
     groups = {'High': [], 'Med': [], 'Low': []}
     for p in data_points:
         groups[p['category']].append(p)
 
-    # 图例条目：自定义句柄，统一大小，便于阅读
     legend_handles = []
     for cat in ['Low', 'Med', 'High']:
         pts = groups[cat]
@@ -561,7 +435,6 @@ def _draw_ax(ax, data_points, meta):
                    edgecolors='white', linewidths=0.6,
                    zorder=st['zorder'])
 
-        # 图例文字
         if cat == 'High':
             label_txt = fr'High symmetry  ($\rho \geq {HIGH_RHO}$)'
         elif cat == 'Med':
@@ -577,44 +450,34 @@ def _draw_ax(ax, data_points, meta):
                    markersize=7 if cat == 'High' else (6 if cat == 'Med' else 5.5),
                    label=label_txt))
 
-    # ── 4. 基态标注（数据点足够时才标注）────────────────────────────────────
     if len(data_points) >= MIN_POINTS_ANNOTATE:
         _annotate_ground_state(ax, data_points)
 
-    # ── 5. 轴格式 ──────────────────────────────────────────────────────────
     ax.set_title(f"{meta['topology'].upper()}  |  {meta['label']}")
     ax.set_xlabel(r"Symmetry Index  $\rho(c) = |\mathrm{Stab}(c)|\,/\,|\Gamma|$",
                   fontsize=8.5)
     ax.set_ylabel("CHGNet Energy  (eV atom$^{-1}$)", fontsize=8.5)
     ax.set_xscale('log')
 
-    # x 刻度：只显示出现的 ρ 值
     ux = sorted({p['rho'] for p in data_points})
     ax.set_xticks(ux)
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(_fmt))
     ax.tick_params(axis='x', labelsize=7.5, rotation=20)
     ax.tick_params(axis='y', labelsize=8)
 
-    # 淡格线（仅主刻度，水平线）
     ax.yaxis.grid(True, which='major', ls='--', lw=0.5, alpha=0.35, color='#aaaaaa')
     ax.set_axisbelow(True)
 
-    # ── 6. 图例（添加趋势线条目）─────────────────────────────────────────
-    # trend_handle = Line2D([0], [0], color='#444444', lw=1.1,
-    #                       ls='--', alpha=0.55, label='Linear fit')
     ax.legend(handles=legend_handles,
               loc='best', framealpha=0.92,
               fontsize=7.2, borderpad=0.6, labelspacing=0.45)
-
 
 def _safe_label(label):
     return (label.replace(' ', '').replace(',', '_')
                  .replace('×', 'x').replace('+', '')
                  .replace('(', '').replace(')', ''))
 
-
 def plot_single(data_points, meta, exp_idx):
-    """每个实验完成后立即保存独立 PNG（无需等待全部 6 个完成）。"""
     _setup_style()
     fig, ax = plt.subplots(1, 1, figsize=(6.5, 4.8))
     fig.suptitle(
@@ -632,9 +495,7 @@ def plot_single(data_points, meta, exp_idx):
     plt.close()
     print(f"  [单图] {out}")
 
-
 def plot_combined(all_data):
-    """全部 6 个实验的 3×2 合并总图。"""
     _setup_style()
     fig, axes = plt.subplots(3, 2, figsize=(13, 14))
     fig.suptitle(
@@ -651,11 +512,6 @@ def plot_combined(all_data):
     plt.savefig(out, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\n[总图] {out}")
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# MAIN
-# ══════════════════════════════════════════════════════════════════════════════
 
 def main():
     parser = argparse.ArgumentParser(
@@ -708,7 +564,6 @@ def main():
 
     elapsed = (time.time() - t_start) / 60
     print(f"\n>>> 完成。总耗时: {elapsed:.1f} 分钟")
-
 
 if __name__ == "__main__":
     mp.freeze_support()

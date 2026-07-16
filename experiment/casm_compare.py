@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 """CASM vs Our Enumerator comparison harness.
 
 Spawns subprocess workers for each (case, side, rep) tuple, collects timing and
@@ -21,7 +21,6 @@ import time
 import csv
 from statistics import median
 
-# ── Thread control (propagated to subprocesses via env) ───────────────────────
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
@@ -30,11 +29,9 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CASM_PYTHON = "python3.11"
 OURS_PYTHON = "python3"
 
-# ── Intractable thresholds ────────────────────────────────────────────────────
 INTRACTABLE_TIME_S = 30 * 60   # 30 minutes
 INTRACTABLE_MEM_GB = 8.0       # 8 GB
 
-# ── Expected proper-rotation orbit counts for exhaustive cases ────────────────
 EXPECTED_ORBITS = {
     ("ffc", "C3=2,C4=2"): 42,
     ("ffc", "C3=3,C4=3"): 513,
@@ -43,20 +40,16 @@ EXPECTED_ORBITS = {
     ("fjh", "C3=1,C4=3"): 36369,
 }
 
-# ── Benchmark case definitions ────────────────────────────────────────────────
 # (topology, c3_count, c4_count, disable_ours_budget)
 ALL_CASES = [
-    # ── Exhaustive cases ──
     ("ffc", 2, 2, True),   # ffc  |C3|=2,|C4|=2  → 42
     ("ffc", 3, 3, True),   # ffc  |C3|=3,|C4|=3  → 513
     ("fjh", 1, 2, True),   # fjh  |C3|=1,|C4|=2  → 394
     ("fjh", 2, 1, True),   # fjh  |C3|=2,|C4|=1  → 4756
     ("fjh", 1, 3, True),   # fjh  |C3|=1,|C4|=3  → 36369
-    # ── Budgeted / intractable cases ──
     ("vba", 0, 2, False),  # vba  |C4|=2
     ("vba", 0, 3, False),  # vba  |C4|=3
 ]
-
 
 def ligand_pool_label(c3: int, c4: int) -> str:
     parts = []
@@ -65,7 +58,6 @@ def ligand_pool_label(c3: int, c4: int) -> str:
     if c4 > 0:
         parts.append(f"C4={c4}")
     return ",".join(parts)
-
 
 def run_subprocess(cmd, timeout_s=None):
     """Run a command, capture stdout JSON. Returns parsed dict or error dict."""
@@ -89,7 +81,6 @@ def run_subprocess(cmd, timeout_s=None):
     except Exception as e:
         return {"_error": str(e)}
 
-
 def run_casm_rep(topology, c3, c4):
     """Run one CASM worker rep. For vba, use psutil watchdog."""
     worker = os.path.join(PROJECT_ROOT, "experiment", "_casm_worker.py")
@@ -99,7 +90,6 @@ def run_casm_rep(topology, c3, c4):
         # Normal run — no time/memory limits needed for exhaustive cases
         return run_subprocess(cmd)
 
-    # ── vba: watchdog with psutil ──────────────────────────────────────────
     try:
         import psutil
     except ImportError:
@@ -143,7 +133,6 @@ def run_casm_rep(topology, c3, c4):
     except json.JSONDecodeError:
         return {"_error": "json_decode", "_stdout": stdout[:200]}
 
-
 def run_ours_rep(topology, c3, c4, disable_budget):
     """Run one our-worker rep."""
     worker = os.path.join(PROJECT_ROOT, "experiment", "_ours_worker.py")
@@ -151,7 +140,6 @@ def run_ours_rep(topology, c3, c4, disable_budget):
     if disable_budget:
         cmd.append("--disable-budget")
     return run_subprocess(cmd)
-
 
 def reconcile_casm_orbits(orbits_full, proper_size, fg_size):
     """Apply fallback formula: P = A + 2C = orbits_full + C.
@@ -171,7 +159,6 @@ def reconcile_casm_orbits(orbits_full, proper_size, fg_size):
         "fg_size": fg_size,
         "proper_size": proper_size,
     }
-
 
 def validate_exhaustive_case(topo, pool, ours_orbits, casm_full):
     """Validate exhaustive case orbit counts via reconciliation formula.
@@ -207,7 +194,6 @@ def validate_exhaustive_case(topo, pool, ours_orbits, casm_full):
     print(f"  [OK] {topo} {pool}: ours={ours_orbits}, casm_full={casm_full}, "
           f"A={A}, C={C}, P={P} ✓", file=sys.stderr)
 
-
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="CASM vs Our Enumerator Comparison")
@@ -224,7 +210,6 @@ def main():
         print(f"  {topo}  {pool}", file=sys.stderr)
         print(f"{'='*60}", file=sys.stderr)
 
-        # ── Our side: 3 reps ───────────────────────────────────────────────
         ours_results = []
         for rep in range(3):
             print(f"  [ours] rep {rep+1}/3 ...", file=sys.stderr)
@@ -243,7 +228,6 @@ def main():
         med_idx = sorted(range(len(ours_times)), key=lambda i: ours_times[i])[len(ours_times) // 2]
         ours_med = ours_results[med_idx]
 
-        # ── CASM side: 3 reps ──────────────────────────────────────────────
         casm_results = []
         for rep in range(3):
             print(f"  [casm] rep {rep+1}/3 ...", file=sys.stderr)
@@ -267,7 +251,6 @@ def main():
             else:
                 casm_med = casm_results[0]
 
-        # ── Apply fallback reconciliation ───────────────────────────────────
         casm_full = casm_med.get("orbits_full", "intractable")
         fg_size = casm_med.get("fg_size")
         proper_size = casm_med.get("proper_size")
@@ -278,11 +261,9 @@ def main():
         else:
             orbits_casm = casm_full  # "intractable"
 
-        # ── Validate exhaustive cases ───────────────────────────────────────
         if disable_budget:  # exhaustive
             validate_exhaustive_case(topo, pool, ours_med["orbits"], casm_full)
 
-        # ── Build CSV row ───────────────────────────────────────────────────
         rows.append({
             "topology": topo,
             "ligand_pool": pool,
@@ -299,7 +280,6 @@ def main():
             "proper_size": proper_size,
         })
 
-    # ── Write CSV ────────────────────────────────────────────────────────────
     csv_path = os.path.join(PROJECT_ROOT, "experiment", "casm_compare_results.csv")
     fieldnames = [
         "topology", "ligand_pool",
@@ -316,7 +296,6 @@ def main():
 
     print(f"\nCSV written to {csv_path}", file=sys.stderr)
 
-    # ── Print summary ────────────────────────────────────────────────────────
     print("\nSummary:", file=sys.stderr)
     for r in rows:
         ours = r["orbits_ours"]
@@ -327,7 +306,6 @@ def main():
               f"ours={str(ours):>8s}  casm={str(casm):>8s}  "
               f"casm_full={str(r['orbits_casm_full']):>8s}  {match}",
               file=sys.stderr)
-
 
 if __name__ == "__main__":
     main()

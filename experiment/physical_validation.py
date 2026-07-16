@@ -9,11 +9,9 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-# 导入 CHGNet 和 pymatgen
 from chgnet.model import CHGNet
 from pymatgen.core import Structure
 
-# --- 路径设置 ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(current_dir)
@@ -23,24 +21,19 @@ from main import load_graph
 from symmetry import SymmetryEngine
 from enumerator import MOFEnumerator
 
-# 引入你的组装器
 from assembler import StructureAssembler
 
-# --- 1. 初始化物理模型 ---
 print(">>> Loading CHGNet Universal Potential (Replacing Ising Model)...")
 chgnet_model = CHGNet.load()
 
-# --- 2. 绘图样式配置 (全面美化升级) ---
 STYLE_MAP = {
-    'High': {'color': '#d62728', 'marker': 'o'},  # 经典的红色正圆
-    'Med': {'color': '#1f77b4', 'marker': '^'},  # 稳重的蓝色正三角
-    'Low': {'color': '#95a5a6', 'marker': 'D'}  # 换为高级的蓝灰色菱形 (Diamond)，增加体积感
+    'High': {'color': '#d62728', 'marker': 'o'},
+    'Med': {'color': '#1f77b4', 'marker': '^'},
+    'Low': {'color': '#95a5a6', 'marker': 'D'}
 }
-
 
 def get_data_path(topology_name):
     return os.path.join(project_root, "data", topology_name, f"{topology_name}_graph.json")
-
 
 def evaluate_physical_energy(assembler, coloring, graph_data, temp_cif_path="temp.cif", max_atoms=2500):
     try:
@@ -63,7 +56,6 @@ def evaluate_physical_energy(assembler, coloring, graph_data, temp_cif_path="tem
     except Exception as e:
         print(f"      [Warning] Reconstruction or Evaluation failed: {e}")
         return None
-
 
 def run_physical_experiment(experiments, samples_per_category=20):
     print(f">>> Starting Thermodynamic Stability Validation (CHGNet Prediction)")
@@ -119,22 +111,17 @@ def run_physical_experiment(experiments, samples_per_category=20):
             med_sym = [r for r in results if r['stabilizer_size'] in med_vals]
             low_sym = [r for r in results if r['stabilizer_size'] == 1]
 
-            # ================= 核心修正：差异化采样策略 =================
-            # 1. 论文的精髓：高对称结构是基态的候选区，绝不能盲目少抽！尽可能全保留！
-            max_high_eval = 300  # 如果电脑好，这里可以设大点，保证高对称区被完全覆盖
+            max_high_eval = 300
             high_sym_sampled = high_sym if len(high_sym) <= max_high_eval else random.sample(high_sym, max_high_eval)
 
-            # 2. 中等对称性：适量抽样
             max_med_eval = 100
             med_sym_sampled = random.sample(med_sym, min(len(med_sym), max_med_eval))
 
-            # 3. 不对称噪声：数量极多但全都是高能量废料，只需抽 50 个左右当做绘图的“背景板”
             max_low_eval = 50
             low_sym_sampled = random.sample(low_sym, min(len(low_sym), max_low_eval))
 
             print(
                 f"   Evaluating Physics for Sampled: High={len(high_sym_sampled)}, Med={len(med_sym_sampled)}, Low={len(low_sym_sampled)}")
-            # ==============================================================
 
             data_points = []
 
@@ -158,7 +145,6 @@ def run_physical_experiment(experiments, samples_per_category=20):
                     log_file = temp_cif.replace(".cif", ".log")
                     if os.path.exists(log_file): os.remove(log_file)
 
-            # 注意这里传入的列表名要改成 sampled 的变量名
             process_list(high_sym_sampled, 'High')
             process_list(med_sym_sampled, 'Med')
             process_list(low_sym_sampled, 'Low')
@@ -176,10 +162,8 @@ def run_physical_experiment(experiments, samples_per_category=20):
     print(f"\n>>> Physical Data saved to {csv_path}")
     plot_results_individual(all_datasets, output_dir, samples_per_category)
 
-
 def format_sym_index(value):
     return f"{value:.4f}".rstrip('0').rstrip('.')
-
 
 def plot_results_individual(datasets, output_dir, samples_per_category):
     print(">>> Plotting Individual Symmetry-Stability Correlation Figures...")
@@ -218,11 +202,10 @@ def plot_results_individual(datasets, output_dir, samples_per_category):
                     asym_rho = format_sym_index(1.0 / gamma_size)
                     leg_label = f"Asymmetric Noise (Symmetry Index = {asym_rho})"
 
-                # 【彻底移除抖动】：横坐标严格取真实的 \rho 值，绝对对齐！
                 ax.scatter(x, y, c=style['color'], marker=style['marker'], label=leg_label,
-                           s=70 if cat == 'High' else 45,  # 放大所有图标的尺寸
-                           alpha=0.9 if cat == 'High' else 0.6,  # 给重叠点留下恰到好处的半透明度
-                           edgecolors='black', linewidths=0.6)  # 【核心美化】：强制给所有的点（包括灰色噪声）加上黑框，变得极其清晰锐利！
+                           s=70 if cat == 'High' else 45,
+                           alpha=0.9 if cat == 'High' else 0.6,
+                           edgecolors='black', linewidths=0.6)
 
             ax.set_title(f"Symmetry-Stability Correlation ({label})", fontsize=13, fontweight='bold')
             ax.set_xlabel(r"Symmetry Index ($\rho$)", fontsize=12)
@@ -254,15 +237,10 @@ def plot_results_individual(datasets, output_dir, samples_per_category):
         plt.close(fig)
         print(f"   -> Plot saved to {plot_path}")
 
-
 if __name__ == "__main__":
     EXPERIMENTS = [
         ("rht", ["6c_CdZn_1_Ch", "8c_Co_1_Ch"]),
         ("rht", ["6c_CdZn_1_Ch", "8c_Co_1_Ch", "0_mn1_new"]),
-        # ("sod", ["6c_CdZn_1_Ch", "8c_Co_1_Ch"]),
-        # ("sod", ["6c_CdZn_1_Ch", "8c_Co_1_Ch", "0_mn1_new"]),
-        # ("lil", ["6c_CdZn_1_Ch", "8c_Co_1_Ch"]),
-        # ("lil", ["6c_CdZn_1_Ch", "8c_Co_1_Ch", "0_mn1_new"]),
     ]
-    # 这里控制采样数量
+
     run_physical_experiment(EXPERIMENTS, samples_per_category=30)

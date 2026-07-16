@@ -9,7 +9,7 @@ eg. useful to superimpose crystal structures. SVD stands for singular
 value decomposition, which is used in the algorithm.
 """
 
-from __future__ import print_function 
+from __future__ import print_function
 
 try:
     from numpy import dot, transpose, sqrt
@@ -45,14 +45,14 @@ class SVDSuperimposer(object):
     # start
     # >>> sup = SVDSuperimposer()
     # set the coords y will be rotated and translated on x
-    # 设置坐标y将在x上旋转和平移
+
     # >>> sup.set(x, y)
     # do the lsq fit
     # >>> sup.run()
     # get the rmsd
     # >>> rms = sup.get_rms()
     # get rotation (right multiplying!) and the translation
-    # 右倍增
+
     # >>> rot, tran = sup.get_rotran()
     # rotate y on x
     # >>> y_on_x1 = dot(y, rot) + tran
@@ -61,16 +61,15 @@ class SVDSuperimposer(object):
     # >>> set_printoptions(precision=2)
     # >>> print(y_on_x1)
     # [[  5.17e+01  -1.90e+00   5.01e+01]
-    #  [  5.04e+01  -1.23e+00   5.06e+01]
-    #  [  5.07e+01  -4.16e-02   5.15e+01]
-    #  [  5.02e+01  -1.94e-02   5.29e+01]]
+    # [  5.04e+01  -1.23e+00   5.06e+01]
+    # [  5.07e+01  -4.16e-02   5.15e+01]
+    # [  5.02e+01  -1.94e-02   5.29e+01]]
     # >>> print(y_on_x2)
     # [[  5.17e+01  -1.90e+00   5.01e+01]
-    #  [  5.04e+01  -1.23e+00   5.06e+01]
-    #  [  5.07e+01  -4.16e-02   5.15e+01]
-    #  [  5.02e+01  -1.94e-02   5.29e+01]]
+    # [  5.04e+01  -1.23e+00   5.06e+01]
+    # [  5.07e+01  -4.16e-02   5.15e+01]
+    # [  5.02e+01  -1.94e-02   5.29e+01]]
     # >>> print("%.2f" % rms)
-    # 0.00
     # """
 
     def __init__(self):
@@ -90,21 +89,13 @@ class SVDSuperimposer(object):
 
     def _rms(self, coords1, coords2):
         """Return rms deviations between coords1 and coords2."""
-        #返回coords1和coords2之间的rms偏差
+
         diff = coords1 - coords2
         return sqrt(sum(sum(diff * diff)) / coords1.shape[0])
 
     # Public methods
 
-    def set(self, reference_coords, coords):#进行坐标叠加
-        """Set the coordinates to be superimposed.
-        设置要叠加的坐标
-        coords will be put on top of reference_coords.
-        - reference_coords: an NxDIM array
-        - coords: an NxDIM array
-        DIM is the dimension of the points, N is the number
-        of points to be superimposed.
-        """
+    def set(self, reference_coords, coords):
         # clear everything from previous runs
         self._clear()
         # store cordinates
@@ -112,9 +103,9 @@ class SVDSuperimposer(object):
         self.coords = coords
         n = reference_coords.shape
         m = coords.shape
-        if n != m or not(n[1] == m[1] == 3):#如果传进来的参数两个矩阵的维度不同，或者并不是坐标信息
+        if n != m or not(n[1] == m[1] == 3):
             raise Exception("Coordinate number/dimension mismatch.")
-        self.n = n[0]#设置维度
+        self.n = n[0]
 
     def run(self):
         """Superimpose the coordinate sets."""
@@ -123,8 +114,8 @@ class SVDSuperimposer(object):
         coords = self.coords
         reference_coords = self.reference_coords
         # center on centroid
-        #分别计算不同维度的坐标均值
-        av1 = sum(coords) / self.n#计算均值
+
+        av1 = sum(coords) / self.n
         av2 = sum(reference_coords) / self.n
         coords = coords - av1
         reference_coords = reference_coords - av2
@@ -135,7 +126,7 @@ class SVDSuperimposer(object):
         # check if we have found a reflection
         if det(self.rot) < 0:
             vt[2] = -vt[2]
-            #transpose在不指定参数是默认是矩阵转置
+
             self.rot = transpose(dot(transpose(vt), transpose(u)))
         self.tran = av2 - dot(av1, self.rot)
 
@@ -170,7 +161,3 @@ class SVDSuperimposer(object):
             self.rms = self._rms(transformed_coords, self.reference_coords)
         return self.rms
 
-
-# if __name__ == "__main__":
-#     from Bio._utils import run_doctest
-#     run_doctest(verbose=0)

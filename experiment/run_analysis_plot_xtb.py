@@ -8,12 +8,10 @@ import argparse
 import matplotlib.pyplot as plt
 from pymatgen.core import Structure
 
-# --- 1. 路径与环境设置 ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(project_root)
 
-# 引入项目模块
 try:
     from main import load_graph
     from assembler import StructureAssembler
@@ -24,17 +22,14 @@ except ImportError as e:
 results_root = os.path.join(project_root, "results")
 HARTREE_TO_EV = 27.2114079527
 
-
 def get_data_path(topology_name):
     return os.path.join(project_root, "data", topology_name, f"{topology_name}_graph.json")
-
 
 def check_xtb_installed():
     if shutil.which("xtb") is None:
         print("\n[Critical Error] 'xtb' command not found in PATH.")
         return False
     return True
-
 
 def cleanup_files(cif_path, xyz_path, work_dir):
     files_to_remove = [cif_path, xyz_path, xyz_path + ".out"]
@@ -53,7 +48,6 @@ def cleanup_files(cif_path, xyz_path, work_dir):
             except OSError:
                 pass
 
-
 def write_safe_xyz(cif_path, xyz_path):
     struct = Structure.from_file(cif_path)
     with open(xyz_path, 'w') as f:
@@ -62,7 +56,6 @@ def write_safe_xyz(cif_path, xyz_path):
         for site in struct:
             f.write(f"{site.specie.symbol}  {site.x:.8f}  {site.y:.8f}  {site.z:.8f}\n")
         f.write("\n\n\n")
-
 
 def run_xtb_calculation(xyz_path, work_dir):
     cmd = ["xtb", os.path.basename(xyz_path), "--gfn", "2", "--opt", "--uhf", "0"]
@@ -86,16 +79,13 @@ def run_xtb_calculation(xyz_path, work_dir):
         print(f"   [Error] xTB command failed for {os.path.basename(xyz_path)}")
         return None
 
-
 def calculate_structure_energy(struct_info, graph_data, assembler, work_dir, topology_name):
-    """适配新的 JSON 结构单体格式"""
     coloring = struct_info.get('coloring', [])
     struct_id = struct_info.get('id', 'unknown')
     label = f"struct_{struct_id}"
 
     if not coloring: return None
 
-    # 直接读取 coloring 里的字符串作为模块名称
     structure_map = {str(node_idx): str(val) for node_idx, val in enumerate(coloring)}
 
     temp_cif_name = f"{topology_name}_{label}_temp.cif"
@@ -123,7 +113,6 @@ def calculate_structure_energy(struct_info, graph_data, assembler, work_dir, top
 
     return energy_ev
 
-
 def run_analysis_single_file(json_path):
     if not check_xtb_installed(): return
     if not os.path.exists(json_path):
@@ -134,7 +123,6 @@ def run_analysis_single_file(json_path):
     with open(json_path, 'r') as f:
         data = json.load(f)
 
-    # 从 JSON 中提取信息
     topology_name = data.get('meta', {}).get('topology', 'sod')
     structures_list = data.get('structures', [])
 
@@ -154,7 +142,6 @@ def run_analysis_single_file(json_path):
 
     print(f"[-] Starting GFN-xTB Calculations for {len(structures_list)} structures...")
 
-    # 为了分类高/中/低对称性，寻找最大的稳定子群大小
     max_sym = max(s.get('stabilizer_size', 1) for s in structures_list) if structures_list else 1
     data_points = []
 
@@ -165,10 +152,9 @@ def run_analysis_single_file(json_path):
         sym_order = struct_info.get('stabilizer_size', 1)
         label = f"ID_{struct_info.get('id')}"
 
-        # 基于稳定子群大小自动划分类别
         if sym_order == max_sym:
             stype = "High"
-        elif sym_order <= 2:  # 如果是对称性极低 (大小为1或2)
+        elif sym_order <= 2:
             stype = "Low"
         else:
             stype = "Med"
@@ -196,7 +182,6 @@ def run_analysis_single_file(json_path):
     plot_scatter(data_points, topology_name, base_name)
     print("[-] All Done.")
 
-
 def save_csv(data, filepath):
     headers = ["Filename", "Label", "Symmetry_Order", "Energy_eV", "Type"]
     with open(filepath, 'w', newline='') as f:
@@ -205,7 +190,6 @@ def save_csv(data, filepath):
         for row in data:
             writer.writerow([row['filename'], row['label'], row['sym_order'], row['energy'], row['type']])
     print(f"[Output] Data saved to CSV: {filepath}")
-
 
 def plot_scatter(data, topology_name, base_name):
     plt.figure(figsize=(10, 7))
@@ -248,7 +232,6 @@ def plot_scatter(data, topology_name, base_name):
     plt.savefig(output_img, dpi=300)
     print(f"[Output] Plot saved to PNG: {output_img}")
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Run xTB analysis on a specific JSON file containing multiple structures.")
@@ -257,8 +240,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # 确保在项目根目录运行
     os.chdir(project_root)
 
     run_analysis_single_file(args.file)
-    #python experiment/run_analysis_plot_xtb.py -f results/sod_0_mn1_new6c_Al_1_Ch_20260108_193244.json

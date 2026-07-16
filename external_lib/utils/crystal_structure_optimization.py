@@ -11,12 +11,7 @@ from external_lib.utils.parameter import ShapeMismatchError
 
 pi = np.pi
 
-
 def force_shape_match(a1, a2):
-    """
-    强制要求 a1 与 a2 点数相同。不匹配时直接抛出 ShapeMismatchError。
-    不再进行静默截断/填充，避免生成化学上不成立的垃圾结构。
-    """
     if len(a1) == len(a2):
         return a1
 
@@ -25,15 +20,10 @@ def force_shape_match(a1, a2):
         f"该构象将被丢弃。"
     )
 
-
 def kabsch_align_core(P, Q, center=True):
-    """
-    底层核心：加入 center 开关锚定原点，并修复 2 点对齐时的随机扭转灾难。
-    """
     P = np.asarray(P)
     Q = np.asarray(Q)
 
-    # 核心修复 1：允许禁止质心偏移，强行锚定中心原点
     if center:
         P_centroid = np.mean(P, axis=0)
         Q_centroid = np.mean(Q, axis=0)
@@ -44,7 +34,6 @@ def kabsch_align_core(P, Q, center=True):
     P_centered = P - P_centroid
     Q_centered = Q - Q_centroid
 
-    # 核心修复 2：拦截 2 个点的边对齐，弃用 SVD，使用无扭转旋转矩阵
     if len(P) == 2:
         v1 = P_centered[1] - P_centered[0]
         v2 = Q_centered[1] - Q_centered[0]
@@ -52,13 +41,13 @@ def kabsch_align_core(P, Q, center=True):
         v2 = v2 / (np.linalg.norm(v2) + 1e-12)
 
         c = np.dot(v1, v2)
-        if c < -0.999999:  # 180度翻转情况
+        if c < -0.999999:
             orth = np.array([1.0, 0.0, 0.0]) if abs(v1[0]) < 0.9 else np.array([0.0, 1.0, 0.0])
             axis = np.cross(v1, orth)
             axis = axis / np.linalg.norm(axis)
             vx = np.array([[0, -axis[2], axis[1]], [axis[2], 0, -axis[0]], [-axis[1], axis[0], 0]])
             R = np.eye(3) + 2 * np.dot(vx, vx)
-        else:  # 最短弧度刚体旋转
+        else:
             v = np.cross(v1, v2)
             s = np.linalg.norm(v)
             if s < 1e-8:
@@ -72,7 +61,7 @@ def kabsch_align_core(P, Q, center=True):
         return rms, R.T, t
 
     else:
-        # 大于等于 3 个点，正常使用改进的 Kabsch 算法
+
         H = np.dot(P_centered.T, Q_centered)
         U, S, Vt = np.linalg.svd(H)
         R = np.dot(Vt.T, U.T)
@@ -97,16 +86,11 @@ def select_closest_vectors(a1, a2, num):
 
     return vecs1, vecs2
 
-
 def minimize_rms_superimpose(a1, a2, center=True):
-    """
-    修改此接口以支持 center 开关，并接管 SVDSuperimposer 的工作
-    """
     a1 = np.asarray(a1)
     a2 = np.asarray(a2)
     a1 = force_shape_match(a1, a2)
 
-    # 如果输入点集过大，采用近似向量加速
     if len(a1) > 7:
         a1, a2 = select_closest_vectors(a1, a2, 6)
 
@@ -120,19 +104,17 @@ def minimize_rms_superimpose(a1, a2, center=True):
 
     return min_dist
 
-
 def calculate_minimum_distance_vectors(a1, a2):
     a1 = np.asarray(a1)
     a2 = np.asarray(a2)
 
-    # 【防弹逻辑】强制维度一致
     a1 = force_shape_match(a1, a2)
     mags = [norm(v) for v in a2]
 
     if len(a1) < 3:
         min_dist = (float('inf'), np.eye(3), np.zeros(3))
         for l in itertools.permutations(a1):
-            # 加入 1e-8 防止零除
+
             p = np.array([m * v / (norm(v) + 1e-8) for m, v in zip(mags, l)])
             rms, rot, tran = kabsch_align_core(p, a2)
             if rms < min_dist[0]:
@@ -168,7 +150,6 @@ def calculate_minimum_distance_vectors(a1, a2):
 
     return min_dist
 
-
 def adjust_coordinates_periodic_boundary(c1, c2):
     if not (isinstance(c1, (list, np.ndarray)) and isinstance(c2, (list, np.ndarray))):
         print("Error: c1 and c2 should be lists or numpy arrays.")
@@ -177,7 +158,6 @@ def adjust_coordinates_periodic_boundary(c1, c2):
         print("Error: c1 and c2 should have at least 3 dimensions.")
         return None
 
-    # 防御性深拷贝：禁止原地修改传入数组
     c2 = np.copy(c2)
 
     diffa = c1[0] - c2[0]
@@ -200,7 +180,6 @@ def adjust_coordinates_periodic_boundary(c1, c2):
         c2[2] = c2[2] - 1.0
 
     return c2
-
 
 def calculate_objective_value(V, ncra, ncca, Alpha, ne, nv, Bstar_inv, SBU_IP):
     def metric_tensor(l):
@@ -228,7 +207,6 @@ def calculate_objective_value(V, ncra, ncca, Alpha, ne, nv, Bstar_inv, SBU_IP):
         O1 = O1 + O2
 
     return O1
-
 
 def optimize_and_scale_unit_cell(all_SBU_coords, a, b, c, ang_alpha, ang_beta, ang_gamma, max_le, num_vertices, Bstar,
                                  alpha, num_edges):

@@ -4,7 +4,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 sys.path.insert(0, '.')
 from dft_validation import config
 
-
 def _parse_cp2k_output(out_path: str, n_atoms: int) -> tuple[float | None, float | None]:
     if not os.path.exists(out_path):
         return None, None
@@ -19,7 +18,6 @@ def _parse_cp2k_output(out_path: str, n_atoms: int) -> tuple[float | None, float
     e_per_atom = e_hartree * config.HARTREE_TO_EV / max(1, n_atoms)
     return e_per_atom, e_hartree
 
-
 def _walltime_for(topology: str, default: int = 7200) -> int:
     wt = getattr(config, "WALLTIME_SECONDS", None)
     if isinstance(wt, dict):
@@ -27,7 +25,6 @@ def _walltime_for(topology: str, default: int = 7200) -> int:
     if isinstance(wt, int):
         return wt
     return default
-
 
 def _workers_for(topology: str) -> int:
     if not getattr(config, "DFT_PARALLEL", False):
@@ -45,7 +42,6 @@ def _workers_for(topology: str) -> int:
     cpu_cap = max(1, (os.cpu_count() or omp) // omp)
     return max(1, min(workers, cpu_cap))
 
-
 def _mem_for(topology: str, workers: int) -> float:
     per_job = getattr(config, "DFT_JOB_MEM_GB", None)
     if isinstance(per_job, dict) and topology in per_job:
@@ -54,10 +50,8 @@ def _mem_for(topology: str, workers: int) -> float:
         return float(per_job)
     return float(getattr(config, "MAX_MEM_GB", 100)) / max(1, workers)
 
-
 def _eligible_for_dft(rec: dict) -> bool:
     return rec.get("probe_cu") or rec.get("status") in ("clean", "preclean_done")
-
 
 def _run_record(rec: dict, results_dir: str, workers: int) -> dict:
     from dft_validation.cp2k_runner import run_one
@@ -70,7 +64,6 @@ def _run_record(rec: dict, results_dir: str, workers: int) -> dict:
     if rec.get("probe_cu"):
         kwargs["relax_mode_override"] = "ENERGY"
     return run_one(rec, results_dir, topo, **kwargs)
-
 
 def harvest_existing_outputs(records: list, results_dir: str) -> list:
     """Parse existing cp2k_run.out files into records without launching CP2K."""
@@ -106,7 +99,6 @@ def harvest_existing_outputs(records: list, results_dir: str) -> list:
     print(f"  [harvest] updated {json_path}")
     return updated
 
-
 def _merge_records_preserve_existing(existing: list, proposed: list) -> list:
     existing_by_id = {r["id"]: r for r in existing}
     proposed_ids = {r["id"] for r in proposed}
@@ -130,7 +122,6 @@ def _merge_records_preserve_existing(existing: list, proposed: list) -> list:
     print(f"  [expand] preserved existing={kept}, added new={added}, total={len(merged)}")
     return merged
 
-
 def expand_selection_preserving_results(existing: list, results_dir: str) -> list:
     """Re-run selection with current config, merge by id, then sanitize new records."""
     from dft_validation.select_structures import run_selection
@@ -145,7 +136,6 @@ def expand_selection_preserving_results(existing: list, results_dir: str) -> lis
         json.dump(merged, f, indent=2)
     print(f"  [expand] wrote merged selection to {json_path}")
     return merged
-
 
 def phase1(results_dir):
     from dft_validation.select_structures import run_selection
@@ -166,7 +156,6 @@ def phase1(results_dir):
     print("  Phase 1 PASS")
     return records
 
-
 def phase2(records, results_dir):
     from dft_validation.sanitize import sanitize_all
 
@@ -179,7 +168,6 @@ def phase2(records, results_dir):
         sys.exit(1)
     print("  Phase 2 PASS")
     return records
-
 
 def phase3(records, results_dir):
     """Local smoke test: 1 ENERGY single-point at SMOKE_CUTOFF_RY (non-production)."""
@@ -214,7 +202,6 @@ def phase3(records, results_dir):
           f"n_atoms={updated.get('n_atoms')}  E(eV/atom)={updated['dft_e_per_atom']:.6f}")
     print("  Smoke test PASS")
     return [updated if r["id"] == updated["id"] else r for r in records]
-
 
 def phase4_run(records, results_dir, only_id=None):
     """Full batch CP2K run. Uses each record's OWN topology (no hard-coding).
@@ -293,7 +280,6 @@ def phase4_run(records, results_dir, only_id=None):
     print(f"  converged={converged}  done_cached={done_cached}  total={len(all_records)}")
     return all_records
 
-
 def phase4_analyze(records, results_dir):
     """CSV + per-topology rho–E figures + per-composition Spearman for ALL topologies."""
     from dft_validation.analyze import analyze_all, get_fjh_gate, write_csv
@@ -326,7 +312,6 @@ def phase4_analyze(records, results_dir):
     print("  Phase 4 PASS")
     return records
 
-
 def print_energy_summary(records: list) -> None:
     """Compact table for checking whether current energies look sane."""
     rows = [r for r in records if r.get("dft_e_per_atom") is not None]
@@ -350,14 +335,12 @@ def print_energy_summary(records: list) -> None:
                   f"{r.get('sym_class',''):4s} "
                   f"E={r['dft_e_per_atom']: .6f} eV/atom")
 
-
 def _load_records(results_dir):
     json_path = os.path.join(results_dir, "selected_structures.json")
     if os.path.exists(json_path):
         with open(json_path) as f:
             return json.load(f)
     return None
-
 
 def main():
     parser = argparse.ArgumentParser(
@@ -428,7 +411,6 @@ def main():
         records = phase4_analyze(records, args.results_dir)
         if args.summary:
             print_energy_summary(records)
-
 
 if __name__ == "__main__":
     main()

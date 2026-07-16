@@ -7,18 +7,14 @@ import numpy as np
 from external_lib.utils.crystal_structure_optimization import adjust_coordinates_periodic_boundary
 from external_lib.utils.parameter import judge_edge, judge_vertex, fractional_to_cartesian_matrix
 
-
 class Edge():
 
     def __init__(self, edge_path):
         self.edge_path = edge_path
         self.edge_name = edge_path.split('/')[-1][:-len('.cif')]
 
-
     def generate_file_combinations(self, combination_length):
-        # 这个函数的作用是生成给定长度的文件组合。它首先从指定的`path`（在这个例子中是`edges`）
-        # 中列出所有文件，然后使用`itertools.product`生成所有可能的组合，重复次数等于`combination_length`的长度。
-        # 最后返回这些文件组合列表。
+
         '''
         path = 'edges'
         edge_file_combinaitons = list(itertools.product([e for e in os.listdir(path)], repeat=len(combination_length)))
@@ -29,7 +25,7 @@ class Edge():
         edge_file_combinaitons = list(itertools.product([e for e in os.listdir(path)], repeat=len(combination_length)))
 
         return edge_file_combinaitons
-    
+
     def calculate_unitcell_fcoords(self):
         """
         function: reads a CIF file from the file path specified in edge_path, extracts the crystal cell parameters and the fractional coordinates of atoms with the "X" type label, and returns the unit cell matrix and the fractional coordinates of the "X" atoms
@@ -64,7 +60,6 @@ class Edge():
                 fractionsl_vector = np.array([float(q) for q in s[2:5]])
                 add_fractional_coords([s[0], fractionsl_vector])
 
-
         a, b, c, alpha, beta, gamma = list(map(float, (a, b, c, alpha, beta, gamma)))
         unit_cell = fractional_to_cartesian_matrix(a, b, c, alpha, beta, gamma)
 
@@ -76,7 +71,7 @@ class Edge():
         :return:  returns a single floating-point value, which represents the Euclidean distance between the Cartesian coordinates of the first two vertices of type 'X' in the crystal structure.
         :parameter: edge_path: the path to the cif file of the crystal structure
         """
-        
+
         path = self.edge_path
         with open(path, 'r') as cif:
             cif = cif.read()
@@ -104,11 +99,10 @@ class Edge():
                 fvec = np.array([float(q) for q in s[2:5]])
                 add_fractional_coord([s[0], fvec])
 
-
         a, b, c, alpha, beta, gamma = list(map(float, (a, b, c, alpha, beta, gamma)))
         unit_cell = fractional_to_cartesian_matrix(a, b, c, alpha, beta, gamma)
 
-        wrapped_fractional_coords = [adjust_coordinates_periodic_boundary(fractional_coords[0][1], vec[1]) for vec in fractional_coords]  # 求第一个X类型的节点与所有X类型节点的PBC3DF
+        wrapped_fractional_coords = [adjust_coordinates_periodic_boundary(fractional_coords[0][1], vec[1]) for vec in fractional_coords]
         cartesian_coords = [np.dot(unit_cell, vec) for vec in wrapped_fractional_coords]
 
         return np.linalg.norm(cartesian_coords[0] - cartesian_coords[1])
@@ -137,13 +131,6 @@ class Edge():
         return shifted_ccoords
 
     def crystal_to_array(self):
-        """
-        这个函数 crystal_to_array 是将一个晶体结构（从CIF文件读取）转换为一个坐标数组。它首先打开并读取CIF文件中的内容，
-        然后提取晶体的参数（a，b，c，alpha，beta，gamma）。然后，它遍历CIF文件的每一行，如果这一行包含一个顶点（通过函数 judge_vertex 判断），
-        则提取并保存其分数坐标。然后，根据晶体的参数，计算出晶格向量，并将其存储在一个矩阵中。然后，它通过将分数坐标乘以晶格向量，将分数坐标转换为笛卡尔坐标。
-        最后，它计算出所有节点类型为X的坐标的平均值（即质心），并将这个值从所有的笛卡尔坐标中减去，以将质心移动到原点。最终返回的是一个包含了节点标签和质心为原点的笛卡尔坐标的列表。
-        :return:
-        """
         path = self.edge_path
 
         with open(path, 'r') as cif:
@@ -171,11 +158,6 @@ class Edge():
                 beta = s[1]
             if '_cell_angle_gamma' in line:
                 gamma = s[1]
-            '''
-                        if '_modified_remove_atom_site_label' in line:
-                flag = True
-                continue
-            '''
             if judge_vertex(s):
                 fvec = np.array([float(q) for q in s[2:5]])
                 add_fractional_coord([s[0], fvec])

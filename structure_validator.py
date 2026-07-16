@@ -85,11 +85,12 @@ class StructureValidator:
     """
 
     def __init__(self, clash_tolerance=0.6, bond_tolerance=0.5,
-                 symprec=0.3, strict_mode=True):
+                 symprec=0.3, strict_mode=True, check_symmetry=True):
         self.clash_tolerance = clash_tolerance
         self.bond_tolerance = bond_tolerance
         self.symprec = symprec
         self.strict_mode = strict_mode
+        self.check_symmetry = check_symmetry
 
     # ================================================================
     #  公开接口
@@ -156,9 +157,17 @@ class StructureValidator:
             }
 
         # ── 3. 对称性守恒校验 ──
-        results['symmetry'] = self._check_symmetry(
-            structure, topology_graph
-        )
+        if self.check_symmetry:
+            results['symmetry'] = self._check_symmetry(
+                structure, topology_graph
+            )
+        else:
+            results['symmetry'] = {
+                'passed': True,
+                'skipped': True,
+                'detected_sg': 'not evaluated',
+                'message': '对称性分析已按本次审计设置跳过',
+            }
 
         # ── 综合判定 ──
         if self.strict_mode:

@@ -9,7 +9,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
-# --- 路径设置 ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.append(current_dir)
@@ -19,22 +18,10 @@ from main import load_graph, calculate_topology_requirements
 from symmetry import SymmetryEngine
 from enumerator import MOFEnumerator
 
-
 def get_data_path(topology_name):
     return os.path.join(project_root, "data", topology_name, f"{topology_name}_graph.json")
 
-
 def benchmark_case(topology_name, user_selected_ligands):
-    """
-    运行单个测试用例并返回详细指标。
-
-    Parameters
-    ----------
-    topology_name : str
-        拓扑名称 (e.g. "vba", "fjh", "ffc")
-    user_selected_ligands : dict[int, list[str]]
-        按节点度数选择的配体, e.g. {3: ["3c_B_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]}
-    """
     path = get_data_path(topology_name)
     if not os.path.exists(path):
         print(f"Warning: {path} not found.")
@@ -45,21 +32,16 @@ def benchmark_case(topology_name, user_selected_ligands):
     node_degrees = [n.get('degree', 0) for n in graph_data['nodes']]
     topology_requirements = calculate_topology_requirements(graph_data)
 
-    # 展平得到全部配体列表 (用于 enumerator)
     all_ligands = sorted(set(
         lig for ligs in user_selected_ligands.values() for lig in ligs
     ))
     total_atom_types = len(all_ligands)
 
-    # 生成描述标签 (用于图表)
     label_parts = []
     for deg in sorted(user_selected_ligands.keys()):
         label_parts.append(f"{deg}c×{len(user_selected_ligands[deg])}")
     ligand_label = ",".join(label_parts)
 
-    # --- 计算理论搜索空间 (Naive Space) ---
-    # 新公式: Π_{deg} |ligands[deg]|^{count[deg]}
-    # 因为每个度数的节点只能从该度数对应的配体池中选择
     naive_space = 1
     for deg, count in topology_requirements.items():
         n_choices = len(user_selected_ligands.get(deg, []))
@@ -71,14 +53,12 @@ def benchmark_case(topology_name, user_selected_ligands):
           f"| nodes: {n_nodes} | deg-dist: {topology_requirements} | "
           f"naive space: 10^{naive_space_log10:.1f}")
 
-    # 1. 计时：对称性分析
     t0 = time.time()
     sym = SymmetryEngine(graph_data, verbose=False)
     perms = sym.compute_automorphism_group()
     t_sym = time.time() - t0
     group_size = len(perms)
 
-    # 2. 计时：枚举 (使用新的 degree-aware API)
     t1 = time.time()
     enumerator = MOFEnumerator(
         perms, n_nodes, verbose=False,
@@ -105,39 +85,19 @@ def benchmark_case(topology_name, user_selected_ligands):
         "Time_Total": round(t_sym + t_enum, 4),
     }
 
-
 def run_performance_experiment():
     print(">>> Starting Complexity & Performance Benchmark (Degree-Aware)...")
 
-    # ============================================================
-    # 测试集定义: (拓扑, user_selected_ligands)
-    #
-    # 拓扑度数分布:
-    #   ffc:  7 nodes,  3 deg-4 +  4 deg-3 (|G|=8)
-    #   fjh: 28 nodes, 12 deg-4 + 16 deg-3 (|G|=16)
-    #   vba: 32 nodes, all degree 4         (|G|=16) — 被跳过:
-    #         min naive = 2^32≈4.3B, identity DFS 不可行
-    #
     # Naive Space = Π |ligands[deg]|^{count[deg]}
-    # 约束: 只保留 naive ≤ 3^12≈531k 的用例，确保 identity DFS 可完成
-    # ============================================================
-    test_cases = [
-        # # ---- ffc: 小拓扑 (7 nodes) ----
-        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
-        # # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch", "3c_Cu_imadazoline_Ch"],4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
-        # ("ffc", {3: ["3c_B_Ch", "3c_triazine_Ch", "3c_Cu_imadazoline_Ch"],
-        #          4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
-        #
-        # # ---- fjh: 中等拓扑 (28 nodes), 控制 naive space ----
-        # # 3c×1, 4c×2 → naive=1^16*2^12=4096
-        # ("fjh", {3: ["3c_B_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
-        # # 3c×2, 4c×1 → naive=2^16*1^12=65536
-        # ("fjh", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch"]}),
-        # # 3c×1, 4c×3 → naive=1^16*3^12=531441
-        # ("fjh", {3: ["3c_B_Ch", "3c_triazine_Ch"], 4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
 
-        # ---- vba: 跳过 (32 nodes, min naive≥2^32, identity DFS 不可行) ----
-        # 如需测试 vba, 需要限制 DFS 深度或使用近似算法
+    test_cases = [
+
+        # 4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
+
+        # # 3c×1, 4c×2 → naive=1^16*2^12=4096
+        # # 3c×2, 4c×1 → naive=2^16*1^12=65536
+        # # 3c×1, 4c×3 → naive=1^16*3^12=531441
+
         ("vba", {4: ["4c_Cu_1_Ch", "4c_B_Ch"]}),
         ("vba", {4: ["4c_Cu_1_Ch", "4c_B_Ch", "4c_Cd_1_Ch"]}),
     ]
@@ -152,7 +112,6 @@ def run_performance_experiment():
         if data:
             results.append(data)
 
-    # 保存 CSV
     csv_path = os.path.join(output_dir, "performance_data.csv")
     fieldnames = [
         "Topology", "Ligand_Label", "Total_Atom_Types", "Nodes",
@@ -167,11 +126,9 @@ def run_performance_experiment():
     print(f">>> Data saved to {csv_path}")
     plot_performance(results, output_dir)
 
-
 def plot_performance(data, output_dir):
     print(">>> Plotting Performance Chart...")
 
-    # 构造简洁标签: "vba\n4c×2" 等
     labels = [f"{d['Topology']}\n{d['Ligand_Label']}" for d in data]
     times = [d['Time_Total'] for d in data]
     naive_logs = [d['Naive_Log10'] for d in data]
@@ -179,7 +136,6 @@ def plot_performance(data, output_dir):
 
     fig, ax1 = plt.subplots(figsize=(14, 7))
 
-    # 左轴：实际运行时间 (Bar)
     color_bar = 'tab:blue'
     ax1.set_xlabel('Test Case (Topology — Ligand Configuration)', fontweight='bold', fontsize=11)
     ax1.set_ylabel('Actual Runtime (seconds)', color=color_bar, fontweight='bold')
@@ -188,14 +144,12 @@ def plot_performance(data, output_dir):
     ax1.set_xticks(range(len(labels)))
     ax1.set_xticklabels(labels, fontsize=9)
 
-    # 标注时间和枚举数量
     for i, bar in enumerate(bars):
         height = bar.get_height()
         ax1.text(bar.get_x() + bar.get_width() / 2., height,
                  f'{height:.2f}s\n({unique_counts[i]} uniq)',
                  ha='center', va='bottom', color='black', fontsize=8)
 
-    # 右轴：理论搜索空间 (Line)
     ax2 = ax1.twinx()
     color_line = 'tab:red'
     ax2.set_ylabel('Naive Search Space ($10^N$)', color=color_line, fontweight='bold')
@@ -203,12 +157,10 @@ def plot_performance(data, output_dir):
              linewidth=2, linestyle='--', markersize=8, label='Naive Space')
     ax2.tick_params(axis='y', labelcolor=color_line)
 
-    # 标注指数
     for i, val in enumerate(naive_logs):
         ax2.text(i, val + 0.3, f'$10^{{{val:.1f}}}$',
                  ha='center', va='bottom', color='red', fontsize=8)
 
-    # 添加图例
     lines1, labels1 = ax1.get_legend_handles_labels()
     lines2, labels2 = ax2.get_legend_handles_labels()
     ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=9)
@@ -220,7 +172,6 @@ def plot_performance(data, output_dir):
     plot_path = os.path.join(output_dir, "complexity_performance.png")
     plt.savefig(plot_path, dpi=300)
     print(f"   -> Plot saved to {plot_path}")
-
 
 if __name__ == "__main__":
     run_performance_experiment()

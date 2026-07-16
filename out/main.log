@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.29)  30 JUN 2026 23:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.29)  6 JUL 2026 14:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -598,12 +598,50 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count313
 ))
-(/usr/local/texlive/2026basic/texmf-dist/tex/latex/multirow/multirow.sty
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen186
+\captionmargin=\dimen187
+\caption@leftmargin=\dimen188
+\caption@rightmargin=\dimen189
+\caption@width=\dimen190
+\caption@indent=\dimen191
+\caption@parindent=\dimen192
+\caption@hangindent=\dimen193
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \FigName \@captype
+ \vskip \abovecaptionskip \@figurecaption {#1}{#2} \else \@tablecaption {#1}{#2
+} \vskip \belowcaptionskip \fi  on input line 1175.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count314
+\c@continuedfloat=\count315
+Package caption Info: hyperref package is loaded.
+Package caption Info: rotating package is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count316
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count317
+) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip65
-\multirow@cntb=\count314
+\multirow@cntb=\count318
 \multirow@dima=\skip66
-\bigstrutjot=\dimen186
+\bigstrutjot=\dimen194
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
@@ -616,23 +654,23 @@ Package: amstext 2024/11/17 v2.01 AMS text
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks30
-\ex@=\dimen187
+\ex@=\dimen195
 ))
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen188
+\pmbraise@=\dimen196
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count315
+\inf@bad=\count319
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count316
-\leftroot@=\count317
+\uproot@=\count320
+\leftroot@=\count321
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count318
-\DOTSCASE@=\count319
+\classnum@=\count322
+\DOTSCASE@=\count323
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -642,30 +680,30 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen189
+\big@size=\dimen197
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count320
+\macc@depth=\count324
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count321
+\c@MaxMatrixCols=\count325
 \dotsspace@=\muskip18
-\c@parentequation=\count322
-\dspbrk@lvl=\count323
+\c@parentequation=\count326
+\dspbrk@lvl=\count327
 \tag@help=\toks31
-\row@=\count324
-\column@=\count325
-\maxfields@=\count326
+\row@=\count328
+\column@=\count329
+\maxfields@=\count330
 \andhelp@=\toks32
-\eqnshift@=\dimen190
-\alignsep@=\dimen191
-\tagshift@=\dimen192
-\tagwidth@=\dimen193
-\totwidth@=\dimen194
-\lineht@=\dimen195
+\eqnshift@=\dimen198
+\alignsep@=\dimen199
+\tagshift@=\dimen256
+\tagwidth@=\dimen257
+\totwidth@=\dimen258
+\lineht@=\dimen259
 \@envbody=\toks33
 \multlinegap=\skip68
 \multlinetaggap=\skip69
@@ -716,27 +754,27 @@ Package: manyfoot 2019/08/03 v1.11 Many Footnote Levels Package (NCC)
 (/Users/jing/Library/texmf/tex/latex/ncctools/nccfoots.sty
 Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
 )
-\MFL@columnwidth=\dimen196
+\MFL@columnwidth=\dimen260
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen197
-\lightrulewidth=\dimen198
-\cmidrulewidth=\dimen199
-\belowrulesep=\dimen256
-\belowbottomsep=\dimen257
-\aboverulesep=\dimen258
-\abovetopsep=\dimen259
-\cmidrulesep=\dimen260
-\cmidrulekern=\dimen261
-\defaultaddspace=\dimen262
-\@cmidla=\count327
-\@cmidlb=\count328
-\@aboverulesep=\dimen263
-\@belowrulesep=\dimen264
-\@thisruleclass=\count329
-\@lastruleclass=\count330
-\@thisrulewidth=\dimen265
+\heavyrulewidth=\dimen261
+\lightrulewidth=\dimen262
+\cmidrulewidth=\dimen263
+\belowrulesep=\dimen264
+\belowbottomsep=\dimen265
+\aboverulesep=\dimen266
+\abovetopsep=\dimen267
+\cmidrulesep=\dimen268
+\cmidrulekern=\dimen269
+\defaultaddspace=\dimen270
+\@cmidla=\count331
+\@cmidlb=\count332
+\@aboverulesep=\dimen271
+\@belowrulesep=\dimen272
+\@thisruleclass=\count333
+\@lastruleclass=\count334
+\@thisrulewidth=\dimen273
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
@@ -744,29 +782,29 @@ nment
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count331
+\c@float@type=\count335
 \float@exts=\toks35
 \float@box=\box74
 \@float@everytoks=\toks36
 \@floatcapt=\box75
 )
 \@float@every@algorithm=\toks37
-\c@algorithm=\count332
+\c@algorithm=\count336
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/algorithmicx/algorithmicx.st
 y
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count333
-\c@ALG@rem=\count334
-\c@ALG@nested=\count335
+\c@ALG@line=\count337
+\c@ALG@rem=\count338
+\c@ALG@nested=\count339
 \ALG@tlm=\skip70
 \ALG@thistlm=\skip71
-\c@ALG@Lnr=\count336
-\c@ALG@blocknr=\count337
-\c@ALG@storecount=\count338
-\c@ALG@tmpcounter=\count339
+\c@ALG@Lnr=\count340
+\c@ALG@blocknr=\count341
+\c@ALG@storecount=\count342
+\c@ALG@tmpcounter=\count343
 \ALG@tmplength=\skip72
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/algorithmicx/algpseudocode.s
@@ -775,26 +813,26 @@ Package: algpseudocode
 
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/local/texlive/2026basic/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count340
+\lst@mode=\count344
 \lst@gtempboxa=\box76
 \lst@token=\toks38
-\lst@length=\count341
-\lst@currlwidth=\dimen266
-\lst@column=\count342
-\lst@pos=\count343
-\lst@lostspace=\dimen267
-\lst@width=\dimen268
-\lst@newlines=\count344
-\lst@lineno=\count345
-\lst@maxwidth=\dimen269
+\lst@length=\count345
+\lst@currlwidth=\dimen274
+\lst@column=\count346
+\lst@pos=\count347
+\lst@lostspace=\dimen275
+\lst@width=\dimen276
+\lst@newlines=\count348
+\lst@lineno=\count349
+\lst@maxwidth=\dimen277
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count346
-\lst@skipnumbers=\count347
+\c@lstnumber=\count350
+\lst@skipnumbers=\count351
 \lst@framebox=\box77
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/listings/listings.cfg
@@ -814,8 +852,8 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-comm
 on.tex
 \pgfutil@everybye=\toks39
-\pgfutil@tempdima=\dimen270
-\pgfutil@tempdimb=\dimen271
+\pgfutil@tempdima=\dimen278
+\pgfutil@tempdimb=\dimen279
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-late
 x.def
@@ -841,26 +879,26 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 ryfiltered.code.tex
 \pgfkeys@tmptoks=\toks42
 ))
-\pgf@x=\dimen272
-\pgf@y=\dimen273
-\pgf@xa=\dimen274
-\pgf@ya=\dimen275
-\pgf@xb=\dimen276
-\pgf@yb=\dimen277
-\pgf@xc=\dimen278
-\pgf@yc=\dimen279
-\pgf@xd=\dimen280
-\pgf@yd=\dimen281
+\pgf@x=\dimen280
+\pgf@y=\dimen281
+\pgf@xa=\dimen282
+\pgf@ya=\dimen283
+\pgf@xb=\dimen284
+\pgf@yb=\dimen285
+\pgf@xc=\dimen286
+\pgf@yc=\dimen287
+\pgf@xd=\dimen288
+\pgf@yd=\dimen289
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count348
-\c@pgf@countb=\count349
-\c@pgf@countc=\count350
-\c@pgf@countd=\count351
+\c@pgf@counta=\count352
+\c@pgf@countb=\count353
+\c@pgf@countc=\count354
+\c@pgf@countd=\count355
 \t@pgf@toka=\toks43
 \t@pgf@tokb=\toks44
 \t@pgf@tokc=\toks45
-\pgf@sys@id@count=\count352
+\pgf@sys@id@count=\count356
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
@@ -878,8 +916,8 @@ File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoft
 path.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count353
-\pgfsyssoftpath@bigbuffer@items=\count354
+\pgfsyssoftpath@smallbuffer@items=\count357
+\pgfsyssoftpath@bigbuffer@items=\count358
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprot
 ocol.code.tex
@@ -894,8 +932,8 @@ Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
 tex)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/math/pgfmathparser.cod
 e.tex
-\pgfmath@dimen=\dimen282
-\pgfmath@count=\count355
+\pgfmath@dimen=\dimen290
+\pgfmath@count=\count359
 \pgfmath@box=\box79
 \pgfmath@toks=\toks46
 \pgfmath@stack@operand=\toks47
@@ -923,38 +961,38 @@ integerarithmetics.code.tex)
 tex)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code
 .tex
-\c@pgfmathroundto@lastzeros=\count356
+\c@pgfmathroundto@lastzeros=\count360
 ))
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoin
 ts.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen283
-\pgf@picmaxx=\dimen284
-\pgf@picminy=\dimen285
-\pgf@picmaxy=\dimen286
-\pgf@pathminx=\dimen287
-\pgf@pathmaxx=\dimen288
-\pgf@pathminy=\dimen289
-\pgf@pathmaxy=\dimen290
-\pgf@xx=\dimen291
-\pgf@xy=\dimen292
-\pgf@yx=\dimen293
-\pgf@yy=\dimen294
-\pgf@zx=\dimen295
-\pgf@zy=\dimen296
+\pgf@picminx=\dimen291
+\pgf@picmaxx=\dimen292
+\pgf@picminy=\dimen293
+\pgf@picmaxy=\dimen294
+\pgf@pathminx=\dimen295
+\pgf@pathmaxx=\dimen296
+\pgf@pathminy=\dimen297
+\pgf@pathmaxy=\dimen298
+\pgf@xx=\dimen299
+\pgf@xy=\dimen300
+\pgf@yx=\dimen301
+\pgf@yy=\dimen302
+\pgf@zx=\dimen303
+\pgf@zy=\dimen304
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepath
 construct.code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen297
-\pgf@path@lasty=\dimen298
+\pgf@path@lastx=\dimen305
+\pgf@path@lasty=\dimen306
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepath
 usage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen299
-\pgf@shorten@start@additional=\dimen300
+\pgf@shorten@end@additional=\dimen307
+\pgf@shorten@start@additional=\dimen308
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescop
 es.code.tex
@@ -962,19 +1000,19 @@ File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box80
 \pgf@hbox=\box81
 \pgf@layerbox@main=\box82
-\pgf@picture@serial@count=\count357
+\pgf@picture@serial@count=\count361
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregrap
 hicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen301
+\pgflinewidth=\dimen309
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretran
 sformations.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen302
-\pgf@pt@y=\dimen303
-\pgf@pt@temp=\dimen304
+\pgf@pt@x=\dimen310
+\pgf@pt@y=\dimen311
+\pgf@pt@temp=\dimen312
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequic
 k.code.tex
@@ -991,14 +1029,14 @@ File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearro
 ws.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen305
+\pgfarrowsep=\dimen313
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshad
 e.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen306
-\pgf@sys@shading@range@num=\count358
-\pgf@shadingcount=\count359
+\pgf@max=\dimen314
+\pgf@sys@shading@range@num=\count362
+\pgf@shadingcount=\count363
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimag
 e.code.tex
@@ -1037,8 +1075,8 @@ File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-ve
 rsion-0-65.sty
 Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen307
-\pgf@nodesepend=\dimen308
+\pgf@nodesepstart=\dimen315
+\pgf@nodesepend=\dimen316
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-ve
 rsion-1-18.sty
@@ -1053,8 +1091,8 @@ Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/utilities/pgffor.code.
 tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen309
-\pgffor@skip=\dimen310
+\pgffor@iter=\dimen317
+\pgffor@skip=\dimen318
 \pgffor@stack=\toks49
 \pgffor@toks=\toks50
 ))
@@ -1065,34 +1103,34 @@ Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/libraries/pgflibrarypl
 othandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count360
-\pgfplotmarksize=\dimen311
+\pgf@plot@mark@count=\count364
+\pgfplotmarksize=\dimen319
 )
-\tikz@lastx=\dimen312
-\tikz@lasty=\dimen313
-\tikz@lastxsaved=\dimen314
-\tikz@lastysaved=\dimen315
-\tikz@lastmovetox=\dimen316
-\tikz@lastmovetoy=\dimen317
-\tikzleveldistance=\dimen318
-\tikzsiblingdistance=\dimen319
+\tikz@lastx=\dimen320
+\tikz@lasty=\dimen321
+\tikz@lastxsaved=\dimen322
+\tikz@lastysaved=\dimen323
+\tikz@lastmovetox=\dimen324
+\tikz@lastmovetoy=\dimen325
+\tikzleveldistance=\dimen326
+\tikzsiblingdistance=\dimen327
 \tikz@figbox=\box85
 \tikz@figbox@bg=\box86
 \tikz@tempbox=\box87
 \tikz@tempbox@bg=\box88
-\tikztreelevel=\count361
-\tikznumberofchildren=\count362
-\tikznumberofcurrentchild=\count363
-\tikz@fig@count=\count364
+\tikztreelevel=\count365
+\tikznumberofchildren=\count366
+\tikznumberofcurrentchild=\count367
+\tikz@fig@count=\count368
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/modules/pgfmodulematri
 x.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count365
-\pgfmatrixcurrentcolumn=\count366
-\pgf@matrix@numberofcolumns=\count367
+\pgfmatrixcurrentrow=\count369
+\pgfmatrixcurrentcolumn=\count370
+\pgf@matrix@numberofcolumns=\count371
 )
-\tikz@expandcount=\count368
+\tikz@expandcount=\count372
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/lib
 raries/tikzlibrarytopaths.code.tex
@@ -1117,48 +1155,48 @@ File: pgflibraryshapes.misc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryar
 rows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowinset=\dimen320
-\pgfarrowlength=\dimen321
-\pgfarrowwidth=\dimen322
-\pgfarrowlinewidth=\dimen323
+\pgfarrowinset=\dimen328
+\pgfarrowlength=\dimen329
+\pgfarrowwidth=\dimen330
+\pgfarrowlinewidth=\dimen331
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/lib
 raries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-\c@theorem=\count369
-\c@proposition=\count370
-\c@remark=\count371
-\c@lemma=\count372
-\c@definition=\count373
-\c@corollary=\count374
-\c@example=\count375
+\c@theorem=\count373
+\c@proposition=\count374
+\c@remark=\count375
+\c@lemma=\count376
+\c@definition=\count377
+\c@corollary=\count378
+\c@example=\count379
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
 ef
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count376
+\l__color_backend_stack_int=\count380
 ) (/Users/jing/PyCharmMiscProject/mof/out/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1197,16 +1235,16 @@ LaTeX Font Info:    ... okay on input line 42.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count377
-\scratchdimen=\dimen324
+\scratchcounter=\count381
+\scratchdimen=\dimen332
 \scratchbox=\box89
-\nofMPsegments=\count378
-\nofMParguments=\count379
+\nofMPsegments=\count382
+\nofMParguments=\count383
 \everyMPshowfont=\toks51
-\MPscratchCnt=\count380
-\MPscratchDim=\dimen325
-\MPnumerator=\count381
-\makeMPintoPDFobject=\count382
+\MPscratchCnt=\count384
+\MPscratchDim=\dimen333
+\MPnumerator=\count385
+\makeMPintoPDFobject=\count386
 \everyMPtoPDFconversion=\toks52
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
@@ -1219,34 +1257,38 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \S on input line 42.
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 42.
+LaTeX Info: Redefining \S on input line 43.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 43.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 42.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 43.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 42.
-Package hyperref Info: Link coloring ON on input line 42.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 43.
+Package hyperref Info: Link coloring ON on input line 43.
  (/Users/jing/PyCharmMiscProject/mof/out/main.out)
 (/Users/jing/PyCharmMiscProject/mof/out/main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-\c@lstlisting=\count383
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 75
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count387
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 76
 .
-LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
 
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
 
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 75
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 76
 .
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -1254,15 +1296,15 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 75.
+(Font)              size <6> substituted on input line 76.
 
-LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 75.
+LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 76.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.51686> not available
-(Font)              size <5> substituted on input line 75.
+(Font)              size <5> substituted on input line 76.
 
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 75
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 76
 .
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1274,1592 +1316,244 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+<pipline.png, id=132, 1727.45375pt x 573.14125pt>
+File: pipline.png Graphic file (type png)
+<use pipline.png>
+Package pdftex.def Info: pipline.png  used on input line 194.
+(pdftex.def)             Requested size: 372.0pt x 123.4241pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 215.
+
+
+LaTeX Warning: Float too large for page by 33.59618pt on input line 263.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6 <./pipline.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+Overfull \hbox (92.20793pt too wide) in paragraph at lines 324--346
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
+<reconstruction_gallery/ffc_panel.png, id=178, 1405.25pt x 863.225pt>
+File: reconstruction_gallery/ffc_panel.png Graphic file (type png)
+<use reconstruction_gallery/ffc_panel.png>
+Package pdftex.def Info: reconstruction_gallery/ffc_panel.png  used on input li
+ne 364.
+(pdftex.def)             Requested size: 119.04272pt x 73.1163pt.
+<reconstruction_gallery/fjh_panel.png, id=179, 1405.25pt x 863.225pt>
+File: reconstruction_gallery/fjh_panel.png Graphic file (type png)
+<use reconstruction_gallery/fjh_panel.png>
+Package pdftex.def Info: reconstruction_gallery/fjh_panel.png  used on input li
+ne 370.
+(pdftex.def)             Requested size: 119.04272pt x 73.1163pt.
+<reconstruction_gallery/vba_panel.png, id=180, 1405.25pt x 863.225pt>
+File: reconstruction_gallery/vba_panel.png Graphic file (type png)
+<use reconstruction_gallery/vba_panel.png>
+Package pdftex.def Info: reconstruction_gallery/vba_panel.png  used on input li
+ne 376.
+(pdftex.def)             Requested size: 119.04272pt x 73.1163pt.
+<reconstruction_gallery/hwx_panel.png, id=181, 1405.25pt x 863.225pt>
+File: reconstruction_gallery/hwx_panel.png Graphic file (type png)
+<use reconstruction_gallery/hwx_panel.png>
+Package pdftex.def Info: reconstruction_gallery/hwx_panel.png  used on input li
+ne 386.
+(pdftex.def)             Requested size: 118.74101pt x 72.9319pt.
+<reconstruction_gallery/nbo_panel.png, id=182, 1405.25pt x 863.225pt>
+File: reconstruction_gallery/nbo_panel.png Graphic file (type png)
+<use reconstruction_gallery/nbo_panel.png>
+Package pdftex.def Info: reconstruction_gallery/nbo_panel.png  used on input li
+ne 392.
+(pdftex.def)             Requested size: 118.74101pt x 72.9319pt.
+
+Underfull \hbox (badness 1237) in paragraph at lines 407--409
+[]\OT1/cmr/m/n/10 For the smaller \OT1/cmtt/m/n/10.03749 ffc \OT1/cmr/m/n/10 to
+pol-ogy, 21 con-verged cal-cu-la-tions span eight fixed-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+<ffc_pooled_symmetry_energy_a.pdf, id=196, 262.40999pt x 223.76945pt>
+File: ffc_pooled_symmetry_energy_a.pdf Graphic file (type pdf)
+<use ffc_pooled_symmetry_energy_a.pdf>
+Package pdftex.def Info: ffc_pooled_symmetry_energy_a.pdf  used on input line 4
+18.
+(pdftex.def)             Requested size: 184.13818pt x 157.02336pt.
+<ffc_pooled_symmetry_energy_b.pdf, id=197, 262.36606pt x 223.50124pt>
+File: ffc_pooled_symmetry_energy_b.pdf Graphic file (type pdf)
+<use ffc_pooled_symmetry_energy_b.pdf>
+Package pdftex.def Info: ffc_pooled_symmetry_energy_b.pdf  used on input line 4
+24.
+(pdftex.def)             Requested size: 184.13818pt x 156.86244pt.
+<fjh_comp_a_symmetry_energy.pdf, id=198, 524.78395pt x 224.11308pt>
+File: fjh_comp_a_symmetry_energy.pdf Graphic file (type pdf)
+<use fjh_comp_a_symmetry_energy.pdf>
+Package pdftex.def Info: fjh_comp_a_symmetry_energy.pdf  used on input line 432
+.
+(pdftex.def)             Requested size: 184.13818pt x 157.63042pt.
+File: fjh_comp_a_symmetry_energy.pdf Graphic file (type pdf)
+<use fjh_comp_a_symmetry_energy.pdf>
+Package pdftex.def Info: fjh_comp_a_symmetry_energy.pdf  used on input line 438
+.
+(pdftex.def)             Requested size: 184.13818pt x 157.63042pt.
 
-./main.tex:103: LaTeX Error: Unicode character 这 (U+8FD9)
-               not set up for use with LaTeX.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这
-         种解耦使得代数枚举（阶段 II）可以独立于几何库�...
+ [11 <./reconstruction_gallery/ffc_panel.png> <./reconstruction_gallery/fjh_pan
+el.png> <./reconstruction_gallery/vba_panel.png> <./reconstruction_gallery/hwx_
+panel.png> <./reconstruction_gallery/nbo_panel.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
+ [12 <./ffc_pooled_symmetry_energy_a.pdf> <./ffc_pooled_symmetry_energy_b.pdf> 
+<./fjh_comp_a_symmetry_energy.pdf>]
+Underfull \hbox (badness 3579) in paragraph at lines 489--491
+\OT1/cmr/m/n/10 Cross-validation uses \OT1/cmss/m/n/10.03749 libcasm-configurat
+ion \OT1/cmr/m/n/10 2.3.1 and \OT1/cmss/m/n/10.03749 libcasm-xtal \OT1/cmr/m/n/
+10 2.3.0 under
+ []
 
 
-./main.tex:103: LaTeX Error: Unicode character 种 (U+79CD)
-               not set up for use with LaTeX.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种
-            解耦使得代数枚举（阶段 II）可以独立于几何库�...
+ [13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
+ [14]
+Underfull \hbox (badness 10000) in paragraph at lines 536--538
+\OT1/cmr/m/n/10 mark exper-i-ments is avail-able on GitHub at [][]$https : / / 
+github . com / ttttxx /
+ []
 
 
-./main.tex:103: LaTeX Error: Unicode character 解 (U+89E3)
-               not set up for use with LaTeX.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解
-               耦使得代数枚举（阶段 II）可以独立于几何库�...
+ [15]
+(/Users/jing/PyCharmMiscProject/mof/out/main.bbl
+Underfull \hbox (badness 3029) in paragraph at lines 107--122
+[]\OT1/cmr/m/n/10 Park, J., Kim, H., Kang, Y., Lim, Y., Kim, J.: From data to d
+is-
+ []
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
 
+Underfull \hbox (badness 1968) in paragraph at lines 107--122
+\OT1/cmr/m/n/10 cov-ery: Recent trends of machine learn-ing in metal{organic fr
+ame-works.
+ []
 
-./main.tex:103: LaTeX Error: Unicode character 耦 (U+8026)
-               not set up for use with LaTeX.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦
-                  使得代数枚举（阶段 II）可以独立于几何库�...
+Underfull \hbox (badness 2735) in paragraph at lines 107--122
+\OT1/cmr/m/n/10 JACS Au \OT1/cmr/bx/n/10.03749 4\OT1/cmr/m/n/10 (10), 3727--374
+3 (2024) [][]$https : / / doi . org / 10 . 1021 / jacsau . 4c00618$[][]
+ []
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
 
+Underfull \hbox (badness 1275) in paragraph at lines 149--160
+\OT1/cmr/m/n/10 mated con-struc-tion of metal--organic frame-works and their ev
+al-u-a-tion for
+ []
 
-./main.tex:103: LaTeX Error: Unicode character 使 (U+4F7F)
-               not set up for use with LaTeX.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使
-                     得代数枚举（阶段 II）可以独立于几何库�...
+Underfull \hbox (badness 10000) in paragraph at lines 182--198
+\OT1/cmr/m/n/10 / / doi . org / 10 . 1021 / acs . jcim . 5c01625$[][] [][]https
+://doi.org/10.1021/acs.jcim.5c01625[][].
+ []
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-./main.tex:103: LaTeX Error: Unicode character 得 (U+5F97)
-               not set up for use with LaTeX.
+ [16
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得
-                        代数枚举（阶段 II）可以独立于几何库�...
+]
+Underfull \hbox (badness 1661) in paragraph at lines 406--417
+[]\OT1/cmr/m/n/10 van de Walle, A., Asta, M., Ceder, G.: The alloy the-o-retic 
+auto-mated
+ []
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-./main.tex:103: LaTeX Error: Unicode character 代 (U+4EE3)
-               not set up for use with LaTeX.
+ [17])
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得代
-                           数枚举（阶段 II）可以独立于几何库�...
+ [18]
+(/Users/jing/PyCharmMiscProject/mof/out/main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
 
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.48314pt have occurred.
 
-./main.tex:103: LaTeX Error: Unicode character 数 (U+6570)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得代数
-                              枚举（阶段 II）可以独立于几何库�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 枚 (U+679A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得代数枚
-                                 举（阶段 II）可以独立于几何库�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 举 (U+4E3E)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得代数枚举
-                                    （阶段 II）可以独立于几何库�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character （ (U+FF08)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得代数枚举（
-                                       阶段 II）可以独立于几何库�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 阶 (U+9636)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得代数枚举（阶
-                                          段 II）可以独立于几何库�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 段 (U+6BB5)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 这种解耦使得代数枚举（阶段
-                                              II）可以独立于几何库�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character ） (U+FF09)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��解耦使得代数枚举（阶段 II）
-                                                  可以独立于几何库�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 可 (U+53EF)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��耦使得代数枚举（阶段 II）可
-                                                  以独立于几何库进�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 以 (U+4EE5)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��使得代数枚举（阶段 II）可以
-                                                  独立于几何库进行�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 独 (U+72EC)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��得代数枚举（阶段 II）可以独
-                                                  立于几何库进行验�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 立 (U+7ACB)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��代数枚举（阶段 II）可以独立
-                                                  于几何库进行验证�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 于 (U+4E8E)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��数枚举（阶段 II）可以独立于
-                                                  几何库进行验证。�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 几 (U+51E0)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��枚举（阶段 II）可以独立于几
-                                                  何库进行验证。在�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 何 (U+4F55)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��举（阶段 II）可以独立于几何
-                                                  库进行验证。在阶�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 库 (U+5E93)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��（阶段 II）可以独立于几何库
-                                                  进行验证。在阶段 I...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 进 (U+8FDB)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��阶段 II）可以独立于几何库进
-                                                  行验证。在阶段 II �...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 行 (U+884C)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��段 II）可以独立于几何库进行
-                                                  验证。在阶段 II 内�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 验 (U+9A8C)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�� II）可以独立于几何库进行验
-                                                  证。在阶段 II 内部�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 证 (U+8BC1)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...II）可以独立于几何库进行验证
-                                                  。在阶段 II 内部，�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 。 (U+3002)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��可以独立于几何库进行验证。
-                                                  在阶段 II 内部，三�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 在 (U+5728)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��以独立于几何库进行验证。在
-                                                  阶段 II 内部，三项�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 阶 (U+9636)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��独立于几何库进行验证。在阶
-                                                  段 II 内部，三项设�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 段 (U+6BB5)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��立于几何库进行验证。在阶段
-                                                   II 内部，三项设计�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 内 (U+5185)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�几何库进行验证。在阶段 II 内
-                                                  部，三项设计选择�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 部 (U+90E8)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�何库进行验证。在阶段 II 内部
-                                                  ，三项设计选择将�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character ， (U+FF0C)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�库进行验证。在阶段 II 内部，
-                                                  三项设计选择将通�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 三 (U+4E09)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�进行验证。在阶段 II 内部，三
-                                                  项设计选择将通用�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 项 (U+9879)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�行验证。在阶段 II 内部，三项
-                                                  设计选择将通用枚�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 设 (U+8BBE)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�验证。在阶段 II 内部，三项设
-                                                  计选择将通用枚举�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 计 (U+8BA1)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�证。在阶段 II 内部，三项设计
-                                                  选择将通用枚举框�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 选 (U+9009)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�。在阶段 II 内部，三项设计选
-                                                  择将通用枚举框架�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 择 (U+62E9)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�在阶段 II 内部，三项设计选择
-                                                  将通用枚举框架适�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 将 (U+5C06)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�阶段 II 内部，三项设计选择将
-                                                  通用枚举框架适配�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 通 (U+901A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...�段 II 内部，三项设计选择将通
-                                                  用枚举框架适配到 M...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 用 (U+7528)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...� II 内部，三项设计选择将通用
-                                                  枚举框架适配到 MOF ...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 枚 (U+679A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...I 内部，三项设计选择将通用枚
-                                                  举框架适配到 MOF 化...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 举 (U+4E3E)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��部，三项设计选择将通用枚举
-                                                  框架适配到 MOF 化学...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 框 (U+6846)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��，三项设计选择将通用枚举框
-                                                  架适配到 MOF 化学场...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 架 (U+67B6)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��三项设计选择将通用枚举框架
-                                                  适配到 MOF 化学场景...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 适 (U+9002)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��项设计选择将通用枚举框架适
-                                                  配到 MOF 化学场景。...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 配 (U+914D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��设计选择将通用枚举框架适配
-                                                  到 MOF 化学场景。每...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 到 (U+5230)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��计选择将通用枚举框架适配到
-                                                   MOF 化学场景。每个...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 化 (U+5316)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...择将通用枚举框架适配到 MOF 化
-                                                  学场景。每个顶点�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 学 (U+5B66)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...将通用枚举框架适配到 MOF 化学
-                                                  场景。每个顶点从�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 场 (U+573A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...通用枚举框架适配到 MOF 化学场
-                                                  景。每个顶点从与�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 景 (U+666F)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...用枚举框架适配到 MOF 化学场景
-                                                  。每个顶点从与其�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 。 (U+3002)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...枚举框架适配到 MOF 化学场景。
-                                                  每个顶点从与其配�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 每 (U+6BCF)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...举框架适配到 MOF 化学场景。每
-                                                  个顶点从与其配位�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 个 (U+4E2A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...框架适配到 MOF 化学场景。每个
-                                                  顶点从与其配位数�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 顶 (U+9876)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...架适配到 MOF 化学场景。每个顶
-                                                  点从与其配位数对�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 点 (U+70B9)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...适配到 MOF 化学场景。每个顶点
-                                                  从与其配位数对应�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 从 (U+4ECE)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...配到 MOF 化学场景。每个顶点从
-                                                  与其配位数对应的�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 与 (U+4E0E)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...到 MOF 化学场景。每个顶点从与
-                                                  其配位数对应的配�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 其 (U+5176)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ... MOF 化学场景。每个顶点从与其
-                                                  配位数对应的配体�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 配 (U+914D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...F 化学场景。每个顶点从与其配
-                                                  位数对应的配体池 $...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 位 (U+4F4D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��学场景。每个顶点从与其配位
-                                                  数对应的配体池 $\ma...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 数 (U+6570)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��场景。每个顶点从与其配位数
-                                                  对应的配体池 $\mathc...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 对 (U+5BF9)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��景。每个顶点从与其配位数对
-                                                  应的配体池 $\mathcal{...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 应 (U+5E94)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��。每个顶点从与其配位数对应
-                                                  的配体池 $\mathcal{C}_...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 的 (U+7684)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��每个顶点从与其配位数对应的
-                                                  配体池 $\mathcal{C}_d$ ...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 配 (U+914D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��个顶点从与其配位数对应的配
-                                                  体池 $\mathcal{C}_d$ 中...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 体 (U+4F53)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��顶点从与其配位数对应的配体
-                                                  池 $\mathcal{C}_d$ 中取...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 池 (U+6C60)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��点从与其配位数对应的配体池
-                                                   $\mathcal{C}_d$ 中取色...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 中 (U+4E2D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...数对应的配体池 $\mathcal{C}_d$ 中
-                                                  取色，度数计数剪�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 取 (U+53D6)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...对应的配体池 $\mathcal{C}_d$ 中取
-                                                  色，度数计数剪枝�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 色 (U+8272)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...应的配体池 $\mathcal{C}_d$ 中取色
-                                                  ，度数计数剪枝拒�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character ， (U+FF0C)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...的配体池 $\mathcal{C}_d$ 中取色，
-                                                  度数计数剪枝拒绝�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 度 (U+5EA6)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...配体池 $\mathcal{C}_d$ 中取色，度
-                                                  数计数剪枝拒绝超�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 数 (U+6570)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...体池 $\mathcal{C}_d$ 中取色，度数
-                                                  计数剪枝拒绝超过�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 计 (U+8BA1)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...池 $\mathcal{C}_d$ 中取色，度数计
-                                                  数剪枝拒绝超过各�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 数 (U+6570)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ... $\mathcal{C}_d$ 中取色，度数计数
-                                                  剪枝拒绝超过各配�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 剪 (U+526A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...mathcal{C}_d$ 中取色，度数计数剪
-                                                  枝拒绝超过各配位�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 枝 (U+679D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...hcal{C}_d$ 中取色，度数计数剪枝
-                                                  拒绝超过各配位数�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 拒 (U+62D2)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...l{C}_d$ 中取色，度数计数剪枝拒
-                                                  绝超过各配位数化�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 绝 (U+7EDD)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...}_d$ 中取色，度数计数剪枝拒绝
-                                                  超过各配位数化学�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 超 (U+8D85)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...$ 中取色，度数计数剪枝拒绝超
-                                                  过各配位数化学计�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 过 (U+8FC7)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��取色，度数计数剪枝拒绝超过
-                                                  各配位数化学计量�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 各 (U+5404)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��色，度数计数剪枝拒绝超过各
-                                                  配位数化学计量比�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 配 (U+914D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��，度数计数剪枝拒绝超过各配
-                                                  位数化学计量比的�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 位 (U+4F4D)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��度数计数剪枝拒绝超过各配位
-                                                  数化学计量比的分�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 数 (U+6570)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��数计数剪枝拒绝超过各配位数
-                                                  化学计量比的分支�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 化 (U+5316)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��计数剪枝拒绝超过各配位数化
-                                                  学计量比的分支。�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 学 (U+5B66)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��数剪枝拒绝超过各配位数化学
-                                                  计量比的分支。对�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 计 (U+8BA1)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��剪枝拒绝超过各配位数化学计
-                                                  量比的分支。对称�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 量 (U+91CF)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��枝拒绝超过各配位数化学计量
-                                                  比的分支。对称群�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 比 (U+6BD4)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��拒绝超过各配位数化学计量比
-                                                  的分支。对称群被�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 的 (U+7684)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��绝超过各配位数化学计量比的
-                                                  分支。对称群被限�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 分 (U+5206)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��超过各配位数化学计量比的分
-                                                  支。对称群被限制�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 支 (U+652F)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��过各配位数化学计量比的分支
-                                                  。对称群被限制为�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 。 (U+3002)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��各配位数化学计量比的分支。
-                                                  对称群被限制为真�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 对 (U+5BF9)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��配位数化学计量比的分支。对
-                                                  称群被限制为真旋�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 称 (U+79F0)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��位数化学计量比的分支。对称
-                                                  群被限制为真旋转�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 群 (U+7FA4)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��数化学计量比的分支。对称群
-                                                  被限制为真旋转，�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 被 (U+88AB)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��化学计量比的分支。对称群被
-                                                  限制为真旋转，使�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 限 (U+9650)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��学计量比的分支。对称群被限
-                                                  制为真旋转，使得�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 制 (U+5236)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��计量比的分支。对称群被限制
-                                                  为真旋转，使得仅�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 为 (U+4E3A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��量比的分支。对称群被限制为
-                                                  真旋转，使得仅被�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 真 (U+771F)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��比的分支。对称群被限制为真
-                                                  旋转，使得仅被非�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 旋 (U+65CB)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��的分支。对称群被限制为真旋
-                                                  转，使得仅被非真�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 转 (U+8F6C)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��分支。对称群被限制为真旋转
-                                                  ，使得仅被非真操�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character ， (U+FF0C)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��支。对称群被限制为真旋转，
-                                                  使得仅被非真操作�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 使 (U+4F7F)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��。对称群被限制为真旋转，使
-                                                  得仅被非真操作区�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 得 (U+5F97)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��对称群被限制为真旋转，使得
-                                                  仅被非真操作区分�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 仅 (U+4EC5)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��称群被限制为真旋转，使得仅
-                                                  被非真操作区分的�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 被 (U+88AB)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��群被限制为真旋转，使得仅被
-                                                  非真操作区分的两�...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./main.tex:103: LaTeX Error: Unicode character 非 (U+975E)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...��被限制为真旋转，使得仅被非
-                                                  真操作区分的两个�...
-(That makes 100 errors; please try again.) 
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 04E0031E01788520A1FFAC4084E61891;1236.
+ ) 
 Here is how much of TeX's memory you used:
- 25503 strings out of 469006
- 469240 string characters out of 5454813
- 869721 words of memory out of 5000000
- 53718 multiletter control sequences out of 15000+600000
- 645336 words of font info for 109 fonts, out of 8000000 for 9000
+ 27183 strings out of 469006
+ 504141 string characters out of 5454813
+ 899649 words of memory out of 5000000
+ 55317 multiletter control sequences out of 15000+600000
+ 653083 words of font info for 139 fonts, out of 8000000 for 9000
  329 hyphenation exceptions out of 8191
- 90i,7n,94p,1414b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,15n,94p,1306b,668s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy
+10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx6.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx8.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2026basic/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026basic/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026basic/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2026basic/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026bas
+ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026
+basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2
+026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive
+/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
+ve/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
+exlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/loc
+al/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
+usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
+></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
+.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti9.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmtt9.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on /Users/jing/PyCharmMiscProject/mof/out/main.pdf (18 pages, 29
+50580 bytes).
+PDF statistics:
+ 510 PDF objects out of 1000 (max. 8388607)
+ 374 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-./main.tex:103:  ==> Fatal error occurred, no output PDF file produced!

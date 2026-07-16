@@ -18,14 +18,14 @@ from external_lib.edge import Edge
 from external_lib.utils.parameter import ShapeMismatchError
 from structure_validator import StructureValidator
 
-
 class StructureAssembler:
-    def __init__(self, output_dir="results/cifs", validator=None):
+    def __init__(self, output_dir="results/cifs", validator=None, run_symmetry=True):
         self.output_dir = output_dir
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
         self.validator = validator or StructureValidator(strict_mode=False)
+        self.run_symmetry = run_symmetry
 
         self.edge_lib_path = os.path.abspath("edges")
         self.edge_lengths = {}
@@ -33,6 +33,47 @@ class StructureAssembler:
         if os.path.exists(json_path):
             with open(json_path, 'r') as f:
                 self.edge_lengths = json.load(f)
+
+    def _compute_connection_closure_metrics(self, placed_all, fixed_bonds,
+                                            target_bridge_length=1.485,
+                                            threshold=0.8):
+        """Measure residual node-edge X-site closure errors after PBC-aware bonding."""
+        site_by_id = {str(site[0]): site for site in placed_all}
+        distances = []
+
+        for bond in fixed_bonds:
+            a1, a2 = str(bond[0]), str(bond[1])
+            s1 = site_by_id.get(a1)
+            s2 = site_by_id.get(a2)
+            if s1 is None or s2 is None:
+                continue
+            if s1[-1] == s2[-1]:
+                continue
+            if not (str(s1[5]).startswith('X') and str(s2[5]).startswith('X')):
+                continue
+            distances.append(abs(float(bond[2]) - target_bridge_length))
+
+        if not distances:
+            return {
+                "n_closure_pairs": 0,
+                "closure_rmsd_A": None,
+                "closure_median_A": None,
+                "closure_p95_A": None,
+                "closure_max_A": None,
+                "within_0.8A_fraction": None,
+                "closure_errors_A": [],
+            }
+
+        arr = np.array(distances, dtype=float)
+        return {
+            "n_closure_pairs": int(len(arr)),
+            "closure_rmsd_A": float(np.sqrt(np.mean(arr ** 2))),
+            "closure_median_A": float(np.median(arr)),
+            "closure_p95_A": float(np.percentile(arr, 95)),
+            "closure_max_A": float(np.max(arr)),
+            "within_0.8A_fraction": float(np.mean(arr <= threshold)),
+            "closure_errors_A": [float(x) for x in arr],
+        }
 
     def find_best_edge(self, target_length):
         if not self.edge_lengths: return None, None
@@ -44,7 +85,6 @@ class StructureAssembler:
                 min_diff = diff
                 best_name = name
         return best_name, min_diff
-
 
     def get_node_radius(self, cif_name):
         if not hasattr(self, '_radius_cache'):
@@ -118,12 +158,13 @@ class StructureAssembler:
             max_scale *= 1.05
         return max_scale
 
-    def assemble_and_save(self, filename, structure_map, graph_data, forced_edge=None):
+    def assemble_and_save(self, filename, structure_map, graph_data, forced_edge=None,
+                          return_metadata=False):
         lattice_mat = np.array(graph_data['lattice'])
         nodes_info = graph_data['nodes']
         edges_data = graph_data['edges']
 
-        # ── 晶胞自适应缩放：防止配体间位阻冲突 ──
+        # Expand the unit cell when needed so the chosen linker can fit geometrically.
         scale = self._compute_lattice_scale(graph_data, structure_map, forced_edge)
         if abs(scale - 1.0) > 1e-6:
             print(f"  [Lattice] Scaling unit cell by {scale:.4f}x to accommodate ligand sizes")
@@ -161,7 +202,6 @@ class StructureAssembler:
             else:
                 edge_cif, _ = self.find_best_edge(actual_Le)
                 if not edge_cif: edge_cif = list(self.edge_lengths.keys())[0]
-            # ----------------------
             edge_index = i + 1
             TG.add_edge(u, v, index=edge_index, pd=(u, v), cifname=f"{edge_cif}.cif")
 
@@ -218,14 +258,9 @@ class StructureAssembler:
             bond_tol=scaled_bond_tol
         )
 
-        # 6. 生成结构与空间群恢复
-        # ── 连接点原子融合（Merge）：代替 Phase 2A 一刀切删除 ──
-        # 配体端 X2/X5（type C）和节点端 X11-X14（type C）在连接点处重叠（~0.6 Å），
-        # 此处将配对融合为单个真实 C 原子，保留配体侧坐标并移除节点侧副本，
-        # 节点侧键通过 merge_map 重定向到保留的原子。
-
-        # ── 片段归属表：用于识别 Node↔Edge 桥接键 ──
+        # Merge overlapping node-side and edge-side bridge atoms into a single site.
         fragment_of = {str(e[0]): e[-1] for e in fc_placed_all}
+        closure_metrics = self._compute_connection_closure_metrics(fc_placed_all, fixed_bonds)
 
         merge_map = {}
         matched_edge_ids = set()
@@ -256,10 +291,10 @@ class StructureAssembler:
             if a2 in merge_map:
                 a2 = merge_map[a2]
             if a1 == a2:
-                continue  # 跳过融合后自环
+                continue
             dist_f = float(bond[2])
             if dist_f < 0.8:
-                continue  # 跳过融合前的 X-X 短键
+                continue
             f1 = fragment_of.get(str(bond[0]))
             f2 = fragment_of.get(str(bond[1]))
             if f1 is not None and f2 is not None and f1 != f2:
@@ -284,33 +319,32 @@ class StructureAssembler:
         final_struct = Structure(Lattice(sc_unit_cell.T), species, coords, coords_are_cartesian=True)
         final_struct.remove_species(["X"])
 
-        # --- 【防弹核心补丁：自愈合清理】 ---
-        # 容差必须设置为 0.2 左右，1.0 会导致正常的 C-C 键和 C-H 键原子被误删
         final_struct.merge_sites(tol=0.2, mode="delete")
 
         detected_sg = "P1"
-        try:
-            # 保持较大的 symprec 以应对微小形变
-            sga = SpacegroupAnalyzer(final_struct, symprec=0.3)
-            sg_symbol = sga.get_space_group_symbol()
+        if self.run_symmetry:
+            try:
+                sga = SpacegroupAnalyzer(final_struct, symprec=0.3)
+                sg_symbol = sga.get_space_group_symbol()
 
-            if sg_symbol:
-                detected_sg = sg_symbol
-            print(f"  [Symmetry] Symmetrized structure Spacegroup: {detected_sg}")
+                if sg_symbol:
+                    detected_sg = sg_symbol
+                print(f"  [Symmetry] Symmetrized structure Spacegroup: {detected_sg}")
 
-            if detected_sg != "P1":
-                refined = sga.get_refined_structure()
-                if refined:
-                    final_struct = refined
-        except TypeError:
-            print(
-                f"  [Symmetry] spglib symmetry detection aborted (likely due to redundant edge artifacts). Fallback to P1.")
-        except Exception as e:
-            print(f"  [Symmetry] Spacegroup analysis bypassed: {e}. Fallback to P1.")
+                if detected_sg != "P1":
+                    refined = sga.get_refined_structure()
+                    if refined:
+                        final_struct = refined
+            except TypeError:
+                print(
+                    f"  [Symmetry] spglib symmetry detection aborted (likely due to redundant edge artifacts). Fallback to P1.")
+            except Exception as e:
+                print(f"  [Symmetry] Spacegroup analysis bypassed: {e}. Fallback to P1.")
+        else:
+            print("  [Symmetry] Spacegroup analysis skipped for reconstruction audit.")
 
         final_struct = final_struct.get_sorted_structure()
 
-        # ── 结构自校验 ──
         validation_results = self.validator.validate(
             structure=final_struct,
             topology_graph=TG,
@@ -333,7 +367,7 @@ class StructureAssembler:
 
         final_struct.to(filename=filename)
 
-        # ── CIF 后处理：1-indexed 标签重命名 + 追加 _geom_bond 表 ──
+        # Rewrite atom labels to a 1-indexed CIF-friendly convention.
         sorted_sites = final_struct.sites
         atom_id_to_label = {}
         for entry in merged_placed:
@@ -369,7 +403,7 @@ class StructureAssembler:
                 a1, a2, dist, symmetry, bond_type = bond
                 dist_f = float(dist)
                 if abs(dist_f - 1.0) < 0.001:
-                    continue  # 跳过未更新的占位键（距离 1.0 Å 为 block 连接代码遗留的占位符）
+                    continue
                 label1 = atom_id_to_label.get(str(a1))
                 label2 = atom_id_to_label.get(str(a2))
                 if label1 is None or label2 is None:
@@ -383,3 +417,17 @@ class StructureAssembler:
                 f.write(f"{label1:>8s} {label2:>8s} {float(dist):>6.3f}   {symmetry:6s} {bond_type}\n")
 
         print(f"  [Assembly] Assembly Completed. Saved to: {filename}")
+
+        if return_metadata:
+            return {
+                "cif_path": filename,
+                "scale_factor": float(scale),
+                "lattice_scaled": abs(scale - 1.0) > 1e-6,
+                "merge_count": len(merge_map),
+                "bridge_bond_count": len(bridge_bonds),
+                "connection_closure": closure_metrics,
+                "detected_sg": detected_sg,
+                "n_atoms": len(final_struct),
+                "validation": validation_results,
+                "validation_passed": bool(validation_results.get('passed', False)),
+            }

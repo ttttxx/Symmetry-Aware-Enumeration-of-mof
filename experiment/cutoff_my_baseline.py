@@ -1,49 +1,14 @@
-#!/usr/bin/env python3
-"""
-cutoff_my_baseline.py — Dual-axis cumulative discovery curve
-================================================================
-Validates the cutoff advantage of symmetry-stratified scheduling under a
-fixed enumeration budget.  Compares two algorithms:
-
-  (A) Stratified Canonical Enumeration (本文算法)
-  (B) Unordered DFS (random-sampling baseline)
-
-across two vba ligand configurations.  Produces publication-ready
-dual‑axis PDFs (600 dpi) with:
-
-  • Left  Y: High‑Symmetry Capture Rate    ρ(c) ∈ [0.75, 1]
-  • Right Y: Cumulative Burnside Sum       Σ 1/|Stab(c)|
-  • X axis: Emitted Orbits Index (log scale — cumulative unique orbits)
-
-Safety limits (mirroring enumerator.py)
----------------------------------------
-- Each subgroup task times out after **60 seconds** (task_time_limit=60).
-- Global enumeration halts at **500 000** structures (max_total_results).
-- Timeouts print a clear ``[Timeout]`` message so progress is never silent.
-
-Key findings
-------------
-1. Stratified enumeration captures **all** high‑symmetry orbits within the
-   first 4 emissions (subgroup‑lattice phase), then flatlines at 100 %.
-2. The baseline barely touches high‑symmetry space because random draws are
-   biased toward |Stab|=1 bulk configurations.
-3. The baseline Burnside sum initially grows *faster* (every found structure
-   has |Stab|=1 → contribution=1), while the stratified algorithm's subgroup
-   phase yields structures with |Stab|>1 (contribution <1).  This trade‑off
-   is the core insight of the paper.
-"""
+# !/usr/bin/env python3
 
 import os, sys, time, random, pickle
 from typing import List, Optional
 
-# ——— matplotlib / seaborn (non-interactive backend) ———
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import seaborn as sns
 
-# ——— project imports ———
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 sys.path.insert(0, PROJECT_ROOT)
@@ -51,10 +16,6 @@ sys.path.insert(0, PROJECT_ROOT)
 from main import load_graph, calculate_topology_requirements
 from symmetry import SymmetryEngine
 from enumerator import MOFEnumerator
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 0.  Global style (Nature / Science inspired)
-# ══════════════════════════════════════════════════════════════════════════════
 
 sns.set_style("whitegrid", {
     "ytick.major.size": 0,
@@ -81,10 +42,6 @@ COLOR_BASE_BS   = "#fd8d6c"     # lighter red for baseline Burnside
 COLOR_CUTOFF    = "#444444"
 COLOR_HS_LINE   = "#2ca02c"
 
-# ══════════════════════════════════════════════════════════════════════════════
-# 1.  TrackedEnumerator — logs every emission in discovery order
-# ══════════════════════════════════════════════════════════════════════════════
-
 class TrackedEnumerator(MOFEnumerator):
     """Thin subclass that appends ``stabilizer_size`` to ``emission_log``
     inside ``_try_add_result``, preserving the *discovery order* that the
@@ -110,11 +67,6 @@ class TrackedEnumerator(MOFEnumerator):
         }
         self.emission_log.append(stab_size)
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 2.  Helpers
-# ══════════════════════════════════════════════════════════════════════════════
-
 def _theoretical_orbits(topo_req: dict, ligands: dict,
                         fallback_atoms: list, g_size: int) -> float:
     """|X| / |Γ| = Π_d |L_d|^{count_d} / |G|"""
@@ -124,7 +76,6 @@ def _theoretical_orbits(topo_req: dict, ligands: dict,
         total *= (n ** cnt)
     return total / max(1, g_size)
 
-
 def _ligand_key(ligands: dict) -> str:
     """Short hash string for the ligand dict."""
     parts = []
@@ -133,24 +84,15 @@ def _ligand_key(ligands: dict) -> str:
         parts.append(f"d{deg}_{atoms}")
     return "__".join(parts)
 
-
 CACHE_DIR = os.path.join(PROJECT_ROOT, "results", "cutoff", "_cache")
-
 
 def _cache(topology: str, ligands: dict, suffix: str) -> str:
     os.makedirs(CACHE_DIR, exist_ok=True)
     return os.path.join(CACHE_DIR,
                         f"{topology}__{_ligand_key(ligands)}__{suffix}.pkl")
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 3.  run_stratified — with time & count safety limits
-# ══════════════════════════════════════════════════════════════════════════════
-
-# Safety limits (matching enumerator.py conventions)
 TASK_TIME_LIMIT = 60            # seconds per subgroup task
 MAX_TOTAL_RESULTS = 500_000     # global structure cap
-
 
 def run_stratified(topology: str,
                    ligands: dict,
@@ -237,11 +179,6 @@ def run_stratified(topology: str,
     with open(cpath, "wb") as f:
         pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
     return data
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 4.  run_baseline
-# ══════════════════════════════════════════════════════════════════════════════
 
 def run_baseline(topology: str,
                  ligands: dict,
@@ -332,11 +269,6 @@ def run_baseline(topology: str,
         pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
     return data
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 5.  make_figure — dual-axis academic plot with adaptive layout
-# ══════════════════════════════════════════════════════════════════════════════
-
 def make_figure(strat: dict,
                 base: dict,
                 topology: str,
@@ -361,16 +293,12 @@ def make_figure(strat: dict,
 
     x_max = max(max(strat["steps"]), max(base["steps"]))
 
-    # ---- figure ----
     fig, ax1 = plt.subplots(figsize=(8.2, 5.8))
 
     # Push grid lines to the very back so they never occlude legend / text
     ax1.set_axisbelow(True)
     ax1.grid(zorder=0.1)
 
-    # ============================
-    # Left Y: HS Capture Rate (%)
-    # ============================
     ax1.plot(strat["steps"], strat["high_sym_cap_pct"],
              color=COLOR_OURS, linewidth=2.5, linestyle="-", alpha=0.95,
              zorder=4,
@@ -388,9 +316,6 @@ def make_figure(strat: dict,
     ax1.set_ylim(-5, 112)
     ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
 
-    # ============================
-    # Right Y: Burnside Sum
-    # ============================
     ax2 = ax1.twinx()
     ax2.set_axisbelow(True)
     ax2.grid(zorder=0.1)
@@ -407,24 +332,16 @@ def make_figure(strat: dict,
                    fontweight="bold", color="#555555")
     ax2.tick_params(axis="y", labelcolor="#555555")
 
-    # ============================
-    # Reference lines  (zorder above curves, below annotations)
-    # ============================
-    # Horizontal: Complete Symmetric Subspace (100 %)
     ax1.axhline(100.0, color=COLOR_HS_LINE, linestyle=":", linewidth=1.6,
                 alpha=0.85, zorder=4.5)
-    # Place the label near the left of the x-axis, just above 100 %
     ax1.annotate("Complete Symmetric\nSubspace",
                  xy=(1.6, 103), fontsize=8.2, color=COLOR_HS_LINE,
                  va="bottom", ha="left", style="italic",
                  annotation_clip=False, zorder=12)
 
-    # Vertical: Budget Cutoff
     ax1.axvline(budget_cutoff, color=COLOR_CUTOFF, linestyle="--",
                 linewidth=1.8, alpha=0.80, zorder=4.5)
 
-    # Budget cutoff label — positioned relative to the vertical line
-    # but shifted right so it does not clash with the line itself
     ax1.annotate(f"Budget Cutoff  ({budget_cutoff} orbits)",
                  xy=(budget_cutoff, 97),
                  xytext=(budget_cutoff * 1.8, 104),
@@ -433,9 +350,6 @@ def make_figure(strat: dict,
                                  lw=1.2, connectionstyle="arc3,rad=0.25"),
                  annotation_clip=False, zorder=12)
 
-    # ============================
-    # Info panel — outside plot area, below x-axis label, on top
-    # ============================
     info_str = (f"|G| = {G}     "
                 f"|X|/|G| = {theoretical:.2e}     "
                 f"HS targets = {strat['total_high_sym']}     "
@@ -446,9 +360,6 @@ def make_figure(strat: dict,
                        alpha=0.95, edgecolor="#cccccc", linewidth=0.6),
              zorder=15)
 
-    # ============================
-    # Legend — matplotlib "best", solid white background on top
-    # ============================
     lines1, labels1 = ax1.get_legend_handles_labels()
     lines2, labels2 = ax2.get_legend_handles_labels()
     legend = ax1.legend(lines1 + lines2, labels1 + labels2,
@@ -461,9 +372,6 @@ def make_figure(strat: dict,
                         borderpad=0.5)
     legend.set_zorder(20)
 
-    # ============================
-    # Title
-    # ============================
     ax1.set_title(
         f"Cumulative Discovery under Fixed Budget\n"
         f"{topology}  —  {ligand_label}",
@@ -471,9 +379,6 @@ def make_figure(strat: dict,
 
     ax1.set_xlim(0.8, x_max * 1.08)
 
-    # ============================
-    # Finalise — constrained_layout handles spacing automatically
-    # ============================
     fig.tight_layout(pad=1.6, rect=(0.02, 0.06, 0.98, 0.96))
 
     safe = (ligand_label.replace(" ", "_").replace(",", "")
@@ -484,11 +389,6 @@ def make_figure(strat: dict,
     plt.close(fig)
     print(f"  → Saved {path}")
     return path
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# 6.  Main
-# ══════════════════════════════════════════════════════════════════════════════
 
 def main():
     configs = [
@@ -524,7 +424,6 @@ def main():
     print(f"\n{'='*70}")
     print("  All done — figures saved under results/cutoff/")
     print(f"{'='*70}")
-
 
 if __name__ == "__main__":
     main()

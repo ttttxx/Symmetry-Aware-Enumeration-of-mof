@@ -826,10 +826,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_16_rho0.5000_High.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_16_rho0.5000_High.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.4271555630297,
+    "dft_e_hartree": -4033.776090196308,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_16.cif"
   },
   {
     "id": "fjh_comp_a_38",
@@ -873,10 +876,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_38_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_38_rho0.2500_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.42108202481018,
+    "dft_e_hartree": -4033.606459401066,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_38.cif"
   },
   {
     "id": "fjh_comp_a_68",
@@ -920,10 +926,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_68_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_68_rho0.2500_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.42848815752924,
+    "dft_e_hartree": -4033.8133088745353,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_68.cif"
   },
   {
     "id": "fjh_comp_a_72",
@@ -967,10 +976,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_72_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_72_rho0.2500_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.4284260838211,
+    "dft_e_hartree": -4033.8115751878286,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_72.cif"
   },
   {
     "id": "fjh_comp_a_62",
@@ -1014,10 +1026,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_62_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_62_rho0.2500_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.41973915215448,
+    "dft_e_hartree": -4033.568953659229,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_62.cif"
   },
   {
     "id": "fjh_comp_a_216",
@@ -1061,10 +1076,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_216_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_216_rho0.1250_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.41833428150915,
+    "dft_e_hartree": -4033.5297163454643,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_216.cif"
   },
   {
     "id": "fjh_comp_a_190",
@@ -1108,10 +1126,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_190_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_190_rho0.1250_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.41824343480184,
+    "dft_e_hartree": -4033.5271790437055,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_190.cif"
   },
   {
     "id": "fjh_comp_a_156",
@@ -1155,10 +1176,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_156_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_156_rho0.1250_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.42728454601223,
+    "dft_e_hartree": -4033.7796926245983,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_156.cif"
   },
   {
     "id": "fjh_comp_a_130",
@@ -1202,10 +1226,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_130_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_130_rho0.1250_Med.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.42109161646954,
+    "dft_e_hartree": -4033.6067272911732,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_130.cif"
   },
   {
     "id": "fjh_comp_a_266",
@@ -1249,10 +1276,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_266_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_266_rho0.0625_Low.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.42476124678745,
+    "dft_e_hartree": -4033.7092181764824,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_266.cif"
   },
   {
     "id": "fjh_comp_a_364",
@@ -1296,10 +1326,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_364_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_364_rho0.0625_Low.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.4144665401261,
+    "dft_e_hartree": -4033.421692320113,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_364.cif"
   },
   {
     "id": "fjh_comp_a_240",
@@ -1343,10 +1376,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_240_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_240_rho0.0625_Low.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.4219945302157,
+    "dft_e_hartree": -4033.631945207199,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_240.cif"
   },
   {
     "id": "fjh_comp_a_272",
@@ -1390,10 +1426,13 @@
     "n_atoms": 760,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_a_272_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_a_272_rho0.0625_Low.cif",
     "n_electrons": 2488,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -144.42338403407183,
+    "dft_e_hartree": -4033.6707533344534,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_a_272.cif"
   },
   {
     "id": "fjh_comp_b_1",
@@ -1437,10 +1476,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_1_rho1.0000_High.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_1_rho1.0000_High.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.50364674895239,
+    "dft_e_hartree": -3385.814254159078,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_1.cif"
   },
   {
     "id": "fjh_comp_b_19",
@@ -1484,10 +1526,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_19_rho0.5000_High.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_19_rho0.5000_High.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.48368001252014,
+    "dft_e_hartree": -3385.2712687720095,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_19.cif"
   },
   {
     "id": "fjh_comp_b_15",
@@ -1531,10 +1576,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_15_rho0.5000_High.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_15_rho0.5000_High.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.48912404591023,
+    "dft_e_hartree": -3385.419316530719,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_15.cif"
   },
   {
     "id": "fjh_comp_b_11",
@@ -1578,10 +1626,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_11_rho0.5000_High.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_11_rho0.5000_High.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.4826533632907,
+    "dft_e_hartree": -3385.2433495609193,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_11.cif"
   },
   {
     "id": "fjh_comp_b_63",
@@ -1625,10 +1676,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_63_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_63_rho0.2500_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49058876563033,
+    "dft_e_hartree": -3385.4591488491783,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_63.cif"
   },
   {
     "id": "fjh_comp_b_42",
@@ -1672,10 +1726,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_42_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_42_rho0.2500_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49669737709974,
+    "dft_e_hartree": -3385.625269475572,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_42.cif"
   },
   {
     "id": "fjh_comp_b_65",
@@ -1719,10 +1776,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_65_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_65_rho0.2500_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49035314508733,
+    "dft_e_hartree": -3385.452741266638,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_65.cif"
   },
   {
     "id": "fjh_comp_b_71",
@@ -1766,10 +1826,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_71_rho0.2500_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_71_rho0.2500_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.48504982769774,
+    "dft_e_hartree": -3385.3085202090156,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_71.cif"
   },
   {
     "id": "fjh_comp_b_88",
@@ -1813,10 +1876,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_88_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_88_rho0.1250_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49294008966984,
+    "dft_e_hartree": -3385.52309192761,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_88.cif"
   },
   {
     "id": "fjh_comp_b_192",
@@ -1860,10 +1926,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_192_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_192_rho0.1250_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49437223961147,
+    "dft_e_hartree": -3385.5620385272723,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_192.cif"
   },
   {
     "id": "fjh_comp_b_112",
@@ -1907,10 +1976,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_112_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_112_rho0.1250_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49693282284676,
+    "dft_e_hartree": -3385.631672304623,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_112.cif"
   },
   {
     "id": "fjh_comp_b_97",
@@ -1954,10 +2026,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_97_rho0.1250_Med.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_97_rho0.1250_Med.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49044512269799,
+    "dft_e_hartree": -3385.4552425516476,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_97.cif"
   },
   {
     "id": "fjh_comp_b_361",
@@ -2001,10 +2076,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_361_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_361_rho0.0625_Low.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.48653664902513,
+    "dft_e_hartree": -3385.3489535696044,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_361.cif"
   },
   {
     "id": "fjh_comp_b_377",
@@ -2048,10 +2126,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_377_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_377_rho0.0625_Low.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49048444011751,
+    "dft_e_hartree": -3385.45631176916,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_377.cif"
   },
   {
     "id": "fjh_comp_b_338",
@@ -2095,10 +2176,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_338_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_338_rho0.0625_Low.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.49300991933251,
+    "dft_e_hartree": -3385.5249909102777,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_338.cif"
   },
   {
     "id": "fjh_comp_b_391",
@@ -2142,10 +2226,13 @@
     "n_atoms": 740,
     "init_cif": "results/dft_validation/fjh/init/fjh_comp_b_391_rho0.0625_Low.cif",
     "probe_cu": false,
-    "status": "clean",
+    "status": "converged",
     "clean_cif": "results/dft_validation/fjh/clean/fjh_comp_b_391_rho0.0625_Low.cif",
     "n_electrons": 2288,
-    "multiplicity": 1
+    "multiplicity": 1,
+    "dft_e_per_atom": -124.48633926211916,
+    "dft_e_hartree": -3385.343585731656,
+    "relaxed_cif": "results/dft_validation/fjh/relaxed/fjh_comp_b_391.cif"
   },
   {
     "id": "ffc_cu_probe_0",
@@ -2168,7 +2255,7 @@
     "n_atoms": 198,
     "init_cif": "results/dft_validation/ffc/init/ffc_cu_probe_0_rho1.0000_High.cif",
     "probe_cu": true,
-    "status": "clean",
+    "status": "skipped_cu_probe",
     "clean_cif": "results/dft_validation/ffc/clean/ffc_cu_probe_0_rho1.0000_High.cif",
     "n_electrons": 702,
     "multiplicity": 1

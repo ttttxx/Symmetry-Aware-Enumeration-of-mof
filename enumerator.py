@@ -1,17 +1,13 @@
-# core/enumerator.py
 import heapq
 import time
 from collections import defaultdict
 from typing import List, Tuple, Dict, Optional, Set
 
-
-# ── Identity 子群枚举阈值配置 ──────────────────────────────────────────────
-# 当估算不等价轨道数 (naive_space / |G|) 超过此值时，切换为限额枚举模式
+# Threshold for switching the identity task into budgeted mode.
 IDENTITY_ORBIT_LIMIT: int = 500_000
-# 限额模式下 Identity 任务最多新增的不等价结构数
+# Maximum number of new classes added during a budgeted identity task.
 IDENTITY_NEW_LIMIT: int = 10_000
 
-# ================= 辅助函数 (保持不变) =================
 def cycles_to_perm(cycles: List[Tuple[int, ...]], n: int) -> List[int]:
     perm = list(range(n))
     for cycle in cycles:
@@ -19,7 +15,6 @@ def cycles_to_perm(cycles: List[Tuple[int, ...]], n: int) -> List[int]:
         for k in range(l):
             perm[cycle[k]] = cycle[(k + 1) % l]
     return perm
-
 
 def perm_to_cycles(perm: Tuple[int, ...], n: int) -> List[List[int]]:
     visited = [False] * n
@@ -35,8 +30,6 @@ def perm_to_cycles(perm: Tuple[int, ...], n: int) -> List[List[int]]:
             cycles.append(cycle)
     return cycles
 
-
-# ================= Trie 节点定义 (保持不变) =================
 class _TrieNode:
     __slots__ = ("children", "class_id", "stabilizer_size")
 
@@ -45,18 +38,16 @@ class _TrieNode:
         self.class_id: Optional[int] = None
         self.stabilizer_size: int = 0
 
-
-# ================= 核心枚举器 =================
 class MOFEnumerator:
     def __init__(self, permutations: List[Tuple[int, ...]], num_nodes: int,
                  verbose: bool = True,
                  topology_requirements: Optional[Dict[int, int]] = None,
                  user_selected_ligands: Optional[Dict[int, List[str]]] = None,
                  node_degrees: Optional[List[int]] = None,
-                 task_time_limit: Optional[float] = None, # 每个子群任务的时间上限(秒); None=无限枚举
-                 max_total_results: Optional[int] = 500_000,  # 全局结构数上限，防止内存爆炸; None=无限
-                 identity_orbit_limit: Optional[float] = None,  # 开启Identity限额的估算轨道数阈值; None=使用模块常量
-                 identity_new_limit: Optional[int] = None):  # Identity限额模式下最多新增的不等价结构数; None=使用模块常量
+                 task_time_limit: Optional[float] = None,
+                 max_total_results: Optional[int] = 500_000,
+                 identity_orbit_limit: Optional[float] = None,
+                 identity_new_limit: Optional[int] = None):
 
         self.n = num_nodes
         self.perms = permutations
@@ -66,7 +57,7 @@ class MOFEnumerator:
         self.user_selected_ligands = user_selected_ligands or {}
         self.node_degrees = node_degrees or []
         self.max_total_results = max_total_results
-        # 解析 identity 预算参数：None 回退到模块常量，保持向后兼容
+        # Fall back to module defaults unless explicit overrides are provided.
         self._identity_orbit_limit = (
             identity_orbit_limit if identity_orbit_limit is not None
             else IDENTITY_ORBIT_LIMIT
@@ -75,9 +66,7 @@ class MOFEnumerator:
             identity_new_limit if identity_new_limit is not None
             else IDENTITY_NEW_LIMIT
         )
-
-
-        self.task_time_limit = task_time_limit  # 秒; None = 无上限（原始行为）
+        self.task_time_limit = task_time_limit
         self._trie_root = _TrieNode()
         self.classes: Dict[int, Dict] = {}
 
@@ -90,7 +79,6 @@ class MOFEnumerator:
             invs.append(tuple(inv))
         return invs
 
-    # ---------------- 基础工具 ----------------
     def _apply_perm(self, coloring: Tuple[str, ...], perm: Tuple[int, ...]) -> Tuple[str, ...]:
         n = self.n
         new_c = [""] * n
@@ -99,7 +87,6 @@ class MOFEnumerator:
         return tuple(new_c)
 
     def _get_canonical(self, coloring: Tuple[str, ...]) -> Tuple[str, ...]:
-        """获取正则形式"""
         canonical = coloring
         for p in self.perms:
             candidate = self._apply_perm(coloring, p)
@@ -139,7 +126,6 @@ class MOFEnumerator:
             orbit_dict[find(i)].append(i)
         return sorted(list(orbit_dict.values()), key=lambda x: x[0])
 
-    # ---------------- 结果管理 ----------------
     def _trie_lookup(self, canonical: Tuple[str, ...]) -> Optional[int]:
         node = self._trie_root
         for c in canonical:
@@ -173,57 +159,48 @@ class MOFEnumerator:
             "orbit_size": len(self.perms) // stab_size
         }
 
-    # ---------------- [核心] 统一的 Lattice DFS (含早期剪枝) ----------------
     def _dfs_lattice_pruning(self, orbit_idx, orbits, atom_types, current_coloring, active_perm_indices,
                              current_degree_counts=None,
                              identity_start: int = None,
                              identity_budget: int = None,
-                             deadline: float = None):        # ← 新增: monotonic时间戳上限; None=无限
-        # 时限检查（deadline 由 enumerate_subgroups 按 task_time_limit 计算后传入）
+                             deadline: float = None):
         if deadline is not None and time.monotonic() >= deadline:
             return
         if self.max_total_results is not None and len(self.classes) >= self.max_total_results:
-            return  # ← 全局结构数上限，防止 trie 膨胀到 GB 级
+            return
 
-        # 初始化按度数计数的计数器 (首次调用)
         if current_degree_counts is None and self.topology_requirements:
             current_degree_counts = {deg: 0 for deg in self.topology_requirements}
 
-        # 早期退出：预算耗尽时剪掉整棵子树
         if identity_start is not None and identity_budget is not None:
             if len(self.classes) - identity_start >= identity_budget:
                 return
 
-        # Base Case
         if orbit_idx == len(orbits):
             self._try_add_result(current_coloring)
             return
 
         current_nodes = orbits[orbit_idx]
-        # 获取该轨道中节点的度数 (同一轨道所有节点度数相同)
         orbit_degree = self.node_degrees[current_nodes[0]] if self.node_degrees else None
 
-        # 获取该度数可用的配体列表 — 从 user_selected_ligands 动态选取
         tryable_atoms = atom_types
         if orbit_degree is not None and orbit_degree in self.user_selected_ligands:
             tryable_atoms = self.user_selected_ligands[orbit_degree]
 
         for atom in tryable_atoms:
             if deadline is not None and time.monotonic() >= deadline:
-                break  # ← 加这两行，超时立即退出循环
+                break
             for node in current_nodes:
                 current_coloring[node] = atom
 
-            # ---- 剪枝 1: 按度数统计的总量约束检查 ----
             if self.topology_requirements and current_degree_counts is not None and orbit_degree is not None:
                 new_count = current_degree_counts[orbit_degree] + len(current_nodes)
                 if new_count > self.topology_requirements.get(orbit_degree, new_count):
                     for node in current_nodes:
                         current_coloring[node] = None
-                    continue  # 该度数节点已超标，剪掉此分支
+                    continue
                 current_degree_counts[orbit_degree] = new_count
 
-            # ---- 剪枝 2: 正则对称性剪枝 ----
             next_active_indices = []
             is_pruned = False
 
@@ -258,27 +235,21 @@ class MOFEnumerator:
                                           next_active_indices, current_degree_counts,
                                           identity_start, identity_budget, deadline)
 
-            # Backtrack 按度数计数器
             if self.topology_requirements and current_degree_counts is not None and orbit_degree is not None:
                 current_degree_counts[orbit_degree] -= len(current_nodes)
 
-            # Backtrack
             for node in current_nodes:
                 current_coloring[node] = None
 
-    # ---------------- 策略：Unified Lattice Descent ----------------
     def enumerate_subgroups(self, atom_types: List[str]):
-        self._last_atom_types = atom_types  # 供 _verify_burnside 计算覆盖率
-        # 任务调度堆（最小堆，按 orbit count 升序弹出，即最高对称性优先）
+        self._last_atom_types = atom_types
         task_heap = []
-        _task_idx = 0  # tie-breaker，避免字典直接比较引发 TypeError
+        _task_idx = 0
 
-        # 1. 全群 (G) — 子群格顶端
         orbits_g = self._compute_orbits_by_gen(self.perms)
         heapq.heappush(task_heap, (len(orbits_g), _task_idx, {"name": "Full Group (G)", "orbits": orbits_g, "score": len(orbits_g)}))
         _task_idx += 1
 
-        # 2. 完整子群格 (Lattice) — 中间真子群
         try:
             from sympy.combinatorics import Permutation, PermutationGroup
 
@@ -314,7 +285,7 @@ class MOFEnumerator:
 
             def _sympy_perm_to_tuple(p, n):
                 arr = list(p.array_form)
-                arr += list(range(len(arr), n))  # 补齐 SymPy 截断的末尾不动点
+                arr += list(range(len(arr), n))
                 return tuple(arr)
 
             sympy_perms = [Permutation(list(p), size=self.n) for p in self.perms]
@@ -325,9 +296,9 @@ class MOFEnumerator:
             seen_fp = set()
             N = 0
             for H in all_subgroups:
-                if H.order() == g_order:  # 跳过全群（已单独压入）
+                if H.order() == g_order:
                     continue
-                if H.order() == 1:  # 跳过恒等群（将单独压入作为格底）
+                if H.order() == 1:
                     continue
                 generators = [_sympy_perm_to_tuple(p, self.n) for p in H.generators]
                 orbits = self._compute_orbits_by_gen(generators)
@@ -361,10 +332,8 @@ class MOFEnumerator:
                     }))
                     _task_idx += 1
 
-        # 3. 恒等群 (Identity) — 子群格底端
         identity_orbits = [[i] for i in range(self.n)]
 
-        # 预估 Identity 任务的轨道规模，决定是否切换为限额枚举
         if self.topology_requirements and self.user_selected_ligands:
             _naive_space = 1
             for _deg, _cnt in self.topology_requirements.items():
@@ -374,7 +343,7 @@ class MOFEnumerator:
             _naive_space = len(atom_types) ** self.n
 
         _estimated_orbits = _naive_space / max(1, len(self.perms))
-        _identity_budget = None  # None = 完整枚举
+        _identity_budget = None
         if self._identity_orbit_limit is not None and _estimated_orbits > self._identity_orbit_limit:
             _identity_budget = self._identity_new_limit
             if self.verbose:
@@ -393,7 +362,7 @@ class MOFEnumerator:
         if self.verbose:
             print(f"  [Lattice] Generated {len(task_heap)} tasks. Executing full subgroup lattice descent...")
 
-        # 4. 执行：按 orbit count 升序弹出（高对称优先），所有任务运行至穷尽
+        # Reuse the same active-permutation list across subgroup tasks.
         initial_active = list(range(1, len(self.perms)))
 
         while task_heap:
@@ -408,7 +377,7 @@ class MOFEnumerator:
             current_coloring = [None] * self.n
             _task_identity_budget = task.get("identity_budget", None)
             _task_identity_start = len(self.classes) if _task_identity_budget is not None else None
-            _deadline = time.monotonic() + self.task_time_limit if self.task_time_limit else None  #TODO： 注释此行恢复无限枚举
+            _deadline = time.monotonic() + self.task_time_limit if self.task_time_limit else None
             self._dfs_lattice_pruning(
                 0, orbits, atom_types, current_coloring, initial_active,
                 identity_start=_task_identity_start,
@@ -416,22 +385,19 @@ class MOFEnumerator:
                 deadline=_deadline,
             )
             if _deadline is not None and time.monotonic() >= _deadline and self.verbose:
-                print(f"    [Timeout] {name} 超时截断 (limit={self.task_time_limit}s), "
-                      f"已累计 {len(self.classes)} 个结构.")
+                print(f"    [Timeout] {name} truncated at {self.task_time_limit}s, "
+                      f"{len(self.classes)} classes accumulated.")
             if _task_identity_budget is not None and self.verbose:
                 _added = len(self.classes) - _task_identity_start
                 print(f"    [Identity] Stopped after adding {_added} new structures "
                       f"(budget={_task_identity_budget}).")
 
-    # ---------------- 主入口 ----------------
     def enumerate(self, atom_types: List[str], composition: Dict[str, int] = None):
         self._trie_root = _TrieNode()
         self.classes = {}
 
-        # 统一执行：子群格下降（无截断，保证 Burnside 完备性）
         self.enumerate_subgroups(atom_types)
 
-        # 排序输出
         res = sorted(list(self.classes.values()), key=lambda x: x['stabilizer_size'], reverse=True)
         for i, r in enumerate(res): r['id'] = i
 
@@ -446,8 +412,6 @@ class MOFEnumerator:
             return
 
         atom_types = self._last_atom_types
-        # 与 BridgeVerifier.compute_rhs_theoretical 保持完全一致：
-        # 有度约束时用 Π |ligands[d]|^count_d，否则用 |atom_types|^n
         if self.topology_requirements and self.user_selected_ligands:
             total_schemes = 1
             for deg, count in self.topology_requirements.items():
@@ -464,5 +428,5 @@ class MOFEnumerator:
             coverage = lhs / rhs * 100 if rhs > 0 else 0.0
             print(f"  [Verification] [PARTIAL] Sum(1/|Stab|) = {lhs:.6f}")
             print(f"  [Verification]           |X|/|G|       = {rhs:.6f}")
-            print(f"  [Verification]           已覆盖比例     = {coverage:.4f}%")
-            print(f"  [Verification]           缺失Burnside量 = {rhs - lhs:.6f}  ≈ 未枚举的低对称轨道数")
+            print(f"  [Verification]           coverage      = {coverage:.4f}%")
+            print(f"  [Verification]           missing mass  = {rhs - lhs:.6f}")

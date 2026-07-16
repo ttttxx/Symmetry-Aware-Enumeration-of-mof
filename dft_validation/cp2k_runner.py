@@ -6,7 +6,6 @@ from dft_validation import config
 OPEN_SHELL_METALS = {"Cu", "Ni", "Fe", "Co", "Mn", "V", "Cr", "Mo", "W"}
 HARTREE_TO_EV = config.HARTREE_TO_EV
 
-
 def _resolve_relax_mode(topology: str, n_atoms: int,
                          relax_mode_override: str | None = None) -> str:
     if relax_mode_override:
@@ -21,13 +20,11 @@ def _resolve_relax_mode(topology: str, n_atoms: int,
         return "GEO_OPT"
     return "ENERGY"
 
-
 def _is_open_shell(struct: Structure, multiplicity: int) -> bool:
     if multiplicity > 1:
         return True
     elems = {str(site.specie.symbol) for site in struct}
     return bool(elems & OPEN_SHELL_METALS)
-
 
 def _run_with_oom_guard(cmd_list: list, env: dict, cwd: str,
                          timeout_sec: int, max_mem_gb: float) -> str | None:
@@ -111,7 +108,6 @@ def _run_with_oom_guard(cmd_list: list, env: dict, cwd: str,
     monitor.join(timeout=5)
     return kill_reason[0]
 
-
 def generate_cp2k_input(record: dict, run_dir: str, topology: str,
                          relax_mode_override: str | None = None,
                          cutoff_ry: int | None = None) -> str:
@@ -192,7 +188,7 @@ def generate_cp2k_input(record: dict, run_dir: str, topology: str,
         NBROYDEN 8
       &END MIXING
       IGNORE_CONVERGENCE_FAILURE .TRUE."""
-        
+
     uks_line   = "      UKS .TRUE." if open_shell else ""
     multi_line = f"      MULTIPLICITY {multiplicity}" if multiplicity > 1 else ""
 
@@ -279,7 +275,6 @@ def generate_cp2k_input(record: dict, run_dir: str, topology: str,
         f.write(inp)
     return inp_path
 
-
 def parse_energy(output_text: str, n_atoms: int) -> float | None:
     """
     Extract last 'ENERGY| Total FORCE_EVAL' line, convert Hartree → eV/atom.
@@ -292,7 +287,6 @@ def parse_energy(output_text: str, n_atoms: int) -> float | None:
         return None
     e_hartree = float(matches[-1])
     return e_hartree * HARTREE_TO_EV / n_atoms
-
 
 def run_one(record: dict, results_dir: str, topology: str,
             relax_mode_override: str | None = None,

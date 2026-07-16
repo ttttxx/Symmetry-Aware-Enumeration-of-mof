@@ -4,11 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import numpy as np
-import seaborn as sns  # 引入 seaborn 用于更好的配色和样式
+import seaborn as sns
 
-# ==========================================
-# 0. 高级环境配置与专业样式
-# ==========================================
 sns.set_style("whitegrid", {
     "ytick.major.size": 0, "xtick.major.size": 0,
     "grid.color": "#f0f0f0",
@@ -24,7 +21,6 @@ plt.rcParams['legend.fontsize'] = 9.5
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIR = os.path.join(SCRIPT_DIR, '..', 'results')
 
-# 2x2 布局
 fig, axes = plt.subplots(2, 2, figsize=(16, 11))
 plt.subplots_adjust(wspace=0.25, hspace=0.35)
 
@@ -40,9 +36,6 @@ styles_3 = {'linestyle': '--', 'linewidth': 1.6, 'marker': 's', 'markersize': 4,
 topologies = ['ffc', 'fjh']
 atom_counts = [3, 4, 5, 6]
 
-# ==========================================
-# 面板 A: 随机采样的对称覆盖率（不是 GA/随机的优化目标，仅说明对称集不会被顺带覆盖）
-# ==========================================
 ax1 = axes[0, 0]
 for topo in topologies:
     for atoms in atom_counts:
@@ -65,9 +58,6 @@ ax1.set_title('A. Random Sampling: Symmetric Coverage', fontsize=14, fontweight=
 ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
 ax1.legend(loc='upper left', fontsize=9, frameon=True, edgecolor='black', ncol=2)
 
-# ==========================================
-# 面板 B: 能量制导 GA 的对称覆盖率（覆盖率非其目标，仅说明对称集不会被顺带枚举）
-# ==========================================
 ax2 = axes[0, 1]
 for topo in topologies:
     atoms_fill = 2
@@ -102,10 +92,6 @@ ax2.set_ylabel('Symmetric Target Coverage (%)', fontsize=12, fontweight='bold')
 ax2.set_title('B. GA Coverage (energy-guided, not its objective)', fontsize=14, fontweight='bold', pad=15)
 ax2.yaxis.set_major_formatter(mtick.PercentFormatter())
 
-# ==========================================
-# 面板 C: GA 在其自身目标上的收敛 —— 最优能量 vs 评估次数，并与枚举全局最小对比
-# 面板 D: 同构冗余（核心公平论点）
-# ==========================================
 ax3 = axes[1, 0]  # Panel C: energy convergence
 ax4 = axes[1, 1]  # Panel D: isomorphic redundancy
 
@@ -113,7 +99,7 @@ topo_case = 'ffc'
 atom_case = 5
 file_path_ga = os.path.join(RESULTS_DIR, 'ga_baseline', f'experiment_data_{topo_case}_45000_{atom_case}.csv')
 
-PENALTY = 9000.0  # 组装失败惩罚阈值（>=此值视为无效，作图时剔除）
+PENALTY = 9000.0
 
 if os.path.exists(file_path_ga):
     df_ga = pd.read_csv(file_path_ga)
@@ -126,14 +112,12 @@ if os.path.exists(file_path_ga):
     color_cov = colors[topo_case]
     color_ref = '#d62728'
 
-    # --- 面板 C: 最优能量收敛 + 枚举全局最小参考线 ---
     e_best = pd.to_numeric(df_ga['Best_Energy'], errors='coerce')
-    e_best = e_best.where(e_best < PENALTY)  # 剔除惩罚值，避免纵轴被拉飞
+    e_best = e_best.where(e_best < PENALTY)
 
     ax3.plot(df_ga['Total_Evaluations'], e_best,
              color=color_cov, linewidth=3.0, label='GA best energy', alpha=0.95)
 
-    # 参考线：枚举集合的全局最小能量，由 ga_baseline.py 写入同一 CSV 的 GT_Min_Energy 常量列
     gmin = None
     gstab = None
     if 'GT_Min_Energy' in df_ga.columns:
@@ -150,14 +134,13 @@ if os.path.exists(file_path_ga):
         if gstab is not None:
             ref_label += f' (|Stab|={gstab})'
         ax3.axhline(gmin, color=color_ref, linestyle='--', linewidth=2.0, label=ref_label)
-        # 阴影标出 GA 与枚举最优之间的能量差（未达/浪费部分）
+
         ax3.fill_between(df_ga['Total_Evaluations'], gmin, e_best,
                          where=(e_best > gmin), color=color_ref, alpha=0.10, label='_nolegend_')
     else:
         print("[Panel C] GT_Min_Energy column not found or empty in the CSV; reference line omitted. "
               "Run the updated ga_baseline.py (it writes GT_Min_Energy into the same CSV).")
 
-    # 设定纵轴范围
     valid = e_best.dropna()
     if len(valid) > 0:
         lo = valid.min() if gmin is None else min(valid.min(), gmin)
@@ -172,7 +155,6 @@ if os.path.exists(file_path_ga):
                   fontsize=14, fontweight='bold', pad=15)
     ax3.legend(loc='upper right', frameon=True, edgecolor='black')
 
-    # --- 面板 D: 同构冗余率 ---
     ax4.plot(df_ga['Generation'], df_ga['Redundancy_Rate'] * 100,
              color=color_ref, linewidth=2.5, linestyle='-.', label='Isomorphic Redundancy')
     ax4.fill_between(df_ga['Generation'], 0, df_ga['Redundancy_Rate'] * 100,
@@ -194,9 +176,6 @@ if os.path.exists(file_path_ga):
 else:
     print(f"[Panels C/D] GA data file not found: {file_path_ga}")
 
-# ==========================================
-# 保存矢量 PDF 图片
-# ==========================================
 plt.tight_layout()
 output_path = os.path.join(RESULTS_DIR, 'enhanced_baseline_4panels.pdf')
 plt.savefig(output_path, dpi=600, bbox_inches='tight')
