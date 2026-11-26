@@ -40,6 +40,12 @@ git commit -m "描述本次修改"
 git push origin master
 ```
 
+本机已验证 GitHub SSH 登录。需要提交修改的其他机器应各自配置 GitHub 登录；使用 SSH 时可切换远端：
+
+```sh
+git remote set-url origin git@github.com:ttttxx/Symmetry-Aware-Enumeration-of-mof.git
+```
+
 GitHub 同步由 commit/push 和 pull 完成，不是实时文件同步。切换机器前先推送；到另一台机器先拉取。两台机器同时修改时，各自创建不同分支：
 
 ```sh
