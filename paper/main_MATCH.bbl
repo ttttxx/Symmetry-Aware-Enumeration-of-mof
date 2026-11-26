@@ -1,0 +1,139 @@
+\begin{thebibliography}{10}
+
+\bibitem{furukawa2013chemistry}
+Hiroyasu Furukawa, Kyle~E Cordova, Michael O’Keeffe, and Omar~M Yaghi.
+\newblock The chemistry and applications of metal-organic frameworks.
+\newblock {\em Science}, 341(6149):1230444, 2013.
+
+\bibitem{wilmer2012large}
+Christopher~E Wilmer, Michael Leaf, Chang~Yeon Lee, Omar~K Farha, Brad~G
+  Hauser, Joseph~T Hupp, and Randall~Q Snurr.
+\newblock Large-scale screening of hypothetical metal--organic frameworks.
+\newblock {\em Nature chemistry}, 4(2):83--89, 2012.
+
+\bibitem{colon2014high}
+Yamil~J Col{\'o}n and Randall~Q Snurr.
+\newblock High-throughput computational screening of metal--organic frameworks.
+\newblock {\em Chemical Society Reviews}, 43(16):5735--5749, 2014.
+
+\bibitem{colon2017topologically}
+Yamil~J Col{\'o}n, Diego~A G{\'o}mez-Gualdr{\'o}n, and Randall~Q Snurr.
+\newblock Topologically guided, automated construction of metal--organic
+  frameworks and their evaluation for energy-related applications.
+\newblock {\em Crystal Growth \& Design}, 17(11):5801--5810, 2017.
+
+\bibitem{wu2024precisionmof}
+Xiaoyu Wu and Jianwen Jiang.
+\newblock Precision-engineered metal-organic frameworks: fine-tuning reverse
+  topological structure prediction and design.
+\newblock {\em Chemical Science}, 15(40):16467--16479, 2024.
+
+\bibitem{jin2025intelligent}
+Guangying Jin, Wei Ran, Manyue Zhang, and Yun Li.
+\newblock An intelligent prediction model for the synthesis conditions of
+  metal--organic frameworks utilizing artificial neural networks enhanced by
+  genetic algorithm optimization.
+\newblock {\em Journal of Chemical Information and Modeling}, 65(3):1085--1100,
+  2025.
+
+\bibitem{badrinarayanan2025mofgpt}
+Srivathsan Badrinarayanan, Rishikesh Magar, Akshay Antony, Radheesh~Sharma
+  Meda, and Amir Barati~Farimani.
+\newblock Mofgpt: Generative design of metal–organic frameworks using
+  language models.
+\newblock {\em Journal of Chemical Information and Modeling},
+  65(17):9049--9060, 2025.
+\newblock PMID: 40875331.
+
+\bibitem{Kim2024MOFFlowFM}
+Nayoung Kim, Seongsu Kim, Minsu Kim, Jinkyoo Park, and Sungsoo Ahn.
+\newblock Mofflow: Flow matching for structure prediction of metal-organic
+  frameworks.
+\newblock {\em ArXiv}, abs/2410.17270, 2024.
+
+\bibitem{kim2025flexiblemof}
+Nayoung Kim, Seongsu Kim, and Sungsoo Ahn.
+\newblock Flexible mof generation with torsion-aware flow matching.
+\newblock In {\em Advances in Neural Information Processing Systems},
+  volume~38, 2025.
+
+\bibitem{hart2012generating}
+Gus~L.W. Hart, Lance~J. Nelson, and Rodney~W. Forcade.
+\newblock Generating derivative structures at a fixed concentration.
+\newblock {\em Computational Materials Science}, 59:101--107, 2012.
+
+\bibitem{hart2008algorithm}
+Gus~LW Hart and Rodney~W Forcade.
+\newblock Algorithm for generating derivative structures.
+\newblock {\em Physical Review B—Condensed Matter and Materials Physics},
+  77(22):224115, 2008.
+
+\bibitem{PUCHALA2023111897}
+Brian Puchala, John~C. Thomas, Anirudh~Raju Natarajan, Jon~Gabriel Goiri,
+  Sesha~Sai Behara, Jonas~L. Kaufman, and Anton {Van der Ven}.
+\newblock Casm — a software package for first-principles based study of
+  multicomponent crystalline solids.
+\newblock {\em Computational Materials Science}, 217:111897, 2023.
+
+\bibitem{ji2020sequencing}
+Zhe Ji, Tong Li, and Omar~M. Yaghi.
+\newblock Sequencing of metals in multivariate metal-organic frameworks.
+\newblock {\em Science}, 369(6504):674--680, 2020.
+
+\bibitem{kabsch1976solution}
+Wolfgang Kabsch.
+\newblock A solution for the best rotation to relate two sets of vectors.
+\newblock {\em Acta Crystallographica Section A}, 32(5):922--923, 1976.
+
+\bibitem{lawrence2019kabschumeyama}
+James~F. Lawrence, Javier Bernal, and Christoph Witzgall.
+\newblock A purely algebraic justification of the kabsch-umeyama algorithm.
+\newblock {\em Journal of Research of the National Institute of Standards and
+  Technology}, 124:124028, 2019.
+
+\bibitem{willems2012algorithms}
+Thomas~F. Willems, Chris~H. Rycroft, Michaeel Kazi, Juan~C. Meza, and Maciej
+  Haranczyk.
+\newblock Algorithms and tools for high-throughput geometry-based analysis of
+  crystalline porous materials.
+\newblock {\em Microporous and Mesoporous Materials}, 149(1):134--141, 2012.
+
+\bibitem{dubbeldam2016raspa}
+David Dubbeldam, Sofia Calero, Donald~E. Ellis, and Randall~Q. Snurr.
+\newblock {RASPA}: molecular simulation software for adsorption and diffusion
+  in flexible nanoporous materials.
+\newblock {\em Molecular Simulation}, 42(2):81--101, 2016.
+
+\bibitem{altintas2018database}
+Cigdem Altintas, Gokay Avci, Hilal Daglar, Ayda Nemati Vesali~Azar, Sadiye
+  Velioglu, Ilknur Erucar, and Seda Keskin.
+\newblock Database for {CO2} separation performances of {MOFs} based on
+  computational materials screening.
+\newblock {\em ACS Applied Materials \& Interfaces}, 10(20):17257--17268, 2018.
+
+\bibitem{avci2018high}
+Gokay Avci, Sadiye Velioglu, and Seda Keskin.
+\newblock High-throughput screening of {MOF} adsorbents and membranes for {H2}
+  purification and {CO2} capture.
+\newblock {\em ACS Applied Materials \& Interfaces}, 10(39):33693--33706, 2018.
+
+\bibitem{cp2k2020}
+Thomas~D K{\"u}hne, Marcella Iannuzzi, Mauro Del~Ben, Vladimir~V Rybkin,
+  Patrick Seewald, Frederick Stein, Teodoro Laino, Rustam~Z Khaliullin, Ole
+  Sch{\"u}tt, Florian Schiffmann, et~al.
+\newblock Cp2k: An electronic structure and molecular dynamics software
+  package-quickstep: Efficient and accurate electronic structure calculations.
+\newblock {\em The Journal of Chemical Physics}, 152(19), 2020.
+
+\bibitem{perdew1996pbe}
+John~P. Perdew, Kieron Burke, and Matthias Ernzerhof.
+\newblock Generalized gradient approximation made simple.
+\newblock {\em Phys. Rev. Lett.}, 77:3865--3868, Oct 1996.
+
+\bibitem{grimme2010d3}
+Stefan Grimme, Jens Antony, Stephan Ehrlich, and Helge Krieg.
+\newblock A consistent and accurate ab initio parametrization of density
+  functional dispersion correction (dft-d) for the 94 elements h-pu.
+\newblock {\em The Journal of chemical physics}, 132(15), 2010.
+
+\end{thebibliography}

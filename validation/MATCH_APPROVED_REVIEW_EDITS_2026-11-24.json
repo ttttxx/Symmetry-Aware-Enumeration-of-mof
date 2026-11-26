@@ -1,0 +1,232 @@
+{
+  "applied": [
+    3,
+    10,
+    11,
+    12,
+    19,
+    20,
+    23,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "explicitly_keep": [
+    6,
+    13,
+    14,
+    15,
+    22,
+    24
+  ],
+  "previously_keep": [
+    7,
+    9
+  ],
+  "changes": [
+    {
+      "item": 19,
+      "before": "MOF candidate generation has followed several strategies. Topology-based assembly methods such as ToBaCCo place building units on selected nets~\\cite{colon2017topologically}, while reverse-topological methods match unit geometry to topological constraints~\\cite{wu2024precisionmof}.",
+      "after": "Topology-based assembly methods such as ToBaCCo place building units on selected nets~\\cite{colon2017topologically}. Reverse-topological methods match unit geometry to topological constraints~\\cite{wu2024precisionmof}."
+    },
+    {
+      "item": 19,
+      "before": "MOF 候选生成采用了多种策略。ToBaCCo 等拓扑组装方法在选定网络上放置构建单元~\\cite{colon2017topologically}，反向拓扑方法则将构建单元几何与拓扑约束相匹配~\\cite{wu2024precisionmof}。",
+      "after": "ToBaCCo 等拓扑组装方法在选定网络上放置构建单元~\\cite{colon2017topologically}。反向拓扑方法将构建单元几何与拓扑约束相匹配~\\cite{wu2024precisionmof}。"
+    },
+    {
+      "item": 20,
+      "before": "For a fixed MOF net, an analogous assignment specifies a degree-compatible node type at each site. Different assignments can produce ordered patterns, including patterns with the same composition.",
+      "after": "On a fixed MOF net, node types can form distinct spatial arrangements at the same composition."
+    },
+    {
+      "item": 20,
+      "before": "对于固定 MOF 网络，类比的指派是在每个位点指定与其度数相容的节点类型。不同指派可产生不同的有序排布，其中也包括组成相同的排布。",
+      "after": "固定 MOF 网络上，即使组成相同，节点类型也可以形成不同的空间排布。"
+    },
+    {
+      "item": 23,
+      "before": "For a fixed embedded MOF net, the task is to identify symmetry-distinct node assignments and construct periodic models with compatible building-unit connections. Within a chosen repeat cell, we formulate degree-compatible node assignments as a quotient-graph coloring problem and hold one linker template fixed on each edge. Colorings related by selected orientation-preserving symmetries of the embedded net define one candidate orbit; selected representatives are then used to construct oriented periodic models.% 对于固定的嵌入 MOF 网络，本文要解决的问题是识别对称互异的节点指派，并由这些指派构建构建单元连接相容的周期模型。在所选重复晶胞内，我们将度数相容的节点指派表述为商图着色问题，并在每条边上固定一个连接体模板。嵌入网络所选保向对称操作关联的着色构成同一候选轨道；随后以选定代表构建有取向的周期模型。",
+      "after": "We study node-type arrangements within a chosen repeat cell of a fixed embedded MOF net. A single linker template is held fixed on every edge throughout node-assignment enumeration.\n% 中文翻译：我们研究固定嵌入 MOF 网络在所选重复晶胞内的节点排布。在节点指派枚举中，所有边均使用同一种固定连接体模板。"
+    },
+    {
+      "item": 26,
+      "before": "with a fixed linker template on each edge.",
+      "after": "with a single fixed linker template on every edge."
+    },
+    {
+      "item": 26,
+      "before": "并为每条边固定连接体模板。",
+      "after": "并在所有边上使用同一种固定连接体模板。"
+    },
+    {
+      "item": 26,
+      "before": "We fix the embedded net, a chosen repeat cell, and one linker template for each graph edge.",
+      "after": "We fix the embedded net, a chosen repeat cell, and a single linker template used on every graph edge."
+    },
+    {
+      "item": 26,
+      "before": "我们固定嵌入网络、所选重复晶胞以及每条图边上的一个连接体模板。",
+      "after": "我们固定嵌入网络、所选重复晶胞以及所有图边共同使用的同一种连接体模板。"
+    },
+    {
+      "item": 26,
+      "before": "Linker templates are fixed per edge and not enumerated;",
+      "after": "A single linker template is fixed on all edges and not enumerated;"
+    },
+    {
+      "item": 26,
+      "before": "每条边的连接体模板固定，不参与枚举；",
+      "after": "所有边共同使用同一种固定连接体模板，不参与枚举；"
+    },
+    {
+      "item": 26,
+      "before": "A linker template is specified for each graph edge when constructing the periodic model; it is not enumerated in $X$.",
+      "after": "The same linker template is used on every graph edge when constructing the periodic model; it is not enumerated in $X$."
+    },
+    {
+      "item": 26,
+      "before": "构建周期模型时，为每条图边另行指定连接体模板；该模板不在 $X$ 中枚举。",
+      "after": "构建周期模型时，所有图边使用同一种连接体模板；该模板不在 $X$ 中枚举。"
+    },
+    {
+      "item": 27,
+      "before": "The implementation compares label strings in lexicographic order.",
+      "after": "Canonical comparisons use the lexicographic order of label strings. Depth-first search (DFS) visits the admissible labels in their supplied pool order, which determines the traversal sequence within each task."
+    },
+    {
+      "item": 27,
+      "before": "实现中标签字符串按字典序比较。",
+      "after": "规范比较采用标签字符串字典序。深度优先搜索（DFS）按输入标签池的顺序遍历相容标签，该顺序确定各任务内部的遍历序列。"
+    },
+    {
+      "item": 27,
+      "before": "representatives in the fixed task, vertex-orbit, and label order.",
+      "after": "representatives in the fixed task and vertex-orbit orders, with labels visited in their supplied pool order."
+    },
+    {
+      "item": 27,
+      "before": "层 $s$ 返回固定任务、顶点轨道和标签顺序下的前",
+      "after": "层 $s$ 按固定任务顺序、顶点轨道顺序及输入标签池遍历顺序返回前"
+    },
+    {
+      "item": 27,
+      "before": "Fix the subgroup-task order, the vertex-orbit order within each task, and the label order.",
+      "after": "Fix the subgroup-task order, the vertex-orbit order within each task, and the supplied label-pool order."
+    },
+    {
+      "item": 27,
+      "before": "固定子群任务顺序、各任务内的顶点轨道顺序及标签顺序。",
+      "after": "固定子群任务顺序、各任务内的顶点轨道顺序及输入标签池的遍历顺序。"
+    },
+    {
+      "item": 10,
+      "before": "\\State build raw partition tasks $Q_0$ for the full group, identity and proper subgroups",
+      "after": "\\State build raw tasks $Q_0=\\{(\\mathcal P_H,|H|)\\}$ for the full group, identity and proper subgroups"
+    },
+    {
+      "item": 10,
+      "before": "\\State order each partition's blocks by their smallest vertex index",
+      "after": "\\State write $\\mathcal P=(P_0,\\ldots,P_{m-1})$, ordering blocks by their smallest vertex index"
+    },
+    {
+      "item": 10,
+      "before": "\\For{each task $(\\mathcal P,s)$ in $Q$}",
+      "after": "\\For{each task $(\\mathcal P,s)$ in $Q$, where $s$ is the source subgroup order}\n% 中文补充：任务保存来源子群阶数s，块按P_0至P_{m-1}编号；完整叶的实际稳定子阶数仍记为t。"
+    },
+    {
+      "item": 25,
+      "before": "The group $\\Gamma$ defines candidate equivalence in the coloring problem. To apply this definition to a periodic framework, we derive its vertex permutations from the crystallographic symmetries of the embedded net.\n% 着色问题中的候选等价由群 $\\Gamma$ 定义。为将该定义用于周期框架，我们从嵌入网络的晶体学对称性导出其顶点置换。",
+      "after": "The crystallographic symmetries of the embedded net induce vertex permutations in the chosen repeat cell. We use their orientation-preserving permutation image as $\\Gamma$.\n% 中文翻译：嵌入网络的晶体学对称操作在所选重复晶胞中诱导顶点置换。我们把其中保向操作的置换像用作Γ。"
+    },
+    {
+      "item": 11,
+      "before": "Node and linker templates retain their specified conformations, with the auxiliary label \\texttt{X} marking intended connection sites.",
+      "after": "Node and linker templates retain their specified conformations. Connection-site labels beginning with \\texttt{X} mark the atoms used for attachment; they retain their template chemical species during placement."
+    },
+    {
+      "item": 11,
+      "before": "节点与连接体模板保持各自指定的构象，并以辅助标签 \\texttt{X} 标识预定连接位点。",
+      "after": "节点与连接体模板保持各自指定的构象。以 \\texttt{X} 开头的连接位点标签标记用于连接的原子，这些原子在放置时保留模板中的化学元素种类。"
+    },
+    {
+      "item": 11,
+      "before": "Residual auxiliary \\texttt{X} sites are then removed.",
+      "after": "Residual dummy sites with chemical species \\texttt{X} are then removed."
+    },
+    {
+      "item": 11,
+      "before": "随后移除残余辅助 \\texttt{X} 位点，",
+      "after": "随后移除化学元素种类为 \\texttt{X} 的残余虚拟位点，"
+    },
+    {
+      "item": 11,
+      "before": "Remove residual \\texttt{X}; merge coincident framework sites; write CIF",
+      "after": "Remove residual dummy species \\texttt{X}; merge coincident framework sites; write CIF"
+    },
+    {
+      "item": 12,
+      "before": "After these rotations, node-side and linker-side \\texttt{X} endpoints with a Cartesian separation strictly below $0.8\\,\\text{\\AA}$ are merged one-to-one. After fusion, the remaining topology-linked node--linker \\texttt{X}--\\texttt{X} pairs define the bridge connections. Their CIF bond-table entries use a nominal length of $1.485\\,\\text{\\AA}$ without displacing the atomic coordinates; the geometric audit measures the actual \\texttt{X}--\\texttt{X} separation before this nominal value is applied. The numerical criteria used in these steps are listed in Supplementary Section~\\ref{app:reconstruction_protocol}. The fixed-geometry scan in Appendix~\\ref{app:x_fusion} examines this conservative operational cutoff.\n% 完成这些旋转后，对笛卡尔距离严格小于 $0.8\\,\\text{\\AA}$ 的节点侧与连接体侧 \\texttt{X} 端点进行一对一融合。融合后，剩余的拓扑相连节点--连接体 \\texttt{X}--\\texttt{X} 对定义桥接连接。它们在 CIF 键表中的条目使用 $1.485\\,\\text{\\AA}$ 的名义长度，但不移动原子坐标；几何审计测量的是应用该名义值之前的实际 \\texttt{X}--\\texttt{X} 间距。上述步骤使用的数值判据列于补充材料第~\\ref{app:reconstruction_protocol} 节。附录~\\ref{app:x_fusion} 的固定几何扫描检查了这一保守操作阈值。",
+      "after": "After these rotations, the geometric audit measures the actual separations of topology-linked node--linker \\texttt{X}--\\texttt{X} pairs before endpoint fusion. Node-side and linker-side \\texttt{X} endpoints with a Cartesian separation strictly below $0.8\\,\\text{\\AA}$ are then merged one-to-one. After fusion, the remaining topology-linked pairs define the bridge connections. Their CIF bond-table entries use a nominal length of $1.485\\,\\text{\\AA}$ without displacing the atomic coordinates. The numerical criteria are listed in Supplementary Section~\\ref{app:reconstruction_protocol}. Appendix~\\ref{app:x_fusion} reports the fixed-geometry scan of the fusion cutoff.\n% 中文翻译：轴向旋转完成后，几何审计在端点融合前测量拓扑相连的节点--连接体 \\texttt{X}--\\texttt{X} 对的真实间距。随后，对笛卡尔距离严格小于 $0.8\\,\\text{\\AA}$ 的节点侧与连接体侧 \\texttt{X} 端点进行一对一融合。融合后，剩余的拓扑相连位点对定义桥接连接。它们在 CIF 键表中的条目使用 $1.485\\,\\text{\\AA}$ 的名义长度，但不移动原子坐标。数值判据见补充材料第~\\ref{app:reconstruction_protocol}节。附录~\\ref{app:x_fusion}报告融合阈值的固定几何扫描。"
+    },
+    {
+      "item": 12,
+      "before": "the closure error was the absolute deviation of the actual separation from the nominal $1.485$\\,\\AA{} bridge length.",
+      "after": "the closure error was the absolute deviation of the actual separation before endpoint fusion from the nominal $1.485$\\,\\AA{} bridge length."
+    },
+    {
+      "item": 12,
+      "before": "闭合误差为实际间距相对于 $1.485$\\,\\AA{} 名义桥长的绝对偏差。",
+      "after": "闭合误差为端点融合前的实际间距相对于 $1.485$\\,\\AA{} 名义桥长的绝对偏差。"
+    },
+    {
+      "item": 3,
+      "before": "The \\texttt{ffc} and \\texttt{fjh} cases permit exhaustive enumeration over their degree-compatible node pools. For these finite spaces, we checked that the returned representatives covered $X$ without duplicate $\\Gamma$-orbits.\n% 中文翻译：\\texttt{ffc} 和 \\texttt{fjh} 算例可对各自度数相容的节点模板池进行完整枚举。对这些有限空间，我们检查返回的代表是否覆盖 $X$，且不存在重复的 $\\Gamma$-轨道。\n\nFor every exhaustive case, the represented orbit sizes summed to $|X|$. Distinct canonical representatives define disjoint $\\Gamma$-orbits, so this sum counts the assignments covered and equality with $|X|$ confirms complete coverage. CASM provided a separate comparison on the same quotient graphs and node-label pools (Table~\\ref{tab:casm}). % 对每个完整枚举算例，已表示轨道的大小之和均等于 $|X|$。不同规范代表对应互不相交的 $\\Gamma$-轨道，因此轨道大小之和计数了已覆盖的指派；该和等于 $|X|$ 即确认完整覆盖。CASM 在相同商图和节点标签池上提供单独的比较（表~\\ref{tab:casm}）。\nIts native full factor group $F$ includes orientation-reversing operations in addition to the orientation-preserving operations retained here (Supplementary Table~\\ref{tab:orbit_group_counts}). The \\texttt{ffc} counts agree, providing a consistency check on the count computed for that benchmark space; this agreement does not establish that $F$ and $\\Gamma$ define the same equivalence relation. For \\texttt{fjh}, CASM gives fewer orbits under $F$, illustrating how the additional equivalences reduce the number of distinct candidates. The exact-coverage check therefore concerns the specified $\\Gamma$ action, while the CASM comparison also exposes the effect of choosing a different equivalence group.\n%其原生完整因子群 $F$ 还包含本文保向操作之外的反向操作（补充表~\\ref{tab:orbit_group_counts}）。\\texttt{ffc} 的计数一致，为该基准空间上的计数提供一致性检查；这一一致并不证明 $F$ 与 $\\Gamma$ 定义相同的等价关系。对于 \\texttt{fjh}，CASM 在 $F$ 下给出较少轨道，展示额外等价关系如何减少互异候选数。因此，精确覆盖核查针对所指定的 $\\Gamma$ 作用，而 CASM 比较还展示了选择不同等价群的影响。\n\n",
+      "after": "For each exhaustive case, distinct canonical representatives defined disjoint $\\Gamma$-orbits whose sizes summed to $|X|$, confirming complete coverage. The matched CASM workflow used the same assignment space, group action, and output fields. After normalization to a common canonical convention, the complete representative records agreed.\n% 中文翻译：对每个穷尽算例，不同规范代表定义互不相交的$\\Gamma$轨道，其轨道大小之和等于$|X|$，确认完整覆盖。匹配CASM流程使用相同的指派空间、群作用和输出字段。转换到共同规范约定后，完整代表记录一致。\n\nEnumeration wall times were lower for this method in 5 of the eight \\texttt{ffc} and \\texttt{fjh} cases in Table~\\ref{tab:casm}. In the largest \\texttt{fjh} case, 16,777,216 assignments yielded 1,078,816 orbits in 2.74 s, compared with 20.88 s for CASM. CASM was faster in the three smallest assignment spaces. These measurements support generating complete candidate libraries over the tested spaces, with relative performance dependent on the case.\n% 中文翻译：在表~\\ref{tab:casm}的八个ffc和fjh算例中，本文方法在五例上具有较低的枚举壁钟耗时。最大的fjh算例中，16,777,216个指派产生1,078,816个轨道，本文耗时2.74秒，CASM耗时20.88秒。CASM在原始指派空间最小的三个算例上更快。这些测量支持在被测空间中生成完整候选库，相对性能随算例变化。\n\nCASM's native full factor group $F$ additionally includes orientation-reversing operations. Its orbit counts are reported separately in Supplementary Table~\\ref{tab:orbit_group_counts}, showing the effect of the equivalence group.\n% 中文翻译：CASM的原生完整因子群$F$另包含反向操作。其轨道计数单列于补充表~\\ref{tab:orbit_group_counts}，说明所选等价群的影响。\n\n"
+    },
+    {
+      "item": 28,
+      "before": "An additional \\texttt{lil} case used $|\\mathcal C_3|=4$, $|\\mathcal C_4|=3$, and $|\\Gamma|=4$. Its 5,308,416 assignments yielded 1,328,832 orbits. The wall times were 1.978\\,s for this work and 6.858\\,s for the matched CASM workflow. This case was used for enumeration only.\n% 中文翻译：额外的 \\texttt{lil} 算例采用 $|\\mathcal C_3|=4$、$|\\mathcal C_4|=3$，且 $|\\Gamma|=4$。5,308,416个指派产生1,328,832个轨道。本文和匹配CASM流程的壁钟耗时分别为1.978秒和6.858秒。该算例仅用于枚举。",
+      "after": "An additional \\texttt{lil} case used $|\\mathcal C_3|=4$, $|\\mathcal C_4|=3$, and $|\\Gamma|=4$. This case tested enumeration on a further net; no atomic models were constructed for it.\n% 中文翻译：额外的\\texttt{lil}算例采用$|\\mathcal C_3|=4$、$|\\mathcal C_4|=3$及$|\\Gamma|=4$。该算例补充另一个网络上的枚举检验，不构建原子模型。"
+    },
+    {
+      "item": 29,
+      "before": "Vertical guides indicate low ($\\rho<0.25$), medium ($0.25\\le\\rho\\le0.75$), and high ($\\rho>0.75$) strata.",
+      "after": "Vertical guides indicate low ($\\rho<0.25$), medium ($0.25\\le\\rho\\le0.75$), and high ($\\rho>0.75$) $\\rho$ ranges."
+    },
+    {
+      "item": 29,
+      "before": "竖直参考线标示低（$\\rho<0.25$）、中（$0.25\\le\\rho\\le0.75$）和高（$\\rho>0.75$）层级。",
+      "after": "竖直参考线标示低（$\\rho<0.25$）、中（$0.25\\le\\rho\\le0.75$）和高（$\\rho>0.75$）三个$\\rho$区间。"
+    },
+    {
+      "item": 30,
+      "before": "Exact count checks, construction audits, and matched screening comparisons support generating periodic starting models from symmetry-distinct assignments for downstream screening.",
+      "after": "The 72-model audit established successful construction from discrete assignments. Separate matched screening sets demonstrated the use of constructed models for downstream evaluation."
+    },
+    {
+      "item": 30,
+      "before": "精确计数核对、模型构建审计和匹配筛选比较支持从对称互异指派生成周期起始模型，用于下游筛选。",
+      "after": "72例模型审计确认离散指派成功转化为周期模型。另行选取的匹配筛选集合展示了构建模型的下游评价用途。"
+    },
+    {
+      "item": 31,
+      "before": "The reported single-point DFT sets used the closed-shell Cd node; Cu served as an optional open-shell probe and also appeared in visual examples.",
+      "after": "The reported single-point DFT sets used the closed-shell Cd node."
+    },
+    {
+      "item": 31,
+      "before": "报告的单点 DFT 集合使用闭壳层 Cd 节点；Cu 用作可选的开壳层探针，也出现在可视化示例中。",
+      "after": "报告的单点 DFT 集合使用闭壳层 Cd 节点。"
+    },
+    {
+      "item": 31,
+      "before": "Construction, adsorption screening, optional open-shell probes, and visual examples",
+      "after": "Construction, adsorption screening, and visual examples"
+    }
+  ]
+}

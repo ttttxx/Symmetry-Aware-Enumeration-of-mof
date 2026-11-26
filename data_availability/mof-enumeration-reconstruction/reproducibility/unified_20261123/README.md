@@ -1,0 +1,7 @@
+# Current enumeration benchmarks (2026-11-23)
+
+The manuscript enumeration tables use this ABI-4 C++/Trie snapshot and the lexical template pools in the measurement JSON. All 108 exhaustive measurements completed and all normalized complete records matched CASM under the same Gamma. Twelve bounded vba runs use prefixes of the same C4 master list. Quota and prefix runs have equal output totals; each policy was repeated three times in independent processes.
+
+Reproduce from the project root represented by snapshot/: build the native library with tools/build_enumeration_core.py, then run experiment/match_refresh_compare.py --skip-legacy --output NEW.json using a Python environment with psutil, and validation/benchmark_unified_vba_20261123.py --output NEW_VBA.json with Python 3.11. The matched harness defaults to python3.11 workers. Dependencies include NumPy, SymPy, pymatgen, libcasm-configuration 2.3.1 and psutil. The bundled dylib is macOS arm64; rebuild on another platform.
+
+Enumeration wall time excludes imports, graph/group construction and verification; it includes subgroup tasks, search, record storage, decoding and sorting. Native-core time is a subset. Layer intervals exclude the initial subgroup setup. Old dated CSV files elsewhere in the package are historical provenance and are not the source of current manuscript enumeration timings. This local package has not been uploaded or pushed by this task.

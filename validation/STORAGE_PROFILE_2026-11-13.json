@@ -1,0 +1,1769 @@
+{
+  "python": "3.13.12 (v3.13.12:1cbe4818347, Feb  3 2026, 13:36:53) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "timings": [
+    {
+      "case": [
+        "ffc",
+        2,
+        2
+      ],
+      "runs": {
+        "trie": [
+          {
+            "backend": "trie",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.001673000049777329,
+            "process_peak_rss_mb": 130.890625,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00011945818550884724
+            },
+            "storage_structure": {
+              "nodes": 101,
+              "index_container_bytes": 21560,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0018236669711768627,
+            "process_peak_rss_mb": 131.0,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00013720698188990355
+            },
+            "storage_structure": {
+              "nodes": 101,
+              "index_container_bytes": 21560,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0018286670092493296,
+            "process_peak_rss_mb": 130.875,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0001335840206593275
+            },
+            "storage_structure": {
+              "nodes": 101,
+              "index_container_bytes": 21560,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          }
+        ],
+        "tuple": [
+          {
+            "backend": "tuple",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0021712920861318707,
+            "process_peak_rss_mb": 129.28125,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00013333524111658335
+            },
+            "storage_structure": {
+              "keys": 42,
+              "index_container_bytes": 5200,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.001811958965845406,
+            "process_peak_rss_mb": 131.09375,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0001321248710155487
+            },
+            "storage_structure": {
+              "keys": 42,
+              "index_container_bytes": 5200,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0017327910754829645,
+            "process_peak_rss_mb": 130.8125,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00012804404832422733
+            },
+            "storage_structure": {
+              "keys": 42,
+              "index_container_bytes": 5200,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          }
+        ],
+        "bytes": [
+          {
+            "backend": "bytes",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0018534159753471613,
+            "process_peak_rss_mb": 130.390625,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00013429205864667892
+            },
+            "storage_structure": {
+              "keys": 42,
+              "index_container_bytes": 2848,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.001835250062867999,
+            "process_peak_rss_mb": 130.875,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00013320904690772295
+            },
+            "storage_structure": {
+              "keys": 42,
+              "index_container_bytes": 2848,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "ffc",
+              2,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0019476250745356083,
+            "process_peak_rss_mb": 131.078125,
+            "results": 42,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 37,
+              "leaf_visits": 42,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0001422485802322626
+            },
+            "storage_structure": {
+              "keys": 42,
+              "index_container_bytes": 2848,
+              "result_container_bytes": 14328
+            },
+            "output_sha256": "872c6dab386501ab60146ff5a2644cdbd6d62fc86d856504ea8fc3de10d19e09"
+          }
+        ]
+      },
+      "medians_s": {
+        "trie": 0.0018236669711768627,
+        "tuple": 0.001811958965845406,
+        "bytes": 0.0018534159753471613
+      },
+      "median_peak_rss_mb": {
+        "trie": 130.890625,
+        "tuple": 130.8125,
+        "bytes": 130.875
+      }
+    },
+    {
+      "case": [
+        "ffc",
+        3,
+        3
+      ],
+      "runs": {
+        "trie": [
+          {
+            "backend": "trie",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.003068832913413644,
+            "process_peak_rss_mb": 130.921875,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00013816682621836662
+            },
+            "storage_structure": {
+              "nodes": 838,
+              "index_container_bytes": 152560,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.003134625032544136,
+            "process_peak_rss_mb": 130.984375,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00014341692440211773
+            },
+            "storage_structure": {
+              "nodes": 838,
+              "index_container_bytes": 152560,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.003004707978107035,
+            "process_peak_rss_mb": 130.953125,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0001349177910014987
+            },
+            "storage_structure": {
+              "nodes": 838,
+              "index_container_bytes": 152560,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          }
+        ],
+        "tuple": [
+          {
+            "backend": "tuple",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0031334590166807175,
+            "process_peak_rss_mb": 131.546875,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00015025120228528976
+            },
+            "storage_structure": {
+              "keys": 513,
+              "index_container_bytes": 67760,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0028929170221090317,
+            "process_peak_rss_mb": 130.890625,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0001322480384260416
+            },
+            "storage_structure": {
+              "keys": 513,
+              "index_container_bytes": 67760,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.002760165953077376,
+            "process_peak_rss_mb": 130.921875,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0001295419642701745
+            },
+            "storage_structure": {
+              "keys": 513,
+              "index_container_bytes": 67760,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          }
+        ],
+        "bytes": [
+          {
+            "backend": "bytes",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.002913709031417966,
+            "process_peak_rss_mb": 131.84375,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00013475003652274609
+            },
+            "storage_structure": {
+              "keys": 513,
+              "index_container_bytes": 39032,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0030770408920943737,
+            "process_peak_rss_mb": 131.140625,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00013916799798607826
+            },
+            "storage_structure": {
+              "keys": 513,
+              "index_container_bytes": 39032,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "ffc",
+              3,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.0029921670211479068,
+            "process_peak_rss_mb": 130.796875,
+            "results": 513,
+            "task_stats": {
+              "tasks": 8,
+              "completed_tasks": 8,
+              "pruned_prefixes": 124,
+              "leaf_visits": 513,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00014962709974497557
+            },
+            "storage_structure": {
+              "keys": 513,
+              "index_container_bytes": 39032,
+              "result_container_bytes": 178632
+            },
+            "output_sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9"
+          }
+        ]
+      },
+      "medians_s": {
+        "trie": 0.003068832913413644,
+        "tuple": 0.0028929170221090317,
+        "bytes": 0.0029921670211479068
+      },
+      "median_peak_rss_mb": {
+        "trie": 130.953125,
+        "tuple": 130.921875,
+        "bytes": 131.140625
+      }
+    },
+    {
+      "case": [
+        "fjh",
+        1,
+        2
+      ],
+      "runs": {
+        "trie": [
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.04443895805161446,
+            "process_peak_rss_mb": 133.375,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004022124456241727
+            },
+            "storage_structure": {
+              "nodes": 7453,
+              "index_container_bytes": 2023800,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.043923582998104393,
+            "process_peak_rss_mb": 133.09375,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.003974249819293618
+            },
+            "storage_structure": {
+              "nodes": 7453,
+              "index_container_bytes": 2023800,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.04347379202954471,
+            "process_peak_rss_mb": 133.21875,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.003991873934864998
+            },
+            "storage_structure": {
+              "nodes": 7453,
+              "index_container_bytes": 2023800,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          }
+        ],
+        "tuple": [
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.04223591601476073,
+            "process_peak_rss_mb": 131.359375,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0038759970339015126
+            },
+            "storage_structure": {
+              "keys": 394,
+              "index_container_bytes": 122528,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.04227895790245384,
+            "process_peak_rss_mb": 131.421875,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.003908042097464204
+            },
+            "storage_structure": {
+              "keys": 394,
+              "index_container_bytes": 122528,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.04380045901052654,
+            "process_peak_rss_mb": 131.390625,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004191541578620672
+            },
+            "storage_structure": {
+              "keys": 394,
+              "index_container_bytes": 122528,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          }
+        ],
+        "bytes": [
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.041582042002119124,
+            "process_peak_rss_mb": 131.234375,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0038310398813337088
+            },
+            "storage_structure": {
+              "keys": 394,
+              "index_container_bytes": 42546,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.043036165996454656,
+            "process_peak_rss_mb": 131.28125,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.003914001863449812
+            },
+            "storage_structure": {
+              "keys": 394,
+              "index_container_bytes": 42546,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              1,
+              2
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.04222916602157056,
+            "process_peak_rss_mb": 131.359375,
+            "results": 394,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 708,
+              "leaf_visits": 394,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0038830818375572562
+            },
+            "storage_structure": {
+              "keys": 394,
+              "index_container_bytes": 42546,
+              "result_container_bytes": 217144
+            },
+            "output_sha256": "aa86460ad7e4ea34516838263ee61a7c393f3b6155dd3daac090cee1bba08316"
+          }
+        ]
+      },
+      "medians_s": {
+        "trie": 0.043923582998104393,
+        "tuple": 0.04227895790245384,
+        "bytes": 0.04222916602157056
+      },
+      "median_peak_rss_mb": {
+        "trie": 133.21875,
+        "tuple": 131.390625,
+        "bytes": 131.28125
+      }
+    },
+    {
+      "case": [
+        "fjh",
+        2,
+        1
+      ],
+      "runs": {
+        "trie": [
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.06035429099574685,
+            "process_peak_rss_mb": 135.671875,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00456262263469398
+            },
+            "storage_structure": {
+              "nodes": 10726,
+              "index_container_bytes": 2242320,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.06092766590882093,
+            "process_peak_rss_mb": 135.546875,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0046365451999008656
+            },
+            "storage_structure": {
+              "nodes": 10726,
+              "index_container_bytes": 2242320,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.06025337497703731,
+            "process_peak_rss_mb": 135.53125,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004561959998682141
+            },
+            "storage_structure": {
+              "nodes": 10726,
+              "index_container_bytes": 2242320,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          }
+        ],
+        "tuple": [
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.051388542051427066,
+            "process_peak_rss_mb": 134.734375,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004303202033042908
+            },
+            "storage_structure": {
+              "keys": 4756,
+              "index_container_bytes": 1403128,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.05207095807418227,
+            "process_peak_rss_mb": 134.609375,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004361246828921139
+            },
+            "storage_structure": {
+              "keys": 4756,
+              "index_container_bytes": 1403128,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.05200920801144093,
+            "process_peak_rss_mb": 134.84375,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004366043722257018
+            },
+            "storage_structure": {
+              "keys": 4756,
+              "index_container_bytes": 1403128,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          }
+        ],
+        "bytes": [
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.05228429101407528,
+            "process_peak_rss_mb": 133.9375,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004312376491725445
+            },
+            "storage_structure": {
+              "keys": 4756,
+              "index_container_bytes": 437660,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.05168154207058251,
+            "process_peak_rss_mb": 133.734375,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.00425170490052551
+            },
+            "storage_structure": {
+              "keys": 4756,
+              "index_container_bytes": 437660,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              2,
+              1
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.05166770797222853,
+            "process_peak_rss_mb": 133.875,
+            "results": 4756,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 1410,
+              "leaf_visits": 4756,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004322167835198343
+            },
+            "storage_structure": {
+              "keys": 4756,
+              "index_container_bytes": 437660,
+              "result_container_bytes": 2544624
+            },
+            "output_sha256": "4a7c7b2b3e05038f6085c60c15e2e609ceb9b3dd578bb30748f5eb84ca1fee33"
+          }
+        ]
+      },
+      "medians_s": {
+        "trie": 0.06035429099574685,
+        "tuple": 0.05200920801144093,
+        "bytes": 0.05168154207058251
+      },
+      "median_peak_rss_mb": {
+        "trie": 135.546875,
+        "tuple": 134.734375,
+        "bytes": 133.875
+      }
+    },
+    {
+      "case": [
+        "fjh",
+        1,
+        3
+      ],
+      "runs": {
+        "trie": [
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.7148067919770256,
+            "process_peak_rss_mb": 326.40625,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004293376230634749
+            },
+            "storage_structure": {
+              "nodes": 646699,
+              "index_container_bytes": 175256680,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.7004510420374572,
+            "process_peak_rss_mb": 326.328125,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004171001841314137
+            },
+            "storage_structure": {
+              "nodes": 646699,
+              "index_container_bytes": 175256680,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          },
+          {
+            "backend": "trie",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.7002880000509322,
+            "process_peak_rss_mb": 326.34375,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004162545199505985
+            },
+            "storage_structure": {
+              "nodes": 646699,
+              "index_container_bytes": 175256680,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          }
+        ],
+        "tuple": [
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.3505108749959618,
+            "process_peak_rss_mb": 163.796875,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004096082993783057
+            },
+            "storage_structure": {
+              "keys": 36369,
+              "index_container_bytes": 10912216,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.35103958402760327,
+            "process_peak_rss_mb": 163.859375,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0041541659738868475
+            },
+            "storage_structure": {
+              "keys": 36369,
+              "index_container_bytes": 10912216,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          },
+          {
+            "backend": "tuple",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.3492411250481382,
+            "process_peak_rss_mb": 163.921875,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004154916969127953
+            },
+            "storage_structure": {
+              "keys": 36369,
+              "index_container_bytes": 10912216,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          }
+        ],
+        "bytes": [
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.3501984169706702,
+            "process_peak_rss_mb": 156.6875,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.0041097087087109685
+            },
+            "storage_structure": {
+              "keys": 36369,
+              "index_container_bytes": 3529309,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.3540487909922376,
+            "process_peak_rss_mb": 156.578125,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004106790875084698
+            },
+            "storage_structure": {
+              "keys": 36369,
+              "index_container_bytes": 3529309,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          },
+          {
+            "backend": "bytes",
+            "case": [
+              "fjh",
+              1,
+              3
+            ],
+            "mode": "timing",
+            "elapsed_s": 0.3503844590159133,
+            "process_peak_rss_mb": 156.515625,
+            "results": 36369,
+            "task_stats": {
+              "tasks": 33,
+              "completed_tasks": 33,
+              "pruned_prefixes": 8959,
+              "leaf_visits": 36369,
+              "duplicate_leaves": 0,
+              "compile_s": 0.004229206126183271
+            },
+            "storage_structure": {
+              "keys": 36369,
+              "index_container_bytes": 3529309,
+              "result_container_bytes": 19640840
+            },
+            "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+          }
+        ]
+      },
+      "medians_s": {
+        "trie": 0.7004510420374572,
+        "tuple": 0.3505108749959618,
+        "bytes": 0.3503844590159133
+      },
+      "median_peak_rss_mb": {
+        "trie": 326.34375,
+        "tuple": 163.859375,
+        "bytes": 156.578125
+      }
+    }
+  ],
+  "diagnostics": {
+    "phase": [
+      {
+        "backend": "trie",
+        "case": [
+          "fjh",
+          1,
+          3
+        ],
+        "mode": "phase",
+        "elapsed_s": 0.7236480000428855,
+        "process_peak_rss_mb": 326.5,
+        "results": 36369,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 33,
+          "pruned_prefixes": 8959,
+          "leaf_visits": 36369,
+          "duplicate_leaves": 0,
+          "compile_s": 0.004162539844401181
+        },
+        "instrumented_phases_s": {
+          "task_preparation_and_schedule": 0.029643087298609316,
+          "overlap_constraint_compilation": 0.004149912158027291,
+          "search_excluding_leaf_storage": 0.2840307519072667,
+          "index_lookup": 0.024722614441998303,
+          "index_insert": 0.34393224760424346,
+          "leaf_record_and_call_residual": 0.020358553621917963,
+          "result_sort": 0.0009825840825214982,
+          "coverage_verification": 0.0011312909191474319,
+          "encode_decode_id_assignment_and_other": 0.014696958009153605
+        },
+        "inclusive_method_times_s": {
+          "_compile_exclusions": 0.004149912158027291,
+          "_trie_lookup": 0.09387792437337339,
+          "_trie_insert": 0.34393224760424346,
+          "_store_canonical_leaf": 0.3890134156681597,
+          "_search_compiled_task": 0.6730441675754264,
+          "enumerate_subgroups": 0.706837167032063,
+          "result_sort": 0.0009825840825214982,
+          "_verify_burnside": 0.0011312909191474319
+        },
+        "storage_structure": {
+          "nodes": 646699,
+          "index_container_bytes": 175256680,
+          "result_container_bytes": 19640840
+        },
+        "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+      },
+      {
+        "backend": "tuple",
+        "case": [
+          "fjh",
+          1,
+          3
+        ],
+        "mode": "phase",
+        "elapsed_s": 0.3760563749819994,
+        "process_peak_rss_mb": 163.828125,
+        "results": 36369,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 33,
+          "pruned_prefixes": 8959,
+          "leaf_visits": 36369,
+          "duplicate_leaves": 0,
+          "compile_s": 0.004151546047069132
+        },
+        "instrumented_phases_s": {
+          "task_preparation_and_schedule": 0.029701456427574158,
+          "overlap_constraint_compilation": 0.004139917669817805,
+          "search_excluding_leaf_storage": 0.28672783309593797,
+          "index_lookup": 0.01429089077282697,
+          "index_insert": 0.00933373300358653,
+          "leaf_record_and_call_residual": 0.018330211052671075,
+          "result_sort": 0.0009974169079214334,
+          "coverage_verification": 0.0010466669918969274,
+          "encode_decode_id_assignment_and_other": 0.011488249059766531
+        },
+        "inclusive_method_times_s": {
+          "_compile_exclusions": 0.004139917669817805,
+          "_trie_lookup": 0.05149966641329229,
+          "_trie_insert": 0.00933373300358653,
+          "_store_canonical_leaf": 0.041954834829084575,
+          "_search_compiled_task": 0.32868266792502254,
+          "enumerate_subgroups": 0.3625240420224145,
+          "result_sort": 0.0009974169079214334,
+          "_verify_burnside": 0.0010466669918969274
+        },
+        "storage_structure": {
+          "keys": 36369,
+          "index_container_bytes": 10912216,
+          "result_container_bytes": 19640840
+        },
+        "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+      },
+      {
+        "backend": "bytes",
+        "case": [
+          "fjh",
+          1,
+          3
+        ],
+        "mode": "phase",
+        "elapsed_s": 0.3716794999781996,
+        "process_peak_rss_mb": 156.53125,
+        "results": 36369,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 33,
+          "pruned_prefixes": 8959,
+          "leaf_visits": 36369,
+          "duplicate_leaves": 0,
+          "compile_s": 0.004120455705560744
+        },
+        "instrumented_phases_s": {
+          "task_preparation_and_schedule": 0.029460668214596808,
+          "overlap_constraint_compilation": 0.004108875175006688,
+          "search_excluding_leaf_storage": 0.2791606548707932,
+          "index_lookup": 0.012494019698351622,
+          "index_insert": 0.010075896279886365,
+          "leaf_record_and_call_residual": 0.02315463568083942,
+          "result_sort": 0.0009550829418003559,
+          "coverage_verification": 0.0010997919598594308,
+          "encode_decode_id_assignment_and_other": 0.01116987515706569
+        },
+        "inclusive_method_times_s": {
+          "_compile_exclusions": 0.004108875175006688,
+          "_trie_lookup": 0.050523420330137014,
+          "_trie_insert": 0.010075896279886365,
+          "_store_canonical_leaf": 0.045724551659077406,
+          "_search_compiled_task": 0.32488520652987063,
+          "enumerate_subgroups": 0.3584547499194741,
+          "result_sort": 0.0009550829418003559,
+          "_verify_burnside": 0.0010997919598594308
+        },
+        "storage_structure": {
+          "keys": 36369,
+          "index_container_bytes": 3529309,
+          "result_container_bytes": 19640840
+        },
+        "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+      }
+    ],
+    "memory": [
+      {
+        "backend": "trie",
+        "case": [
+          "fjh",
+          1,
+          3
+        ],
+        "mode": "memory",
+        "elapsed_s": 4.004690250032581,
+        "process_peak_rss_mb": 550.0625,
+        "results": 36369,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 33,
+          "pruned_prefixes": 8959,
+          "leaf_visits": 36369,
+          "duplicate_leaves": 0,
+          "compile_s": 0.04412716720253229
+        },
+        "tracemalloc": {
+          "retained_bytes": 196980596,
+          "peak_bytes": 196980776,
+          "top_lines": [
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:139",
+              "bytes": 133867888,
+              "allocations": 1257028
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:37",
+              "bytes": 41388608,
+              "allocations": 646697
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:29",
+              "bytes": 11347128,
+              "allocations": 72738
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:67",
+              "bytes": 7998792,
+              "allocations": 72707
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:65",
+              "bytes": 1011136,
+              "allocations": 36112
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:404",
+              "bytes": 1011136,
+              "allocations": 36112
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:403",
+              "bytes": 291016,
+              "allocations": 2
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:177",
+              "bytes": 27488,
+              "allocations": 419
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:140",
+              "bytes": 9240,
+              "allocations": 165
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:110",
+              "bytes": 4072,
+              "allocations": 69
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/.venv/lib/python3.13/site-packages/sympy/combinatorics/permutations.py:1050",
+              "bytes": 4032,
+              "allocations": 63
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:311",
+              "bytes": 3600,
+              "allocations": 30
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:337",
+              "bytes": 2104,
+              "allocations": 58
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:104",
+              "bytes": 1680,
+              "allocations": 30
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:132",
+              "bytes": 1568,
+              "allocations": 28
+            }
+          ]
+        },
+        "storage_structure": {
+          "nodes": 646699,
+          "index_container_bytes": 175256680,
+          "result_container_bytes": 19640840
+        },
+        "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+      },
+      {
+        "backend": "tuple",
+        "case": [
+          "fjh",
+          1,
+          3
+        ],
+        "mode": "memory",
+        "elapsed_s": 3.266647332930006,
+        "process_peak_rss_mb": 181.234375,
+        "results": 36369,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 33,
+          "pruned_prefixes": 8959,
+          "leaf_visits": 36369,
+          "duplicate_leaves": 0,
+          "compile_s": 0.04434245498850942
+        },
+        "tracemalloc": {
+          "retained_bytes": 32686716,
+          "peak_bytes": 32686896,
+          "top_lines": [
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:29",
+              "bytes": 11347128,
+              "allocations": 72738
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:116",
+              "bytes": 9601416,
+              "allocations": 36369
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:67",
+              "bytes": 7998792,
+              "allocations": 72707
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_storage.py:44",
+              "bytes": 1310736,
+              "allocations": 1
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:65",
+              "bytes": 1011136,
+              "allocations": 36112
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:404",
+              "bytes": 1011136,
+              "allocations": 36112
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:403",
+              "bytes": 291016,
+              "allocations": 2
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:140",
+              "bytes": 31024,
+              "allocations": 554
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:177",
+              "bytes": 27488,
+              "allocations": 419
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:93",
+              "bytes": 13280,
+              "allocations": 179
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:110",
+              "bytes": 6592,
+              "allocations": 114
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:104",
+              "bytes": 4256,
+              "allocations": 76
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:311",
+              "bytes": 3600,
+              "allocations": 30
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:71",
+              "bytes": 2688,
+              "allocations": 42
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:337",
+              "bytes": 2104,
+              "allocations": 58
+            }
+          ]
+        },
+        "storage_structure": {
+          "keys": 36369,
+          "index_container_bytes": 10912216,
+          "result_container_bytes": 19640840
+        },
+        "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+      },
+      {
+        "backend": "bytes",
+        "case": [
+          "fjh",
+          1,
+          3
+        ],
+        "mode": "memory",
+        "elapsed_s": 3.300884374999441,
+        "process_peak_rss_mb": 174.015625,
+        "results": 36369,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 33,
+          "pruned_prefixes": 8959,
+          "leaf_visits": 36369,
+          "duplicate_leaves": 0,
+          "compile_s": 0.044655332691036165
+        },
+        "tracemalloc": {
+          "retained_bytes": 25303985,
+          "peak_bytes": 25304165,
+          "top_lines": [
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:29",
+              "bytes": 11347128,
+              "allocations": 72738
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:67",
+              "bytes": 7998792,
+              "allocations": 72707
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_storage.py:34",
+              "bytes": 2218509,
+              "allocations": 36369
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_storage.py:44",
+              "bytes": 1310736,
+              "allocations": 1
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:65",
+              "bytes": 1011136,
+              "allocations": 36112
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:404",
+              "bytes": 1011136,
+              "allocations": 36112
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:403",
+              "bytes": 291016,
+              "allocations": 2
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:140",
+              "bytes": 32592,
+              "allocations": 582
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:177",
+              "bytes": 27488,
+              "allocations": 419
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:93",
+              "bytes": 13280,
+              "allocations": 179
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:110",
+              "bytes": 5864,
+              "allocations": 101
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator.py:311",
+              "bytes": 3600,
+              "allocations": 30
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:104",
+              "bytes": 3472,
+              "allocations": 62
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_task_dedup.py:71",
+              "bytes": 2688,
+              "allocations": 42
+            },
+            {
+              "location": "/Users/jing/PyCharmMiscProject/mof/enumerator_casm_inspired.py:94",
+              "bytes": 2272,
+              "allocations": 13
+            }
+          ]
+        },
+        "storage_structure": {
+          "keys": 36369,
+          "index_container_bytes": 3529309,
+          "result_container_bytes": 19640840
+        },
+        "output_sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1"
+      }
+    ]
+  }
+}

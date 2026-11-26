@@ -1,6 +1,6 @@
 import os, re, subprocess, json, shutil, time, threading, signal, glob
 import psutil
-from pymatgen.core import Structure
+from pymatgen.core import Lattice, Structure
 from dft_validation import config
 
 OPEN_SHELL_METALS = {"Cu", "Ni", "Fe", "Co", "Mn", "V", "Cr", "Mo", "W"}
@@ -141,9 +141,8 @@ def generate_cp2k_input(record: dict, run_dir: str, topology: str,
     if wfn_exists:
         print(f"  [cp2k_inp] WFN restart detected — using SCF_GUESS RESTART")
 
-    # GEO_OPT coordinate restart: use EXT_RESTART if a .restart file exists.
-    geo_restart_files = sorted(glob.glob(os.path.join(run_dir, "*.restart")))
-    geo_restart = geo_restart_files[-1] if geo_restart_files else None
+    # GEO_OPT / CELL_OPT coordinate restart: use the newest numeric restart.
+    geo_restart = _latest_restart_file(run_dir, include_backups=False)
     if geo_restart:
         print(f"  [cp2k_inp] GEO restart detected — {os.path.basename(geo_restart)}")
     ext_restart_block = (
@@ -201,6 +200,29 @@ def generate_cp2k_input(record: dict, run_dir: str, topology: str,
     MAX_FORCE 1.0E-3
     RMS_FORCE 7.0E-4
   &END {run_type}
+  &PRINT
+    &TRAJECTORY
+      FORMAT XYZ
+      ADD_LAST NUMERIC
+      &EACH
+        GEO_OPT 1
+        CELL_OPT 1
+      &END EACH
+    &END TRAJECTORY
+    &CELL
+      &EACH
+        GEO_OPT 1
+        CELL_OPT 1
+      &END EACH
+    &END CELL
+    &RESTART
+      BACKUP_COPIES 1
+      &EACH
+        GEO_OPT 1
+        CELL_OPT 1
+      &END EACH
+    &END RESTART
+  &END PRINT
 &END MOTION
 """
 
@@ -216,6 +238,7 @@ def generate_cp2k_input(record: dict, run_dir: str, topology: str,
 
     pw_cut = cutoff_ry if cutoff_ry is not None else config.PW_CUTOFF_RY
     rel_cut = max(30, int(config.REL_CUTOFF_RY * pw_cut / config.PW_CUTOFF_RY))
+    stress_line = "  STRESS_TENSOR ANALYTICAL\n" if run_type == "CELL_OPT" else ""
 
     inp = f"""{ext_restart_block}&GLOBAL
   PROJECT cp2k_run
@@ -225,6 +248,7 @@ def generate_cp2k_input(record: dict, run_dir: str, topology: str,
 
 {motion_block}&FORCE_EVAL
   METHOD Quickstep
+{stress_line}
   &DFT
     BASIS_SET_FILE_NAME {config.CP2K_DATA_DIR}/{config.BASIS_SET_FILE}
     POTENTIAL_FILE_NAME {config.CP2K_DATA_DIR}/GTH_POTENTIALS
@@ -288,6 +312,164 @@ def parse_energy(output_text: str, n_atoms: int) -> float | None:
     e_hartree = float(matches[-1])
     return e_hartree * HARTREE_TO_EV / n_atoms
 
+def parse_energy_hartrees(output_text: str) -> list[float]:
+    """Return all CP2K total FORCE_EVAL energies in Hartree."""
+    return [
+        float(x)
+        for x in re.findall(
+            r"ENERGY\| Total FORCE_EVAL[^\n]*\s+(-?\d+\.\d+)",
+            output_text,
+        )
+    ]
+
+def parse_relaxation_completion(output_text: str, run_type: str | None = None) -> dict:
+    """Classify CP2K relaxation output without treating restart harvest as convergence."""
+    upper = output_text.upper()
+    completed_markers = [
+        "OPTIMIZATION COMPLETED",
+        "GEOMETRY OPTIMIZATION COMPLETED",
+        "CELL OPTIMIZATION COMPLETED",
+    ]
+    program_ended = "PROGRAM ENDED" in upper
+    optimization_completed = any(marker in upper for marker in completed_markers)
+    steps = [
+        int(x)
+        for x in re.findall(r"OPTIMIZATION STEP:\s*(\d+)", output_text, flags=re.IGNORECASE)
+    ]
+    criteria = re.findall(
+        r"OPT\|\s*([^|\n]*?)\s+is converged\s+(YES|NO)",
+        output_text,
+        flags=re.IGNORECASE,
+    )
+    last_flags = {}
+    for label, flag in criteria:
+        label = re.sub(r"\s+", " ", label.strip()).lower().replace(" ", "_")
+        last_flags[label] = flag.upper()
+    all_flags_yes = None
+    if last_flags:
+        all_flags_yes = all(flag == "YES" for flag in last_flags.values())
+
+    status = "relaxation_converged"
+    if run_type in {"GEO_OPT", "CELL_OPT"}:
+        status = f"{run_type.lower()}_converged"
+    if not (program_ended and optimization_completed):
+        status = "harvested_partial_restart"
+
+    return {
+        "status": status,
+        "cp2k_program_ended": program_ended,
+        "relaxation_completed_marker": optimization_completed,
+        "optimization_steps": steps[-1] if steps else None,
+        "relaxation_convergence_flags_all_yes": all_flags_yes,
+        "relaxation_convergence_flags": ";".join(
+            f"{label}={flag}" for label, flag in sorted(last_flags.items())
+        ),
+    }
+
+def _numbers_from_cp2k_line(parts: list[str]) -> list[float]:
+    nums = []
+    for token in parts:
+        clean = token.replace("D", "E")
+        try:
+            nums.append(float(clean))
+        except ValueError:
+            continue
+    return nums
+
+def _restart_sort_key(path: str) -> tuple[int, int, float]:
+    name = os.path.basename(path)
+    match = re.search(r"_(\d+)\.restart(?:\.bak-\d+)?$", name)
+    step = int(match.group(1)) if match else -1
+    backup_penalty = 0 if ".bak-" not in name else -1
+    try:
+        mtime = os.path.getmtime(path)
+    except OSError:
+        mtime = 0.0
+    return (step, backup_penalty, mtime)
+
+def _latest_restart_file(run_dir: str, include_backups: bool = True) -> str | None:
+    candidates = []
+    patterns = ["*.restart"]
+    if include_backups:
+        patterns.append("*.restart.bak-*")
+    for pattern in patterns:
+        candidates.extend(glob.glob(os.path.join(run_dir, pattern)))
+    if not candidates:
+        return None
+    return max(candidates, key=_restart_sort_key)
+
+def _parse_structure_from_restart(restart_path: str) -> Structure:
+    """Parse final cell and coordinates from a CP2K restart-style input file."""
+    lines = open(restart_path, errors="replace").read().splitlines()
+    cell = {}
+    species = []
+    coords = []
+    scaled = False
+    in_cell = False
+    in_coord = False
+
+    for raw in lines:
+        line = raw.strip()
+        upper = line.upper()
+        if not line or upper.startswith(("!", "#", "@")):
+            continue
+        if upper.startswith("&CELL"):
+            in_cell = True
+            continue
+        if in_cell and upper.startswith("&END"):
+            in_cell = False
+            continue
+        if upper.startswith("&COORD"):
+            in_coord = True
+            continue
+        if in_coord and upper.startswith("&END"):
+            in_coord = False
+            continue
+
+        if in_cell:
+            parts = line.split()
+            key = parts[0].upper()
+            if key in {"A", "B", "C"}:
+                nums = _numbers_from_cp2k_line(parts[1:])
+                if len(nums) >= 3:
+                    cell[key] = nums[:3]
+            continue
+
+        if in_coord:
+            parts = line.split()
+            key = parts[0].upper()
+            if key == "SCALED":
+                if len(parts) > 1:
+                    scaled = parts[1].strip().upper().startswith(".T")
+                continue
+            if key == "UNIT":
+                continue
+            nums = _numbers_from_cp2k_line(parts[1:])
+            if len(nums) >= 3:
+                species.append(parts[0])
+                coords.append(nums[:3])
+
+    missing = [k for k in ("A", "B", "C") if k not in cell]
+    if missing:
+        raise ValueError(f"restart file lacks cell vectors: {missing}")
+    if not species:
+        raise ValueError("restart file lacks coordinates")
+
+    lattice = Lattice([cell["A"], cell["B"], cell["C"]])
+    return Structure(lattice, species, coords, coords_are_cartesian=not scaled)
+
+def write_relaxed_cif_from_restart(run_dir: str, relaxed_cif: str) -> tuple[bool, str]:
+    """Write a real relaxed CIF from the latest CP2K restart file."""
+    restart = _latest_restart_file(run_dir)
+    if restart is None:
+        return False, "no_restart_file"
+    try:
+        struct = _parse_structure_from_restart(restart)
+        struct.to(filename=relaxed_cif)
+    except Exception as exc:
+        return False, f"restart_parse_failed: {exc}"
+    return True, os.path.basename(restart)
+
 def run_one(record: dict, results_dir: str, topology: str,
             relax_mode_override: str | None = None,
             walltime_seconds: int = 3600,
@@ -307,10 +489,26 @@ def run_one(record: dict, results_dir: str, topology: str,
 
     relaxed_cif = os.path.join(relaxed_dir, f"{rec_id}.cif")
     if os.path.exists(relaxed_cif):
-        print(f"  [runner] {rec_id}: already done, skipping")
-        return {**record, "status": "done_cached"}
+        run_type = _resolve_relax_mode(
+            topology, record.get("n_atoms") or 1, relax_mode_override
+        )
+        out_path = os.path.join(run_dir, "cp2k_run.out")
+        if run_type not in ("GEO_OPT", "CELL_OPT"):
+            print(f"  [runner] {rec_id}: already done, skipping")
+            return {**record, "status": "done_cached"}
+        if os.path.exists(out_path):
+            out_text = open(out_path, errors="replace").read()
+            completion = parse_relaxation_completion(out_text, run_type)
+            if completion["status"].endswith("_converged"):
+                print(f"  [runner] {rec_id}: converged relaxation cached, skipping")
+                return {**record, **completion, "status": "done_cached"}
+        print(f"  [runner] {rec_id}: partial relaxed CIF exists; attempting restart")
 
-    if record.get("status") not in ("clean", "preclean_done", "selected", "assembled"):
+    if record.get("status") not in (
+        "clean", "preclean_done", "selected", "assembled",
+        "cp2k_bin_missing", "no_output_file", "failed_oom", "timeout",
+        "harvested_partial_restart", "relax_extract_failed", "parse_failed",
+    ):
         print(f"  [runner] {rec_id}: skipping (status={record.get('status')})")
         return record
 
@@ -329,7 +527,7 @@ def run_one(record: dict, results_dir: str, topology: str,
     env["OMP_NUM_THREADS"] = str(config.CP2K_OMP)
 
     # Single-node static binary (.ssmp): OpenMP only, no MPI launcher.
-    cmd_list = ["/home/huangbo/cp2k/cp2k-2025.2-Linux-gnu-x86_64.ssmp", "-i", abs_inp, "-o", abs_out]
+    cmd_list = [config.CP2K_BIN, "-i", abs_inp, "-o", abs_out]
     print(f"  [runner] {rec_id}: running — {' '.join(cmd_list)}")
     print(f"  [runner] {rec_id}: output  — {abs_out}")
 
@@ -354,16 +552,35 @@ def run_one(record: dict, results_dir: str, topology: str,
 
     run_type = _resolve_relax_mode(topology, n_atoms, relax_mode_override)
     src = record.get("clean_cif") or record.get("init_cif")
-    if src:
+    relaxed_extract_status = None
+    if run_type in ("GEO_OPT", "CELL_OPT"):
+        ok, detail = write_relaxed_cif_from_restart(run_dir, relaxed_cif)
+        relaxed_extract_status = detail
+        if not ok:
+            e_hartrees = parse_energy_hartrees(out_text)
+            e_hartree = e_hartrees[-1] if e_hartrees else None
+            return {**record,
+                    "dft_e_per_atom": e_per_atom,
+                    "dft_e_hartree": e_hartree,
+                    "relax_run_type": run_type,
+                    "relaxed_extract_status": relaxed_extract_status,
+                    "status": "relax_extract_failed"}
+    elif src:
         shutil.copy(src, relaxed_cif)
 
-    e_hartree_matches = re.findall(
-        r"ENERGY\| Total FORCE_EVAL[^\n]*\s+(-?\d+\.\d+)", out_text
-    )
-    e_hartree = float(e_hartree_matches[-1]) if e_hartree_matches else None
+    e_hartrees = parse_energy_hartrees(out_text)
+    e_hartree = e_hartrees[-1] if e_hartrees else None
+    completion = {}
+    status = "converged"
+    if run_type in ("GEO_OPT", "CELL_OPT"):
+        completion = parse_relaxation_completion(out_text, run_type)
+        status = completion["status"]
 
     return {**record,
             "dft_e_per_atom": e_per_atom,
             "dft_e_hartree": e_hartree,
+            "relax_run_type": run_type,
+            "relaxed_extract_status": relaxed_extract_status,
             "relaxed_cif": relaxed_cif,
-            "status": "converged"}
+            **completion,
+            "status": status}

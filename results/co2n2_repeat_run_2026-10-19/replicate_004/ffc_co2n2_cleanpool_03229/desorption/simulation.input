@@ -1,0 +1,30 @@
+SimulationType                MonteCarlo
+NumberOfCycles                10000
+NumberOfInitializationCycles  5000
+PrintEvery                    1000
+Forcefield                    ExampleMOFsForceField
+UseChargesFromCIFFile         yes
+
+Framework                     0
+FrameworkName                 ffc_co2n2_cleanpool_03229
+UnitCells                     1 1 1
+ExternalTemperature           298
+ExternalPressure              10000
+
+Component 0 MoleculeName             CO2
+            MoleculeDefinition       ExampleDefinitions
+            MolFraction              0.15
+            TranslationProbability   1.0
+            RotationProbability      1.0
+            ReinsertionProbability   1.0
+            SwapProbability          1.0
+            CreateNumberOfMolecules  0
+
+Component 1 MoleculeName             N2
+            MoleculeDefinition       ExampleDefinitions
+            MolFraction              0.85
+            TranslationProbability   1.0
+            RotationProbability      1.0
+            ReinsertionProbability   1.0
+            SwapProbability          1.0
+            CreateNumberOfMolecules  0

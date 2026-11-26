@@ -97,7 +97,8 @@ class StructureValidator:
     # ================================================================
 
     def validate(self, structure, topology_graph=None, placed_all=None,
-                 bonds_all=None, lattice_matrix=None):
+                 bonds_all=None, lattice_matrix=None, clash_placed_all=None,
+                 clash_bonds_all=None, clash_bond_graph_depth=2):
         """执行三层校验。
 
         Args:
@@ -106,6 +107,9 @@ class StructureValidator:
             placed_all:     放置后的所有原子信息 (含 bbcode/bbtype)，用于拓扑校验
             bonds_all:      所有化学键列表，用于拓扑校验
             lattice_matrix: 晶格矩阵 (3x3)，用于拓扑校验
+            clash_placed_all: 可选的碰撞排除原子表；默认使用 placed_all
+            clash_bonds_all:  可选的碰撞排除键表；默认使用 bonds_all
+            clash_bond_graph_depth: 排除几何 clash 的键图距离；2 表示排除直接键和 1-3 邻接
 
         Returns:
             dict: 包含 'passed' (bool) 和各检查详细结果
@@ -115,32 +119,11 @@ class StructureValidator:
         # ── 碰撞检测的键合排除集 ──
         # 从 bonds_all 和 placed_all 中提取键合原子对的索引，
         # 通过坐标匹配关联到 structure 中的位点。
-        bond_exclusions = None
-        if bonds_all is not None and placed_all is not None and len(placed_all) > 0:
-            # 构建 placed_all 坐标 → 结构索引的映射
-            struct_coords = [site.coords for site in structure]
-            placed_to_struct = {}
-            for i, entry in enumerate(placed_all):
-                pc = list(map(float, entry[1:4]))
-                for j, sc in enumerate(struct_coords):
-                    if np.linalg.norm(np.array(pc) - np.array(sc)) < 0.01:
-                        placed_to_struct[i] = j
-                        break
-            # 构建键合排除集
-            bond_exclusions = set()
-            for bond in bonds_all:
-                a1, a2 = str(bond[0]), str(bond[1])
-                i1 = i2 = None
-                for i, entry in enumerate(placed_all):
-                    if str(entry[0]) == a1:
-                        i1 = i
-                    if str(entry[0]) == a2:
-                        i2 = i
-                if i1 is not None and i2 is not None:
-                    si1 = placed_to_struct.get(i1)
-                    si2 = placed_to_struct.get(i2)
-                    if si1 is not None and si2 is not None and si1 != si2:
-                        bond_exclusions.add((si1, si2))
+        clash_placed = clash_placed_all if clash_placed_all is not None else placed_all
+        clash_bonds = clash_bonds_all if clash_bonds_all is not None else bonds_all
+        bond_exclusions = self._build_clash_exclusions(
+            structure, clash_placed, clash_bonds, max_graph_depth=clash_bond_graph_depth
+        )
 
         results['clash'] = self._check_clashes(structure, bond_exclusions)
 
@@ -184,6 +167,63 @@ class StructureValidator:
             results['passed'] = len(fails) == 0
 
         return results
+
+    def _build_clash_exclusions(self, structure, placed_all, bonds_all, max_graph_depth=2):
+        """Map placed bond graph neighborhoods to final Structure indices."""
+        if bonds_all is None or placed_all is None or len(placed_all) == 0:
+            return None
+
+        lattice = structure.lattice.matrix
+        inv_lattice = np.linalg.inv(lattice)
+        placed_to_struct = {}
+        atom_to_placed = {}
+        for i, entry in enumerate(placed_all):
+            atom_to_placed[str(entry[0])] = i
+            placed_specie = ''.join(ch for ch in str(entry[0]) if not ch.isdigit())
+            if placed_specie == "X":
+                continue
+            pc = np.array(list(map(float, entry[1:4])), dtype=float)
+            pc_frac = np.dot(pc, inv_lattice)
+            for j, site in enumerate(structure):
+                if str(site.specie) != placed_specie:
+                    continue
+                dfrac = np.array(site.frac_coords, dtype=float) - pc_frac
+                dfrac -= np.round(dfrac)
+                pbc_dist = np.linalg.norm(np.dot(dfrac, lattice))
+                direct_dist = np.linalg.norm(pc - np.array(site.coords))
+                if min(pbc_dist, direct_dist) < 0.08:
+                    placed_to_struct[i] = j
+                    break
+
+        atom_graph = nx.Graph()
+        for atom_id in atom_to_placed:
+            atom_graph.add_node(atom_id)
+        for bond in bonds_all:
+            a1, a2 = str(bond[0]), str(bond[1])
+            if a1 in atom_to_placed and a2 in atom_to_placed and a1 != a2:
+                atom_graph.add_edge(a1, a2)
+
+        bond_exclusions = set()
+        if max_graph_depth is None or max_graph_depth < 1:
+            max_graph_depth = 1
+        for atom_id in atom_graph:
+            pi = atom_to_placed.get(atom_id)
+            si = placed_to_struct.get(pi)
+            if si is None:
+                continue
+            lengths = nx.single_source_shortest_path_length(
+                atom_graph, atom_id, cutoff=max_graph_depth
+            )
+            for other_id, depth in lengths.items():
+                if depth == 0:
+                    continue
+                pj = atom_to_placed.get(other_id)
+                sj = placed_to_struct.get(pj)
+                if sj is None or si == sj:
+                    continue
+                bond_exclusions.add(tuple(sorted((si, sj))))
+
+        return bond_exclusions
 
     # ================================================================
     #  碰撞检测

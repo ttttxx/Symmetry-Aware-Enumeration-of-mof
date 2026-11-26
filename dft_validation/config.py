@@ -68,6 +68,10 @@ DFT_PARALLEL = True
 DFT_MAX_WORKERS = {"ffc": 4, "fjh": 2}
 DFT_JOB_MEM_GB = {"ffc": 24, "fjh": 55}
 CP2K_DATA_DIR = "/home/huangbo/cp2k/cp2k-2025.2/data"
+CP2K_BIN = os.environ.get(
+    "CP2K_BIN",
+    "/home/huangbo/cp2k/cp2k-2025.2-Linux-gnu-x86_64.ssmp",
+)
 # SMOKE_CUTOFF_RY is used ONLY for the local single-point smoke test (phase 3).
 # Production DFT (phase 4) always uses PW_CUTOFF_RY = 500 Ry.
 SMOKE_CUTOFF_RY = 300
@@ -112,3 +116,21 @@ PRECLEAN_STEPS    = 200
 SYMPREC_POSTRELAX = 0.3
 
 RESULTS_DIR = "results/dft_validation"
+
+# Reviewer-response relaxation validation. This is deliberately separate from
+# the single-point DFT screen above so that relaxation tests cannot overwrite
+# the existing energy-ranking records by accident.
+RELAXATION_RESULTS_DIR = "results/dft_relaxation_validation"
+RELAXATION_RUN_TYPE = "CELL_OPT"
+RELAXATION_WALLTIME_SECONDS = {
+    "local_safe": 1800,
+    "server": 43200,
+}
+RELAXATION_MAX_MEM_GB = {
+    "local_safe": 8,
+    "server": 110,
+}
+RELAXATION_CP2K_OMP = {
+    "local_safe": 2,
+    "server": CP2K_OMP,
+}

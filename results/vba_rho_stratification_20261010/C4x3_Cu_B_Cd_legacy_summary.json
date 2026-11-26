@@ -1,0 +1,50 @@
+{
+  "topology": "vba",
+  "pool": "C4x3_Cu_B_Cd",
+  "ligands_by_degree": {
+    "4": [
+      "4c_Cu_1_Ch",
+      "4c_B_Ch",
+      "4c_Cd_1_Ch"
+    ]
+  },
+  "strategy": "legacy",
+  "output_cap": 100000,
+  "per_level_quota": null,
+  "task_time_limit_s": 60,
+  "group_order": 16,
+  "returned": 100000,
+  "elapsed_s": 16.385663291905075,
+  "rho_setup_s": null,
+  "burnside_coverage_percent": 3.102702298976244e-08,
+  "rho_layers": {
+    "16": {
+      "count": 9,
+      "distinct_composition_vectors": 6,
+      "layer_report": null
+    },
+    "8": {
+      "count": 540,
+      "distinct_composition_vectors": 12,
+      "layer_report": null
+    },
+    "4": {
+      "count": 55440,
+      "distinct_composition_vectors": 42,
+      "layer_report": null
+    },
+    "2": {
+      "count": 44011,
+      "distinct_composition_vectors": 73,
+      "layer_report": null
+    },
+    "1": {
+      "count": 0,
+      "distinct_composition_vectors": 0,
+      "layer_report": null
+    }
+  },
+  "layer_report": null,
+  "log": "C4x3_Cu_B_Cd_legacy.log",
+  "representatives": "C4x3_Cu_B_Cd_legacy_representatives.jsonl.gz"
+}

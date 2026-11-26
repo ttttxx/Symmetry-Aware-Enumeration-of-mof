@@ -1,0 +1,10 @@
+topology,c4_pool,cap,building_unit_order,group_element_order,returned,rho_1,rho_0.5,rho_0.25,rho_0.125,burnside_coverage_percent,overlap_vs_base_percent,jaccard_vs_base
+vba,2,20000,forward,forward,20000,4,90,1890,18016,0.0035,,
+vba,2,50000,forward,forward,50000,4,90,1890,48016,0.0091,,
+vba,2,100000,forward,forward,100000,4,90,1890,98016,0.0184,100.0,1.0000
+vba,2,100000,reversed,forward,100000,4,90,1890,98016,,97.9,0.9586
+vba,2,100000,forward,reversed,100000,4,90,1890,98016,,100.0,1.0000
+vba,3,20000,forward,forward,20000,9,540,19451,0,,,
+vba,3,50000,forward,forward,50000,9,540,49451,0,,,
+vba,3,100000,forward,forward,100000,9,540,55440,44011,,100.0,1.0000
+vba,3,100000,reversed,forward,100000,9,540,55440,44011,,56.0,0.3888

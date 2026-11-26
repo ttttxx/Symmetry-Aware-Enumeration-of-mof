@@ -1,0 +1,56 @@
+{
+  "approved_applied": [
+    1,
+    2,
+    4,
+    5,
+    8,
+    16,
+    17,
+    18,
+    21
+  ],
+  "proposals_only": [
+    3,
+    10,
+    11,
+    12,
+    13,
+    19,
+    20,
+    23,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "unchanged_or_discussion": [
+    6,
+    7,
+    9,
+    14,
+    15,
+    22,
+    24
+  ],
+  "checks": {
+    "abstract_unchanged": true,
+    "methods_unchanged": true,
+    "construction_audit_unchanged": true,
+    "conclusion_unchanged": true,
+    "intro_table_unchanged": true,
+    "intro_scope_unchanged": true,
+    "dft_protocol_unchanged": true
+  },
+  "source_manifest_matches": true,
+  "tests_passed": 189,
+  "exhaustive_runs": 108,
+  "bounded_runs": 12,
+  "compile_pages": 34,
+  "new_overfull": 0,
+  "existing_overfull": 5,
+  "remote_upload_performed": false
+}

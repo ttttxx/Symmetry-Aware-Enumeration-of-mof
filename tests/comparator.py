@@ -4,6 +4,8 @@ CIF 结构对比模块。
 对比参考 CIF 与生成 CIF 的结构差异，返回结构化报告。
 """
 
+import traceback
+
 from pymatgen.core import Structure
 from pymatgen.analysis.bond_valence import BVAnalyzer
 import numpy as np
@@ -58,13 +60,13 @@ def compare_structures(ref_path, gen_path):
     try:
         ref = Structure.from_file(ref_path)
     except Exception as e:
-        report.add("加载参考CIF", StructureReport.STATUS_BAD, str(e))
+        report.add("加载参考CIF", StructureReport.STATUS_BAD, traceback.format_exc())
         return report
 
     try:
         gen = Structure.from_file(gen_path)
     except Exception as e:
-        report.add("加载生成CIF", StructureReport.STATUS_BAD, str(e))
+        report.add("加载生成CIF", StructureReport.STATUS_BAD, traceback.format_exc())
         return report
 
     # ── 总原子数 ──

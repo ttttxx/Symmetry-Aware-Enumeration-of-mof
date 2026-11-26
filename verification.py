@@ -21,7 +21,7 @@ class BridgeVerifier:
         elif topology_requirements and user_selected_ligands:
             total_schemes = 1
             for deg, count in topology_requirements.items():
-                n_choices = len(user_selected_ligands.get(deg, atom_types))
+                n_choices = len(user_selected_ligands.get(deg, []))
                 total_schemes *= (n_choices ** count)
         else:
             num_colors = len(atom_types)

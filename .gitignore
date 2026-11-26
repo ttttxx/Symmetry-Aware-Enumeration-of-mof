@@ -1,0 +1,44 @@
+# Local credentials and machine settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.idea/
+.codegraph/
+.DS_Store
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Native binaries: rebuild on each machine
+*.so
+*.dylib
+*.dll
+*.o
+
+# Build logs and disposable render output
+out/
+*.log
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+paper/*.out
+paper/.*.bkp
+codex/*_pages-*.png
+codex/defense_pages-*.png
+codex/*_build/
+codex/*_render/
+codex/*_render_v2/
+
+# Local dependency installers
+offline_packages/
+offline_packages.tar.gz

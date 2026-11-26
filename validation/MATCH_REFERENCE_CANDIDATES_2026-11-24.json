@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-24",
+  "target": "The spatial distribution of node types is a relevant design variable in multivariate MOFs.",
+  "action": "Author approved first candidate and proposed sentence; applied to main_MATCH.tex with Chinese annotation and reference.bib",
+  "candidates": [
+    {
+      "title": "Anisotropic reticular chemistry",
+      "authors": "Wentao Xu et al.",
+      "journal": "Nature Reviews Materials",
+      "doi": "10.1038/s41578-020-0225-x",
+      "verified_full_text": "https://yaghi.berkeley.edu/pdfPublications/20Anisotropy.pdf",
+      "support": "Background/partial: explicitly distinguishes whole SBUs, metals within SBUs and linker components; discusses backbone patterns involving multiple SBU types. Does not establish same-composition permutations on equivalent fixed-net sites.",
+      "recommendation": "Best background candidate; use a sentence about spatial arrangements of distinct building units, rather than claiming identical experimental scope to this algorithm."
+    },
+    {
+      "title": "Retrosynthesis of multi-component metal-organic frameworks",
+      "authors": "Shuai Yuan et al.",
+      "year": 2018,
+      "journal": "Nature Communications",
+      "volume": "9",
+      "article": "808",
+      "doi": "10.1038/s41467-018-03102-5",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/29476174/",
+      "support": "Partial/background: different cluster SBUs and controlled multicomponent assembly; full PMC fetch was challenged, specific structural context cross-checked against Kalmutzki et al. Science Advances review https://pmc.ncbi.nlm.nih.gov/articles/PMC6173525/ . Not proof of same-composition alternative node orderings."
+    },
+    {
+      "title": "Spatial distribution modulation of mixed building blocks in metal-organic frameworks",
+      "journal": "Nature Communications",
+      "doi": "10.1038/s41467-022-28679-w",
+      "source": "https://www.nature.com/articles/s41467-022-28679-w",
+      "support": "Background: mixed organic linkers and framework metal ions; less direct for whole-node-template assignments. Publisher direct fetch failed; indexed abstract/introduction checked. Not selected as direct support."
+    }
+  ],
+  "proposed_sentence_not_applied": "The spatial arrangement of distinct building units is an important aspect of multicomponent MOF design.",
+  "accepted_citation_key": "xu2020anisotropic"
+}

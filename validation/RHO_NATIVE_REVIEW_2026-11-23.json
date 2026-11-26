@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-23",
+  "native_abi": 4,
+  "approved_paper_items": [
+    2,
+    3,
+    5,
+    9,
+    11,
+    13
+  ],
+  "paper_scope_note": "Item 2 cutoff sentence omitted. Only leaf/cursor synchronization in Algorithm 1; other proposed algorithm restructuring deferred.",
+  "deferred_items": [
+    1,
+    4,
+    7,
+    8,
+    10,
+    12,
+    14,
+    15
+  ],
+  "quota_implementation": "Shared original exact-order schedule with optimized Python/C++ DFS. Reject non-target stabilizers before complete-key insertion; pass remaining quota as task added-result limit. Reset task/prefix coverage at layer changes, preserve global results.",
+  "deadline_fix": "Legacy scheduler now passes deadline as keyword; old positional call occupied identity_budget.",
+  "verification": {
+    "tests_passed": 211,
+    "existing_spglib_warnings": 19,
+    "strict_cpp_warnings": "passed",
+    "fresh_vba_runs": 18,
+    "all_ordered_outputs_match": true,
+    "paper_stratum_counts_and_composition_vectors_match": true
+  },
+  "benchmarks": "RHO_NATIVE_VBA_2026-11-23.json",
+  "source_snapshot": "snapshots/rho_native_20261123",
+  "paper_protected_sections": "MATCH_APPROVAL_SCOPE_2026-11-23.json",
+  "paper_compile": "MATCH_APPROVED_COMPILE_2026-11-23.json",
+  "paper_pages": 32,
+  "paper_new_overfull_boxes": 0,
+  "paper_existing_overfull_boxes": 6,
+  "algorithm_float_warning_removed": true
+}

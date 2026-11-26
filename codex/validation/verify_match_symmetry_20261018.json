@@ -1,0 +1,35 @@
+{
+  "group_order": 16,
+  "vertices": 32,
+  "subgroups_by_order": {
+    "1": 1,
+    "2": 15,
+    "4": 35,
+    "8": 15,
+    "16": 1
+  },
+  "checks": {
+    "C4x2_Cu_B": {
+      "exact_orbits_by_stabilizer_order": {
+        "16": 4,
+        "8": 90,
+        "4": 1890,
+        "2": 119880,
+        "1": 268375032
+      },
+      "total_orbits": 268496896,
+      "quota_contract_matches_archived_run": true
+    },
+    "C4x3_Cu_B_Cd": {
+      "exact_orbits_by_stabilizer_order": {
+        "16": 9,
+        "8": 540,
+        "4": 55440,
+        "2": 80628480,
+        "1": 115813721475072
+      },
+      "total_orbits": 115813802159541,
+      "quota_contract_matches_archived_run": true
+    }
+  }
+}

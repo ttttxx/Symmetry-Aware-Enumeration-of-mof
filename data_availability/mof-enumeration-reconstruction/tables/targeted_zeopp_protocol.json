@@ -1,0 +1,137 @@
+{
+  "objective": "Complete Zeo++ pore descriptors for all successful GCMC candidates in composition-exact-rho cells with at least three orderings.",
+  "source_batch": "CO2_N2/data/interim/co2n2_ffc_screening/batch_002_clean_pool_5000",
+  "selection": "Include every GCMC-successful candidate in each composition-rho cell with n>=3; reuse successful descriptors already in the source batch and compute missing descriptors.",
+  "zeopp": {
+    "probe_radius_angstrom": 1.86,
+    "samples": 50000,
+    "commands": [
+      "network -ha -res",
+      "network -ha -sa",
+      "network -ha -volpo"
+    ]
+  },
+  "new_descriptor_count": 9,
+  "new_candidate_ids": [
+    "ffc_co2n2_cleanpool_01889",
+    "ffc_co2n2_cleanpool_01890",
+    "ffc_co2n2_cleanpool_01891",
+    "ffc_co2n2_cleanpool_03207",
+    "ffc_co2n2_cleanpool_03208",
+    "ffc_co2n2_cleanpool_03209",
+    "ffc_co2n2_cleanpool_03229",
+    "ffc_co2n2_cleanpool_03230",
+    "ffc_co2n2_cleanpool_03231"
+  ],
+  "matched_groups": {
+    "G1": {
+      "n": 3,
+      "composition": "3c_B_Ch:1,3c_pyrrole_Ch:1,3c_triazine_Ch:2,4c_B_Ch:1,4c_Cd_1_Ch:1,4c_Cu_1_Ch:1",
+      "rho": 0.125,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_00003",
+        "ffc_co2n2_cleanpool_00006",
+        "ffc_co2n2_cleanpool_00009"
+      ]
+    },
+    "G2": {
+      "n": 4,
+      "composition": "3c_B_Ch:1,3c_pyrrole_Ch:1,3c_triazine_Ch:2,4c_B_Ch:1,4c_Cd_1_Ch:1,4c_Cu_1_Ch:1",
+      "rho": 0.25,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_00001",
+        "ffc_co2n2_cleanpool_00004",
+        "ffc_co2n2_cleanpool_00008",
+        "ffc_co2n2_cleanpool_00011"
+      ]
+    },
+    "G3": {
+      "n": 3,
+      "composition": "3c_B_Ch:1,3c_pyrrole_Ch:1,3c_triazine_Ch:2,4c_B_Ch:1,4c_Cd_1_Ch:1,4c_In_1_Ch:1",
+      "rho": 0.125,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_00015",
+        "ffc_co2n2_cleanpool_00018",
+        "ffc_co2n2_cleanpool_00021"
+      ]
+    },
+    "G4": {
+      "n": 3,
+      "composition": "3c_B_Ch:1,3c_pyrrole_Ch:1,3c_triazine_Ch:2,4c_B_Ch:1,4c_Cd_1_Ch:1,4c_In_1_Ch:1",
+      "rho": 0.25,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_00014",
+        "ffc_co2n2_cleanpool_00017",
+        "ffc_co2n2_cleanpool_00023"
+      ]
+    },
+    "G5": {
+      "n": 3,
+      "composition": "3c_B_Ch:1,3c_triazine_Ch:3,4c_B_Ch:1,4c_V_1_Ch:2",
+      "rho": 0.25,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_03207",
+        "ffc_co2n2_cleanpool_03208",
+        "ffc_co2n2_cleanpool_03209"
+      ]
+    },
+    "G6": {
+      "n": 3,
+      "composition": "3c_B_Ch:1,3c_triazine_Ch:3,4c_B_Ch:2,4c_V_1_Ch:1",
+      "rho": 0.25,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_03229",
+        "ffc_co2n2_cleanpool_03230",
+        "ffc_co2n2_cleanpool_03231"
+      ]
+    },
+    "G7": {
+      "n": 4,
+      "composition": "3c_B_Ch:2,3c_pyrrole_Ch:2,4c_B_Ch:1,4c_Cd_1_Ch:1,4c_Cu_1_Ch:1",
+      "rho": 0.5,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_00002",
+        "ffc_co2n2_cleanpool_00005",
+        "ffc_co2n2_cleanpool_00007",
+        "ffc_co2n2_cleanpool_00010"
+      ]
+    },
+    "G8": {
+      "n": 4,
+      "composition": "3c_B_Ch:2,3c_pyrrole_Ch:2,4c_B_Ch:1,4c_Cd_1_Ch:1,4c_In_1_Ch:1",
+      "rho": 0.5,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_00013",
+        "ffc_co2n2_cleanpool_00016",
+        "ffc_co2n2_cleanpool_00019",
+        "ffc_co2n2_cleanpool_00022"
+      ]
+    },
+    "G9": {
+      "n": 3,
+      "composition": "3c_pyrrole_Ch:4,4c_In_1_Ch:1,4c_Ni_1_Ch:1,4c_tetrathiafulvalene_Ch:1",
+      "rho": 0.5,
+      "candidate_ids": [
+        "ffc_co2n2_cleanpool_01889",
+        "ffc_co2n2_cleanpool_01890",
+        "ffc_co2n2_cleanpool_01891"
+      ]
+    }
+  },
+  "total_candidates": 30,
+  "aps_recalculation": "APS = co2_n2_selectivity * co2_working_capacity_mmolg, per manuscript definition; regenerability retained as a separate field.",
+  "zeopp_descriptor_mapping_correction": {
+    "date": "2026-11-10",
+    "numeric_res_columns": [
+      "Di",
+      "Df",
+      "Dif"
+    ],
+    "mapping": {
+      "pld": "Df (second numeric column)",
+      "lcd": "Di (first numeric column)"
+    },
+    "verified_candidate_count": 30,
+    "gcmc_metrics_changed": false
+  }
+}

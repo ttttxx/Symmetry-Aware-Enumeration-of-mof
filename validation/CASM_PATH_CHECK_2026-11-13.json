@@ -1,0 +1,302 @@
+[
+  {
+    "case": [
+      "ffc",
+      2,
+      2
+    ],
+    "fg_size": 16,
+    "proper_size": 8,
+    "exact_permutation_group_match": true,
+    "naive": 128,
+    "public": [
+      {
+        "store_copies": false,
+        "count": 42,
+        "seconds": 0.0012999579776078463
+      },
+      {
+        "store_copies": false,
+        "count": 42,
+        "seconds": 0.00012858293484896421
+      },
+      {
+        "store_copies": false,
+        "count": 42,
+        "seconds": 0.00011137500405311584
+      },
+      {
+        "store_copies": true,
+        "count": 42,
+        "seconds": 0.0003599170595407486
+      },
+      {
+        "store_copies": true,
+        "count": 42,
+        "seconds": 0.00012454099487513304
+      },
+      {
+        "store_copies": true,
+        "count": 42,
+        "seconds": 0.00012141698971390724
+      }
+    ],
+    "proper_subgroup_lower_level": [
+      {
+        "count": 42,
+        "visited": 128,
+        "seconds": 0.00026937504298985004
+      },
+      {
+        "count": 42,
+        "visited": 128,
+        "seconds": 0.00012541702017188072
+      },
+      {
+        "count": 42,
+        "visited": 128,
+        "seconds": 0.00012070802040398121
+      }
+    ]
+  },
+  {
+    "case": [
+      "ffc",
+      3,
+      3
+    ],
+    "fg_size": 16,
+    "proper_size": 8,
+    "exact_permutation_group_match": true,
+    "naive": 2187,
+    "public": [
+      {
+        "store_copies": false,
+        "count": 513,
+        "seconds": 0.0016962919617071748
+      },
+      {
+        "store_copies": false,
+        "count": 513,
+        "seconds": 0.0016399159794673324
+      },
+      {
+        "store_copies": false,
+        "count": 513,
+        "seconds": 0.0017428750870749354
+      },
+      {
+        "store_copies": true,
+        "count": 513,
+        "seconds": 0.001853875000961125
+      },
+      {
+        "store_copies": true,
+        "count": 513,
+        "seconds": 0.0017959579126909375
+      },
+      {
+        "store_copies": true,
+        "count": 513,
+        "seconds": 0.001835457980632782
+      }
+    ],
+    "proper_subgroup_lower_level": [
+      {
+        "count": 513,
+        "visited": 2187,
+        "seconds": 0.002057041972875595
+      },
+      {
+        "count": 513,
+        "visited": 2187,
+        "seconds": 0.002346249995753169
+      },
+      {
+        "count": 513,
+        "visited": 2187,
+        "seconds": 0.0020433329045772552
+      }
+    ]
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      2
+    ],
+    "fg_size": 32,
+    "proper_size": 16,
+    "exact_permutation_group_match": true,
+    "naive": 4096,
+    "public": [
+      {
+        "store_copies": false,
+        "count": 265,
+        "seconds": 0.0034279170213267207
+      },
+      {
+        "store_copies": false,
+        "count": 265,
+        "seconds": 0.003337582922540605
+      },
+      {
+        "store_copies": false,
+        "count": 265,
+        "seconds": 0.0033338749781250954
+      },
+      {
+        "store_copies": true,
+        "count": 265,
+        "seconds": 0.00346024997998029
+      },
+      {
+        "store_copies": true,
+        "count": 265,
+        "seconds": 0.0034463340416550636
+      },
+      {
+        "store_copies": true,
+        "count": 265,
+        "seconds": 0.0033956250408664346
+      }
+    ],
+    "proper_subgroup_lower_level": [
+      {
+        "count": 394,
+        "visited": 4096,
+        "seconds": 0.004944334039464593
+      },
+      {
+        "count": 394,
+        "visited": 4096,
+        "seconds": 0.005131582962349057
+      },
+      {
+        "count": 394,
+        "visited": 4096,
+        "seconds": 0.005236624972894788
+      }
+    ]
+  },
+  {
+    "case": [
+      "fjh",
+      2,
+      1
+    ],
+    "fg_size": 32,
+    "proper_size": 16,
+    "exact_permutation_group_match": true,
+    "naive": 65536,
+    "public": [
+      {
+        "store_copies": false,
+        "count": 2476,
+        "seconds": 0.061703457962721586
+      },
+      {
+        "store_copies": false,
+        "count": 2476,
+        "seconds": 0.0582648339914158
+      },
+      {
+        "store_copies": false,
+        "count": 2476,
+        "seconds": 0.05990720901172608
+      },
+      {
+        "store_copies": true,
+        "count": 2476,
+        "seconds": 0.06047525000758469
+      },
+      {
+        "store_copies": true,
+        "count": 2476,
+        "seconds": 0.059634167002514005
+      },
+      {
+        "store_copies": true,
+        "count": 2476,
+        "seconds": 0.05937237502075732
+      }
+    ],
+    "proper_subgroup_lower_level": [
+      {
+        "count": 4756,
+        "visited": 65536,
+        "seconds": 0.08553949999623
+      },
+      {
+        "count": 4756,
+        "visited": 65536,
+        "seconds": 0.0824042089516297
+      },
+      {
+        "count": 4756,
+        "visited": 65536,
+        "seconds": 0.08896895893849432
+      }
+    ]
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      3
+    ],
+    "fg_size": 32,
+    "proper_size": 16,
+    "exact_permutation_group_match": true,
+    "naive": 531441,
+    "public": [
+      {
+        "store_copies": false,
+        "count": 20655,
+        "seconds": 0.4081904999911785
+      },
+      {
+        "store_copies": false,
+        "count": 20655,
+        "seconds": 0.41046908393036574
+      },
+      {
+        "store_copies": false,
+        "count": 20655,
+        "seconds": 0.4101678329752758
+      },
+      {
+        "store_copies": true,
+        "count": 20655,
+        "seconds": 0.4097184999845922
+      },
+      {
+        "store_copies": true,
+        "count": 20655,
+        "seconds": 0.4061747919768095
+      },
+      {
+        "store_copies": true,
+        "count": 20655,
+        "seconds": 0.4080009169410914
+      }
+    ],
+    "proper_subgroup_lower_level": [
+      {
+        "count": 36369,
+        "visited": 531441,
+        "seconds": 0.6194519590353593
+      },
+      {
+        "count": 36369,
+        "visited": 531441,
+        "seconds": 0.616442333906889
+      },
+      {
+        "count": 36369,
+        "visited": 531441,
+        "seconds": 0.6194977080449462
+      }
+    ]
+  }
+]

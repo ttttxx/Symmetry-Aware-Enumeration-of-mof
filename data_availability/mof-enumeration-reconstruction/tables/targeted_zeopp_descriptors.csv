@@ -1,0 +1,10 @@
+candidate_id,pld,lcd,void_fraction,accessible_surface_area_m2g,pore_volume_cm3g,density_gcm3,zeopp_status,zeopp_error
+ffc_co2n2_cleanpool_01889,26.73585,27.57361,0.88496,6184.81,4.51741,0.1959,succeeded,
+ffc_co2n2_cleanpool_01890,26.49892,27.44792,0.88564,6034.49,4.52088,0.1959,succeeded,
+ffc_co2n2_cleanpool_01891,26.51059,27.63147,0.88556,6124.51,4.52048,0.1959,succeeded,
+ffc_co2n2_cleanpool_03207,27.03441,28.04106,0.88912,6271.98,4.78783,0.185704,succeeded,
+ffc_co2n2_cleanpool_03208,27.01270,28.19784,0.88738,6232.81,4.77846,0.185704,succeeded,
+ffc_co2n2_cleanpool_03209,27.05998,27.92691,0.88778,6409.64,4.78062,0.185704,succeeded,
+ffc_co2n2_cleanpool_03229,27.01270,28.19784,0.89152,6914.55,5.39437,0.165269,succeeded,
+ffc_co2n2_cleanpool_03230,27.05998,27.92691,0.89212,7123.39,5.398,0.165269,succeeded,
+ffc_co2n2_cleanpool_03231,27.06073,28.00608,0.89032,7070.59,5.38711,0.165269,succeeded,

@@ -1,0 +1,53 @@
+--- bounded vba section before
++++ bounded vba section after
+@@ -1,21 +1,34 @@
+ \begin{table}[H]
+ \centering
+-\tiny
+-\setlength{\tabcolsep}{0.7mm}
++\scriptsize
++\setlength{\tabcolsep}{2.5mm}
+ \renewcommand{\arraystretch}{1.2}
+-\caption{\textbf{Bounded \texttt{vba} enumeration and traversal-order controls.} Both pools were run to the 100{,}000 output cap. High-$\rho$ prefixes list the returned counts for $\rho=1$, $0.5$, and $0.25$, respectively. Reversed-unit and Jaccard overlaps quantify the sensitivity of the returned set to building-unit order.}
+-% 中文翻译：受限 \texttt{vba} 枚举与遍历顺序控制。两个构建单元池均运行至 100{,}000 个输出的上限。High-$\rho$ prefixes 按顺序列出 $\rho=1$、$0.5$ 和 $0.25$ 时的返回数量。反转单元重合率与 Jaccard 重合率用于量化返回集合对构建单元顺序的敏感性。
++\caption{\textbf{Exact-$\rho$ allocation under a bounded \texttt{vba} output.} Legacy prefixes and per-layer quotas are compared at the same total output count for each pool. Parentheses give distinct ligand-count vectors within each stratum. Layer time covers the fixed-point tasks in that stratum.}
++% 中文翻译：受限 \texttt{vba} 输出的精确-$\rho$ 分配。对每个构建单元池，将旧遍历前缀与分层限额策略在相同总输出数下比较。括号内为该层不同的构建单元计数组合；层耗时统计该层固定点任务。
+ \label{tab:vba_bounded}
+-\resizebox{\textwidth}{!}{%
+-\begin{tabular}{lccccccc}
++\begin{tabular}{llccc}
+ \toprule
+-\textbf{Pool} & \textbf{Naive} & \textbf{Returned ($\Gamma$)} & \textbf{Our status} & \textbf{CASM status} & \textbf{\shortstack{High-$\rho$\\prefixes}} & \textbf{\shortstack{Reversed-unit\\overlap}} & \textbf{\shortstack{Jaccard\\overlap}} \\
++\textbf{Pool} & $\boldsymbol{\rho}$ & \textbf{DFS prefix} & \textbf{Per-$\rho$ quota} & \textbf{Layer time (s)} \\
+ \midrule
+-$|\mathcal{C}_4|{=}2$ & $4.29\times10^{9}$ & 100{,}000 & budgeted & intractable & $4,\ 90,\ 1{,}890$ & 97.9\% & 0.9586 \\
+-$|\mathcal{C}_4|{=}3$ & $1.85\times10^{15}$ & 100{,}000 & budgeted & intractable & $9,\ 540,\ 55{,}440$ & 56.0\% & 0.3888 \\
++\multicolumn{5}{l}{$|\mathcal{C}_4|=2$; matched total = 41{,}984} \\
++$|\mathcal{C}_4|{=}2$ & $1$ & $4\;(3)$ & $4\;(3)$ & 0.001 \\
++$|\mathcal{C}_4|{=}2$ & $0.5$ & $90\;(3)$ & $90\;(3)$ & 0.013 \\
++$|\mathcal{C}_4|{=}2$ & $0.25$ & $1{,}890\;(7)$ & $1{,}890\;(7)$ & 0.175 \\
++$|\mathcal{C}_4|{=}2$ & $0.125$ & $40{,}000\;(15)$ & $20{,}000\;(15)$ & 1.420 \\
++$|\mathcal{C}_4|{=}2$ & $0.0625$ & $0\;(0)$ & $20{,}000\;(15)$ & 1.499 \\
++\addlinespace
++\multicolumn{5}{l}{$|\mathcal{C}_4|=3$; matched total = 60{,}549} \\
++$|\mathcal{C}_4|{=}3$ & $1$ & $9\;(6)$ & $9\;(6)$ & 0.001 \\
++$|\mathcal{C}_4|{=}3$ & $0.5$ & $540\;(12)$ & $540\;(12)$ & 0.073 \\
++$|\mathcal{C}_4|{=}3$ & $0.25$ & $55{,}440\;(42)$ & $20{,}000\;(42)$ & 2.405 \\
++$|\mathcal{C}_4|{=}3$ & $0.125$ & $4{,}560\;(51)$ & $20{,}000\;(70)$ & 2.667 \\
++$|\mathcal{C}_4|{=}3$ & $0.0625$ & $0\;(0)$ & $20{,}000\;(54)$ & 4.104 \\
+ \bottomrule
+ \end{tabular}%
+-}
+ \end{table}
+ 
+-Under a finite output budget, the bounded runs produced symmetry-distinct starting models for stress testing and representative pre-relaxation visualization; reversing the building-unit order provided a control for how traversal order shaped the returned set (Table~\ref{tab:vba_bounded}).
++To assess output control for downstream screening, we divided the 100{,}000-output ceiling into five 20{,}000-representative caps for the stabilizer orders of the $|\Gamma|=16$ \texttt{vba} action. Compared with matched-size DFS prefixes, the quotas included $\rho=0.0625$ candidates in both pools; sparse higher-$\rho$ layers left 58{,}016 and 39{,}451 slots unused (Table~\ref{tab:vba_bounded}).
++% 中文翻译：为评估下游筛选中的输出控制，我们将 100{,}000 个输出的总上限分为五个稳定子阶数层，每层限额为 20{,}000 个代表元，对应 $|\Gamma|=16$ 的 \texttt{vba} 群作用。与相同输出数的 DFS 前缀相比，分层限额在两个候选池中都纳入了 $\rho=0.0625$ 层的构型；较高-$\rho$ 层数量较少，使总上限中分别有 58{,}016 和 39{,}451 个名额未用（表~\ref{tab:vba_bounded}）。
++
++
++
+--- Data availability before
++++ Data availability after
+@@ -1 +1 @@
+-and the bounded-\texttt{vba} traversal-sensitivity records.
++and the bounded-\texttt{vba} exact-$\rho$ allocation records.

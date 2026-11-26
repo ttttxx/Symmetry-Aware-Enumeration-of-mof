@@ -1,0 +1,875 @@
+{
+  "python": "3.13.12 (v3.13.12:1cbe4818347, Feb  3 2026, 13:36:53) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "native_abi": 2,
+  "repetitions": 5,
+  "warmup_rotations": 1,
+  "timing_scope": "enumerate; same-process rotating warm runs; no RSS claim",
+  "source_sha256": {
+    "search_prefix_trie.py": "54ff33a4abf5fda1e579aab941d4cc8025845e54cf233d2e00ac417e2134212b",
+    "enumerator_casm_inspired.py": "a1af1864947d9621966e9861c7a294edcae39bc16982a182488c37674e7ab722",
+    "enumerator_native.py": "c2792bc6a1582aa36298568d41933f882464f6a71a09c099cb6613c4bfd551dc",
+    "enumerator_storage.py": "e22dbea8a21ad8cfe33dd0cdca35ef2c98b253f81d69442af7ed51420d75bd83",
+    "enumerator_task_dedup.py": "a5a4b05afa2583ce12d47098887fa3756ce4cdb2322816b643f400d2bb93c4ce",
+    "enumerator.py": "e4133b14588817eb90f8336a2bf301616d468dd9ec8595dc9798472afa6e8adb",
+    "native/enumeration_core.cpp": "ecc3ca335e647725f3e8f6069dc4aa301132b39ceeef43213df9eb71e5df8043",
+    "native/libmof_enumeration.dylib": "33ccaf07bdeeeb3f604e7769e860dfa2f5257a752c50a30301aa12f0f6efb895",
+    "validation/benchmark_prefix_trie_20261116.py": "902efc9afbafe1f0410be9e4a58a77cf89e756979638b53a08b93e1d39e20b33"
+  },
+  "rows": [
+    {
+      "case": "swap12_interrupted",
+      "sites": 12,
+      "group_size": 2,
+      "naive": 4096,
+      "records": 3072,
+      "exact_records_order_and_metadata_match": true,
+      "sha256": "976debabc3ea7c3e05587ee45ff8672ba9831d8b7eb9abe4d00029c8ff8a4a0d",
+      "times_s": {
+        "python_0": [
+          0.007901125005446374,
+          0.007490249932743609,
+          0.007930499967187643,
+          0.007684499956667423,
+          0.00797625002451241
+        ],
+        "python_1": [
+          0.006331666954793036,
+          0.006485625053755939,
+          0.00689229101408273,
+          0.006543915951624513,
+          0.006746707949787378
+        ],
+        "cpp_0": [
+          0.0027238751063123345,
+          0.0029443330131471157,
+          0.00294991594273597,
+          0.0028729160549119115,
+          0.0028310000197961926
+        ],
+        "cpp_1": [
+          0.0027461251011118293,
+          0.002636166987940669,
+          0.002887625014409423,
+          0.0027524580946192145,
+          0.0027215000009164214
+        ]
+      },
+      "median_s": {
+        "python_0": 0.007901125005446374,
+        "python_1": 0.006543915951624513,
+        "cpp_0": 0.0028729160549119115,
+        "cpp_1": 0.0027461251011118293
+      },
+      "reports": {
+        "python_0": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 4096,
+            "duplicate_leaves": 1024,
+            "compile_s": 1.6375095583498478e-05,
+            "search_nodes": 8192
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0
+        },
+        "python_1": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 3072,
+            "duplicate_leaves": 0,
+            "compile_s": 1.3623968698084354e-05,
+            "search_nodes": 6146
+          },
+          "prefix_stats": {
+            "queries": 3,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 2,
+            "live_nodes": 2,
+            "peak_nodes": 2,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1
+          },
+          "native_kernel_s": 0
+        },
+        "cpp_0": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 4096,
+            "duplicate_leaves": 1024,
+            "compile_s": 1.2999982573091984e-05,
+            "search_nodes": 8192
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0.0005873750196769834
+        },
+        "cpp_1": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 3072,
+            "duplicate_leaves": 0,
+            "compile_s": 1.3125012628734112e-05,
+            "search_nodes": 6146
+          },
+          "prefix_stats": {
+            "queries": 3,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 2,
+            "live_nodes": 0,
+            "peak_nodes": 2,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1,
+            "retained_nodes_before_release": 2
+          },
+          "native_kernel_s": 0.0004573760088533163
+        }
+      }
+    },
+    {
+      "case": "swap16_interrupted",
+      "sites": 16,
+      "group_size": 2,
+      "naive": 65536,
+      "records": 49152,
+      "exact_records_order_and_metadata_match": true,
+      "sha256": "e70c5626fb8f631dcb6b6e5a08430bd5df57c7c531c19ed10018a819481cdbc9",
+      "times_s": {
+        "python_0": [
+          0.13987458299379796,
+          0.13911574997473508,
+          0.13940041593741626,
+          0.13775650004390627,
+          0.13696154195349663
+        ],
+        "python_1": [
+          0.11731891694944352,
+          0.11695233301725239,
+          0.118448790977709,
+          0.11699650005903095,
+          0.12338537501636893
+        ],
+        "cpp_0": [
+          0.0568990419851616,
+          0.055061332997865975,
+          0.05737850000150502,
+          0.0559657079866156,
+          0.05404333304613829
+        ],
+        "cpp_1": [
+          0.0543355830013752,
+          0.05286024999804795,
+          0.05209870811086148,
+          0.06471333303488791,
+          0.05193766695447266
+        ]
+      },
+      "median_s": {
+        "python_0": 0.13911574997473508,
+        "python_1": 0.11731891694944352,
+        "cpp_0": 0.0559657079866156,
+        "cpp_1": 0.05286024999804795
+      },
+      "reports": {
+        "python_0": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 65536,
+            "duplicate_leaves": 16384,
+            "compile_s": 2.204196061939001e-05,
+            "search_nodes": 131072
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0
+        },
+        "python_1": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 49152,
+            "duplicate_leaves": 0,
+            "compile_s": 2.2832886315882206e-05,
+            "search_nodes": 98306
+          },
+          "prefix_stats": {
+            "queries": 3,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 2,
+            "live_nodes": 2,
+            "peak_nodes": 2,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1
+          },
+          "native_kernel_s": 0
+        },
+        "cpp_0": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 65536,
+            "duplicate_leaves": 16384,
+            "compile_s": 1.6708974726498127e-05,
+            "search_nodes": 131072
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0.010356125072576106
+        },
+        "cpp_1": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 49152,
+            "duplicate_leaves": 0,
+            "compile_s": 1.6332953236997128e-05,
+            "search_nodes": 98306
+          },
+          "prefix_stats": {
+            "queries": 3,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 2,
+            "live_nodes": 0,
+            "peak_nodes": 2,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1,
+            "retained_nodes_before_release": 2
+          },
+          "native_kernel_s": 0.008083250024355948
+        }
+      }
+    },
+    {
+      "case": "swap18_interrupted",
+      "sites": 18,
+      "group_size": 2,
+      "naive": 262144,
+      "records": 196608,
+      "exact_records_order_and_metadata_match": true,
+      "sha256": "8f04364235d03fb4b479e0d591f10acbc5dbcc37e114a94b0ba9e13c15c22052",
+      "times_s": {
+        "python_0": [
+          0.8044277500594035,
+          0.8053957499796525,
+          0.8137174169532955,
+          0.7871758750407025,
+          0.7967742920154706
+        ],
+        "python_1": [
+          0.7603538749972358,
+          0.8030253750039265,
+          0.6975063340505585,
+          0.7030164999887347,
+          0.702884207945317
+        ],
+        "cpp_0": [
+          0.48511637502815574,
+          0.47897200006991625,
+          0.4675188339315355,
+          0.479823499917984,
+          0.45649770798627287
+        ],
+        "cpp_1": [
+          0.47980474994983524,
+          0.47423591604456306,
+          0.45653458300512284,
+          0.46128204104024917,
+          0.44706420798320323
+        ]
+      },
+      "median_s": {
+        "python_0": 0.8044277500594035,
+        "python_1": 0.7030164999887347,
+        "cpp_0": 0.47897200006991625,
+        "cpp_1": 0.46128204104024917
+      },
+      "reports": {
+        "python_0": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 262144,
+            "duplicate_leaves": 65536,
+            "compile_s": 2.72911274805665e-05,
+            "search_nodes": 524288
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0
+        },
+        "python_1": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 196608,
+            "duplicate_leaves": 0,
+            "compile_s": 2.6374938897788525e-05,
+            "search_nodes": 393218
+          },
+          "prefix_stats": {
+            "queries": 3,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 2,
+            "live_nodes": 2,
+            "peak_nodes": 2,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1
+          },
+          "native_kernel_s": 0
+        },
+        "cpp_0": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 262144,
+            "duplicate_leaves": 65536,
+            "compile_s": 2.450007013976574e-05,
+            "search_nodes": 524288
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0.0437730411067605
+        },
+        "cpp_1": {
+          "task_stats": {
+            "tasks": 2,
+            "completed_tasks": 1,
+            "pruned_prefixes": 0,
+            "leaf_visits": 196608,
+            "duplicate_leaves": 0,
+            "compile_s": 2.4333014152944088e-05,
+            "search_nodes": 393218
+          },
+          "prefix_stats": {
+            "queries": 3,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 2,
+            "live_nodes": 0,
+            "peak_nodes": 2,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1,
+            "retained_nodes_before_release": 2
+          },
+          "native_kernel_s": 0.03423441690392792
+        }
+      }
+    },
+    {
+      "case": "ffc_3_3_exhaustive",
+      "sites": 7,
+      "group_size": 8,
+      "naive": 2187,
+      "records": 513,
+      "exact_records_order_and_metadata_match": true,
+      "sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9",
+      "times_s": {
+        "python_0": [
+          0.003018542076461017,
+          0.003040249925106764,
+          0.0030023750150576234,
+          0.002951791975647211,
+          0.002996583003550768
+        ],
+        "python_1": [
+          0.0030851250048726797,
+          0.003092958009801805,
+          0.003116625011898577,
+          0.003111999947577715,
+          0.0029960840474814177
+        ],
+        "cpp_0": [
+          0.002256167004816234,
+          0.0023522080155089498,
+          0.0022283330326899886,
+          0.002269041957333684,
+          0.0022583750542253256
+        ],
+        "cpp_1": [
+          0.0022450420074164867,
+          0.0023580839624628425,
+          0.002348208916373551,
+          0.0022245420841500163,
+          0.0023942500120028853
+        ]
+      },
+      "median_s": {
+        "python_0": 0.0030023750150576234,
+        "python_1": 0.003092958009801805,
+        "cpp_0": 0.0022583750542253256,
+        "cpp_1": 0.002348208916373551
+      },
+      "reports": {
+        "python_0": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 8,
+            "pruned_prefixes": 124,
+            "leaf_visits": 513,
+            "duplicate_leaves": 0,
+            "compile_s": 0.00011045776773244143,
+            "search_nodes": 1048
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0
+        },
+        "python_1": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 8,
+            "pruned_prefixes": 124,
+            "leaf_visits": 513,
+            "duplicate_leaves": 0,
+            "compile_s": 0.00011483405251055956,
+            "search_nodes": 1048
+          },
+          "prefix_stats": {
+            "queries": 0,
+            "hits": 0,
+            "early_hits": 0,
+            "closed_prefixes": 0,
+            "nodes_created": 0,
+            "live_nodes": 0,
+            "peak_nodes": 0,
+            "budget_skips": 0,
+            "snapshots": 0,
+            "forests": 0
+          },
+          "native_kernel_s": 0
+        },
+        "cpp_0": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 8,
+            "pruned_prefixes": 124,
+            "leaf_visits": 513,
+            "duplicate_leaves": 0,
+            "compile_s": 0.00011837400961667299,
+            "search_nodes": 1048
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0.00012162409257143736
+        },
+        "cpp_1": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 8,
+            "pruned_prefixes": 124,
+            "leaf_visits": 513,
+            "duplicate_leaves": 0,
+            "compile_s": 0.00012041814625263214,
+            "search_nodes": 1048
+          },
+          "prefix_stats": {
+            "queries": 0,
+            "hits": 0,
+            "early_hits": 0,
+            "closed_prefixes": 0,
+            "nodes_created": 0,
+            "live_nodes": 0,
+            "peak_nodes": 0,
+            "budget_skips": 0,
+            "snapshots": 0,
+            "forests": 0,
+            "retained_nodes_before_release": 0
+          },
+          "native_kernel_s": 0.00012941681779921055
+        }
+      }
+    },
+    {
+      "case": "ffc_3_3_first_budget3",
+      "sites": 7,
+      "group_size": 8,
+      "naive": 2187,
+      "records": 513,
+      "exact_records_order_and_metadata_match": true,
+      "sha256": "5a9169dedc699e30e48ac45626b4d8585cec82921b53afd8ee9f8dd0bdc03ce9",
+      "times_s": {
+        "python_0": [
+          0.0029380000196397305,
+          0.0029979170067235827,
+          0.00311916705686599,
+          0.0029852500883862376,
+          0.002971499925479293
+        ],
+        "python_1": [
+          0.0034302499843761325,
+          0.0035990829346701503,
+          0.003491499926894903,
+          0.0035314999986439943,
+          0.003580625052563846
+        ],
+        "cpp_0": [
+          0.0022569160209968686,
+          0.002293042023666203,
+          0.0023023749236017466,
+          0.0024138339795172215,
+          0.0023555420339107513
+        ],
+        "cpp_1": [
+          0.002286875038407743,
+          0.0023035419872030616,
+          0.0024263329105451703,
+          0.002313499921001494,
+          0.0022872919216752052
+        ]
+      },
+      "median_s": {
+        "python_0": 0.0029852500883862376,
+        "python_1": 0.0035314999986439943,
+        "cpp_0": 0.0023023749236017466,
+        "cpp_1": 0.0023035419872030616
+      },
+      "reports": {
+        "python_0": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 7,
+            "pruned_prefixes": 123,
+            "leaf_visits": 516,
+            "duplicate_leaves": 3,
+            "compile_s": 9.725010022521019e-05,
+            "search_nodes": 1054
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0
+        },
+        "python_1": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 7,
+            "pruned_prefixes": 123,
+            "leaf_visits": 513,
+            "duplicate_leaves": 0,
+            "compile_s": 0.00011046091094613075,
+            "search_nodes": 1051
+          },
+          "prefix_stats": {
+            "queries": 477,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 3,
+            "live_nodes": 3,
+            "peak_nodes": 3,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1
+          },
+          "native_kernel_s": 0
+        },
+        "cpp_0": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 7,
+            "pruned_prefixes": 123,
+            "leaf_visits": 516,
+            "duplicate_leaves": 3,
+            "compile_s": 0.000101917190477252,
+            "search_nodes": 1054
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0.00012670992873609066
+        },
+        "cpp_1": {
+          "task_stats": {
+            "tasks": 8,
+            "completed_tasks": 7,
+            "pruned_prefixes": 123,
+            "leaf_visits": 513,
+            "duplicate_leaves": 0,
+            "compile_s": 9.629200212657452e-05,
+            "search_nodes": 1051
+          },
+          "prefix_stats": {
+            "queries": 477,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 3,
+            "live_nodes": 0,
+            "peak_nodes": 3,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1,
+            "retained_nodes_before_release": 3
+          },
+          "native_kernel_s": 0.0001344579504802823
+        }
+      }
+    },
+    {
+      "case": "fjh_1_3_exhaustive",
+      "sites": 28,
+      "group_size": 16,
+      "naive": 531441,
+      "records": 36369,
+      "exact_records_order_and_metadata_match": true,
+      "sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1",
+      "times_s": {
+        "python_0": [
+          0.5615968749625608,
+          0.5616916250437498,
+          0.5600301249651238,
+          0.5607574579771608,
+          0.5589241670677438
+        ],
+        "python_1": [
+          0.5922808340983465,
+          0.5897202920168638,
+          0.5901697919471189,
+          0.5932095419848338,
+          0.5898462920449674
+        ],
+        "cpp_0": [
+          0.10156883404124528,
+          0.09855704195797443,
+          0.09801154199521989,
+          0.0959377089748159,
+          0.09728570794686675
+        ],
+        "cpp_1": [
+          0.09823520795907825,
+          0.0969805420609191,
+          0.09674137504771352,
+          0.09639470907859504,
+          0.0968423750018701
+        ]
+      },
+      "median_s": {
+        "python_0": 0.5607574579771608,
+        "python_1": 0.5901697919471189,
+        "cpp_0": 0.09801154199521989,
+        "cpp_1": 0.0968423750018701
+      },
+      "reports": {
+        "python_0": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 33,
+            "pruned_prefixes": 8959,
+            "leaf_visits": 36369,
+            "duplicate_leaves": 0,
+            "compile_s": 0.00399633077904582,
+            "search_nodes": 620936
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0
+        },
+        "python_1": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 33,
+            "pruned_prefixes": 8959,
+            "leaf_visits": 36369,
+            "duplicate_leaves": 0,
+            "compile_s": 0.004204831086099148,
+            "search_nodes": 620936
+          },
+          "prefix_stats": {
+            "queries": 0,
+            "hits": 0,
+            "early_hits": 0,
+            "closed_prefixes": 0,
+            "nodes_created": 0,
+            "live_nodes": 0,
+            "peak_nodes": 0,
+            "budget_skips": 0,
+            "snapshots": 0,
+            "forests": 0
+          },
+          "native_kernel_s": 0
+        },
+        "cpp_0": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 33,
+            "pruned_prefixes": 8959,
+            "leaf_visits": 36369,
+            "duplicate_leaves": 0,
+            "compile_s": 0.00412337388843298,
+            "search_nodes": 620936
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0.02406850189436227
+        },
+        "cpp_1": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 33,
+            "pruned_prefixes": 8959,
+            "leaf_visits": 36369,
+            "duplicate_leaves": 0,
+            "compile_s": 0.004062583087943494,
+            "search_nodes": 620936
+          },
+          "prefix_stats": {
+            "queries": 0,
+            "hits": 0,
+            "early_hits": 0,
+            "closed_prefixes": 0,
+            "nodes_created": 0,
+            "live_nodes": 0,
+            "peak_nodes": 0,
+            "budget_skips": 0,
+            "snapshots": 0,
+            "forests": 0,
+            "retained_nodes_before_release": 0
+          },
+          "native_kernel_s": 0.024241707753390074
+        }
+      }
+    },
+    {
+      "case": "fjh_1_3_first_budget3",
+      "sites": 28,
+      "group_size": 16,
+      "naive": 531441,
+      "records": 36369,
+      "exact_records_order_and_metadata_match": true,
+      "sha256": "e2886367672d7ee0dc02ce69c001fd748b6657fbe0e4043b28bee5f46e929fa1",
+      "times_s": {
+        "python_0": [
+          0.5622927920194343,
+          0.559744874946773,
+          0.5603917080443352,
+          0.5554798749508336,
+          0.5606644169893116
+        ],
+        "python_1": [
+          0.6329568331129849,
+          0.6283466250170022,
+          0.6288057500496507,
+          0.6304840000811964,
+          0.6325063749682158
+        ],
+        "cpp_0": [
+          0.09633162501268089,
+          0.09613670804537833,
+          0.09828395792283118,
+          0.09997712494805455,
+          0.09765187511220574
+        ],
+        "cpp_1": [
+          0.09789258392993361,
+          0.0963987089926377,
+          0.0988260000012815,
+          0.09757154202088714,
+          0.09795958292670548
+        ]
+      },
+      "median_s": {
+        "python_0": 0.5603917080443352,
+        "python_1": 0.6304840000811964,
+        "cpp_0": 0.09765187511220574,
+        "cpp_1": 0.09789258392993361
+      },
+      "reports": {
+        "python_0": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 32,
+            "pruned_prefixes": 8958,
+            "leaf_visits": 36372,
+            "duplicate_leaves": 3,
+            "compile_s": 0.003939667018130422,
+            "search_nodes": 620948
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0
+        },
+        "python_1": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 32,
+            "pruned_prefixes": 8958,
+            "leaf_visits": 36369,
+            "duplicate_leaves": 0,
+            "compile_s": 0.004000753164291382,
+            "search_nodes": 620939
+          },
+          "prefix_stats": {
+            "queries": 36279,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 3,
+            "live_nodes": 3,
+            "peak_nodes": 3,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1
+          },
+          "native_kernel_s": 0
+        },
+        "cpp_0": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 32,
+            "pruned_prefixes": 8958,
+            "leaf_visits": 36372,
+            "duplicate_leaves": 3,
+            "compile_s": 0.0038876686012372375,
+            "search_nodes": 620948
+          },
+          "prefix_stats": {},
+          "native_kernel_s": 0.023944372311234474
+        },
+        "cpp_1": {
+          "task_stats": {
+            "tasks": 33,
+            "completed_tasks": 32,
+            "pruned_prefixes": 8958,
+            "leaf_visits": 36369,
+            "duplicate_leaves": 0,
+            "compile_s": 0.003919541486538947,
+            "search_nodes": 620939
+          },
+          "prefix_stats": {
+            "queries": 36279,
+            "hits": 1,
+            "early_hits": 1,
+            "closed_prefixes": 1,
+            "nodes_created": 3,
+            "live_nodes": 0,
+            "peak_nodes": 3,
+            "budget_skips": 0,
+            "snapshots": 1,
+            "forests": 1,
+            "retained_nodes_before_release": 3
+          },
+          "native_kernel_s": 0.024622667813673615
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+[
+  {
+    "case": [
+      "ffc",
+      2,
+      2
+    ],
+    "bounded_checks": [
+      {
+        "limits": {
+          "max_total_results": 7
+        },
+        "returned": 7,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 8,
+          "completed_tasks": 0,
+          "pruned_prefixes": 0,
+          "leaf_visits": 7,
+          "duplicate_leaves": 0,
+          "compile_s": 2.4751177988946438e-05
+        }
+      },
+      {
+        "limits": {
+          "max_total_results": 100
+        },
+        "returned": 42,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 8,
+          "completed_tasks": 8,
+          "pruned_prefixes": 37,
+          "leaf_visits": 42,
+          "duplicate_leaves": 0,
+          "compile_s": 0.00012849911581724882
+        }
+      },
+      {
+        "limits": {
+          "identity_orbit_limit": 0,
+          "identity_new_limit": 3
+        },
+        "returned": 42,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 8,
+          "completed_tasks": 8,
+          "pruned_prefixes": 37,
+          "leaf_visits": 42,
+          "duplicate_leaves": 0,
+          "compile_s": 0.00011333380825817585
+        }
+      }
+    ]
+  },
+  {
+    "case": [
+      "ffc",
+      3,
+      3
+    ],
+    "bounded_checks": [
+      {
+        "limits": {
+          "max_total_results": 7
+        },
+        "returned": 7,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 8,
+          "completed_tasks": 0,
+          "pruned_prefixes": 0,
+          "leaf_visits": 7,
+          "duplicate_leaves": 0,
+          "compile_s": 1.9747763872146606e-05
+        }
+      },
+      {
+        "limits": {
+          "max_total_results": 100
+        },
+        "returned": 100,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 8,
+          "completed_tasks": 4,
+          "pruned_prefixes": 31,
+          "leaf_visits": 100,
+          "duplicate_leaves": 0,
+          "compile_s": 9.045808110386133e-05
+        }
+      },
+      {
+        "limits": {
+          "identity_orbit_limit": 0,
+          "identity_new_limit": 3
+        },
+        "returned": 408,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 8,
+          "completed_tasks": 7,
+          "pruned_prefixes": 76,
+          "leaf_visits": 408,
+          "duplicate_leaves": 0,
+          "compile_s": 0.00011350191198289394
+        }
+      }
+    ]
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      2
+    ],
+    "bounded_checks": [
+      {
+        "limits": {
+          "max_total_results": 7
+        },
+        "returned": 7,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 0,
+          "pruned_prefixes": 0,
+          "leaf_visits": 7,
+          "duplicate_leaves": 0,
+          "compile_s": 0.00014112796634435654
+        }
+      },
+      {
+        "limits": {
+          "max_total_results": 100
+        },
+        "returned": 100,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 25,
+          "pruned_prefixes": 279,
+          "leaf_visits": 100,
+          "duplicate_leaves": 0,
+          "compile_s": 0.0037308335304260254
+        }
+      },
+      {
+        "limits": {
+          "identity_orbit_limit": 0,
+          "identity_new_limit": 3
+        },
+        "returned": 229,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 32,
+          "pruned_prefixes": 505,
+          "leaf_visits": 229,
+          "duplicate_leaves": 0,
+          "compile_s": 0.004485787940211594
+        }
+      }
+    ]
+  },
+  {
+    "case": [
+      "fjh",
+      2,
+      1
+    ],
+    "bounded_checks": [
+      {
+        "limits": {
+          "max_total_results": 7
+        },
+        "returned": 7,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 4,
+          "pruned_prefixes": 5,
+          "leaf_visits": 7,
+          "duplicate_leaves": 0,
+          "compile_s": 0.0009967520600184798
+        }
+      },
+      {
+        "limits": {
+          "max_total_results": 100
+        },
+        "returned": 100,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 21,
+          "pruned_prefixes": 107,
+          "leaf_visits": 100,
+          "duplicate_leaves": 0,
+          "compile_s": 0.0040219989605247974
+        }
+      },
+      {
+        "limits": {
+          "identity_orbit_limit": 0,
+          "identity_new_limit": 3
+        },
+        "returned": 1249,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 32,
+          "pruned_prefixes": 486,
+          "leaf_visits": 1249,
+          "duplicate_leaves": 0,
+          "compile_s": 0.004519454902037978
+        }
+      }
+    ]
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      3
+    ],
+    "bounded_checks": [
+      {
+        "limits": {
+          "max_total_results": 7
+        },
+        "returned": 7,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 0,
+          "pruned_prefixes": 0,
+          "leaf_visits": 7,
+          "duplicate_leaves": 0,
+          "compile_s": 0.00012524588964879513
+        }
+      },
+      {
+        "limits": {
+          "max_total_results": 100
+        },
+        "returned": 100,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 5,
+          "pruned_prefixes": 77,
+          "leaf_visits": 100,
+          "duplicate_leaves": 0,
+          "compile_s": 0.0019137058407068253
+        }
+      },
+      {
+        "limits": {
+          "identity_orbit_limit": 0,
+          "identity_new_limit": 3
+        },
+        "returned": 5808,
+        "exact_match": true,
+        "task_stats": {
+          "tasks": 33,
+          "completed_tasks": 32,
+          "pruned_prefixes": 3610,
+          "leaf_visits": 5808,
+          "duplicate_leaves": 0,
+          "compile_s": 0.004195039393380284
+        }
+      }
+    ]
+  }
+]

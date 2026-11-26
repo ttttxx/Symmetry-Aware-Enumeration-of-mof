@@ -1,0 +1,1 @@
+Approved manuscript wording as of 2026-11-24. This revision changes descriptions and scope, not executable code or numerical results. The measured ABI-4 sources and records remain under reproducibility/unified_20261123/. The same fixed linker template is used on every edge. No remote upload was performed.

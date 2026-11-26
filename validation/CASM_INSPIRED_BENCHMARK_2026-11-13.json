@@ -1,0 +1,292 @@
+[
+  {
+    "case": [
+      "ffc",
+      2,
+      2
+    ],
+    "representatives": 42,
+    "timings_s": {
+      "baseline": [
+        0.0023203750606626272,
+        0.0022507089888677,
+        0.002320125000551343
+      ],
+      "task_dedup": [
+        0.00179537502117455,
+        0.0018392920028418303,
+        0.0017442910466343164
+      ],
+      "casm_inspired": [
+        0.001738416962325573,
+        0.001515834010206163,
+        0.0016275830566883087
+      ]
+    },
+    "medians_s": {
+      "baseline": 0.002320125000551343,
+      "task_dedup": 0.00179537502117455,
+      "casm_inspired": 0.0016275830566883087
+    },
+    "task_dedup_stats": {
+      "tasks": 8,
+      "completed_tasks": 8,
+      "pruned_prefixes": 37,
+      "leaf_visits": 42,
+      "duplicate_leaves": 0,
+      "compile_s": 0.00010462524369359016
+    },
+    "variant_stats": {
+      "task_dedup": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 37,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00010462524369359016
+      },
+      "casm_inspired": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 37,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00010533491149544716
+      }
+    },
+    "exact_order_and_metadata_match": true,
+    "covered_assignments": 128
+  },
+  {
+    "case": [
+      "ffc",
+      3,
+      3
+    ],
+    "representatives": 513,
+    "timings_s": {
+      "baseline": [
+        0.008858292014338076,
+        0.008621416985988617,
+        0.00868562504183501
+      ],
+      "task_dedup": [
+        0.007044582976959646,
+        0.005617042072117329,
+        0.005494625074788928
+      ],
+      "casm_inspired": [
+        0.0028853750554844737,
+        0.002827291958965361,
+        0.002801207941956818
+      ]
+    },
+    "medians_s": {
+      "baseline": 0.00868562504183501,
+      "task_dedup": 0.005617042072117329,
+      "casm_inspired": 0.002827291958965361
+    },
+    "task_dedup_stats": {
+      "tasks": 8,
+      "completed_tasks": 8,
+      "pruned_prefixes": 124,
+      "leaf_visits": 513,
+      "duplicate_leaves": 0,
+      "compile_s": 0.00011549994815140963
+    },
+    "variant_stats": {
+      "task_dedup": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 124,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00011549994815140963
+      },
+      "casm_inspired": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 124,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00011270842514932156
+      }
+    },
+    "exact_order_and_metadata_match": true,
+    "covered_assignments": 2187
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      2
+    ],
+    "representatives": 394,
+    "timings_s": {
+      "baseline": [
+        0.11454983404837549,
+        0.09909995901398361,
+        0.10132662509568036
+      ],
+      "task_dedup": [
+        0.05835129099432379,
+        0.06058991700410843,
+        0.0622417499544099
+      ],
+      "casm_inspired": [
+        0.04337924998253584,
+        0.044181125005707145,
+        0.04442749998997897
+      ]
+    },
+    "medians_s": {
+      "baseline": 0.10132662509568036,
+      "task_dedup": 0.06058991700410843,
+      "casm_inspired": 0.044181125005707145
+    },
+    "task_dedup_stats": {
+      "tasks": 33,
+      "completed_tasks": 33,
+      "pruned_prefixes": 708,
+      "leaf_visits": 394,
+      "duplicate_leaves": 0,
+      "compile_s": 0.0042222533375024796
+    },
+    "variant_stats": {
+      "task_dedup": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 708,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0042222533375024796
+      },
+      "casm_inspired": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 708,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0041667105397209525
+      }
+    },
+    "exact_order_and_metadata_match": true,
+    "covered_assignments": 4096
+  },
+  {
+    "case": [
+      "fjh",
+      2,
+      1
+    ],
+    "representatives": 4756,
+    "timings_s": {
+      "baseline": [
+        0.19732916704379022,
+        0.19746845902409405,
+        0.2026130419690162
+      ],
+      "task_dedup": [
+        0.1999524999409914,
+        0.22360699996352196,
+        0.1843105829320848
+      ],
+      "casm_inspired": [
+        0.06527675001416355,
+        0.060779749997891486,
+        0.06300924997776747
+      ]
+    },
+    "medians_s": {
+      "baseline": 0.19746845902409405,
+      "task_dedup": 0.1999524999409914,
+      "casm_inspired": 0.06300924997776747
+    },
+    "task_dedup_stats": {
+      "tasks": 33,
+      "completed_tasks": 33,
+      "pruned_prefixes": 1410,
+      "leaf_visits": 4756,
+      "duplicate_leaves": 0,
+      "compile_s": 0.004537207656539977
+    },
+    "variant_stats": {
+      "task_dedup": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 1410,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004537207656539977
+      },
+      "casm_inspired": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 1410,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004325794870965183
+      }
+    },
+    "exact_order_and_metadata_match": true,
+    "covered_assignments": 65536
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      3
+    ],
+    "representatives": 36369,
+    "timings_s": {
+      "baseline": [
+        2.0476740410085768,
+        2.4028259579790756,
+        2.519210833008401
+      ],
+      "task_dedup": [
+        1.8297907919622958,
+        2.139102458022535,
+        1.9924244169378653
+      ],
+      "casm_inspired": [
+        1.111687041935511,
+        1.3282170419115573,
+        1.123507833108306
+      ]
+    },
+    "medians_s": {
+      "baseline": 2.4028259579790756,
+      "task_dedup": 1.9924244169378653,
+      "casm_inspired": 1.123507833108306
+    },
+    "task_dedup_stats": {
+      "tasks": 33,
+      "completed_tasks": 33,
+      "pruned_prefixes": 8959,
+      "leaf_visits": 36369,
+      "duplicate_leaves": 0,
+      "compile_s": 0.004089706810191274
+    },
+    "variant_stats": {
+      "task_dedup": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 8959,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004089706810191274
+      },
+      "casm_inspired": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 8959,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0039876222144812346
+      }
+    },
+    "exact_order_and_metadata_match": true,
+    "covered_assignments": 531441
+  }
+]

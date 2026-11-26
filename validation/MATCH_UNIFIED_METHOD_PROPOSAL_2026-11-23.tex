@@ -1,0 +1,142 @@
+% Historical proposal; superseded by the approved main_MATCH.tex revision on 2026-11-23.
+\subsection{Enumeration by Subgroup-Lattice Descent}
+%基于子群格下降的枚举
+
+%算法的顺序实现
+%方法是方法 实现是实现 之间的联系不紧密，2.1数学 2.2计算机
+
+\label{sec:enumeration}
+Each coloring is fixed by its stabilizer subgroup, so subgroup operations can be imposed as constraints during enumeration. For a chosen $H\leq\Gamma$, the constraint is $c(hv)=c(v)$ for every $h\in H$ and $v\in V$. Let $\mathcal{P}_H=\{Hv:v\in V\}$ denote the distinct $H$-orbits on $V$. A coloring fixed by $H$ is constant on each $P\in\mathcal{P}_H$. Since $H\leq\Gamma$ preserves degrees, all vertices in each $P$ have a common degree, denoted $\deg(P)$. Assigning one admissible label to each $H$-orbit gives the fixed-point domain
+\begin{equation}
+\begin{aligned}
+\mathrm{Fix}(H)&=\{c\in X:H\leq\mathrm{Stab}_{\Gamma}(c)\}\\
+&\cong\prod_{P\in\mathcal{P}_H}\mathcal{C}_{\deg(P)},\\
+|\mathrm{Fix}(H)|&=\prod_d|\mathcal{C}_d|^{m_{H,d}},
+\end{aligned}
+\label{eq:fixed_layer}
+\end{equation}
+where $m_{H,d}$ counts the degree-$d$ vertex orbits in $\mathcal{P}_H$. The cardinality of this domain counts assignments before $\Gamma$-equivalence reduction.
+% 中文翻译：每个着色均由其稳定子子群保持，因此可将子群操作作为枚举约束。对所选子群 $H\leq\Gamma$，约束为任意 $h\in H$ 和 $v\in V$ 均满足 $c(hv)=c(v)$。令 $\mathcal{P}_H=\{Hv:v\in V\}$ 表示 $H$ 在 $V$ 上的不同顶点轨道。被 $H$ 保持的着色在每个 $P\in\mathcal{P}_H$ 上取常值。由于 $H\leq\Gamma$ 保持度数，每个 $P$ 中顶点的度数相同，记为 $\deg(P)$。每个 $H$-轨道选择一个相容标签即得到固定点域，见公式~\ref{eq:fixed_layer}。其中 $m_{H,d}$ 为 $\mathcal{P}_H$ 中度数为 $d$ 的顶点轨道数。该域的基数统计 $\Gamma$ 等价约简之前的指派数。
+
+If $H_1\leq H_2$, every coloring fixed by $H_2$ is also fixed by $H_1$, giving $\mathrm{Fix}(H_2)\subseteq\mathrm{Fix}(H_1)$. Each $H_2$-orbit is a union of $H_1$-orbits, so the weaker constraints for $H_1$ allow labels to vary between those smaller orbits. At the identity subgroup $\{e\}$, every vertex is a singleton orbit and $\mathrm{Fix}(\{e\})=X$.
+% 中文翻译：若 $H_1\leq H_2$，被 $H_2$ 保持的每个着色也被 $H_1$ 保持，故 $\mathrm{Fix}(H_2)\subseteq\mathrm{Fix}(H_1)$。每个 $H_2$-轨道由若干 $H_1$-轨道组成，因此 $H_1$ 较弱的约束允许这些较小轨道之间取不同标签。在恒等子群 $\{e\}$ 处，每个顶点都是单点轨道，且 $\mathrm{Fix}(\{e\})=X$。
+
+The subgroups ordered by inclusion form the subgroup lattice of $\Gamma$. In Algorithm~\ref{alg:enum}, the vertex-orbit partition $\mathcal{P}_H$ represents a search task over $\mathrm{Fix}(H)$. The ordinary schedule includes the full-group and identity tasks separately and merges identical partitions among proper nontrivial subgroup tasks. It prioritizes tasks with fewer $H$-orbits, beginning with the full-group partition; successive tasks can correspond to incomparable subgroups.
+% 中文翻译：这些子群按包含关系构成 $\Gamma$ 的子群格。在算法~\ref{alg:enum} 中，顶点轨道划分 $\mathcal{P}_H$ 表示对 $\mathrm{Fix}(H)$ 的一个搜索任务。普通调度单独加入全群与恒等任务，并合并非平凡真子群任务中的相同划分。任务按 $H$-轨道数较少者优先，从全群划分开始；相邻任务也可能对应互不包含的子群。
+
+Within each task, depth-first search assigns labels one $H$-orbit at a time. At an intermediate state, a partial coloring $c_p$ records admissible labels on an assigned set $D_p\subseteq V$ and the marker $\bot$ elsewhere. A completion is a coloring $c\in X$ satisfying $c(v)=c_p(v)$ for every $v\in D_p$.
+% 中文翻译：每个任务内部采用深度优先搜索，每次为一个 $H$-轨道赋值。在中间状态，部分着色 $c_p$ 在已赋值集合 $D_p\subseteq V$ 上记录相容标签，其余位置记为 $\bot$。补全是满足对任意 $v\in D_p$ 均有 $c(v)=c_p(v)$ 的着色 $c\in X$。
+
+The canonical minimum in Eq.~\ref{eq:canonical_rep} allows early rejection when assigned labels force a smaller $\Gamma$-image for every completion of a branch.
+% 中文翻译：公式~\ref{eq:canonical_rep} 中的规范最小元允许提前剪枝：若已赋值标签使分支的每个补全都存在更小的 $\Gamma$ 群像，就可以拒绝该分支。
+For each $g\in\Gamma$, compare $c_p(v_i)$ and $c_p(g^{-1}v_i)$ in the fixed vertex order. For this $g$, the common assigned prefix is the longest initial segment with $v_i,g^{-1}v_i\in D_p$ at every position. Comparison stops before the first unassigned entry; $\bot$ does not participate in label comparisons. Reject the branch if some $g\in\Gamma$ and $1\leq j\leq |V|$ satisfy%对于每个 $g\in\Gamma$，按照固定的顶点顺序，比较 $c_p(v_i)$ 与 $c_p(g^-1v_i)$。对于给定的 $g$，共同已赋值前缀定义为满足每个位置均有 $v_i,g^-1v_i\in D_p$ 的最长初始序列。比较在遇到第一个未赋值项之前停止；$\bot$ 不参与标签比较。如果存在某个 $g\in\Gamma$ 和 $1\leq j\leq |V|$ 满足以下条件，则剪除该搜索分支：
+\begin{equation}
+\begin{aligned}
+v_i,\ g^{-1}v_i&\in D_p &&(1\leq i\leq j),\\
+c_p(g^{-1}v_i)&=c_p(v_i) &&(1\leq i<j),\\
+c_p(g^{-1}v_j)&<c_p(v_j).
+\end{aligned}
+\label{eq:prefix_rejection}
+\end{equation}
+Every completion agrees with $c_p$ on $D_p$ and therefore inherits the comparison at the first differing position $j$ in the common assigned prefix. If $c_p(g^{-1}v_j)<c_p(v_j)$, then $g\cdot c<_{\mathrm{lex}}c$ for every completion: the branch contains no canonical representative and is rejected. If $c_p(g^{-1}v_j)>c_p(v_j)$, then $g\cdot c>_{\mathrm{lex}}c$ for every completion: $g$ cannot produce a smaller image, so it is removed from the active comparison set while the branch remains searchable.
+% 中文翻译：每个补全都与 $c_p$ 在 $D_p$ 上一致，因而继承共同已赋值前缀中首个差异位点 $j$ 处的比较。若 $c_p(g^{-1}v_j)<c_p(v_j)$，则每个补全都满足 $g\cdot c<_{\mathrm{lex}}c$：该分支不含规范代表，整支被拒绝。若 $c_p(g^{-1}v_j)>c_p(v_j)$，则每个补全都满足 $g\cdot c>_{\mathrm{lex}}c$：$g$ 不可能产生更小的群像，因此只将其移出活跃比较集，分支仍可搜索。
+
+For each operation in the active comparison set, the search stores the end of the vertex prefix already confirmed to be equal. Descendant states resume comparison from that position, and backtracking restores the comparison state. At a complete surviving leaf, the coloring is already the canonical representative. The active set $\mathcal{A}$ then contains exactly the nonidentity operations that fix this coloring, giving
+\begin{equation}
+ s(c)=|\mathrm{Stab}_{\Gamma}(c)|=1+|\mathcal{A}|,
+ \qquad |\Gamma\cdot c|=\frac{|\Gamma|}{s(c)}.
+\label{eq:active_stabilizer}
+\end{equation}
+A complete representative is retained once, together with its stabilizer order and orbit size, when it satisfies the selected schedule's acceptance rule.
+% 中文翻译：对活跃比较集中的每个操作，搜索保存已经确认相等的顶点前缀的结束位置。后代状态从该位置继续比较，回溯时恢复比较状态。在完整且未被拒绝的叶节点，当前着色已经是规范代表。此时，活跃集 $\mathcal{A}$ 恰好由保持该着色不变的非恒等操作组成，稳定子阶数及轨道大小由公式~\ref{eq:active_stabilizer} 给出。完整代表满足所选调度的接收规则时，连同其稳定子阶数和轨道大小一起保留，每个代表只保留一次。
+
+Different subgroup tasks can have overlapping fixed-point domains. In the ordinary schedule, a completed task's vertex-orbit partition is recorded as a set of equal-label constraints. A later branch is rejected when every completion satisfies the constraints of an already completed task. This coverage test can discard an entire branch before a complete assignment is formed.
+% 中文翻译：不同子群任务的固定点域可以相交。在普通调度中，已完成任务的顶点轨道划分被记录为一组标签相等约束。若后续分支的每个补全均满足某个已完成任务的约束，则拒绝该分支。这项覆盖检查可以在形成完整指派之前排除整个分支。
+
+For output organized by symmetry, representatives with full stabilizer order $s$ form the stratum
+\begin{equation}
+\Omega_s=\{c^\star\in\Omega:|\mathrm{Stab}_{\Gamma}(c^\star)|=s\},
+\qquad \rho(c^\star)=s/|\Gamma|,
+\qquad \Omega=\bigsqcup_s\Omega_s.
+\label{eq:rho_strata}
+\end{equation}
+% 中文翻译：为按对称性组织输出，将完整稳定子阶数为 $s$ 的代表组成层 $\Omega_s$；其 $\rho(c^\star)=s/|\Gamma|$，各层构成 $\Omega$ 的不交并。
+
+The exact-$\rho$ quota schedule assigns a budget $B_s$ to each $\Omega_s$. It orders tasks by decreasing subgroup order, merges identical vertex-orbit partitions within each order, and searches the remaining partitions lexicographically. The depth-first search and canonical prefix comparisons are shared with the ordinary schedule. An order-$s$ task retains a complete representative only when its computed stabilizer order equals $s$; only a newly retained representative consumes $B_s$.
+% 中文翻译：精确 $\rho$ 配额调度为每个 $\Omega_s$ 分配预算 $B_s$。任务按子群阶数递减排列，在同阶内合并相同的顶点轨道划分，并按字典序搜索其余划分。深度优先搜索与规范前缀比较过程与普通调度共用。阶数为 $s$ 的任务仅保留计算所得完整稳定子阶数恰为 $s$ 的代表，且只有新保留的代表消耗 $B_s$。
+
+Coverage reuse in the quota schedule is restricted to tasks with the same target stabilizer order. A completed task certifies that all representatives in its fixed-point domain belonging to that stratum have been processed. Changing the target order starts a new set of coverage records, while the retained representatives remain shared across the schedule.
+% 中文翻译：配额调度中的覆盖复用限定在目标稳定子阶数相同的任务之间。已完成任务证明其固定点域中属于当前层的全部代表均已处理。改变目标阶数时重新建立覆盖记录，已经保留的代表仍由整个调度共享。
+
+\medskip
+\noindent\textbf{Bounded output.}
+Optional task deadlines, a total output cap, and the quotas $B_s$ determine when a search stops. Coverage records are formed from completed tasks or completed subtrees of an interrupted task. A subtree record can be reused when every completion of the later branch satisfies the source task's fixed-point constraints, lies within its admissible label domains, and matches the completed prefix. Unfinished paths remain searchable. The same target-order restriction applies to these subtree records in quota mode.
+% 中文翻译：可选的任务截止时间、总输出上限和配额 $B_s$ 决定搜索何时停止。覆盖记录来自已完成任务，或中断任务中已完成的子树。后续分支的每个补全满足来源任务的固定点约束、位于其允许标签域内且匹配已完成前缀时，可以复用子树记录。未完成路径仍可继续搜索。在配额模式中，子树记录同样受目标阶数一致的限制。
+
+If no task times out and $M_{\mathrm{total}}\geq\sum_sB_s$, stratum $s$ returns the first $\min\{B_s,|\Omega_s|\}$ representatives in the fixed quota-task, vertex-orbit, and label order. Reaching $B_s$ fills the quota. Exhaustion of a stratum is established by completing all its tasks before filling that quota. The coverage and sequence guarantees are proved in Supplementary Section~\ref{app:quota_proof}.
+% 中文翻译：若无任务超时且 $M_{\mathrm{total}}\geq\sum_sB_s$，层 $s$ 返回固定配额任务、顶点轨道和标签顺序下的前 $\min\{B_s,|\Omega_s|\}$ 个代表。达到 $B_s$ 表示配额填满；在配额填满前完成该层全部任务，才能确认此层耗尽。覆盖和序列保证的证明见补充材料第~\ref{app:quota_proof} 节。
+
+\medskip
+\noindent\textbf{Completeness.}
+For ordinary exhaustive enumeration, the identity task has domain $\mathrm{Fix}(\{e\})=X$, so every canonical representative lies in its search space. Canonical prefix rejection removes only branches whose completions have a smaller $\Gamma$-image. Coverage rejection removes a branch only after its canonical search has been completed in an earlier task or subtree. Each canonical representative is therefore either retained earlier or remains reachable in the identity task. The global membership check records it once. With output limits and task timeouts disabled and all tasks searched to completion, the ordinary schedule returns every member of $\Omega$ exactly once. Coverage of each $\Omega_s$ under the quota schedule follows from the stabilizer-subgroup argument in Supplementary Section~\ref{app:quota_proof}.
+% 中文翻译：对于普通穷尽枚举，恒等任务的搜索域为 $\mathrm{Fix}(\{e\})=X$，因此每个规范代表均位于其搜索空间中。规范前缀拒绝仅移除补全存在更小 $\Gamma$ 群像的分支。覆盖拒绝仅在该分支的规范搜索已由先前任务或子树完成后才排除它。因此，每个规范代表要么已在此前保留，要么仍能在恒等任务中到达。全局成员检查确保它只记录一次。关闭输出限制与任务超时，并使全部任务搜索完成时，普通调度恰好返回 $\Omega$ 的每个成员一次。配额调度对各 $\Omega_s$ 的覆盖由补充材料第~\ref{app:quota_proof} 节的稳定子子群论证给出。
+
+% Algorithm 1 proposal: shared canonical DFS, two schedules, scoped coverage.
+% Generic membership/coverage states are used; storage layout is omitted.
+\begin{algorithm}
+\caption{Subgroup-Lattice Descent with Optional Exact-$\rho$ Quotas}
+% 中文翻译：带可选精确 $\rho$ 配额的子群格下降枚举
+\label{alg:enum}
+\scriptsize
+\begin{algorithmic}[1]
+\Require $\Gamma$, degree-compatible label pools, optional quotas $B_s$, task deadlines and total cap $M_{\mathrm{total}}$
+\Ensure Distinct retained representatives and their stabilizer orders and orbit sizes
+\State initialize output $R$, global membership set $K$, coverage records $C$, and counts $N_s\gets0$
+\State build subgroup-partition tasks including $\Gamma$ and $\{e\}$
+\If{quotas enabled}
+  \State merge identical partitions within each order; sort by decreasing order, then lexicographic partition order
+\Else
+  \State merge proper-subgroup partitions as above; prioritize fewer vertex orbits, retaining tie order
+\EndIf
+\For{each task $(\mathcal P,s)$ in the selected order}
+  \If{global cap reached} \State \textbf{break} \EndIf
+  \If{quotas enabled and $N_s\ge B_s$} \State \textbf{continue} \EndIf
+  \If{quotas enabled and target order has changed} \State clear $C$ \EndIf
+  \State set target $s$ in quota mode, or $\ast$ in ordinary mode
+  \State initialize assignment, active nonidentity operations, equal-prefix cursors and task deadline
+  \State $(state,F)\gets$ \Call{CanonicalDFS}{$\mathcal P,0,c_p,\mathcal A,\boldsymbol\ell,s$}
+  \If{$state=\mathrm{CLOSED}$ and no cutoff triggered}
+    \State add the task domain to $C$
+  \Else
+    \State add only completed subtrees from frontier $F$ to $C$
+  \EndIf
+\EndFor
+\State stable-sort $R$ by decreasing stabilizer order; \Return $R$
+\Statex
+\Function{CanonicalDFS}{$\mathcal P,k,c_p,\mathcal A,\boldsymbol\ell,s$}
+  \If{a time or applicable output limit is reached}
+    \State \Return OPEN with completed-sibling frontier
+  \EndIf
+  \If{a compatible record in $C$ covers every completion} \State \Return CLOSED \EndIf
+  \If{$k=|\mathcal P|$}
+    \State $t\gets1+|\mathcal A|$
+    \If{($s=\ast$ or $t=s$) and $c_p\notin K$}
+      \State insert $c_p$ into $K$; append $(c_p,t,|\Gamma|/t)$ to $R$; $N_t\gets N_t+1$
+    \EndIf
+    \State \Return CLOSED
+  \EndIf
+  \For{each admissible label in the supplied order for $P_k$}
+    \State check applicable limits; on interruption \Return OPEN with frontier
+    \State assign the label to $P_k$; copy comparison state
+    \State advance canonical comparisons from $\boldsymbol\ell$ using Eq.~\ref{eq:prefix_rejection}
+    \State discard operations with a larger image; preserve unresolved or equal operations and their cursors
+    \If{some image is smaller} \State child $\gets$ CLOSED
+    \Else \State child $\gets$ \Call{CanonicalDFS}{$\mathcal P,k+1,c_p,\mathcal A',\boldsymbol\ell',s$} \EndIf
+    \State restore assignment and comparison state
+    \If{child is OPEN} \State \Return OPEN with frontier \EndIf
+    \State mark the label choice completed
+  \EndFor
+  \State \Return CLOSED
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

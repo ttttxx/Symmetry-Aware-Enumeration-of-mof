@@ -1,0 +1,16 @@
+{
+  "enumerator.py": "e4133b14588817eb90f8336a2bf301616d468dd9ec8595dc9798472afa6e8adb",
+  "enumerator_native.py": "1004d13fc7bac7c6d2bf3b19776c288768b6905be7990d766b86c04fdf9b4b0f",
+  "enumerator_rho_native.py": "50624ebefc6edba7ca254b787ec6d4feadf9a79a19330fa57ddb43fce4927575",
+  "enumerator_rho_quota.py": "a98f11be54a7a56e0e52d5b36fcd7727162e835a77fea115c84f6662264a51dd",
+  "enumerator_casm_inspired.py": "a1af1864947d9621966e9861c7a294edcae39bc16982a182488c37674e7ab722",
+  "enumerator_task_dedup.py": "a5a4b05afa2583ce12d47098887fa3756ce4cdb2322816b643f400d2bb93c4ce",
+  "enumerator_storage.py": "e22dbea8a21ad8cfe33dd0cdca35ef2c98b253f81d69442af7ed51420d75bd83",
+  "search_prefix_trie.py": "54ff33a4abf5fda1e579aab941d4cc8025845e54cf233d2e00ac417e2134212b",
+  "native/enumeration_core.cpp": "d2b99630a8f785747e2a39dbbd4517bcbb5e23bea9235c7c25e69ea339c7a41f",
+  "native/libmof_enumeration.dylib": "1fb1df743ca6cd17252468d2cb87cf8fcddaada666ace55c8d0d82b4be52fa32",
+  "main.py": "e4b729c7209b063428e6648aab3b372deabde2b93118a1de6c8dc657c2c2cade",
+  "symmetry.py": "0c6029cadd8b20415890b4ba8ca8844811ffe2cbcd5167442f666ade749d9f8a",
+  "validation/benchmark_rho_native_20261123.py": "b187478408840a2428c9686ef2f640d66f65541dda743607aa424799db2a9286",
+  "data/vba/vba_graph.json": "375dba3daffba5f66261d902aa7b36f6317c9b6ad4402ba12b28fd462f0f02a5"
+}

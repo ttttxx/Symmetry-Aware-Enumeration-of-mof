@@ -1,0 +1,155 @@
+{
+  "topology": "vba",
+  "pool": "C4x2_Cu_B",
+  "ligands_by_degree": {
+    "4": [
+      "4c_Cu_1_Ch",
+      "4c_B_Ch"
+    ]
+  },
+  "strategy": "rho_quota",
+  "output_cap": 100000,
+  "per_level_quota": 20000,
+  "task_time_limit_s": 60,
+  "group_order": 16,
+  "returned": 41984,
+  "elapsed_s": 3.443287583068013,
+  "rho_setup_s": 0.3218326671048999,
+  "burnside_coverage_percent": 0.011356174945831299,
+  "rho_layers": {
+    "16": {
+      "count": 4,
+      "distinct_composition_vectors": 3,
+      "layer_report": {
+        "stabilizer_order": 16,
+        "rho": 1.0,
+        "quota": 20000,
+        "returned": 4,
+        "fixed_layer_tasks": 1,
+        "tasks_started": 1,
+        "task_timeouts": 0,
+        "elapsed_s": 0.0007742091547697783,
+        "status": "layer_exhausted"
+      }
+    },
+    "8": {
+      "count": 90,
+      "distinct_composition_vectors": 3,
+      "layer_report": {
+        "stabilizer_order": 8,
+        "rho": 0.5,
+        "quota": 20000,
+        "returned": 90,
+        "fixed_layer_tasks": 15,
+        "tasks_started": 15,
+        "task_timeouts": 0,
+        "elapsed_s": 0.012998000020161271,
+        "status": "layer_exhausted"
+      }
+    },
+    "4": {
+      "count": 1890,
+      "distinct_composition_vectors": 7,
+      "layer_report": {
+        "stabilizer_order": 4,
+        "rho": 0.25,
+        "quota": 20000,
+        "returned": 1890,
+        "fixed_layer_tasks": 35,
+        "tasks_started": 35,
+        "task_timeouts": 0,
+        "elapsed_s": 0.1748199169524014,
+        "status": "layer_exhausted"
+      }
+    },
+    "2": {
+      "count": 20000,
+      "distinct_composition_vectors": 15,
+      "layer_report": {
+        "stabilizer_order": 2,
+        "rho": 0.125,
+        "quota": 20000,
+        "returned": 20000,
+        "fixed_layer_tasks": 15,
+        "tasks_started": 3,
+        "task_timeouts": 0,
+        "elapsed_s": 1.420002541039139,
+        "status": "quota_reached"
+      }
+    },
+    "1": {
+      "count": 20000,
+      "distinct_composition_vectors": 15,
+      "layer_report": {
+        "stabilizer_order": 1,
+        "rho": 0.0625,
+        "quota": 20000,
+        "returned": 20000,
+        "fixed_layer_tasks": 1,
+        "tasks_started": 1,
+        "task_timeouts": 0,
+        "elapsed_s": 1.4987195411231369,
+        "status": "quota_reached"
+      }
+    }
+  },
+  "layer_report": [
+    {
+      "stabilizer_order": 16,
+      "rho": 1.0,
+      "quota": 20000,
+      "returned": 4,
+      "fixed_layer_tasks": 1,
+      "tasks_started": 1,
+      "task_timeouts": 0,
+      "elapsed_s": 0.0007742091547697783,
+      "status": "layer_exhausted"
+    },
+    {
+      "stabilizer_order": 8,
+      "rho": 0.5,
+      "quota": 20000,
+      "returned": 90,
+      "fixed_layer_tasks": 15,
+      "tasks_started": 15,
+      "task_timeouts": 0,
+      "elapsed_s": 0.012998000020161271,
+      "status": "layer_exhausted"
+    },
+    {
+      "stabilizer_order": 4,
+      "rho": 0.25,
+      "quota": 20000,
+      "returned": 1890,
+      "fixed_layer_tasks": 35,
+      "tasks_started": 35,
+      "task_timeouts": 0,
+      "elapsed_s": 0.1748199169524014,
+      "status": "layer_exhausted"
+    },
+    {
+      "stabilizer_order": 2,
+      "rho": 0.125,
+      "quota": 20000,
+      "returned": 20000,
+      "fixed_layer_tasks": 15,
+      "tasks_started": 3,
+      "task_timeouts": 0,
+      "elapsed_s": 1.420002541039139,
+      "status": "quota_reached"
+    },
+    {
+      "stabilizer_order": 1,
+      "rho": 0.0625,
+      "quota": 20000,
+      "returned": 20000,
+      "fixed_layer_tasks": 1,
+      "tasks_started": 1,
+      "task_timeouts": 0,
+      "elapsed_s": 1.4987195411231369,
+      "status": "quota_reached"
+    }
+  ],
+  "log": "C4x2_Cu_B_rho_quota.log",
+  "representatives": "C4x2_Cu_B_rho_quota_representatives.jsonl.gz"
+}

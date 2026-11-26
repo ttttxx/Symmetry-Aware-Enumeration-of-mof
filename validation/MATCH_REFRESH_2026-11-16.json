@@ -1,0 +1,6560 @@
+{
+  "records": [
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.009287457913160324,
+      "peak_rss_mib": 143.53125,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 83,
+        "capacity": 128,
+        "node_bytes": 1328,
+        "capacity_bytes": 2048,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 4.945893306285143e-05,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 37,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00013216689694672823,
+        "search_nodes": 179
+      },
+      "observed_peak_rss_mib": 140.421875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.000739875016734004,
+      "peak_rss_mib": 142.015625,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "observed_peak_rss_mib": 141.890625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.00014999997802078724,
+      "peak_rss_mib": 143.0625,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 136.6875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.0001724999165162444,
+      "peak_rss_mib": 142.9375,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.75,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.003084167023189366,
+      "peak_rss_mib": 142.671875,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "observed_peak_rss_mib": 142.71875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.00028624990954995155,
+      "peak_rss_mib": 143.546875,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "observed_peak_rss_mib": 140.953125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.00014841696247458458,
+      "peak_rss_mib": 142.4375,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 140.734375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.000159708084538579,
+      "peak_rss_mib": 143.5625,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.390625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.00293570791836828,
+      "peak_rss_mib": 143.046875,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "observed_peak_rss_mib": 143.046875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.004502375028096139,
+      "peak_rss_mib": 145.90625,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 83,
+        "capacity": 128,
+        "node_bytes": 1328,
+        "capacity_bytes": 2048,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 5.475024227052927e-05,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 37,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00014995899982750416,
+        "search_nodes": 179
+      },
+      "observed_peak_rss_mib": 144.5,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.00036037503741681576,
+      "peak_rss_mib": 138.03125,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 138.375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.00017300003673881292,
+      "peak_rss_mib": 144.0625,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.9375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.0029153749346733093,
+      "peak_rss_mib": 141.15625,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "observed_peak_rss_mib": 141.09375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.004482083022594452,
+      "peak_rss_mib": 144.140625,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 83,
+        "capacity": 128,
+        "node_bytes": 1328,
+        "capacity_bytes": 2048,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 5.345791578292847e-05,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 37,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00014566711615771055,
+        "search_nodes": 179
+      },
+      "observed_peak_rss_mib": 142.734375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 128,
+      "expected_orbits": 42,
+      "expected_full_orbits": 42,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.0002873750636354089,
+      "peak_rss_mib": 142.59375,
+      "orbits": 42,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "8a2f7dd51e301a8c163f9acef97770266b094aef289eed3ec4a27f9ccfb34ddc",
+      "stabilizer_histogram": {
+        "8": 8,
+        "4": 12,
+        "2": 20,
+        "1": 2
+      },
+      "observed_peak_rss_mib": 141.515625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.003110499936155975,
+      "peak_rss_mib": 144.15625,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "observed_peak_rss_mib": 144.15625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.0017670829547569156,
+      "peak_rss_mib": 139.484375,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 136.640625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.0017322920029982924,
+      "peak_rss_mib": 142.453125,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.140625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.01077541708946228,
+      "peak_rss_mib": 143.28125,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "observed_peak_rss_mib": 142.96875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.004862042027525604,
+      "peak_rss_mib": 145.5,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 790,
+        "capacity": 1024,
+        "node_bytes": 12640,
+        "capacity_bytes": 16384,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.00014158408157527447,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 124,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00014295801520347595,
+        "search_nodes": 1048
+      },
+      "observed_peak_rss_mib": 142.09375,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.0017712080152705312,
+      "peak_rss_mib": 143.34375,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.03125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.0017031250754371285,
+      "peak_rss_mib": 144.015625,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.75,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.010680375038646162,
+      "peak_rss_mib": 142.921875,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "observed_peak_rss_mib": 143.015625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.004867834039032459,
+      "peak_rss_mib": 144.46875,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 790,
+        "capacity": 1024,
+        "node_bytes": 12640,
+        "capacity_bytes": 16384,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.00013266713358461857,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 124,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00014354090671986341,
+        "search_nodes": 1048
+      },
+      "observed_peak_rss_mib": 142.734375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.003095375024713576,
+      "peak_rss_mib": 142.171875,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "observed_peak_rss_mib": 141.875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.0016977079212665558,
+      "peak_rss_mib": 143.359375,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.25,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.01089854200836271,
+      "peak_rss_mib": 143.4375,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "observed_peak_rss_mib": 142.0625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.005319958901964128,
+      "peak_rss_mib": 146.4375,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 790,
+        "capacity": 1024,
+        "node_bytes": 12640,
+        "capacity_bytes": 16384,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.00015366706065833569,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 124,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00015166494995355606,
+        "search_nodes": 1048
+      },
+      "observed_peak_rss_mib": 145.09375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.002924708998762071,
+      "peak_rss_mib": 142.453125,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "02e0ca55e929fae29043e1c3fc23cbf65332edd78f6680350f69745d5536a31d",
+      "stabilizer_histogram": {
+        "8": 27,
+        "4": 108,
+        "2": 270,
+        "1": 108
+      },
+      "observed_peak_rss_mib": 138.640625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2187,
+      "expected_orbits": 513,
+      "expected_full_orbits": 513,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.0017672500107437372,
+      "peak_rss_mib": 143.703125,
+      "orbits": 513,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.06103991693817079,
+      "peak_rss_mib": 141.90625,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 141.78125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.0739829579833895,
+      "peak_rss_mib": 143.890625,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 144.046875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.01678433397319168,
+      "peak_rss_mib": 150.484375,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "3add1883b04e69b1e51e23afcccc74b2f173e8f5147b03a1cde01cf53dec775c",
+      "stabilizer_histogram": {
+        "8": 125,
+        "4": 1500,
+        "2": 6500,
+        "1": 6125
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 18051,
+        "capacity": 32768,
+        "node_bytes": 288816,
+        "capacity_bytes": 524288,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0019147088751196861,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 701,
+        "leaf_visits": 14250,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00016866601072251797,
+        "search_nodes": 19192
+      },
+      "observed_peak_rss_mib": 147.890625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.09148229099810123,
+      "peak_rss_mib": 148.359375,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "3add1883b04e69b1e51e23afcccc74b2f173e8f5147b03a1cde01cf53dec775c",
+      "stabilizer_histogram": {
+        "8": 125,
+        "4": 1500,
+        "2": 6500,
+        "1": 6125
+      },
+      "observed_peak_rss_mib": 147.25,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.05715616699308157,
+      "peak_rss_mib": 142.65625,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.578125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.014620792004279792,
+      "peak_rss_mib": 148.8125,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "3add1883b04e69b1e51e23afcccc74b2f173e8f5147b03a1cde01cf53dec775c",
+      "stabilizer_histogram": {
+        "8": 125,
+        "4": 1500,
+        "2": 6500,
+        "1": 6125
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 18051,
+        "capacity": 32768,
+        "node_bytes": 288816,
+        "capacity_bytes": 524288,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0018102081958204508,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 701,
+        "leaf_visits": 14250,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00015229207929223776,
+        "search_nodes": 19192
+      },
+      "observed_peak_rss_mib": 147.046875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.09228083293419331,
+      "peak_rss_mib": 146.859375,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "3add1883b04e69b1e51e23afcccc74b2f173e8f5147b03a1cde01cf53dec775c",
+      "stabilizer_histogram": {
+        "8": 125,
+        "4": 1500,
+        "2": 6500,
+        "1": 6125
+      },
+      "observed_peak_rss_mib": 145.9375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.06270837492775172,
+      "peak_rss_mib": 143.328125,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.171875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.014821582939475775,
+      "peak_rss_mib": 149.484375,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "3add1883b04e69b1e51e23afcccc74b2f173e8f5147b03a1cde01cf53dec775c",
+      "stabilizer_histogram": {
+        "8": 125,
+        "4": 1500,
+        "2": 6500,
+        "1": 6125
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 18051,
+        "capacity": 32768,
+        "node_bytes": 288816,
+        "capacity_bytes": 524288,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0018207910470664501,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 701,
+        "leaf_visits": 14250,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00015545706264674664,
+        "search_nodes": 19192
+      },
+      "observed_peak_rss_mib": 147.859375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.0913577500032261,
+      "peak_rss_mib": 147.96875,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "3add1883b04e69b1e51e23afcccc74b2f173e8f5147b03a1cde01cf53dec775c",
+      "stabilizer_histogram": {
+        "8": 125,
+        "4": 1500,
+        "2": 6500,
+        "1": 6125
+      },
+      "observed_peak_rss_mib": 147.96875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.06023062497843057,
+      "peak_rss_mib": 143.0,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.890625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 78125,
+      "expected_orbits": 14250,
+      "expected_full_orbits": 14250,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.05795008304994553,
+      "peak_rss_mib": 143.390625,
+      "orbits": 14250,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.359375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 1.6562928330386057,
+      "peak_rss_mib": 142.640625,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.640625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.5049592920113355,
+      "peak_rss_mib": 378.984375,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "9d5b45926a88b40b7559909f3e9332b6f687f38c77dee7904eba9b71574880df",
+      "stabilizer_histogram": {
+        "8": 1125,
+        "4": 41625,
+        "2": 171000,
+        "1": 167625
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 410776,
+        "capacity": 524288,
+        "node_bytes": 6572416,
+        "capacity_bytes": 8388608,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.04856291494797915,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 4351,
+        "leaf_visits": 381375,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00018850213382393122,
+        "search_nodes": 416437
+      },
+      "observed_peak_rss_mib": 380.875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 2.7533259160118178,
+      "peak_rss_mib": 279.59375,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "9d5b45926a88b40b7559909f3e9332b6f687f38c77dee7904eba9b71574880df",
+      "stabilizer_histogram": {
+        "8": 1125,
+        "4": 41625,
+        "2": 171000,
+        "1": 167625
+      },
+      "observed_peak_rss_mib": 287.625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 1.6296907080104575,
+      "peak_rss_mib": 143.09375,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.0625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.5025457079755142,
+      "peak_rss_mib": 374.796875,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "9d5b45926a88b40b7559909f3e9332b6f687f38c77dee7904eba9b71574880df",
+      "stabilizer_histogram": {
+        "8": 1125,
+        "4": 41625,
+        "2": 171000,
+        "1": 167625
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 410776,
+        "capacity": 524288,
+        "node_bytes": 6572416,
+        "capacity_bytes": 8388608,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.04879958217497915,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 4351,
+        "leaf_visits": 381375,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00019745912868529558,
+        "search_nodes": 416437
+      },
+      "observed_peak_rss_mib": 382.125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 2.6538456660928205,
+      "peak_rss_mib": 274.125,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "9d5b45926a88b40b7559909f3e9332b6f687f38c77dee7904eba9b71574880df",
+      "stabilizer_histogram": {
+        "8": 1125,
+        "4": 41625,
+        "2": 171000,
+        "1": 167625
+      },
+      "observed_peak_rss_mib": 279.765625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 1.6063978330930695,
+      "peak_rss_mib": 142.46875,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.609375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 1.5204680829774588,
+      "peak_rss_mib": 143.109375,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.203125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 2.7569241249002516,
+      "peak_rss_mib": 270.453125,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "9d5b45926a88b40b7559909f3e9332b6f687f38c77dee7904eba9b71574880df",
+      "stabilizer_histogram": {
+        "8": 1125,
+        "4": 41625,
+        "2": 171000,
+        "1": 167625
+      },
+      "observed_peak_rss_mib": 279.46875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 1.5784291250165552,
+      "peak_rss_mib": 143.34375,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.484375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 1.530924207996577,
+      "peak_rss_mib": 142.296875,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "sites": 7,
+      "degrees": {
+        "4": 3,
+        "3": 4
+      },
+      "group_size": 8,
+      "casm_full_size": 16,
+      "naive": 2109375,
+      "expected_orbits": 381375,
+      "expected_full_orbits": 381375,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch",
+          "3c_uranyl"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch",
+          "4c_Cu_1_Ch",
+          "4c_In_1_Ch",
+          "4c_Ni_1_Ch",
+          "4c_V_1_Ch",
+          "4c_Zn_tet",
+          "4c_bicyclooctane_Ch",
+          "4c_ethene_Ch",
+          "4c_porphyrin_Ch",
+          "4c_pyrene_Ch",
+          "4c_pyrene_NU_Ch",
+          "4c_tetrathiafulvalene_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.50661941699218,
+      "peak_rss_mib": 377.640625,
+      "orbits": 381375,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "9d5b45926a88b40b7559909f3e9332b6f687f38c77dee7904eba9b71574880df",
+      "stabilizer_histogram": {
+        "8": 1125,
+        "4": 41625,
+        "2": 171000,
+        "1": 167625
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 410776,
+        "capacity": 524288,
+        "node_bytes": 6572416,
+        "capacity_bytes": 8388608,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.048356876824982464,
+      "task_stats": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 4351,
+        "leaf_visits": 381375,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00019750010687857866,
+        "search_nodes": 416437
+      },
+      "observed_peak_rss_mib": 379.71875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.11959679191932082,
+      "peak_rss_mib": 145.609375,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "observed_peak_rss_mib": 145.796875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.04473108297679573,
+      "peak_rss_mib": 144.796875,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 787,
+        "capacity": 1024,
+        "node_bytes": 12592,
+        "capacity_bytes": 16384,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0008385417750105262,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 708,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004396458389237523,
+        "search_nodes": 7473
+      },
+      "observed_peak_rss_mib": 143.8125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.0058924580225721,
+      "peak_rss_mib": 143.625,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "observed_peak_rss_mib": 143.96875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.004418125026859343,
+      "peak_rss_mib": 143.125,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.203125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.003358416957780719,
+      "peak_rss_mib": 143.078125,
+      "orbits": 265,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.46875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.04379433405119926,
+      "peak_rss_mib": 145.328125,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 787,
+        "capacity": 1024,
+        "node_bytes": 12592,
+        "capacity_bytes": 16384,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0008778749033808708,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 708,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004369496717117727,
+        "search_nodes": 7473
+      },
+      "observed_peak_rss_mib": 144.328125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.012665749993175268,
+      "peak_rss_mib": 143.734375,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "observed_peak_rss_mib": 142.125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.00748016603756696,
+      "peak_rss_mib": 134.125,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 134.0625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.0034557079197838902,
+      "peak_rss_mib": 144.0,
+      "orbits": 265,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.890625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.12127979099750519,
+      "peak_rss_mib": 145.921875,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "observed_peak_rss_mib": 146.125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.006021167035214603,
+      "peak_rss_mib": 143.015625,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "observed_peak_rss_mib": 143.296875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.0046145409578457475,
+      "peak_rss_mib": 143.3125,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.890625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.003365333890542388,
+      "peak_rss_mib": 143.046875,
+      "orbits": 265,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 141.109375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.12148520792834461,
+      "peak_rss_mib": 145.15625,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "observed_peak_rss_mib": 145.0625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 4096,
+      "expected_orbits": 394,
+      "expected_full_orbits": 265,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.046837792033329606,
+      "peak_rss_mib": 144.203125,
+      "orbits": 394,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "b6130261df5e8e40bfe3a7cbb4a0d78b6befe835c30a1616600f9f8107757101",
+      "stabilizer_histogram": {
+        "16": 8,
+        "8": 24,
+        "4": 50,
+        "2": 144,
+        "1": 168
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 787,
+        "capacity": 1024,
+        "node_bytes": 12592,
+        "capacity_bytes": 16384,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0010174618801102042,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 708,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0044148730812594295,
+        "search_nodes": 7473
+      },
+      "observed_peak_rss_mib": 143.1875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.0502682919614017,
+      "peak_rss_mib": 145.71875,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 9512,
+        "capacity": 16384,
+        "node_bytes": 152192,
+        "capacity_bytes": 262144,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0019048327812924981,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 1410,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00481670827139169,
+        "search_nodes": 14364
+      },
+      "observed_peak_rss_mib": 147.71875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.09047237504273653,
+      "peak_rss_mib": 145.4375,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "observed_peak_rss_mib": 145.5625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.07337825000286102,
+      "peak_rss_mib": 143.28125,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.3125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.060361624928191304,
+      "peak_rss_mib": 144.515625,
+      "orbits": 2476,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 144.53125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.2409662090940401,
+      "peak_rss_mib": 147.34375,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "observed_peak_rss_mib": 148.734375,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.09283141710329801,
+      "peak_rss_mib": 145.03125,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "observed_peak_rss_mib": 145.8125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.07594837492797524,
+      "peak_rss_mib": 143.765625,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.765625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.15044912497978657,
+      "peak_rss_mib": 142.5625,
+      "orbits": 2476,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.609375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.2495207500178367,
+      "peak_rss_mib": 148.0,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "observed_peak_rss_mib": 150.65625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.04911416594404727,
+      "peak_rss_mib": 147.609375,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 9512,
+        "capacity": 16384,
+        "node_bytes": 152192,
+        "capacity_bytes": 262144,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0018978349398821592,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 1410,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00476474326569587,
+        "search_nodes": 14364
+      },
+      "observed_peak_rss_mib": 148.46875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.08592562505509704,
+      "peak_rss_mib": 145.1875,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 145.1875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.06158658303320408,
+      "peak_rss_mib": 144.015625,
+      "orbits": 2476,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 144.4375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 0.2469712080201134,
+      "peak_rss_mib": 147.984375,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "observed_peak_rss_mib": 150.0,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.04865895805414766,
+      "peak_rss_mib": 145.90625,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 9512,
+        "capacity": 16384,
+        "node_bytes": 152192,
+        "capacity_bytes": 262144,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.0019373774994164705,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 1410,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004727665102109313,
+        "search_nodes": 14364
+      },
+      "observed_peak_rss_mib": 142.828125,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 65536,
+      "expected_orbits": 4756,
+      "expected_full_orbits": 2476,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.09181270806584507,
+      "peak_rss_mib": 146.0,
+      "orbits": 4756,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "dccd5ea1e362e8adf091dc4763cb0a281f3e44025ca631fc2c5e0368887339d6",
+      "stabilizer_histogram": {
+        "16": 4,
+        "8": 18,
+        "4": 114,
+        "2": 1110,
+        "1": 3510
+      },
+      "observed_peak_rss_mib": 146.0625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.6471547089749947,
+      "peak_rss_mib": 156.0625,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "observed_peak_rss_mib": 161.5625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.5512906670337543,
+      "peak_rss_mib": 143.796875,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.8125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.42650258308276534,
+      "peak_rss_mib": 142.703125,
+      "orbits": 20655,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.65625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 2.51219633303117,
+      "peak_rss_mib": 318.578125,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "observed_peak_rss_mib": 323.59375,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.10567141603678465,
+      "peak_rss_mib": 171.546875,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 59515,
+        "capacity": 65536,
+        "node_bytes": 952240,
+        "capacity_bytes": 1048576,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.030214664642699063,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 8959,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004338333383202553,
+        "search_nodes": 620936
+      },
+      "observed_peak_rss_mib": 175.328125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.5483384999679402,
+      "peak_rss_mib": 143.171875,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.171875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.41494029096793383,
+      "peak_rss_mib": 143.59375,
+      "orbits": 20655,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.578125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 2.6430833749473095,
+      "peak_rss_mib": 309.078125,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "observed_peak_rss_mib": 314.46875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.10514770797453821,
+      "peak_rss_mib": 172.21875,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 59515,
+        "capacity": 65536,
+        "node_bytes": 952240,
+        "capacity_bytes": 1048576,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.030688418308272958,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 8959,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004280582768842578,
+        "search_nodes": 620936
+      },
+      "observed_peak_rss_mib": 176.984375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.659135166904889,
+      "peak_rss_mib": 162.609375,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "observed_peak_rss_mib": 168.078125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 0.4194823750294745,
+      "peak_rss_mib": 143.1875,
+      "orbits": 20655,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.171875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "legacy",
+      "time_s": 2.4056510409573093,
+      "peak_rss_mib": 307.53125,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "observed_peak_rss_mib": 313.0,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 0.10698804189451039,
+      "peak_rss_mib": 172.15625,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 59515,
+        "capacity": 65536,
+        "node_bytes": 952240,
+        "capacity_bytes": 1048576,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.030983999953605235,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 8959,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004305412294343114,
+        "search_nodes": 620936
+      },
+      "observed_peak_rss_mib": 177.3125,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 0.6543544579762965,
+      "peak_rss_mib": 161.859375,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "961220642bae5b39a257ae0ae1dde51f33c8e680b559a0db88701f4fce5d81c2",
+      "stabilizer_histogram": {
+        "16": 27,
+        "8": 189,
+        "4": 675,
+        "2": 4914,
+        "1": 30564
+      },
+      "observed_peak_rss_mib": 167.5625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 531441,
+      "expected_orbits": 36369,
+      "expected_full_orbits": 20655,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 0.5405314579838887,
+      "peak_rss_mib": 143.90625,
+      "orbits": 36369,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.90625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 12.80569879093673,
+      "peak_rss_mib": 143.953125,
+      "orbits": 577456,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.953125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 2.768558541079983,
+      "peak_rss_mib": 880.234375,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "e4b82836306231cb6e814490fb4fdb61535b7bf7a55278315a270ac7efc0f4ad",
+      "stabilizer_histogram": {
+        "16": 64,
+        "8": 768,
+        "4": 3984,
+        "2": 53040,
+        "1": 1020960
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 1541373,
+        "capacity": 2097152,
+        "node_bytes": 24661968,
+        "capacity_bytes": 33554432,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.8401929180836305,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 68484,
+        "leaf_visits": 1078816,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004376665921881795,
+        "search_nodes": 18547641
+      },
+      "observed_peak_rss_mib": 899.71875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 21.003366625052877,
+      "peak_rss_mib": 720.078125,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "e4b82836306231cb6e814490fb4fdb61535b7bf7a55278315a270ac7efc0f4ad",
+      "stabilizer_histogram": {
+        "16": 64,
+        "8": 768,
+        "4": 3984,
+        "2": 53040,
+        "1": 1020960
+      },
+      "observed_peak_rss_mib": 767.078125,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 17.068950874963775,
+      "peak_rss_mib": 143.15625,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.15625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 2.7502799161011353,
+      "peak_rss_mib": 887.515625,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "e4b82836306231cb6e814490fb4fdb61535b7bf7a55278315a270ac7efc0f4ad",
+      "stabilizer_histogram": {
+        "16": 64,
+        "8": 768,
+        "4": 3984,
+        "2": 53040,
+        "1": 1020960
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 1541373,
+        "capacity": 2097152,
+        "node_bytes": 24661968,
+        "capacity_bytes": 33554432,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.8406325421528891,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 68484,
+        "leaf_visits": 1078816,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004364833002910018,
+        "search_nodes": 18547641
+      },
+      "observed_peak_rss_mib": 899.75,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 20.935415084008127,
+      "peak_rss_mib": 733.5625,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "e4b82836306231cb6e814490fb4fdb61535b7bf7a55278315a270ac7efc0f4ad",
+      "stabilizer_histogram": {
+        "16": 64,
+        "8": 768,
+        "4": 3984,
+        "2": 53040,
+        "1": 1020960
+      },
+      "observed_peak_rss_mib": 779.75,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 17.670885249972343,
+      "peak_rss_mib": 143.375,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 13.230334582971409,
+      "peak_rss_mib": 143.296875,
+      "orbits": 577456,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.28125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 20.832464791019447,
+      "peak_rss_mib": 700.546875,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "e4b82836306231cb6e814490fb4fdb61535b7bf7a55278315a270ac7efc0f4ad",
+      "stabilizer_histogram": {
+        "16": 64,
+        "8": 768,
+        "4": 3984,
+        "2": 53040,
+        "1": 1020960
+      },
+      "observed_peak_rss_mib": 760.78125,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 17.44636070902925,
+      "peak_rss_mib": 143.296875,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.296875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 12.806205916916952,
+      "peak_rss_mib": 143.09375,
+      "orbits": 577456,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.09375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "sites": 28,
+      "degrees": {
+        "4": 12,
+        "3": 16
+      },
+      "group_size": 16,
+      "casm_full_size": 32,
+      "naive": 16777216,
+      "expected_orbits": 1078816,
+      "expected_full_orbits": 577456,
+      "pools": {
+        "3": [
+          "3c_B_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch",
+          "4c_Cd_1_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 2.808024415979162,
+      "peak_rss_mib": 922.71875,
+      "orbits": 1078816,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "e4b82836306231cb6e814490fb4fdb61535b7bf7a55278315a270ac7efc0f4ad",
+      "stabilizer_histogram": {
+        "16": 64,
+        "8": 768,
+        "4": 3984,
+        "2": 53040,
+        "1": 1020960
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 1541373,
+        "capacity": 2097152,
+        "node_bytes": 24661968,
+        "capacity_bytes": 33554432,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.8463798351585865,
+      "task_stats": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 68484,
+        "leaf_visits": 1078816,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004376381984911859,
+        "search_nodes": 18547641
+      },
+      "observed_peak_rss_mib": 936.09375,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 1.8800975000485778,
+      "peak_rss_mib": 835.4375,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "84efd22a113e191115f8a7ff25280ee5635730990b84d21865673bf442849c9f",
+      "stabilizer_histogram": {
+        "4": 48,
+        "2": 3384,
+        "1": 1325400
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 1775504,
+        "capacity": 2097152,
+        "node_bytes": 28408064,
+        "capacity_bytes": 33554432,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.16395258286502212,
+      "task_stats": {
+        "tasks": 5,
+        "completed_tasks": 5,
+        "pruned_prefixes": 3576,
+        "leaf_visits": 1328832,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00012379279360175133,
+        "search_nodes": 1784605
+      },
+      "observed_peak_rss_mib": 837.640625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 6.859167542075738,
+      "peak_rss_mib": 686.3125,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "84efd22a113e191115f8a7ff25280ee5635730990b84d21865673bf442849c9f",
+      "stabilizer_histogram": {
+        "4": 48,
+        "2": 3384,
+        "1": 1325400
+      },
+      "observed_peak_rss_mib": 718.9375,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 3.956770082935691,
+      "peak_rss_mib": 142.171875,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.046875,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 3.7838671249337494,
+      "peak_rss_mib": 143.421875,
+      "orbits": 667872,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.390625,
+      "rep": 0,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 6.758318542037159,
+      "peak_rss_mib": 700.9375,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "84efd22a113e191115f8a7ff25280ee5635730990b84d21865673bf442849c9f",
+      "stabilizer_histogram": {
+        "4": 48,
+        "2": 3384,
+        "1": 1325400
+      },
+      "observed_peak_rss_mib": 733.59375,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 3.6848827499197796,
+      "peak_rss_mib": 143.546875,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.546875,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 3.934646208072081,
+      "peak_rss_mib": 143.484375,
+      "orbits": 667872,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.515625,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 2.0064345420105383,
+      "peak_rss_mib": 852.125,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "84efd22a113e191115f8a7ff25280ee5635730990b84d21865673bf442849c9f",
+      "stabilizer_histogram": {
+        "4": 48,
+        "2": 3384,
+        "1": 1325400
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 1775504,
+        "capacity": 2097152,
+        "node_bytes": 28408064,
+        "capacity_bytes": 33554432,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.16416320821736008,
+      "task_stats": {
+        "tasks": 5,
+        "completed_tasks": 5,
+        "pruned_prefixes": 3576,
+        "leaf_visits": 1328832,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00012770877219736576,
+        "search_nodes": 1784605
+      },
+      "observed_peak_rss_mib": 860.953125,
+      "rep": 1,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_count",
+      "time_s": 3.730587875004858,
+      "peak_rss_mib": 143.78125,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 143.78125,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_full",
+      "time_s": 3.8632035829359666,
+      "peak_rss_mib": 142.203125,
+      "orbits": 667872,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "observed_peak_rss_mib": 142.171875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "ours",
+      "time_s": 1.9524305410450324,
+      "peak_rss_mib": 842.296875,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "84efd22a113e191115f8a7ff25280ee5635730990b84d21865673bf442849c9f",
+      "stabilizer_histogram": {
+        "4": 48,
+        "2": 3384,
+        "1": 1325400
+      },
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 0,
+        "nodes_created": 0,
+        "live_nodes": 0,
+        "peak_nodes": 0,
+        "budget_skips": 0,
+        "snapshots": 0,
+        "forests": 0,
+        "retained_nodes_before_release": 0
+      },
+      "index_stats": {
+        "trie_enabled": 1,
+        "nodes": 1775504,
+        "capacity": 2097152,
+        "node_bytes": 28408064,
+        "capacity_bytes": 33554432,
+        "hash_keys": 0,
+        "hash_buckets": 0
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "native_kernel_s": 0.15893408097326756,
+      "task_stats": {
+        "tasks": 5,
+        "completed_tasks": 5,
+        "pruned_prefixes": 3576,
+        "leaf_visits": 1328832,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00012370909098535776,
+        "search_nodes": 1784605
+      },
+      "observed_peak_rss_mib": 846.921875,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "sites": 12,
+      "degrees": {
+        "4": 4,
+        "3": 8
+      },
+      "group_size": 4,
+      "casm_full_size": 8,
+      "naive": 5308416,
+      "expected_orbits": 1328832,
+      "expected_full_orbits": 667872,
+      "pools": {
+        "3": [
+          "3c_B_Ch",
+          "3c_Cu_imadazoline_Ch",
+          "3c_pyrrole_Ch",
+          "3c_triazine_Ch"
+        ],
+        "4": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ]
+      },
+      "site_action_matches": true,
+      "side": "casm_records",
+      "time_s": 6.81688249995932,
+      "peak_rss_mib": 699.828125,
+      "orbits": 1328832,
+      "status": "exhaustive",
+      "python": "3.11.1",
+      "casm_version": "2.3.1",
+      "record_digest": "84efd22a113e191115f8a7ff25280ee5635730990b84d21865673bf442849c9f",
+      "stabilizer_histogram": {
+        "4": 48,
+        "2": 3384,
+        "1": 1325400
+      },
+      "observed_peak_rss_mib": 729.0625,
+      "rep": 2,
+      "watchdog_timeout_s": 180,
+      "watchdog_memory_mib": 1536
+    }
+  ],
+  "summary": [
+    {
+      "topology": "ffc",
+      "c3": 2,
+      "c4": 2,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "naive": 128,
+      "orbits": 42,
+      "group_size": 8,
+      "ours_median_s": 0.004502375028096139,
+      "ours_median_rss_mib": 144.140625,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "casm_records_median_s": 0.0002873750636354089,
+      "casm_records_median_rss_mib": 142.59375,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 0.00014999997802078724,
+      "casm_count_median_rss_mib": 142.4375,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "casm_full_median_s": 0.0001724999165162444,
+      "casm_full_median_rss_mib": 143.5625,
+      "legacy_complete_reps": 3,
+      "legacy_status": "exhaustive",
+      "legacy_median_s": 0.00293570791836828,
+      "legacy_median_rss_mib": 142.671875,
+      "matched_record_digests": true,
+      "matched_records_speedup": 0.06382743815033272,
+      "vs_casm_count_speedup": 0.033315744931229276
+    },
+    {
+      "topology": "ffc",
+      "c3": 3,
+      "c4": 3,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "naive": 2187,
+      "orbits": 513,
+      "group_size": 8,
+      "casm_records_median_s": 0.003095375024713576,
+      "casm_records_median_rss_mib": 142.453125,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 0.0017672500107437372,
+      "casm_count_median_rss_mib": 143.34375,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "casm_full_median_s": 0.0017031250754371285,
+      "casm_full_median_rss_mib": 143.359375,
+      "legacy_complete_reps": 3,
+      "legacy_status": "exhaustive",
+      "legacy_median_s": 0.01077541708946228,
+      "legacy_median_rss_mib": 143.28125,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "ours_median_s": 0.004867834039032459,
+      "ours_median_rss_mib": 145.5,
+      "matched_record_digests": true,
+      "matched_records_speedup": 0.6358834339653903,
+      "vs_casm_count_speedup": 0.36304647951699676
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 5,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "naive": 78125,
+      "orbits": 14250,
+      "group_size": 8,
+      "casm_count_median_s": 0.06103991693817079,
+      "casm_count_median_rss_mib": 143.0,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "casm_full_median_s": 0.05795008304994553,
+      "casm_full_median_rss_mib": 143.390625,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "ours_median_s": 0.014821582939475775,
+      "ours_median_rss_mib": 149.484375,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "casm_records_median_s": 0.09148229099810123,
+      "casm_records_median_rss_mib": 147.96875,
+      "matched_record_digests": true,
+      "matched_records_speedup": 6.17223486665837,
+      "vs_casm_count_speedup": 4.118312948585079
+    },
+    {
+      "topology": "ffc",
+      "c3": 5,
+      "c4": 15,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "naive": 2109375,
+      "orbits": 381375,
+      "group_size": 8,
+      "casm_full_median_s": 1.530924207996577,
+      "casm_full_median_rss_mib": 142.640625,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "ours_median_s": 0.5049592920113355,
+      "ours_median_rss_mib": 377.640625,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "casm_records_median_s": 2.7533259160118178,
+      "casm_records_median_rss_mib": 274.125,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 1.6063978330930695,
+      "casm_count_median_rss_mib": 143.09375,
+      "matched_record_digests": true,
+      "matched_records_speedup": 5.452570057766182,
+      "vs_casm_count_speedup": 3.1812422476562894
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 2,
+      "legacy_complete_reps": 3,
+      "legacy_status": "exhaustive",
+      "naive": 4096,
+      "orbits": 394,
+      "group_size": 16,
+      "legacy_median_s": 0.12127979099750519,
+      "legacy_median_rss_mib": 145.609375,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "ours_median_s": 0.04473108297679573,
+      "ours_median_rss_mib": 144.796875,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "casm_records_median_s": 0.006021167035214603,
+      "casm_records_median_rss_mib": 143.625,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 0.0046145409578457475,
+      "casm_count_median_rss_mib": 143.125,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "casm_full_median_s": 0.003365333890542388,
+      "casm_full_median_rss_mib": 143.078125,
+      "matched_record_digests": true,
+      "matched_records_speedup": 0.134608121121013,
+      "vs_casm_count_speedup": 0.10316184296811107
+    },
+    {
+      "topology": "fjh",
+      "c3": 2,
+      "c4": 1,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "naive": 65536,
+      "orbits": 4756,
+      "group_size": 16,
+      "ours_median_s": 0.04911416594404727,
+      "ours_median_rss_mib": 145.90625,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "casm_records_median_s": 0.09181270806584507,
+      "casm_records_median_rss_mib": 145.4375,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 0.07594837492797524,
+      "casm_count_median_rss_mib": 143.765625,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "casm_full_median_s": 0.06158658303320408,
+      "casm_full_median_rss_mib": 144.015625,
+      "legacy_complete_reps": 3,
+      "legacy_status": "exhaustive",
+      "legacy_median_s": 0.2469712080201134,
+      "legacy_median_rss_mib": 147.984375,
+      "matched_record_digests": true,
+      "matched_records_speedup": 1.8693732510991148,
+      "vs_casm_count_speedup": 1.546363935295135
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 3,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "naive": 531441,
+      "orbits": 36369,
+      "group_size": 16,
+      "casm_records_median_s": 0.6543544579762965,
+      "casm_records_median_rss_mib": 161.859375,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 0.5483384999679402,
+      "casm_count_median_rss_mib": 143.796875,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "casm_full_median_s": 0.4194823750294745,
+      "casm_full_median_rss_mib": 143.1875,
+      "legacy_complete_reps": 3,
+      "legacy_status": "exhaustive",
+      "legacy_median_s": 2.51219633303117,
+      "legacy_median_rss_mib": 309.078125,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "ours_median_s": 0.10567141603678465,
+      "ours_median_rss_mib": 172.15625,
+      "matched_record_digests": true,
+      "matched_records_speedup": 6.192350613987354,
+      "vs_casm_count_speedup": 5.189090110963037
+    },
+    {
+      "topology": "fjh",
+      "c3": 1,
+      "c4": 4,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "naive": 16777216,
+      "orbits": 1078816,
+      "group_size": 16,
+      "casm_full_median_s": 12.806205916916952,
+      "casm_full_median_rss_mib": 143.296875,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "ours_median_s": 2.768558541079983,
+      "ours_median_rss_mib": 887.515625,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "casm_records_median_s": 20.935415084008127,
+      "casm_records_median_rss_mib": 720.078125,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 17.44636070902925,
+      "casm_count_median_rss_mib": 143.296875,
+      "matched_record_digests": true,
+      "matched_records_speedup": 7.561846633678716,
+      "vs_casm_count_speedup": 6.3016044089945895
+    },
+    {
+      "topology": "lil",
+      "c3": 4,
+      "c4": 3,
+      "ours_complete_reps": 3,
+      "ours_status": "exhaustive",
+      "naive": 5308416,
+      "orbits": 1328832,
+      "group_size": 4,
+      "ours_median_s": 1.9524305410450324,
+      "ours_median_rss_mib": 842.296875,
+      "casm_records_complete_reps": 3,
+      "casm_records_status": "exhaustive",
+      "casm_records_median_s": 6.81688249995932,
+      "casm_records_median_rss_mib": 699.828125,
+      "casm_count_complete_reps": 3,
+      "casm_count_status": "exhaustive",
+      "casm_count_median_s": 3.730587875004858,
+      "casm_count_median_rss_mib": 143.546875,
+      "casm_full_complete_reps": 3,
+      "casm_full_status": "exhaustive",
+      "casm_full_median_s": 3.8632035829359666,
+      "casm_full_median_rss_mib": 143.421875,
+      "matched_record_digests": true,
+      "matched_records_speedup": 3.4914852829082483,
+      "vs_casm_count_speedup": 1.9107403805556493
+    }
+  ]
+}

@@ -12,37 +12,39 @@ def test_spearman_negative_trend():
         {"rho": 0.25,  "dft_e_per_atom": -9.0,  "sym_class": "Med"},
         {"rho": 0.125, "dft_e_per_atom": -8.5,  "sym_class": "Low"},
     ]
-    rs, p, lowest_in_high = _spearman_for_comp(records)
+    rs, p, lowest_at_max_rho, n = _spearman_for_comp(records)
     assert rs < 0, f"Expected rs<0, got {rs}"
-    assert lowest_in_high is True
+    assert lowest_at_max_rho is True
+    assert n == 4
 
 
-def test_fjh_gate_passes():
+def test_retention_gate_passes_for_medium_high_minima():
     from dft_validation.analyze import get_fjh_gate
     comp_results = {
-        "comp_a": {"spearman_rs": -0.9, "p_val": 0.05, "lowest_in_high": True},
-        "comp_b": {"spearman_rs": -0.8, "p_val": 0.08, "lowest_in_high": True},
+        "comp_a": {"n": 4, "lowest_rho": 0.5, "lowest_band": "Medium"},
+        "comp_b": {"n": 4, "lowest_rho": 1.0, "lowest_band": "High"},
     }
     passed, reason = get_fjh_gate(comp_results)
     assert passed is True
 
 
-def test_fjh_gate_fails_on_not_in_high():
+def test_retention_gate_fails_on_low_minimum():
     from dft_validation.analyze import get_fjh_gate
     comp_results = {
-        "comp_a": {"spearman_rs": -0.9, "p_val": 0.05, "lowest_in_high": False},
-        "comp_b": {"spearman_rs": -0.8, "p_val": 0.08, "lowest_in_high": True},
+        "comp_a": {"n": 4, "lowest_rho": 0.25, "lowest_band": "Low"},
+        "comp_b": {"n": 4, "lowest_rho": 1.0, "lowest_band": "High"},
     }
     passed, reason = get_fjh_gate(comp_results)
     assert passed is False
     assert "comp_a" in reason
 
 
-def test_fjh_gate_fails_on_positive_rs():
+def test_retention_gate_pending_on_insufficient_converged_points():
     from dft_validation.analyze import get_fjh_gate
     comp_results = {
-        "comp_a": {"spearman_rs": 0.3,  "p_val": 0.5,  "lowest_in_high": True},
-        "comp_b": {"spearman_rs": -0.8, "p_val": 0.08, "lowest_in_high": True},
+        "comp_a": {"n": 1, "lowest_rho": 0.5, "lowest_band": "Medium"},
+        "comp_b": {"n": 4, "lowest_rho": 1.0, "lowest_band": "High"},
     }
     passed, reason = get_fjh_gate(comp_results)
-    assert passed is False
+    assert passed is None
+    assert "insufficient" in reason

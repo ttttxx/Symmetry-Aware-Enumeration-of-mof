@@ -1,82 +1,355 @@
-# Worklog
+# 工作记录摘要
 
-## 2026-06-30
+本文只保留阶段性决策与仍有续接价值的结果。逐轮修改细节可从 Git 历史查看，具体事实以当前源码和数据为准。
 
-Created persistent Codex project memory under `codex/`.
+## 2026-11-09：生成无中文翻译注释的 MATCH 副本
 
-Captured current MOF enumeration project state:
+- 保留 `paper/main_MATCH.tex`，另生成同目录 `paper/match.tex`。
+- 从副本删除 90 条中文翻译注释，包括表格对照和英文行尾翻译；保留少量中文编辑备注/小节提示。未编译。
 
-- Core graph/group-theory enumeration model and Symmetry Index definition.
-- Existing main modules and their responsibilities.
-- Current DFT validation strategy using composition-controlled comparisons.
-- Rationale for moving from small `ffc` validation to richer `fjh` topology.
-- CP2K single-point DFT method, server paths, and runbook.
-- Paper wording direction: qualitative validation and pre-screening heuristic, not a stability guarantee.
+## 2026-11-09：MATCH 结果用词与 DFT 图注补充
 
-Next time, start by reading `codex/README.md`, `codex/PROJECT_STATE.md`, and `codex/NEXT_ACTIONS.md`.
+- 按全文审读反馈，将 Results 开头的 `node placement` 改为 `node assignments`，使离散节点指派与后续几何放置用词区分。
+- 在 DFT 图注简要解释 `fjh` 的 `comp_a`、`comp_b`：二者都含 16 个 `3c_B_Ch`，分别含 4/8 个 `4c_B_Ch` 和 8/4 个 `4c_Cd_1_Ch`。组成计数核对 `single_point_dft_source_data.csv`。
+- 英文正文与中文辅助注释同步；未运行编译或测试。
 
-Updated DFT validation execution and paper figure wiring:
+## 2026-11-09：MATCH 引言与摘要口径
 
-- Added batch-level CP2K concurrency in `dft_validation/run_dft_validation.py`.
-- Kept CP2K itself as `.ssmp` OpenMP; concurrency now means multiple independent single-point jobs in parallel.
-- Added resource knobs in `dft_validation/config.py`: `DFT_PARALLEL`, `DFT_MAX_WORKERS`, and `DFT_JOB_MEM_GB`.
-- Kept conservative defaults for the shared Lab207 server: `ffc=4` concurrent jobs, `fjh=2` concurrent jobs, `CP2K_OMP=16`.
-- Clarified that analysis outputs separate topology figures: `rho_energy_ffc.png` and `rho_energy_fjh.png`.
-- Updated `paper/main.tex` to use separate `ffc` and `fjh` panels instead of the old `physical_validation_relative.png` placeholder.
-- Fixed a stale config comment so production DFT consistently says `500 / 60 Ry`.
+- 修改并复核引言候选生成综述、方法比较表及对称等价问题表述；遗传算法文献更换为直接支持 MOF 候选结构搜索的 Pham–Snurr 2025。英文与中文辅助注释同步。
+- 摘要定位为方法可行及起始模型可供后续评价；吸附和单点 DFT 仅作用途示范。群等价限定在所选对称群，完整轨道覆盖限定于穷尽运行。
+- 最近轮次未编译 LaTeX；版宽复核留在 `NEXT_ACTIONS.md`。
 
-Operational caution: before restarting with the new parallel runner on the server, stop the old nohup Python/CP2K process tree to avoid duplicate runs for the same structures.
+## 2026-11-08：摘要术语与方法衔接
 
-Refined validation strategy after questioning whether `fjh` 2/rho is sufficient:
+- 统一模型首次生成相关术语为 construction/constructed；保留模板无关键词格式。
+- 在 2.2 固定点任务和前缀剪枝处补足方法定义到实现的衔接，未改算法、公式或代码；未编译。
 
-- Increased recommended `fjh` sampling to 2 composition groups and up to 4 structures per distinct `rho`.
-- Added `--harvest-only` to parse existing `cp2k_run.out` files into `selected_structures.json` without launching CP2K.
-- Added `--summary` to print a compact energy table for checking whether parsed DFT energies are physically plausible.
-- Interpretation: `fjh` should be the main evidence; `ffc` should not be discarded, but treated as small-topology sanity check and used immediately through harvesting.
+## 2026-10-26：补充信息方法复现
 
-Updated paper validation framing and figure:
+- 将 SI 中软件类名/参数名转为可复现的操作与容差描述；核对对称识别和 RASPA2 输入条件，未改实验条件。
 
-- Reframed the claim from monotonic `rho`-energy decrease to low-energy candidates being retained/enriched in medium- and high-symmetry regions.
-- Generated `paper/ffc_pooled_symmetry_energy.png` from the downloaded `dft_vs_symmetry.csv`.
-- Used fixed symmetry bins: Low `0 < rho <= 0.25`, Medium `0.25 < rho <= 0.75`, High `0.75 < rho <= 1`.
-- Inserted the pooled `ffc` figure into `paper/main.tex`.
-- Added English paragraphs plus `%：中文：` comments explaining the non-relaxed single-point protocol as an enumeration-time pre-screening score, not relaxed thermodynamic stability.
+## 2026-10-20：MATCH 主线与证据范围
 
-Refined figure strategy again:
+- 明确 $X$ 是固定嵌入网络、重复晶胞和边模板下的节点指派；连接体模板作为构建输入。$\Gamma$ 轨道定义候选等价，轨道代表生成弛豫前周期模型。
+- 完整性证明、子群固定点搜索、分层配额、前缀剪枝和几何重构口径已在主文/SI 中对齐；有界运行只返回受配额和停止条件约束的子集。
+- 分开表述结构审计、GCMC 与 DFT 样本。结论限于已检查模型和起始结构，不外推为弛豫稳定性或稳定性质排名。
+- Data Availability 的数据仓库上传/链接核验仍列为投稿前待办。
 
-- Removed the duplicate composition-controlled `fig:symmetry_stability` from the main DFT validation narrative.
-- Added paired pooled figures for `ffc` and `fjh`: `paper/ffc_pooled_symmetry_energy.png` and `paper/fjh_pooled_symmetry_energy.png`.
-- Rewrote the validation text in a more defensible form: the claim is candidate retention in medium/high symmetry, not monotonic `rho`-energy decrease.
-- Added a caption caveat that the current `fjh` panel is preliminary until all selected `fjh` symmetry strata finish.
-- Recompiled `paper/main.tex` successfully with `latexmk`.
+## 2026-10-18 至 2026-10-19：理论定义与全文审查
 
-Tightened the paper defense around pooled DFT figures:
+- 完成商图着色空间、群轨道、稳定子、固定点域和精确稳定子层之间的定义核对，并对照枚举实现。
+- 重整理论方法与晶体学群构造/几何重构的职责；补充完备性和有界输出条件，完善周期连接、坐标融合与审计阈值说明。
+- 引言与 Results 经多轮调整；已确认的方法口径以当前 `paper/main_MATCH.tex` 为准。历史逐句审查记录仍保存在 `MATCH_NARRATIVE_LOGIC_REVIEW_2026-10-18.md`，按需查阅。
 
-- Confirmed `fig:symmetry_stability` is no longer present in `paper/main.tex`; the active DFT figure label is `fig:pooled_symmetry_energy`.
-- Clarified that the paired `ffc`/`fjh` pooled figures are descriptive topology-level evidence.
-- Made the primary visual criterion explicit: composition-wise lowest-energy open markers, not a global pooled slope.
-- Strengthened the single-point DFT caveat: energies are geometry-consistent screening scores, not relaxed formation energies or a full stability ranking.
-- Recompiled `paper/main.tex` successfully after the wording update.
+## 2026-09-14 至 2026-09-21：论文框架与报告交付
 
-Recorded a server-side DFT interruption pattern for future resume/debugging:
+- 完成 MATCH 主稿理论框架、结果组织、引用/模板整理和中期报告、答辩材料的多个阶段版本。
+- 版本文件和当时的版面记录主要用于交付追溯，不作为当前研究状态；需要时按文件名和 Git 历史定位。
 
-- A traceback ending with `KeyboardInterrupt: received signal 15; stopped CP2K` comes from `dft_validation/cp2k_runner.py`, which converts external `SIGTERM` into a controlled stop of the whole CP2K process group.
-- Interpretation: the nohup Python driver did not simply keep running in the background after that message; the current batch was interrupted and needs explicit status checking or `--resume`.
-- `tail -f "$LOG"` failing with `cannot open ''` was traced to an empty `LOG` environment variable in the current shell, most likely because the original variable assignment was made in an earlier shell session.
-- Practical follow-up on the server: check `ps -fp "$(cat run_parallel.pid)"` if the pid file exists, otherwise `ps aux | grep '[r]un_dft_validation.py'`; if nothing is alive, restart with `--resume` and record the new log filename explicitly.
+## 2026-11-09：记忆文档精简
 
-Reviewed the current `ffc` evidence against likely reviewer criticism and tightened the manuscript accordingly:
+- 将重复堆叠的当前状态、已完成待办和逐轮编辑说明压缩为现状、有效待办和阶段日志；保留当前论文边界与待投稿项。
+- 核对方式：检查主文档长度、章节和交叉指引；未运行项目测试或 LaTeX 编译。
 
-- Confirmed from the latest `selected_structures.json` that `ffc` currently has 21 converged single-point calculations across 8 composition groups.
-- Composition-wise minima fall in `Med/High` symmetry for all 8 groups (`High=6`, `Med=2`, `Low=0`), which supports a limited candidate-retention claim.
-- Also confirmed that this dataset is too small and too imbalanced across compositions to defend as a strong statistical symmetry--energy trend.
-- Updated `paper/main.tex` to reflect this more carefully: `ffc` is now framed as a limited qualitative check, not a universal trend claim; the unrelaxed single-point protocol is described more explicitly as a screening-stage comparison on a common assembled-geometry manifold.
-- Recorded a design warning for future experiments: removing composition-controlled minima markers from the `ffc` pooled figure, or replacing them with only global minima, would weaken the argument rather than strengthen it.
-- Recorded a code warning: adding `3c_Cu_imadazoline_Ch` to `ffc.atom_choices` would change the chemistry pool, but by itself does not guarantee a stronger validation dataset and may worsen composition confounding.
+## 2026-11-09：MATCH 引言修改与摘要逐词审读
 
-Assessed `fjh` runtime expectations and acceleration options:
+- 按作者确认，在 MOFFLOW-2 首次使用 SMILES 时写出全称并突出构建单元生成与三维组装的衔接；将引言第四段比较表导入句移到两项任务之后；维持表格五行，补全拓扑匹配与深度生成两行的操作；第二项贡献区分 Kabsch 节点配准和连接体放置，直述模型与来源指派对应。英文与中文注释同步。
+- `git diff --check -- paper/main_MATCH.tex` 通过。`latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=../out main_MATCH.tex` 完整编译通过，输出 29 页；表格所在行无 overfull，保留既有 `Hfootnote.1` 提示和其他位置的 overfull。
+- 摘要只审读、未修改。需与作者讨论：Kabsch 的技术范围、CIF 的可重载性修饰、72 例审计与后续筛选样本的指代，以及 CIF/DFT 首次全称和弛豫前模型的边界。DFT 含 32 个 `fjh` 模型，超过审计的 30 个 `fjh`，两组不能被写成同一集合。
 
-- A wall time of roughly 3 hours per `fjh` single-point on the current CPU-only shared server is plausible for the present setup: ~760-atom cells, diagonalization SCF, and PBE+D3 with `500/60 Ry`.
-- If the scientific settings must remain unchanged, the safest way to reduce total calendar time is throughput parallelism rather than trying to make each individual `fjh` job dramatically faster.
-- The first practical knob to test is lower OpenMP per job with more concurrent `fjh` jobs, e.g. `CP2K_OMP=16` and `DFT_MAX_WORKERS["fjh"]=2`, provided memory stays within budget and the server is not crowded.
-- More aggressive accelerations such as lower cutoffs, smaller basis, or weaker SCF settings would change the protocol and should not be adopted for the main paper results without an explicit methods decision.
+## 2026-11-09：MATCH 摘要对象过渡与着色定义
+
+- 按作者反馈修订摘要：用 MOF 网络顶点/边与节点位点/连接体连接的对应关系引出节点类型指派和有序排布；将 `Symmetry-based` 统一为标题和引言使用的 `symmetry-constrained`。将 Kabsch 作用限定在节点配准，并另列连接体放置；由构建流程作 CIF 输出的因果主语，CIF 和 DFT 首次写全称；以“同一构建流程所得模型”表示后续筛选用途，避免暗示 72 例审计与筛选样本完全相同。英文及中文辅助注释同步。
+- 2.1 将 `coloring` 的解释移到商图 $Q$ 定义之后，明确顶点颜色就是节点类型标签，标签独立从度数对应的池中选取，相邻顶点可同色；该表述与集合 $X$ 的公式一致。
+- 核查：`git diff --check -- paper/main_MATCH.tex` 通过；完整 LaTeX 编译通过，输出 29 页，摘要与 2.1 修改行无 overfull。保留既有 `Hfootnote.1` 提示和其他位置的排版警告。
+
+## 2026-11-09：MATCH 摘要衔接压缩与 2.1 回滚
+
+- 按作者反馈，删除摘要中孤立的 MOF 网络顶点/边定义句；首段改为从构建单元排布接到固定网络位点的节点类型指派，再直接陈述所选对称下判等与周期建模任务，移除问题句中的分号。正文未新增其他概念。
+- 几何审计与筛选用途由三句压为两句，摘要不再列 72；审计模型的拓扑、短接触和 CIF 重载检查与同一构建流程提供后续筛选模型的用途分述，保留两类样本不必相同的边界。CIF/DFT 首次全称及 Kabsch 节点配准、连接体放置的分工保留。
+- 按作者明确要求，2.1 `We fix the embedded net...` 段、`A vertex of $Q$ represents...` 段及相邻 `colorings` 句恢复至本轮修改前，英文与中文注释同步。`git diff --check` 和完整 LaTeX 编译通过（29 页），摘要修改行无 overfull；保留既有 `Hfootnote.1` 提示。
+
+## 2026-11-09：MATCH 摘要枚举范围与审计句续改
+
+- 按作者确认，将摘要的审计句改以 `In the geometric construction audit` 起句；筛选用途句改为主动的 `We also used models constructed by this method...`。保留审计证据与筛选样本的范围区别。
+- 作者指出 `in exhaustive runs` 使摘要只显露穷尽模式且 `runs` 更像执行记录。摘要现改为“子群格固定点搜索和规范化返回不重复的轨道代表”，该句同时适用于穷尽和受限输出；完整覆盖条件仍在引言贡献、方法和结论中明确限定。
+- 英文和中文辅助注释同步。`git diff --check -- paper/main_MATCH.tex` 与完整 LaTeX 编译通过，主稿 29 页；保留既有 `Hfootnote.1` 提示。
+
+## 2026-11-09：MATCH 引言组合规模与占位类比衔接
+
+- 首段用 MOF 的模块化组装连接应用背景与有限构建单元库的组合规模，将 HTCS 作为下一句承接；Wilmer 2012 原文支持小型构建单元库对应数百万可能 MOF 的论点。
+- 第四段首句把前段一般的晶体位点占位问题接到固定 MOF 网络的度数相容节点类型指派；表前句直接说明本文固定网络节点指派判等与有取向周期模型构建的联合侧重点。比较表第三列改为 `Principal operation`，与表题一致；中文辅助注释同步。
+- `git diff --check -- paper/main_MATCH.tex` 与完整 LaTeX 编译通过，输出 29 页；本轮修改位置无 overfull。后续继续检查第四段任务句、表前句及表后问题句的重复程度。
+
+## 2026-11-09：MATCH 首段定稿句与第四段职能讨论
+
+- 按作者确认，首段改为 `MOFs are assembled from modular building blocks...`；第四段首句将 `the corresponding assignment` 改为 `an analogous assignment`。英文和中文辅助注释同步。
+- 作者提出第四段可能过早进入方法定义。当前先保留已确认句子，整段其余内容未改；后续需判断该段是否应集中承担 MOF 有序排布的设计动机、对称判等和周期建模需求，详细指派空间定义留给 2.1。
+- `git diff --check -- paper/main_MATCH.tex` 和完整 LaTeX 编译通过，主稿 29 页；保留既有 `Hfootnote.1` 提示。
+
+## 2026-11-09：MATCH 引言第三段过渡
+
+- 按作者确认，将第三段段首两句合并为带有“位点指派候选空间”条件的对称枚举句，直接说明判等如何限制冗余；与首段候选生成要求和后续无机晶体先例衔接。英文正文和中文辅助注释同步。
+- 核对第三段及相邻段落指代，`git diff --check` 通过；本轮仅改文字，未重新编译。
+
+## 2026-11-10：MATCH 全文第一轮术语校准
+
+- 按作者“先术语、后逐句”的要求，读取主稿全文（含 SI、公式说明、图表及算法），建立建议术语表、T01–T28 问题清单和全文覆盖记录，保存于 `MATCH_TERMINOLOGY_CALIBRATION_2026-11-10.md`。未修改主稿，未将本轮称为语言终审。
+- 核对实现后，指出 topology recovery 直接证据是基于键表的简化构建单元连接图比较，未在此检查中比较周期平移标记/多重边。复核吸附 CSV：30/30 候选记录 PLD>LCD；节点组成含正文模板表未列出的五种类型。将字段映射和样本库范围列为先行核验项，未改数据或计算结论。
+- 区分顶点轨道/指派轨道、图度数/金属配位数、保向仿射操作/真旋转、稳定子比例/原子对称性，以及位点融合阈值/连接间距偏差窗口。标出比较表后游离中文正文及缺失注释。
+- 验证：记录主稿 SHA-256；读取相关代码与源表，并对候选记录逐行计数；查阅 IUCr 与 Zeo++ 作者源码说明。主稿未改，未编译或运行科学计算。下一步先敲定规范与证据边界，再逐句修改并同步中文注释。
+
+## 2026-11-10：术语校准追问、拓扑调用链与 PLD/LCD 根因
+
+- 澄清第一轮术语表混合了已正确使用的区分和实际修改项；assignment/coloring 的既有定义相容，ordering 作排布叙述适当，construction 主叙述已基本统一，不因换词本身判错。
+- 从审计脚本追到 assembler→validate→_check_topology：实际检查使用组装中间归属/键表，简化连接图后比较同构，并非从最终 CIF 独立识别周期拓扑；给出摘要、Results 和 SI 对应的精确改句，未落地主稿。
+- 在相邻 CO2_N2 项目定位 parse_res_output 将 Di/Df 错误映射为 PLD/LCD；读取全部 30 候选原始 .res 并复现实际解析函数，确认两列颠倒。保存候选级证据 CSV 和九组更正范围预览，未修改正式数据或相邻项目代码。
+- 明确模板表五种节点与吸附源表十种节点的差异，列出缺少的五项及 G9 实例。详细追查见 validation/MATCH_TERMINOLOGY_FOLLOWUP_2026-11-10.md。主稿校验和未变化，未编译或运行模拟；下一步按已确认根因修复解析/数据，并落实作者认可的文本。
+
+## 2026-11-10：落实 PLD/LCD 修复与附录模板表
+
+- 按作者明确决定，保留 topology recovery 全部原文，未修改拓扑验证实现；仅修复 PLD/LCD 并移动/补全模板表。
+- 修正相邻 CO2_N2 的 `parse_res_output`（LCD=Di、PLD=Df），修正原测试的错误列序，并增加两条原始输出回归用例；相关 pytest 4 passed、11 deselected。
+- 通过 `validation/correct_match_pld_lcd_20261110.py` 从原始 .res 重导论文候选表、两份九例追加描述符及当前五次运行候选/分组汇总。正文九组 PLD/LCD 范围及中英文跨度已同步；验证全部 30 个候选和九组表值，GCMC 表列保持原值。更正记录、README 字段定义和 manifest 已同步数据包，旧历史快照未覆盖。
+- 将模板表移至 SI A.1（Table A1），列出三种三连接节点、七种四连接节点及固定连接体。十种节点与 30 个吸附候选 composition 的类型集合完全一致，并逐一核对节点模板文件存在；正文引用同步。另将引言误落入正文的中文片段归回对应注释，未改变英文科学表述。
+- 完整编译通过，输出 29 页；目视检查第 17 页吸附表和第 24 页附录模板表，无新增表格溢出。既有其他位置 overfull 和 Hfootnote.1 提示保留。下一步继续术语/逐句审读，不自动重提已否决的 topology recovery 改法。
+
+## 2026-11-10：剩余术语第二轮复核
+
+- 按作者“继续审查”要求，在已修复 PLD/LCD、附录模板表且保留 topology recovery 的基础上，复核剩余数学/化学/构建术语，报告为 validation/MATCH_TERMINOLOGY_ROUND2_2026-11-10.md。区分可保留、可选精化和优先修改，不把不同词出现本身判成错误。
+- 沿构建调用链核对 Kabsch：相对模板质心向量、邻接顶点向量、proper rotation 和三/四连接节点全排列均有代码依据，保持当前公式判断。检查十种模板的 X 位点，实际元素为 C/N；代码 remove_species([X]) 删除的是 dummy species X，与连接位点标签不同，给出首次定义和清理句的准确建议。
+- 给出 quotient-graph spaces、CASM/结论 assignment counts、ordering energies、SBU 覆盖及 proper pairwise joins 的具体局部建议；并列出扩张因子 s、DFS/SCF 缩写和 CP2K 两个 cutoff 的精化项。
+- 验证：读取相关实现、模板 CIF 和计算配置，查阅 CP2K MGRID 官方定义。主稿 SHA-256 保持 452ba52173c83c6e9907761b4d59b1c61848dd8ecb38ce856a420811ae56076e；未修改主稿、代码或科学数据，未编译。下一步先落实作者敲定的局部修改，再继续逐句语言打磨。
+
+## 2026-11-11：落实指派空间/轨道计数，并审查摘要术语频次
+
+- 按作者批准修改第二轮第 2、3 项：Results 明确 assignment spaces on their quotient graphs；覆盖核查、CASM 表注和结论明确 representative coverage 与 assignment-orbit counts，中文辅助注释同步。未改摘要、X 清理句、topology recovery 或其他待讨论项目。
+- 完成摘要九句逐句术语对应核对，并以脚本统计 41 个查询词组在摘要、后续主文及 SI 中的原样次数（排除中文注释，区分单复数与同义表达）。报告与 CSV/JSON 保存于 validation/。
+- 结果：核心技术术语均可对应后文定义/操作/结果；DFT/CIF 全称一次展开及单复数变体合理。建议将摘要 subgroup-lattice fixed-point searches 简化为与引言一致的 subgroup fixed-point searches，尚未落实；其余仅一次出现的表达逐项说明适用语境，未机械删换。
+- 验证：摘要与修改前逐字相同，批准的替换及中英文对应检查通过；git diff --check 通过；完整 LaTeX 编译通过，29 页，保留既有 Hfootnote.1 和其他位置排版提示。无科学数据或代码行为变化，未运行科学计算。
+
+## 2026-11-11：摘要和贡献项明确保留 subgroup lattice
+
+- 按作者决定，摘要与第一项贡献均用 organize fixed-point searches through the subgroup lattice，明确子群格的组织作用。摘要保留规范化返回不重复代表的口径；贡献项保留穷尽运行、确定性、所选群和每轨道一个代表的条件，拆成两句。
+- 英文和中文辅助注释同步；先前建议省略 lattice 已由本次作者决定取代，PROJECT_STATE、NEXT_ACTIONS 和摘要审查报告已注明。
+- 验证：两处英文及中文对应检查、git diff --check 通过；完整 LaTeX 编译通过，仍为 29 页。
+
+
+## 2026-11-11：全文术语复核与表注分工调整
+
+- 完成全文（含算法、图表和附录）术语复核，建立当前术语表，区分概念相容、名称统一及 X 标签/元素等歧义；详见 `validation/MATCH_TERMINOLOGY_TABLE_REVIEW_2026-11-11.md`。其余此前待定术语建议未批量应用。
+- 按作者意见将固定连接体说明并入 Results 首段；vba 表运行参数移至正文，表注保留读表定义，Layer time 改 Task time；吸附表单位放入表头，组内跨度移至结果正文，保留五次运行平均口径；删除重复指向几何审计小节的 sec:validation，保留 sec:reconstruction。英文和中文辅助注释同步。
+- 修改前后完整编译均为 29 页，两表数据行逐字不变，无缺失正文交叉引用；目视核对修改前后第 15、17 页和整稿缩略图，表格无新增溢出。原有六项 overfull hbox、算法 1 的 Float too large 和 Hfootnote.1 提示未变；更新 paper/main_MATCH.pdf。
+- 下一步按最新术语表敲定剩余局部修改，再逐句润色；本轮未运行科学计算。
+
+
+## 2026-11-11：撤回未获认可的两表调整
+
+- 作者澄清上一轮是检查/讨论请求，不代表要求直接改稿；否定将 vba 运行参数及吸附跨度数值列举搬入正文的方案。
+- 定向恢复两张表与相邻正文至上一轮修改前，中文同步；保留其他位置当前状态，未继续应用新表注方案。此前日志“按作者意见”只记录当时执行判断，不代表作者接受该改法。
+- 后续先展示 caption/表内注释方案，运行参数留在表内说明或附录，吸附数值在 caption 简要概括；作者明确认可后再落地。
+
+
+## 2026-11-11：按明确确认精简两表 caption
+
+- 吸附表将单位移入两行表头（S/R 以 1 表示无量纲），删除 caption 的单位说明句，分组规则、最小—最大范围及五次独立运行的平均口径各用短句保留；组内跨度数值仍留在 caption。
+- vba caption 仅删除重复的 ρ=s/|Γ| 定义及耗尽/配额填满判据，保留匹配总数、运行参数、括号计数和 layer time 定义；未增加 Notes 或把参数移入正文。中英文同步。
+- 验证：本轮修改仅位于两个 table 环境，其他正文逐字不变，两表数值数据行逐字不变；完整编译 29 页，第 15、17 页目视核对无表格溢出，原有警告保留；更新 paper/main_MATCH.pdf。
+
+
+## 2026-11-11：生成导师用无注释源码包
+
+- 按作者要求，从 main_MATCH.tex 去除全部注释并替换 paper/match.tex；保留转义百分号及原段落边界，main_MATCH.tex 的 SHA-256 不变。
+- 桌面 /Users/jing/Desktop/match 更新为 match.tex、reference.bib 和 7 个正文实际引用的图件，共 9 个文件；不包含日志、辅助编译文件及未引用图片。逐文件校验桌面副本与验证包一致。
+- 使用 latex-compile 在独立目录完整编译成功（29 页）；与本次新编译的主稿逐页 72 dpi 栅格对照无差异。以后改主稿后须重新导出并更新交付包，不直接把 match.tex 当作主稿编辑。
+
+## 2026-11-13：CASM 2.3.1 源码与表 2 性能诊断
+
+- 按作者要求先分析速度差距，核对表 2、两端 worker、本机 2.3.1 安装包及官方 v2.3.1 commit eec3bb720fa0d032f024cabe04bf11d7344db666。确认该 CASM 调用链采用完整整数候选计数器与短路 canonical 筛选，没有子群格或 DFS 前缀剪枝；不能沿用“两者都是固定点枚举”的概括。
+- 新增 validation 下审计报告、两个独立诊断脚本及原始 JSON。五例恒等任务消融与生产 baseline 的全部 canonical 代表、稳定子、轨道大小完全相同，轨道大小整数和均等于 |X|。热运行最大 fjh 约 1.879→1.461 s，小 fjh 1/2 约 0.098→0.020 s；大例主成本进一步定位到全群规范化、生成后丢弃的轨道集合、Trie 节点与 DFS。
+- 用 CASM 底层 canonical 接口直接指定 proper 子群，逐项比较位点置换与我们群一致，独立枚举得到 42/513/394/4756/36369；补上旧 harness 从 ours 反推 proper count 的证据缺口。复测原生 F 最大例约 0.410 s，保存副本约 0.408 s，差异视作噪声；proper 底层诊断约 0.619 s，因循环组织也改变，不当作纯群选择效应。
+- 未修改生产枚举器、正式 CSV、论文或已有用户改动。下一步优先减少叶节点冗余计算与分配，再处理热循环和任务组织；正式计时需统一作用群、工作量和冷/热口径。恒等任务结论仅限本轮穷尽五例，不改变受限输出策略。
+
+
+## 2026-11-13：核对 Trie 用途并验证子群交集排除原型
+
+- 明确当前 DFS canonical 前缀剪枝直接比较群像，不访问 Trie；Trie 在完整叶节点上查重。历史 a9a243d 及现有普通/精确 rho 枚举器都丢弃实际轨道列表，未发现该列表必须生成的调用依据；修正上一轮报告“唯一调用方”的过窄表述。
+- 新增独立 enumerator_task_dedup.py，保持原任务顺序，将已完整搜索任务的轨道同色条件编译为后续 DFS 的等式排除；用 bit mask 处理非嵌套交集，完整覆盖条件成立时剪分支。截断任务不登记完整覆盖，原 Trie 继续兜底；不用于精确 rho 配额子类。
+- 五个真实算例全部输出列表（顺序、代表、稳定子、轨道大小）完全一致，整数覆盖相同，重复叶处理均降为 0；D4/D5/S3 暴力 oracle、总量/恒等预算、超时前/中途截断、单选域、状态重置等相关测试共 14 passed。
+- 交错三次热运行记录见 validation/TASK_DEDUP_BENCHMARK_2026-11-13.json：fjh 1/2 约 0.101→0.060 s，最大三元例 2.167→1.967 s，fjh 2/1 约 0.218→0.248 s，额外等式检查仍造成回退。详细论证与边界见 validation/SUBGROUP_TASK_DEDUP_2026-11-13.md。
+- 未改生产枚举器、主流程、配额实验、论文或正式 CSV。下一步先降低原型的递归包装/覆盖约束检查成本，解决回退再考虑接入主流程；叶节点无用轨道集合及 Trie 开销留待独立优化。
+
+
+## 2026-11-13：解释截断覆盖边界并组合 CASM 启发的工程优化
+
+- 明确数量截断和秒数截断的区别：已完整搜索域才可登记整域覆盖；截断域继续由 Trie 逐结果去重。普通总上限和恒等新增配额规则保留，固定秒数 deadline 的返回集合可能随执行速度变化。精确 rho 实验未接入。
+- 说明多个 Fix(H) 先天相交，静态任务差集会引入等式/不等式条件；这些边界可在任务定义时建立，搜索时仍须执行。未采用可能膨胀的静态差集展开，也未把计划执行任务误当成已经覆盖。
+- 新增独立 enumerator_casm_inspired.py：保持原普通子群调度与 Trie，内部整数编码并还原外部标签，直接索引短路比较，复用 DFS 已相等前缀进度，完整叶由 active 集合直接得稳定子，融合 DFS/覆盖检查。正常搜索省去叶节点 canonical 全群扫描及完整轨道物化。上一轮原型新增任务级 hook 供融合实现复用，生产模块未改。
+- 验证 25 passed；五个真实算例穷尽输出列表逐项相同并满足整数覆盖。另完成总上限 7/100、恒等新增配额 3 共 15 组真实检查，输出数量、顺序及元数据均相同。原始 JSON、命令和边界见 validation/CASM_INSPIRED_OPTIMIZATION_2026-11-13.md。
+- 三版本轮换各三次热运行：组合原型五例相对原版加速 1.43–3.13 倍，最大 fjh 约 2.403→1.124 s，fjh 2/1 约 0.197→0.063 s；旧原型回退在本轮组合版本中消除。组合各项贡献未分别消融，不直接替换论文计时。
+- 下一步独立比较 Trie/完整键哈希存储并测量阶段耗时，再判断编译核心需求。主流程、正式 CSV、论文和精确 rho 配额实现保持原状态。
+
+
+## 2026-11-13：完整候选计数器与 DFS 四路对照
+
+- 按作者问题验证是否可取消 DFS，新增独立 enumerator_counter.py：子群计数器、单任务计数器、单任务优化 DFS，与既有子群优化 DFS 构成四路对照。统一实际群、整数标签、Trie 与完整结果元数据；计数器使用 itertools.product 流式生成完整候选，预压缩必然相等的比较位置并短路判 canonical/稳定子。
+- 34 项相关测试通过。五例四版本完整代表/稳定子/轨道大小映射一致，同一调度内计数器与 DFS 输出列表完全相同，整数覆盖正确；单任务计数器逐个访问完整 |X|。
+- 每例四版本轮换四次热运行，见 validation/COUNTER_VS_DFS_2026-11-13.json 及说明报告。保留子群时计数器五例均慢；单任务 fjh 1/2 计数器约 0.00461 s、DFS 0.00641 s，fjh 2/1 为 0.04738 / 0.02058 s，最大例为 1.41868 / 1.22616 s。当前证据不支持全局删除 DFS。
+- 去掉子群调度与去掉 DFS 是不同选择。穷尽模式可走单任务入口，受限高对称优先策略继续保留子群；计数器的 Python 比较不等于 CASM 的 C++ 成本，编译后需重新比较。生产、论文、正式 CSV 和精确 rho 实验均未改。
+
+
+## 2026-11-13：保留子群 DFS，定位 Trie 与结果存储
+
+- 按作者决定保留子群 DFS，新增独立 enumerator_storage.py，比较原 Trie、完整元组哈希、完整字节哈希；保持任务顺序、剪枝、结果记录及排序，超过 256 标签精确回退元组，生产入口未切换。
+- 44 项相关测试通过；五例三版本各三个独立计时进程，共 45 次完整输出摘要一致，整数覆盖和全部结果索引查询通过。另独立运行阶段计时与 tracemalloc，不混入正式耗时/RSS；详细口径和数据见 validation/STORAGE_COST_REVIEW_2026-11-13.md、STORAGE_PROFILE_2026-11-13.json。
+- 最大 fjh 的 Trie 646,699 个存活节点、索引约 167 MiB；完整字节索引约 3.37 MiB，公共结果容器约 18.73 MiB。端到端同轮 0.700→0.350 s，进程峰值 RSS 326→157 MiB；小例差异小。字节与元组耗时相近，字节内存更省。
+- 阶段定位：Trie 插入累计约 0.344 s，排序约 0.001 s；字节版搜索约 0.279 s，占插桩总时间约 75%。因此优先移除稀疏索引分配，下一步考虑任务准备缓存和编译 DFS 核心；不优先重写排序。
+- 本轮预导入 SymPy、每次独立进程并在计时前 GC，绝对值不与此前保留多个版本输出的同进程轮换直接作比。正式主流程、论文、CSV 与精确 rho 实验均未改；若进入编译核心，遵循同语言/同群/同输出工作量的计数器-前缀剪枝比较。
+
+
+## 2026-11-13：可选 Python/C++ 混合子群 DFS 后端
+
+- 按作者提出的混合实现方向，新增 C++17 C ABI 核心、标准库 ctypes 包装和显式构建脚本。Python 保留子群调度/覆盖编译及结果接口，C++ 执行 DFS/前缀比较/稳定子/完整字节键去重，每个子群任务批量传回结果；无逐节点 Python 回调。
+- 加入可选主 CLI --enumeration-backend legacy/python/auto/cpp 及 run_enumeration API 末尾可选参数，默认保留 legacy，auto 支持缺库/不支持输入时 Python 回退；benchmark JSON 记录实际后端。精确 rho 与新后端组合在解析阶段拒绝，未复用不成立的整域覆盖证书。
+- 本机 Clang 21 arm64 构建通过，严格语法/警告检查通过，64 项相关测试通过（19 条原有 spglib 提示）。验证完整/数量受限输出、超时不误登记覆盖、缺库回退、多字掩码、上下文重置和 CLI 默认。五个真实算例三版本三次完整输出相同，另 15 组数量截断结果一致。
+- 已按约定比较同 C++ 核心、同群/子群调度/输出的 DFS 与计数器：最大例 Python 字节 DFS 0.366→混合 DFS 0.095 s（约 3.85 倍），C++ 计数器 0.140 s；最后一轮原生核约 DFS 0.0226 / 计数器 0.0633 s，仍支持 DFS。最小例有固定接口开销，不声称所有规模都快。
+- 用法与边界见 native/README.md、validation/HYBRID_CORE_REVIEW_2026-11-13.md，原始数据 HYBRID_BENCHMARK_2026-11-13.json。共享库按平台重建且忽略 Git；本轮未重跑完整 CIF/DFT 管线，论文与正式 CSV 未变。任务时间是协作软截止，批量输出物化可晚于搜索截止。
+- 下一步缓存 Python 子群/partition 准备并单列首次/命中，进一步拆分接口/物化开销；正式表 2 重测须统一群、输出工作与冷/热边界。
+
+
+## 2026-11-16：CASM 同群扩展梯度对照完成
+
+- 按作者要求用混合字节键子群 DFS 重跑 CASM，并增加难度梯度。新增独立 common/worker/harness 和说明，15 组覆盖 ffc/fjh/lil；原始空间 128–16,777,216，最大输出 1,328,832。标签来自现有模板文件名，未构建这些新增组合的周期模型。
+- 四种口径各三次独立进程：本文完整结果、CASM 同 Γ 同结果、CASM 同 Γ 只计数、CASM 原生 F 只计数。双方统一 Python 3.11.1、单线程环境；图/群分析和验证在计时外，本文子群任务准备与双方输出物化/排序在计时内。watchdog 为每进程 180 s / 1536 MiB；180 次全部穷尽，无资源截断。
+- 每次均核对实际 proper 位点置换与 Γ 完全一致；独立 Burnside 计数、整数轨道覆盖、稳定子分布及归一完整轨道/元数据 SHA-256 全部通过。CASM 最大 canonical 与本文最小约定在计时外统一，未以原始 ID/顺序要求两种约定相同。测量源码/原生库运行期间哈希未变；输入完成时快照另存。相关项目环境测试 67 passed。
+- 同 Γ/同输出工作量下本文 12/15 例更快，最大 fjh 1/4：3.600 s 对 CASM 20.939 s（5.82 倍）；CASM 同群只计数 17.219 s，仍约快 4.78 倍。小 ffc 两例和小 fjh 一例仍较慢。组合数增加并非单调提高相对速度：ffc 5/5 5.36 倍到 5/15 4.44 倍；lil 3/3 到 4/3 3.58→2.79 倍。
+- 速度存在内存代价：最大 fjh 本文峰值约 1087 MiB、CASM 同结果约 719 MiB；大输出的原生核外余项突出，下一步细分输出物化/封送/双端索引，而非继续假定原始组合越多越好。
+- 完整结果、主表、分析 CSV/JSON、manifest 和复核脚本见 validation/CASM_SCALE_REPORT_2026-11-16.md；入口 experiment/casm_scale_compare_README.md。论文表 2、旧正式 CSV 和默认后端未改。新 Γ 时间与旧 F 列口径不同，后续先敲定表与相邻论述的分工再改稿。
+
+
+## 2026-11-16：已完成 DFS 前缀 Trie 与跨任务子树排除
+
+- 按作者要求先实现搜索前缀 Trie，暂缓完整代表去重的进一步修改。新增 search_prefix_trie.py，接入融合 Python DFS 与 C++ 核；完整任务保留原整域排除，中断任务保存已完成兄弟子树，开放路径不标完成。查询核对来源轨道等式和标签域包含关系，只在相关值首次可判定的深度查询；默认最多 50,000 节点，容量不足丢弃证书，缓存每次枚举重建。
+- CLI/API 增加显式 prefix_trie 开关与节点上限，默认关闭，原 legacy 默认不变。原生 ABI 升为 2 并重新构建；缺库/旧库 auto 回退 Python。C++ 无逐搜索节点 Python 回调，原有完整字节键存储及 CasmInspired 的完整代表 Trie 均保留；精确 rho/比较计数器未接入新证书。
+- Clang C++17 构建和严格警告检查通过，144 项相关测试通过（19 条既有 spglib 提示）。新增全部 0–8 截断位置、0/2/50,000 容量、非嵌套多任务、域不兼容/单值域/变量重排、过期任务和缓存重置等核验；独立穷举轨道及整数覆盖通过，完整记录顺序和元数据一致。
+- 同存储 on/off 7 组、四版本、预热后五次轮换，共 140 次正式计时另 28 次预热；原始数据和源码/库哈希见 PREFIX_TRIE_BENCHMARK_2026-11-16.json。人工大子树三例搜索节点约减 25%，重复叶全部去除，Python 约快 1.14–1.21 倍，C++ 约快 1.04–1.06 倍。真实 ffc/fjh 穷尽无新命中，首任务预算 3 仅省极少搜索，Python 查询成本使总时间回退；暂不默认启用，不声称普遍加速。解释与复现见 validation/PREFIX_TRIE_REVIEW_2026-11-16.md。
+- 修改前按旧 manifest 原哈希归档 13 个 CASM 测量源码/库至 validation/snapshots/casm_scale_20261116。分析脚本增加 source-root/check-only 参数，历史 180 次验证通过且未改写旧结果。旧 CASM 时间属于 ABI-1，本轮 Python 3.13 热运行不能与旧 Python 3.11 独立进程时间混算。论文、正式 CSV 和 CIF/DFT 流程未改。
+- 后续先定位真实受限任务的覆盖大小/查询频次，必要时沿 DFS 传播等式失败状态和 Trie 游标；完整代表存储继续暂缓。
+
+
+## 2026-11-16：C++ 完整代表紧凑 Trie 与统一算法表达
+
+- 作者进一步要求用紧凑数组 Trie 替换 C++ 完整代表哈希，并形成完整算法表达。新增 CompactTrie：16 字节节点、路径压缩、uint32 数组下标和排序兄弟链，边标签引用结果键；新增键分叉，重复完整键不新增结果。无逐节点 map/独立分配，0–255 字节和长公共前缀均精确支持。
+- Hybrid 默认 native_store=trie，hash 保留同核对照；Trie 模式同时取消 Python 完整键哈希副本，结束导出连续数组保持查询 API。内部插入下标与最终稳定子排序后的公开 ID 分开，保留原有语义。CLI/API 增加 native-store 和实际存储统计；原生 ABI 升为 3 并重建，原 legacy 默认和 Python 哈希回退保留。
+- 在 docs/subgroup_dfs_trie_algorithm.md 整理输入/群作用、任务划分、DFS 规范比较、整域/前缀覆盖、完整键 Trie 插入、稳定子/轨道输出为统一流程，附完整伪代码、正确性、成本边界及代码映射。未自动改论文。
+- 158 项相关测试通过，19 条既有 spglib 提示；C++ 独立 oracle 以四种键长、六种顺序检查重复插入、拆边、兄弟排序、可达性/无环、节点界和随机缺失键；严格警告、ASan/UBSan 通过。Python 解码后数组查询、256 标签全集、预算和缓存重置通过。
+- 六例 hash/trie 各三次独立进程共 36 次正式对照，搜索节点/叶访问相同，完整输出/公开 ID/元数据摘要、独立 Burnside 和整数覆盖一致。最大 fjh：2.687→2.119 s，核 0.827→0.637 s，RSS 中位数 1123→938 MiB；最大 lil：1.996→1.768 s，1012→872 MiB。人工例核略慢但端到端更快，端到端包含去除 Python 哈希副本；小例无稳定优势。原始 JSON/源码哈希与说明见 validation/COMPACT_TRIE_REVIEW_2026-11-16.md。
+- 修改前归档上轮前缀实验九个测量文件至 validation/snapshots/prefix_trie_20261116_abi2；旧 CASM ABI-1 快照与原始数据保留。本轮为 Python 3.13 下内部同核对照，未重跑 CASM，不将旧 CASM 时间当作新 Trie 的实测；论文、正式 CSV、CIF/DFT 流程未改。
+- 后续优先依据统一算法说明讨论论文方法与表 2，新正式对照需固定当前版本再测；前缀覆盖在真实受限任务中的查询成本仍需独立评估。
+
+
+## 2026-11-16：当前算法重测、论文差异清单与导师汇报口径
+
+- 按作者“只思考，告诉改什么”要求，核对 main_MATCH.tex 与当前统一算法说明，形成 `validation/MATCH_ALGORITHM_PAPER_REVIEW_2026-11-16.md`；未改论文、旧数据包、原 benchmark 或默认后端。改稿重点为比较游标、叶节点直接取得规范性/稳定子、整域与中断前缀覆盖、两类 Trie 分工、Python/C++ 边界和同 Γ 性能表；精确 ρ 配额仍为独立旧执行路径。
+- 新增独立 refresh worker/harness、vba 受限对照及 README，当前 ABI 3、C++ DFS、完整代表 Trie、显式开启前缀覆盖。原六例加三个论文原例，四口径和五例 legacy 三次独立进程共 123 次全部穷尽；实际作用群、Burnside、整数覆盖、归一完整记录摘要一致。最大 fjh 1/4 为 2.769 / CASM 同 Γ 同结果 20.935 s（7.56 倍）；九例六例更快。原 legacy 同轮 fjh 1/3 为 2.512→0.1057 s（23.77 倍），最小 ffc 仍无速度优势。
+- vba 按论文实际节点池、匹配总数 41,984 / 60,549 追加 12 次旧新对照，有序输出、ID、元数据摘要一致，稳定子层数量与论文一致；约快 8.78 / 11.99 倍，仍无平凡稳定子层。未重跑配额后端或每层组成向量计数；未绕过现有 CASM vba 群匹配失败。全部本轮计时前缀缓存 queries/hits 为 0，不能将整体收益算作前缀缓存贡献。
+- 源码、原生库、输入及主稿前后指纹一致，26 个测量文件冻结到 `validation/snapshots/match_refresh_20261116`；原始 JSON/JSONL/CSV/日志、三次 min–max、RSS、核时间与简短导师汇报均随报告保存。后续先讨论论文改法，再明确普通/配额算法的呈现方式并落稿。
+- 补充验证：全部计时结束后执行 CASM benchmark/原生枚举/紧凑索引相关测试，37 passed（7.47 s）；新增脚本语法检查通过。
+
+
+## 2026-11-16：枚举性能多指标统一对比表
+
+- 按作者要求将九个穷尽例与两个 vba 受限例汇入 `validation/MATCH_METRICS_COMPARISON_2026-11-16.md/.json`，共 11 例、18 列，覆盖原始空间、输出、任务数、DFS状态、完整叶/CASM完整候选、覆盖剪枝、重复叶/前缀命中、旧新/CASM时间与RSS、核时间、覆盖编译、只计数及Trie节点/空间。新增纯汇总脚本，计数逐项验证三次一致；未重新运行计时或修改论文/算法。
+- 核对原生计数位置：search_nodes 为进入 DFS 次数，规范比较拒绝后不递归的尝试未计入；pruned_prefixes 仅计 Task::excluded 的整域覆盖命中。不可直接比较 DFS状态与CASM完整候选，也不能据此计算总体剪枝率。缺失计数明确留空。
+- 补充成本表达与边界：新旧最坏均指数级；候选尝试与群比较数尚未采集，不能从DFS节点数推出紧确时间界。压缩Trie节点 O(r)，完整输出仍 O(nr)；两者与进程RSS分开。后续若论文要量化各项贡献，另做独立插桩/消融。
+
+
+## 2026-11-16：形成算法与性能部分的15项联动改稿拟稿
+
+- 按作者要求逐条提供拟替换英文、对应中文、修改理由与所有关联位置，保存到 `validation/MATCH_REVISION_PROPOSAL_2026-11-16.md`。覆盖摘要/贡献/流程图、2.2完成任务排除、比较游标与叶稳定子、两类Trie、完备性、普通Algorithm 1与独立配额算法、实现和指数级成本边界、结果/主表/附表、vba、模板清单、审计来源、结论及数据声明候选。
+- 核对原几何审计配置与新计时池，确认具体化学标签不同；拟稿分别列出原审计池与新性能池，避免将同为42/394的计数误当成同一组已验证化学模型。新主表拟8例ffc/fjh，其中5例更快，lil仅列枚举附例；与全部9例中6例更快的统计区分。
+- 新计时原始数据核对主表计数/速度比，拟稿占位符检查通过；主稿SHA-256与测量快照一致，未改主稿、未编译，也未改变算法或实验数据。本轮英文措辞、表格布局和算法呈现为待作者逐条评议的拟稿，不自动记为已接受。新增数据公开状态未核验，数据可用性新句不直接写成已公开。
+
+
+## 2026-11-23：按逐项批准更新主稿并接入优化精确ρ配额
+
+- 严格按作者审批，只落实拟稿2（删去末句受限描述）、3、5、9、11、13；同步中文及第3项所需的Algorithm 1游标/叶节点步骤。未直接应用1/4/7/8/10/12/14/15；摘要/贡献、主CASM表、vba表、结论和数据声明逐块比对不变。作者明确正文不强调Trie实现，受限条件集中交代，主表不要重复速度比列，性能结果解释其对论文的支持作用。
+- 新增HybridRhoQuotaMOFEnumerator，与原配额共享任务调度；整数DFS/比较游标/叶稳定子、C++原生索引均支持精确目标阶数过滤。任务新增上限取剩余层配额，覆盖证书同层复用、换层清空，全局结果保留。CLI与API factory接通python/auto/cpp+rho配额，原生ABI升4并重建；默认legacy保留。修复原调度deadline位置参数误传identity_budget，新增回归测试。
+- 211项测试通过（19条既有spglib提示），严格C++警告检查通过。真实vba两池/三个后端/三次独立进程共18次有序输出、ID和元数据摘要一致，各层计数及组成向量与论文原表一致；C++中位数0.2263/0.3117秒，返回41984/60549。原始记录RHO_NATIVE_VBA_2026-11-23.json(.jsonl/.log)，源码指纹和快照保留。新配额时间未替换论文表。
+- 被测修改前11个源码/库/主稿冻结在snapshots/pre_rho_native_20261123；最终14个计时源码/输入/库冻结在snapshots/rho_native_20261123。此前ABI-3同群测量数据保留在原快照，论文新增附录明确其版本。
+- 主稿完整编译32页，新增附录无overfull；原六处overfull保留，算法原Float too large已通过局部行距修复。目视核查新增公式/算法和附录池清单/各表。paper/main_MATCH.pdf与新编译结果同步；无注释match.tex和桌面包待整体定稿再导出。拟稿顶部更新逐项审批状态及待讨论替代文字；后续集中讨论统一核心下的配额算法、CASM结果解释、摘要及结论。
+
+
+## 2026-11-23：落实摘要/结论审批，形成统一方法整节候选
+
+- 按作者后续明确批准，只替换最新第1项摘要两句和第14项结论首段，中文同步；方法、Algorithm 1及其他未批准段落未变，编译32页，六处既有overfull不变。源码修改前快照为validation/snapshots/match_before_abstract_conclusion_20261123.tex，编译记录MATCH_ABSTRACT_CONCLUSION_COMPILE_2026-11-23.json；同步paper/main_MATCH.pdf。
+- 第4、6–8项方向获认可后，给出整节2.2与统一算法候选、配额证明联动候选及移到附录的实现短段，分别存为validation/MATCH_UNIFIED_METHOD_PROPOSAL_2026-11-23.tex、MATCH_QUOTA_PROOF_PROPOSAL_2026-11-23.tex、MATCH_IMPLEMENTATION_PROPOSAL_2026-11-23.tex。覆盖记录按接收域限定、精确目标过滤先于成员插入、受限条件集中处理；不扩写正文Trie布局。候选尚未落稿。
+- 撤回第10项“记录一致因此计时评价同一成本”的因果连接；记录一致支撑正确性，匹配Γ/输入/输出为比较条件。正文采用enumeration time，具体范围在表注/附录集中定义。小例结构开销说明与保留子群任务以支持精确ρ配额的目的分开，不对未经完整消融的成本做定量归因。最新讨论文字追加到原拟稿顶部。
+- TeX候选环境配对检查通过。本轮未修改枚举代码、未重新计时、未改变原实验数据；无注释交付包继续待整体定稿后更新。
+
+
+## 2026-11-23：明确完整枚举主流程与配额补充的主次
+
+- 作者否定“普通调度/ordinary schedule”名称，明确完整枚举是主流程，配额用于规模过大时的受限输出补充。完整方案第4–8项内容认可，涉及该名称或主次定位的段落/算法全部暂缓，待讨论后修改；未自行批量替换待定文字或改动配额启用逻辑。
+- 本轮仅落实明确批准的完整方案第2项：完整代表满足所选接收规则时，连同稳定子与轨道大小保留一次；英文和中文同步。其余方法及算法修改仍按审批范围推进。
+
+
+## 2026-11-23：按批准落实取消“普通调度”的八处方法联动
+
+- 作者“OK 改”后，将紧前一版八处方案写入main_MATCH.tex并同步中文：完整枚举直接作为主流程，配额作为大空间受限输出的可选补充；正文取消ordinary schedule/普通调度，不新增Trie实现细节；覆盖条件集中说明，同层复用边界明确。
+- Algorithm 1先从原始任务集合建立主流程任务，再在启用配额时从原始集合按阶数重新分组，保留不同阶数的任务信息。明确顶点轨道顺序、逐层完成进度、精确阶数过滤先于完整键保留及换层重建覆盖记录。配额附录同步安全覆盖、稳定子任务覆盖与接收序列证明，实现短段移入附录。
+- 修改前快照snapshots/match_before_unified_method_20261123.tex；MATCH_UNIFIED_APPLIED_SCOPE_2026-11-23.json核验摘要、Results整节及表格、结论和数据声明不变，标签无重复，正文无被否定名称。代码和科学数据未改，未重复跑枚举测试。
+- 完整编译34页，无未定义引用/新增溢出，算法放在2.2末尾且在2.3之前；已目视核查方法、算法、配额证明和实现附录。ρ分层公式分行后原一处溢出消除，其余5处既有overfull保留。编译记录MATCH_UNIFIED_COMPILE_2026-11-23.json，渲染页在validation/match_unified_20261123；同步paper/main_MATCH.pdf。无注释match.tex和桌面包继续待整体定稿。
+- 更新现状、后续任务及原拟稿审批状态，历史TeX候选标记已被主稿取代。后续继续第10项CASM性能正文/主表及vba时间和数据声明的讨论，不将本次方法批准扩展为实验表修改授权。
+
+
+## 2026-11-23：落实31项审读中的明确批准项，统一当前计时
+
+- 作者要求通俗、易读、少字沟通。按新31项审读编号，执行1/2/4/5/8/16/17/18/21；对3/10/11/12/13/19/20/23/25/26/27/28/29/30/31只给改前改后候选；6/14/15/22解释影响，7/9/24保留。讨论和审批记录保存于validation/MATCH_REVIEW_DISCUSSION_2026-11-23.md及MATCH_REVIEW_DECISIONS_2026-11-23.json。
+- 当前ABI-4 C++/Trie、新字典序模板池重新完成108次穷尽计时，位点作用、Burnside、整数覆盖和归一完整记录均通过；主表8例中5例更快，最大fjh约2.7405秒对20.8812秒。12次vba配额/匹配前缀当前核重跑通过，配额总时间约0.2366/0.2849秒；新三标签池改变中间层组成覆盖数，表中括号计数随新结果更新。全部论文枚举表已替换旧计时，没有将新Γ时间塞进旧F比较。
+- CLI/API默认auto、优先C++并可回退优化Python，显式legacy保留。调整相关入口测试，189 passed、19条既有spglib提示。首次检查发现两条旧CLI拒绝测试会因默认变更进入实际构建，及时中断后将其改为显式legacy并为新默认在读输入前截停；最终测试未运行构建流程。
+- 补G1–G9组成附表/源CSV，正文引用新有序池、稳定子术语及引言This局部澄清。复现包加入63文件快照、原始测量、manifest与图表映射，未推送远端。摘要/方法整节/几何审计/结论/DFT协议/引言范围段逐块不变，作用范围核验见MATCH_REVIEW_APPLIED_ITEMS_2026-11-23.json。
+- 编译34页，新主表、vba表、性能附表和组成表目视检查通过；无新增overfull，5处原有overfull保留，PDF同步。后续先讨论23项的范围段职责与其余15项候选，未批准的文字不自动应用；无注释包继续待定稿。
+
+
+## 2026-11-24：落实十四项审读批准，关闭本轮候选
+
+- 按作者逐项批准落实3/10/11/12/19/20/23/25/26/27/28/29/30/31，中英文同步。6/13/14/15/22/24明确保留，7/9此前也已决定不改；未继续扩展配额接口或通用群检查。
+- 引言按动机/范围/贡献分工；所有边同一连接体的范围在摘要、引言、方法和图注统一。Algorithm 1只补任务来源阶数和块编号。规范比较与标签遍历顺序分开说明；X连接标签与虚拟元素分开；闭合误差测量明确融合前。CASM正文使用已重跑数据解释同群性能，lil不重复表值，ρ图注使用区间，结论区分审计和独立筛选集，DFT删除未报告Cu探针。
+- 修改前快照match_before_approved_review_20261124.tex；完整替换、保护对象和哈希检查分别保存于MATCH_APPROVED_REVIEW_EDITS_2026-11-24.json、MATCH_APPROVED_REVIEW_SCOPE_2026-11-24.json。所有公式、数值实验表及测量源码/输入不变，未重复跑代码测试或算法计时。
+- 编译33页，Algorithm 1完整位于2.2内，无未定义交叉引用或Float too large；5处既有overfull保留，没有新增溢出。局部清理段使用emergencystretch处理换行，未改文字。变化页面目视核查通过，PDF同步；编译/布局记录见MATCH_APPROVED_REVIEW_COMPILE_2026-11-24.json与MATCH_APPROVED_REVIEW_LAYOUT_2026-11-24.json。
+- 本地复现包另存最新论文版本，未改历史测量快照；manifest/版本/映射说明同步。未上传远端、未导出桌面无注释包。项目当前状态与待办已清除本轮待审批事项。
+
+
+## 2026-11-24：按后续逐句审读批准修改九项
+
+- 本轮编号独立于此前31项：落实2/5/6/8/9/12/13/14/15，英文与中文同步；10/11按作者定位维持背景/分类用途，16不改，7仅检索。
+- 将补全限定于当前固定点任务；数值算法输出候选置换集并明确Γ条件；主流程直接说明规范代表保留；vba图注明确层时间所属配额策略；压缩重复及方法回顾，结论分开吸附与单点DFT。历史运行环境记录为macOS 26.6.2/arm64，归档脚本指定C++17和-O3；没有用当前机器状态或Python编译字符串推断当次CPU/原生编译器版本。
+- 文献检索找到Xu等Anisotropic reticular chemistry及Yuan等Retrosynthesis of multi-component metal-organic frameworks等候选，核对其完整SBU/内部金属/连接体对象边界；139行及reference.bib未改。候选证据保存在MATCH_REFERENCE_CANDIDATES_2026-11-24.json。
+- MATCH_FOLLOWUP_EDITS_2026-11-24.json记录全部替换与哈希；逆向恢复核验通过，公式、tabular、摘要、引言、闭合误差段及APS统计定义保持。最终保存源码经桌面编辑器compile_latex_document编译成功；未另编译PDF、未重跑算法/筛选实验。本地数据包及无注释交付稿尚未同步本轮修改。
+- 下一步讨论第7项句子与引用是否替换，定稿后再同步交付包。
+
+
+## 2026-11-24：批准并替换引言排布背景引用
+
+- 按作者“OK 改”，将139行背景句改为“The spatial arrangement of distinct building units is an important aspect of multicomponent MOF design.”，引用Xu等《Anisotropic reticular chemistry》（Nature Reviews Materials 5, 764–779, 2020；doi:10.1038/s41578-020-0225-x），同步中文并在reference.bib新增xu2020anisotropic。
+- 保留原Ji文献条目，未修改段内其他句子。将支撑范围限定为多组分MOF构建单元空间排布的设计背景，不外推为同组成固定网络任意节点重排的实验验证。
+- 书目信息与作者公开记录核对；git diff --check通过，保存源码经桌面编辑器编译成功。现状和待办已同步，文献候选记录标记为已采用。本地复现包和无注释交付稿仍待定稿后统一同步。
+
+
+## 2026-11-24：导出导师用无注释编译包
+
+- 按作者要求从当前main_MATCH.tex重建paper/match.tex并覆盖旧副本，去除中文翻译及其他注释文字，保留TeX必要行末控制符；主稿SHA256核验未变。
+- 精简包仅含match.tex、reference.bib与7个实际引用图件，共9文件。临时独立目录通过TeX Live/latexmk编译（33页），无未定义引用。
+- 已覆盖桌面/Users/jing/Desktop/match内旧文件，逐文件核验一致；包内无PDF成稿、日志或临时编译文件。后续仅本地复现包尚需同步当日后续改稿。
+
+- 同日按作者补充要求重新编译main_MATCH.tex（33页），将main_MATCH.pdf加入桌面match，复制后核验一致；桌面包现共10文件。
+
+
+## 2026-11-26：准备 GitHub 多机开发同步
+
+- 用户要求将项目上传 GitHub，供其他机器共同工作。核实现有公开远端和 master；本地与远端分叉，原暂存区含大量历史结果删除。以当前工作文件形成远端后继快照，保留旧本地提交及暂存区备份。
+- 新增根 `.gitignore` 和多机协作文档，停止跟踪 `.env`、虚拟环境、缓存和临时构建文件；保留本机文件。README 默认后端纠正为 auto，并指向协作说明。
+- 同步范围包含代码、论文、输入、项目记忆、验证与当前结果；不替代投稿数据包的单独更新及公开核验。不重跑已有科学实验。推送与快照一致性验证结果在本条后续追加。
+- 推送前检查：候选快照8630文件、约823.7 MiB，无单文件达到90 MiB；常见密钥格式扫描无命中，忽略规则覆盖的文件均未纳入快照。新增 `.gitattributes` 保留跨系统原始字节，避免冻结输入因换行转换而改变哈希。旧本地提交备份分支为 `codex/backup-before-sync-20261126`，旧暂存区备份为 `.git/index.before-github-sync-20261126`。
+- 8631文件与准备提交逐个原始字节核对通过。向现有公开仓库master推送被自动审批拒绝：完整结果数据约824 MiB，公开披露范围需作者明确确认。未执行推送，原master与原暂存区不变；下一步等待作者确认公开完整快照或选择私有仓库，再推送并核验。

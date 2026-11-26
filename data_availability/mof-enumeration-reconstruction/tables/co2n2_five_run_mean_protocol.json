@@ -1,0 +1,27 @@
+{
+  "independent_runs_per_candidate": 5,
+  "candidate_count": 30,
+  "phase_runs_per_candidate_per_replicate": 2,
+  "new_replicates": [
+    3,
+    4,
+    5
+  ],
+  "phase_run_counts_by_replicate": {
+    "2": 60,
+    "3": 60,
+    "4": 60,
+    "5": 60
+  },
+  "additional_replicate_phase_run_total": 180,
+  "new_seed_count": 180,
+  "first_run_seed_count": 60,
+  "new_seeds_unique": true,
+  "all_five_run_seeds_unique": true,
+  "new_seeds_disjoint_from_first_two_runs": true,
+  "direct_metric_mean_rule": "Each direct GCMC metric is the arithmetic mean across five independent runs.",
+  "aps_rule": "APS is calculated from the five-run mean selectivity and five-run mean CO2 working capacity; run-to-run SD is calculated from per-run APS values.",
+  "uptake_unit": "mmol/g from RASPA Average loading absolute [mol/kg framework]",
+  "cycles_per_phase": 10000,
+  "initialization_cycles_per_phase": 5000
+}

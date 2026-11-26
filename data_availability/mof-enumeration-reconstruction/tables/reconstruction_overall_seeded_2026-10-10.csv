@@ -1,0 +1,2 @@
+attempted,assembly_ok,metric_valid,n_closure_pairs,closure_rmsd_A,closure_median_A,closure_p95_A,closure_max_A,within_0.8A_fraction,assembly_success_rate,sanitize_ok,sanitize_success_rate,topology_pass,topology_recovery_rate,clash_pass,clash_free_rate,relaxed_validation_pass,relaxed_validation_rate,median_clash_min_ratio,mean_clash_count,spacegroup_distribution,topologies
+72,72,72,3888,0.38785617868478384,0.373651,0.518518,1.019919,0.9567901234567902,1.0,72,1.0,72,1.0,72,1.0,72,1.0,0.722,0.0,{'not evaluated': 72},"['ffc', 'fjh']"

@@ -1,0 +1,842 @@
+[
+  {
+    "case": [
+      "ffc",
+      2,
+      2
+    ],
+    "group_size": 8,
+    "orbits": 42,
+    "cold_s": 0.9310205000219867,
+    "warm_s": [
+      0.0023496660869568586,
+      0.002237749984487891,
+      0.0022801660234108567
+    ],
+    "identity_only_s": [
+      0.00041750003583729267,
+      0.0004165000282227993,
+      0.0004100420046597719
+    ],
+    "instrumented_setup_s": 0.0012100000167265534,
+    "instrumented_tasks": [
+      {
+        "orbits": 3,
+        "seconds": 0.00011504103895276785,
+        "leaves": 8,
+        "new": 8
+      },
+      {
+        "orbits": 3,
+        "seconds": 6.554205901920795e-05,
+        "leaves": 8,
+        "new": 0
+      },
+      {
+        "orbits": 4,
+        "seconds": 0.00010920804925262928,
+        "leaves": 12,
+        "new": 4
+      },
+      {
+        "orbits": 4,
+        "seconds": 7.191603071987629e-05,
+        "leaves": 8,
+        "new": 0
+      },
+      {
+        "orbits": 5,
+        "seconds": 0.00020008301362395287,
+        "leaves": 20,
+        "new": 12
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.00022645900025963783,
+        "leaves": 28,
+        "new": 8
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.0002270829863846302,
+        "leaves": 28,
+        "new": 8
+      },
+      {
+        "orbits": 7,
+        "seconds": 0.00028258305974304676,
+        "leaves": 42,
+        "new": 2
+      }
+    ],
+    "instrumented_method_s": {
+      "_get_canonical": 0.0003193722805008292,
+      "_trie_lookup": 5.6947232224047184e-05,
+      "_compute_stabilizer_and_orbit": 0.00010145979467779398,
+      "_trie_insert": 2.5829998776316643e-05
+    },
+    "profile": "         19592 function calls (19147 primitive calls) in 0.005 seconds\n\n   Ordered by: cumulative time\n   List reduced from 101 to 20 due to restriction <20>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.005    0.005 profile_casm_gap_20261113.py:86(execute)\n        1    0.000    0.000    0.005    0.005 enumerator.py:397(enumerate)\n        1    0.000    0.000    0.005    0.005 enumerator.py:246(enumerate_subgroups)\n        1    0.000    0.000    0.003    0.003 enumerator.py:258(_enumerate_all_sympy_subgroups)\n    350/8    0.001    0.000    0.002    0.000 enumerator.py:162(_dfs_lattice_pruning)\n       74    0.000    0.000    0.002    0.000 perm_groups.py:691(basic_transversals)\n       46    0.000    0.000    0.002    0.000 perm_groups.py:3494(schreier_sims)\n       46    0.000    0.000    0.002    0.000 perm_groups.py:3526(_schreier_sims)\n       62    0.000    0.000    0.001    0.000 perm_groups.py:2933(order)\n       46    0.000    0.000    0.001    0.000 perm_groups.py:3551(schreier_sims_incremental)\n      154    0.000    0.000    0.001    0.000 enumerator.py:144(_try_add_result)\n       45    0.000    0.000    0.001    0.000 perm_groups.py:124(__new__)\n      154    0.000    0.000    0.000    0.000 enumerator.py:89(_get_canonical)\n     1568    0.000    0.000    0.000    0.000 enumerator.py:82(_apply_perm)\n      134    0.000    0.000    0.000    0.000 perm_groups.py:5139(_orbit_transversal)\n      355    0.000    0.000    0.000    0.000 permutations.py:1028(_af_new)\n       44    0.000    0.000    0.000    0.000 util.py:248(_orbits_transversals_from_bsgs)\n        8    0.000    0.000    0.000    0.000 permutations.py:902(__new__)\n       29    0.000    0.000    0.000    0.000 enumerator.py:264(add_if_new)\n      122    0.000    0.000    0.000    0.000 enumerator.py:265(<genexpr>)\n\n\n"
+  },
+  {
+    "case": [
+      "ffc",
+      3,
+      3
+    ],
+    "group_size": 8,
+    "orbits": 513,
+    "cold_s": 0.11044991691596806,
+    "warm_s": [
+      0.00865550001617521,
+      0.008664084016345441,
+      0.009433083003386855
+    ],
+    "identity_only_s": [
+      0.0036956670228391886,
+      0.0036756249610334635,
+      0.003601833013817668
+    ],
+    "instrumented_setup_s": 0.0011453749611973763,
+    "instrumented_tasks": [
+      {
+        "orbits": 3,
+        "seconds": 0.0002782909432426095,
+        "leaves": 27,
+        "new": 27
+      },
+      {
+        "orbits": 3,
+        "seconds": 0.00017316697631031275,
+        "leaves": 27,
+        "new": 0
+      },
+      {
+        "orbits": 4,
+        "seconds": 0.0003917089197784662,
+        "leaves": 54,
+        "new": 27
+      },
+      {
+        "orbits": 4,
+        "seconds": 0.0001908330013975501,
+        "leaves": 27,
+        "new": 0
+      },
+      {
+        "orbits": 5,
+        "seconds": 0.0011539579136297107,
+        "leaves": 135,
+        "new": 108
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.0019374170806258917,
+        "leaves": 270,
+        "new": 135
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.001600499963387847,
+        "leaves": 243,
+        "new": 108
+      },
+      {
+        "orbits": 7,
+        "seconds": 0.002793499967083335,
+        "leaves": 513,
+        "new": 108
+      }
+    ],
+    "instrumented_method_s": {
+      "_get_canonical": 0.0026146689197048545,
+      "_trie_lookup": 0.0004805433563888073,
+      "_compute_stabilizer_and_orbit": 0.0012150716502219439,
+      "_trie_insert": 0.00032345682848244905
+    },
+    "profile": "         58540 function calls (56346 primitive calls) in 0.016 seconds\n\n   Ordered by: cumulative time\n   List reduced from 101 to 20 due to restriction <20>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.016    0.016 profile_casm_gap_20261113.py:86(execute)\n        1    0.000    0.000    0.016    0.016 enumerator.py:397(enumerate)\n        1    0.000    0.000    0.016    0.016 enumerator.py:246(enumerate_subgroups)\n   2099/8    0.005    0.000    0.013    0.002 enumerator.py:162(_dfs_lattice_pruning)\n     1296    0.001    0.000    0.007    0.000 enumerator.py:144(_try_add_result)\n     1296    0.001    0.000    0.004    0.000 enumerator.py:89(_get_canonical)\n    14472    0.004    0.000    0.004    0.000 enumerator.py:82(_apply_perm)\n        1    0.000    0.000    0.003    0.003 enumerator.py:258(_enumerate_all_sympy_subgroups)\n      513    0.001    0.000    0.002    0.000 enumerator.py:97(_compute_stabilizer_and_orbit)\n       74    0.000    0.000    0.002    0.000 perm_groups.py:691(basic_transversals)\n       46    0.000    0.000    0.002    0.000 perm_groups.py:3494(schreier_sims)\n       46    0.000    0.000    0.002    0.000 perm_groups.py:3526(_schreier_sims)\n       62    0.000    0.000    0.002    0.000 perm_groups.py:2933(order)\n       46    0.000    0.000    0.001    0.000 perm_groups.py:3551(schreier_sims_incremental)\n       45    0.000    0.000    0.001    0.000 perm_groups.py:124(__new__)\n     7570    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}\n     9185    0.000    0.000    0.000    0.000 {built-in method builtins.len}\n      513    0.000    0.000    0.000    0.000 enumerator.py:136(_trie_insert)\n     1296    0.000    0.000    0.000    0.000 enumerator.py:129(_trie_lookup)\n      134    0.000    0.000    0.000    0.000 perm_groups.py:5139(_orbit_transversal)\n\n\n"
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      2
+    ],
+    "group_size": 16,
+    "orbits": 394,
+    "cold_s": 0.19344845903106034,
+    "warm_s": [
+      0.09841299999970943,
+      0.11449225002434105,
+      0.09619945799931884
+    ],
+    "identity_only_s": [
+      0.020049624959938228,
+      0.01999312499538064,
+      0.020131208933889866
+    ],
+    "instrumented_setup_s": 0.02854270802345127,
+    "instrumented_tasks": [
+      {
+        "orbits": 5,
+        "seconds": 0.0004901669453829527,
+        "leaves": 8,
+        "new": 8
+      },
+      {
+        "orbits": 5,
+        "seconds": 0.0003737079678103328,
+        "leaves": 8,
+        "new": 0
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.0005888749146834016,
+        "leaves": 12,
+        "new": 4
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.0005721250781789422,
+        "leaves": 12,
+        "new": 4
+      },
+      {
+        "orbits": 7,
+        "seconds": 0.0005209170049056411,
+        "leaves": 8,
+        "new": 0
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.0007891670102253556,
+        "leaves": 12,
+        "new": 4
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.0007191660115495324,
+        "leaves": 12,
+        "new": 0
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.0006981659680604935,
+        "leaves": 12,
+        "new": 0
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0012068330543115735,
+        "leaves": 20,
+        "new": 12
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0009752089390531182,
+        "leaves": 16,
+        "new": 4
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0009097500005736947,
+        "leaves": 16,
+        "new": 4
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0009193340083584189,
+        "leaves": 16,
+        "new": 4
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0009226250695064664,
+        "leaves": 16,
+        "new": 4
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0015452919760718942,
+        "leaves": 30,
+        "new": 6
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0015174159780144691,
+        "leaves": 30,
+        "new": 6
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0014752499992027879,
+        "leaves": 28,
+        "new": 8
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0008912499761208892,
+        "leaves": 12,
+        "new": 4
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0008785829413682222,
+        "leaves": 12,
+        "new": 4
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0007147090509533882,
+        "leaves": 8,
+        "new": 0
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0007035000016912818,
+        "leaves": 8,
+        "new": 0
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0016579169314354658,
+        "leaves": 24,
+        "new": 4
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0014566660393029451,
+        "leaves": 16,
+        "new": 4
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0016557080671191216,
+        "leaves": 24,
+        "new": 0
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0016456670127809048,
+        "leaves": 24,
+        "new": 0
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0022539159981533885,
+        "leaves": 30,
+        "new": 6
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.004091958049684763,
+        "leaves": 70,
+        "new": 12
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.0035023329546675086,
+        "leaves": 60,
+        "new": 22
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.0034549999982118607,
+        "leaves": 56,
+        "new": 18
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.002862999914214015,
+        "leaves": 48,
+        "new": 12
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.003500833990983665,
+        "leaves": 64,
+        "new": 28
+      },
+      {
+        "orbits": 20,
+        "seconds": 0.004378708079457283,
+        "leaves": 56,
+        "new": 22
+      },
+      {
+        "orbits": 20,
+        "seconds": 0.004298500018194318,
+        "leaves": 56,
+        "new": 22
+      },
+      {
+        "orbits": 28,
+        "seconds": 0.02094295807182789,
+        "leaves": 394,
+        "new": 168
+      }
+    ],
+    "instrumented_method_s": {
+      "_get_canonical": 0.011210630415007472,
+      "_trie_lookup": 0.00131406937725842,
+      "_compute_stabilizer_and_orbit": 0.004005917813628912,
+      "_trie_insert": 0.0016925707459449768
+    },
+    "profile": "         537194 function calls (518896 primitive calls) in 0.162 seconds\n\n   Ordered by: cumulative time\n   List reduced from 101 to 20 due to restriction <20>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.162    0.162 profile_casm_gap_20261113.py:86(execute)\n        1    0.000    0.000    0.162    0.162 enumerator.py:397(enumerate)\n        1    0.000    0.000    0.162    0.162 enumerator.py:246(enumerate_subgroups)\n 15613/33    0.063    0.000    0.093    0.003 enumerator.py:162(_dfs_lattice_pruning)\n        1    0.001    0.001    0.065    0.065 enumerator.py:258(_enumerate_all_sympy_subgroups)\n      662    0.000    0.000    0.043    0.000 perm_groups.py:2933(order)\n      937    0.000    0.000    0.043    0.000 perm_groups.py:691(basic_transversals)\n      579    0.000    0.000    0.042    0.000 perm_groups.py:3494(schreier_sims)\n      579    0.002    0.000    0.042    0.000 perm_groups.py:3526(_schreier_sims)\n      579    0.010    0.000    0.024    0.000 perm_groups.py:3551(schreier_sims_incremental)\n     1218    0.001    0.000    0.022    0.000 enumerator.py:144(_try_add_result)\n      578    0.005    0.000    0.015    0.000 perm_groups.py:124(__new__)\n    25792    0.014    0.000    0.014    0.000 enumerator.py:82(_apply_perm)\n     1218    0.003    0.000    0.013    0.000 enumerator.py:89(_get_canonical)\n     2263    0.004    0.000    0.009    0.000 perm_groups.py:5139(_orbit_transversal)\n    11253    0.002    0.000    0.008    0.000 {method 'index' of 'list' objects}\n      577    0.001    0.000    0.007    0.000 util.py:248(_orbits_transversals_from_bsgs)\n    23086    0.007    0.000    0.007    0.000 permutations.py:21(_af_rmul)\n     7370    0.003    0.000    0.007    0.000 basic.py:497(__eq__)\n      360    0.001    0.000    0.006    0.000 enumerator.py:264(add_if_new)\n\n\n"
+  },
+  {
+    "case": [
+      "fjh",
+      2,
+      1
+    ],
+    "group_size": 16,
+    "orbits": 4756,
+    "cold_s": 0.28866737498901784,
+    "warm_s": [
+      0.1916207920294255,
+      0.19038066593930125,
+      0.19344904203899205
+    ],
+    "identity_only_s": [
+      0.12143870792351663,
+      0.11900958302430809,
+      0.12016583292279392
+    ],
+    "instrumented_setup_s": 0.029545541969127953,
+    "instrumented_tasks": [
+      {
+        "orbits": 5,
+        "seconds": 0.00022595806512981653,
+        "leaves": 4,
+        "new": 4
+      },
+      {
+        "orbits": 5,
+        "seconds": 0.00014533393550664186,
+        "leaves": 4,
+        "new": 0
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.00015029101632535458,
+        "leaves": 4,
+        "new": 0
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.0001478750491514802,
+        "leaves": 4,
+        "new": 0
+      },
+      {
+        "orbits": 7,
+        "seconds": 0.0004247920587658882,
+        "leaves": 10,
+        "new": 6
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.0004259590059518814,
+        "leaves": 10,
+        "new": 6
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.0003488330403342843,
+        "leaves": 10,
+        "new": 0
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.00034337490797042847,
+        "leaves": 10,
+        "new": 0
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.00047179090324789286,
+        "leaves": 10,
+        "new": 6
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.00021187507081776857,
+        "leaves": 4,
+        "new": 0
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.00039825006388127804,
+        "leaves": 10,
+        "new": 6
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0002144169993698597,
+        "leaves": 4,
+        "new": 0
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0003987500676885247,
+        "leaves": 10,
+        "new": 6
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.00041262502782046795,
+        "leaves": 10,
+        "new": 0
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.00041395798325538635,
+        "leaves": 10,
+        "new": 0
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0003563750069588423,
+        "leaves": 10,
+        "new": 0
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0008625839836895466,
+        "leaves": 22,
+        "new": 12
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.000812208978459239,
+        "leaves": 22,
+        "new": 12
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0008305840892717242,
+        "leaves": 22,
+        "new": 12
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0007992909522727132,
+        "leaves": 22,
+        "new": 12
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.001703375019133091,
+        "leaves": 49,
+        "new": 15
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0016551250591874123,
+        "leaves": 55,
+        "new": 21
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0015910420333966613,
+        "leaves": 55,
+        "new": 15
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.0017185840988531709,
+        "leaves": 55,
+        "new": 15
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.002852124976925552,
+        "leaves": 76,
+        "new": 54
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.0021870420314371586,
+        "leaves": 76,
+        "new": 0
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.0006484580226242542,
+        "leaves": 10,
+        "new": 0
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.002559166052378714,
+        "leaves": 76,
+        "new": 54
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.001964958035387099,
+        "leaves": 55,
+        "new": 39
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.0012816250091418624,
+        "leaves": 31,
+        "new": 15
+      },
+      {
+        "orbits": 20,
+        "seconds": 0.019736792077310383,
+        "leaves": 699,
+        "new": 599
+      },
+      {
+        "orbits": 20,
+        "seconds": 0.012936166021972895,
+        "leaves": 437,
+        "new": 337
+      },
+      {
+        "orbits": 28,
+        "seconds": 0.13184654200449586,
+        "leaves": 4756,
+        "new": 3510
+      }
+    ],
+    "instrumented_method_s": {
+      "_get_canonical": 0.06075114046689123,
+      "_trie_lookup": 0.006867740303277969,
+      "_compute_stabilizer_and_orbit": 0.06741494545713067,
+      "_trie_insert": 0.006769778439775109
+    },
+    "profile": "         766780 function calls (748580 primitive calls) in 0.282 seconds\n\n   Ordered by: cumulative time\n   List reduced from 101 to 20 due to restriction <20>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.001    0.001    0.282    0.282 profile_casm_gap_20261113.py:86(execute)\n        1    0.000    0.000    0.280    0.280 enumerator.py:397(enumerate)\n        1    0.000    0.000    0.279    0.279 enumerator.py:246(enumerate_subgroups)\n 15515/33    0.051    0.000    0.211    0.006 enumerator.py:162(_dfs_lattice_pruning)\n     6642    0.005    0.000    0.153    0.000 enumerator.py:144(_try_add_result)\n   182368    0.099    0.000    0.099    0.000 enumerator.py:82(_apply_perm)\n     6642    0.014    0.000    0.071    0.000 enumerator.py:89(_get_canonical)\n        1    0.001    0.001    0.066    0.066 enumerator.py:258(_enumerate_all_sympy_subgroups)\n     4756    0.016    0.000    0.065    0.000 enumerator.py:97(_compute_stabilizer_and_orbit)\n      662    0.000    0.000    0.043    0.000 perm_groups.py:2933(order)\n      937    0.000    0.000    0.043    0.000 perm_groups.py:691(basic_transversals)\n      579    0.000    0.000    0.043    0.000 perm_groups.py:3494(schreier_sims)\n      579    0.002    0.000    0.042    0.000 perm_groups.py:3526(_schreier_sims)\n      579    0.010    0.000    0.025    0.000 perm_groups.py:3551(schreier_sims_incremental)\n      578    0.005    0.000    0.015    0.000 perm_groups.py:124(__new__)\n     2263    0.004    0.000    0.010    0.000 perm_groups.py:5139(_orbit_transversal)\n    11253    0.002    0.000    0.008    0.000 {method 'index' of 'list' objects}\n    78369    0.007    0.000    0.008    0.000 {method 'add' of 'set' objects}\n    23086    0.007    0.000    0.007    0.000 permutations.py:21(_af_rmul)\n      577    0.001    0.000    0.007    0.000 util.py:248(_orbits_transversals_from_bsgs)\n\n\n"
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      3
+    ],
+    "group_size": 16,
+    "orbits": 36369,
+    "cold_s": 1.9993842500261962,
+    "warm_s": [
+      1.9007608329411596,
+      1.8791076249908656,
+      1.868946124915965
+    ],
+    "identity_only_s": [
+      1.4824018749641255,
+      1.457655749982223,
+      1.4607256670715287
+    ],
+    "instrumented_setup_s": 0.02903500001411885,
+    "instrumented_tasks": [
+      {
+        "orbits": 5,
+        "seconds": 0.001610916922800243,
+        "leaves": 27,
+        "new": 27
+      },
+      {
+        "orbits": 5,
+        "seconds": 0.0012397089740261436,
+        "leaves": 27,
+        "new": 0
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.0026486669667065144,
+        "leaves": 54,
+        "new": 27
+      },
+      {
+        "orbits": 6,
+        "seconds": 0.00270545796956867,
+        "leaves": 54,
+        "new": 27
+      },
+      {
+        "orbits": 7,
+        "seconds": 0.0017819160129874945,
+        "leaves": 27,
+        "new": 0
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.0033822079421952367,
+        "leaves": 54,
+        "new": 27
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.0030330829322338104,
+        "leaves": 54,
+        "new": 0
+      },
+      {
+        "orbits": 8,
+        "seconds": 0.002928667003288865,
+        "leaves": 54,
+        "new": 0
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.007994042010977864,
+        "leaves": 135,
+        "new": 108
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.0051245830254629254,
+        "leaves": 99,
+        "new": 45
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.004882249981164932,
+        "leaves": 99,
+        "new": 45
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.004716666997410357,
+        "leaves": 90,
+        "new": 36
+      },
+      {
+        "orbits": 9,
+        "seconds": 0.004680374986492097,
+        "leaves": 90,
+        "new": 36
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.012483958969824016,
+        "leaves": 270,
+        "new": 108
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.012396833044476807,
+        "leaves": 270,
+        "new": 108
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.01182441704440862,
+        "leaves": 243,
+        "new": 135
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0037058329908177257,
+        "leaves": 54,
+        "new": 27
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0036758750211447477,
+        "leaves": 54,
+        "new": 27
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0024141670437529683,
+        "leaves": 27,
+        "new": 0
+      },
+      {
+        "orbits": 10,
+        "seconds": 0.0023928750306367874,
+        "leaves": 27,
+        "new": 0
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.010896667023189366,
+        "leaves": 207,
+        "new": 99
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.006401375052519143,
+        "leaves": 90,
+        "new": 36
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.010162291000597179,
+        "leaves": 189,
+        "new": 27
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.010167417000047863,
+        "leaves": 189,
+        "new": 27
+      },
+      {
+        "orbits": 14,
+        "seconds": 0.017215332947671413,
+        "leaves": 270,
+        "new": 108
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.07223912503104657,
+        "leaves": 1215,
+        "new": 540
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.047145333024673164,
+        "leaves": 1053,
+        "new": 702
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.04675662505906075,
+        "leaves": 1026,
+        "new": 675
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.03975700004957616,
+        "leaves": 927,
+        "new": 594
+      },
+      {
+        "orbits": 16,
+        "seconds": 0.045948792016133666,
+        "leaves": 1098,
+        "new": 783
+      },
+      {
+        "orbits": 20,
+        "seconds": 0.055979541037231684,
+        "leaves": 1017,
+        "new": 720
+      },
+      {
+        "orbits": 20,
+        "seconds": 0.0559777079615742,
+        "leaves": 1008,
+        "new": 711
+      },
+      {
+        "orbits": 28,
+        "seconds": 1.61193983303383,
+        "leaves": 36369,
+        "new": 30564
+      }
+    ],
+    "instrumented_method_s": {
+      "_get_canonical": 0.43355111964046955,
+      "_trie_lookup": 0.037550392327830195,
+      "_compute_stabilizer_and_orbit": 0.37889058399014175,
+      "_trie_insert": 0.34190081048291177
+    },
+    "profile": "         8398802 function calls (7647356 primitive calls) in 2.889 seconds\n\n   Ordered by: cumulative time\n   List reduced from 101 to 20 due to restriction <20>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.014    0.014    2.894    2.894 profile_casm_gap_20261113.py:86(execute)\n        1    0.004    0.004    2.874    2.874 enumerator.py:397(enumerate)\n        1    0.000    0.000    2.854    2.854 enumerator.py:246(enumerate_subgroups)\n748761/33    1.013    0.000    2.786    0.084 enumerator.py:162(_dfs_lattice_pruning)\n    46467    0.036    0.000    1.562    0.000 enumerator.py:144(_try_add_result)\n  1325376    0.726    0.000    0.726    0.000 enumerator.py:82(_apply_perm)\n    46467    0.096    0.000    0.502    0.000 enumerator.py:89(_get_canonical)\n    36369    0.467    0.000    0.501    0.000 enumerator.py:136(_trie_insert)\n    36369    0.117    0.000    0.492    0.000 enumerator.py:97(_compute_stabilizer_and_orbit)\n  2403178    0.095    0.000    0.095    0.000 {built-in method builtins.len}\n  1482109    0.084    0.000    0.084    0.000 {method 'get' of 'dict' objects}\n        1    0.001    0.001    0.065    0.065 enumerator.py:258(_enumerate_all_sympy_subgroups)\n   584177    0.055    0.000    0.055    0.000 {method 'add' of 'set' objects}\n      662    0.000    0.000    0.043    0.000 perm_groups.py:2933(order)\n      937    0.000    0.000    0.042    0.000 perm_groups.py:691(basic_transversals)\n      579    0.000    0.000    0.042    0.000 perm_groups.py:3494(schreier_sims)\n      579    0.002    0.000    0.042    0.000 perm_groups.py:3526(_schreier_sims)\n   644222    0.038    0.000    0.038    0.000 {method 'append' of 'list' objects}\n   646700    0.034    0.000    0.034    0.000 enumerator.py:36(__init__)\n    46467    0.029    0.000    0.029    0.000 enumerator.py:129(_trie_lookup)\n\n\n"
+  }
+]

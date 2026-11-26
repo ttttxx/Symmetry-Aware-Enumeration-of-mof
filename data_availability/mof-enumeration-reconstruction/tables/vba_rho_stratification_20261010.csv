@@ -1,0 +1,11 @@
+topology,c4_pool,pool_ligands,matched_total_output,total_output_cap,per_rho_quota,stabilizer_order,rho,legacy_prefix_count,legacy_distinct_ligand_count_vectors,rho_quota_count,rho_quota_distinct_ligand_count_vectors,rho_quota_layer_time_s,rho_quota_layer_status
+vba,2,4c_Cu_1_Ch|4c_B_Ch,41984,100000,20000,16,1,4,3,4,3,0.001,layer_exhausted
+vba,2,4c_Cu_1_Ch|4c_B_Ch,41984,100000,20000,8,0.5,90,3,90,3,0.013,layer_exhausted
+vba,2,4c_Cu_1_Ch|4c_B_Ch,41984,100000,20000,4,0.25,1890,7,1890,7,0.175,layer_exhausted
+vba,2,4c_Cu_1_Ch|4c_B_Ch,41984,100000,20000,2,0.125,40000,15,20000,15,1.42,quota_reached
+vba,2,4c_Cu_1_Ch|4c_B_Ch,41984,100000,20000,1,0.0625,0,0,20000,15,1.499,quota_reached
+vba,3,4c_Cu_1_Ch|4c_B_Ch|4c_Cd_1_Ch,60549,100000,20000,16,1,9,6,9,6,0.001,layer_exhausted
+vba,3,4c_Cu_1_Ch|4c_B_Ch|4c_Cd_1_Ch,60549,100000,20000,8,0.5,540,12,540,12,0.073,layer_exhausted
+vba,3,4c_Cu_1_Ch|4c_B_Ch|4c_Cd_1_Ch,60549,100000,20000,4,0.25,55440,42,20000,42,2.405,quota_reached
+vba,3,4c_Cu_1_Ch|4c_B_Ch|4c_Cd_1_Ch,60549,100000,20000,2,0.125,4560,51,20000,70,2.667,quota_reached
+vba,3,4c_Cu_1_Ch|4c_B_Ch|4c_Cd_1_Ch,60549,100000,20000,1,0.0625,0,0,20000,54,4.104,quota_reached

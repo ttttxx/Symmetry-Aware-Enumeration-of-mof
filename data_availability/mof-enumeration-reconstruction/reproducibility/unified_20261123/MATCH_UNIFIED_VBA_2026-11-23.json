@@ -1,0 +1,1355 @@
+{
+  "records": [
+    {
+      "c4": 2,
+      "policy": "prefix",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 4294967296,
+      "returned": 41984,
+      "time_s": 0.2623947079991922,
+      "burnside_total": 268496896,
+      "distribution": {
+        "16": {
+          "returned": 4,
+          "composition_vectors": 3
+        },
+        "8": {
+          "returned": 90,
+          "composition_vectors": 3
+        },
+        "4": {
+          "returned": 1890,
+          "composition_vectors": 7
+        },
+        "2": {
+          "returned": 40000,
+          "composition_vectors": 15
+        },
+        "1": {
+          "returned": 0,
+          "composition_vectors": 0
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "5ba8ac62be1fb5c9b024b9ccb4f22aa9978484cc33eb682af6196c444e19415b",
+      "peak_rss_mib": 234.765625,
+      "native_kernel_s": 0.018873086664825678,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 3,
+        "nodes_created": 16,
+        "live_nodes": 0,
+        "peak_nodes": 16,
+        "budget_skips": 0,
+        "snapshots": 1,
+        "forests": 1,
+        "retained_nodes_before_release": 16
+      },
+      "task_stats": {
+        "tasks": 67,
+        "completed_tasks": 56,
+        "pruned_prefixes": 2956,
+        "leaf_visits": 41984,
+        "duplicate_leaves": 0,
+        "compile_s": 0.04348012385889888,
+        "search_nodes": 117998
+      },
+      "output_cap": 41984,
+      "task_time_limit": 60,
+      "rep": 0
+    },
+    {
+      "c4": 2,
+      "policy": "quota",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 4294967296,
+      "returned": 41984,
+      "time_s": 0.22185591596644372,
+      "burnside_total": 268496896,
+      "distribution": {
+        "16": {
+          "returned": 4,
+          "composition_vectors": 3
+        },
+        "8": {
+          "returned": 90,
+          "composition_vectors": 3
+        },
+        "4": {
+          "returned": 1890,
+          "composition_vectors": 7
+        },
+        "2": {
+          "returned": 20000,
+          "composition_vectors": 15
+        },
+        "1": {
+          "returned": 20000,
+          "composition_vectors": 15
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "648637945e7d66cc0ecf5285aeb1b3ef9dfe341f154fad4d20296c4822c5d892",
+      "peak_rss_mib": 238.828125,
+      "native_kernel_s": 0.01572271133773029,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 16,
+        "nodes_created": 58,
+        "live_nodes": 0,
+        "peak_nodes": 32,
+        "budget_skips": 0,
+        "snapshots": 2,
+        "forests": 1,
+        "retained_nodes_before_release": 32
+      },
+      "task_stats": {
+        "tasks": 55,
+        "completed_tasks": 53,
+        "pruned_prefixes": 841,
+        "leaf_visits": 43360,
+        "duplicate_leaves": 0,
+        "compile_s": 0.005704459617845714,
+        "search_nodes": 105537
+      },
+      "output_cap": 100000,
+      "task_time_limit": 60,
+      "layers": [
+        {
+          "stabilizer_order": 16,
+          "rho": 1.0,
+          "quota": 20000,
+          "returned": 4,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.00015291711315512657,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 8,
+          "rho": 0.5,
+          "quota": 20000,
+          "returned": 90,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 15,
+          "task_timeouts": 0,
+          "elapsed_s": 0.0011619169963523746,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 4,
+          "rho": 0.25,
+          "quota": 20000,
+          "returned": 1890,
+          "fixed_layer_tasks": 35,
+          "tasks_started": 35,
+          "task_timeouts": 0,
+          "elapsed_s": 0.007968417019583285,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 2,
+          "rho": 0.125,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 3,
+          "task_timeouts": 0,
+          "elapsed_s": 0.018287291983142495,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 1,
+          "rho": 0.0625,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.015423750039190054,
+          "status": "quota_reached"
+        }
+      ],
+      "rep": 0
+    },
+    {
+      "c4": 2,
+      "policy": "quota",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 4294967296,
+      "returned": 41984,
+      "time_s": 0.2372750829672441,
+      "burnside_total": 268496896,
+      "distribution": {
+        "16": {
+          "returned": 4,
+          "composition_vectors": 3
+        },
+        "8": {
+          "returned": 90,
+          "composition_vectors": 3
+        },
+        "4": {
+          "returned": 1890,
+          "composition_vectors": 7
+        },
+        "2": {
+          "returned": 20000,
+          "composition_vectors": 15
+        },
+        "1": {
+          "returned": 20000,
+          "composition_vectors": 15
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "648637945e7d66cc0ecf5285aeb1b3ef9dfe341f154fad4d20296c4822c5d892",
+      "peak_rss_mib": 230.75,
+      "native_kernel_s": 0.017473586718551815,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 16,
+        "nodes_created": 58,
+        "live_nodes": 0,
+        "peak_nodes": 32,
+        "budget_skips": 0,
+        "snapshots": 2,
+        "forests": 1,
+        "retained_nodes_before_release": 32
+      },
+      "task_stats": {
+        "tasks": 55,
+        "completed_tasks": 53,
+        "pruned_prefixes": 841,
+        "leaf_visits": 43360,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0059982899110764265,
+        "search_nodes": 105537
+      },
+      "output_cap": 100000,
+      "task_time_limit": 60,
+      "layers": [
+        {
+          "stabilizer_order": 16,
+          "rho": 1.0,
+          "quota": 20000,
+          "returned": 4,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.0002507920144125819,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 8,
+          "rho": 0.5,
+          "quota": 20000,
+          "returned": 90,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 15,
+          "task_timeouts": 0,
+          "elapsed_s": 0.0014250000240281224,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 4,
+          "rho": 0.25,
+          "quota": 20000,
+          "returned": 1890,
+          "fixed_layer_tasks": 35,
+          "tasks_started": 35,
+          "task_timeouts": 0,
+          "elapsed_s": 0.008373291930183768,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 2,
+          "rho": 0.125,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 3,
+          "task_timeouts": 0,
+          "elapsed_s": 0.019796417094767094,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 1,
+          "rho": 0.0625,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.018600207986310124,
+          "status": "quota_reached"
+        }
+      ],
+      "rep": 1
+    },
+    {
+      "c4": 2,
+      "policy": "prefix",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 4294967296,
+      "returned": 41984,
+      "time_s": 0.27463150001131,
+      "burnside_total": 268496896,
+      "distribution": {
+        "16": {
+          "returned": 4,
+          "composition_vectors": 3
+        },
+        "8": {
+          "returned": 90,
+          "composition_vectors": 3
+        },
+        "4": {
+          "returned": 1890,
+          "composition_vectors": 7
+        },
+        "2": {
+          "returned": 40000,
+          "composition_vectors": 15
+        },
+        "1": {
+          "returned": 0,
+          "composition_vectors": 0
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "5ba8ac62be1fb5c9b024b9ccb4f22aa9978484cc33eb682af6196c444e19415b",
+      "peak_rss_mib": 228.875,
+      "native_kernel_s": 0.019870422082021832,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 3,
+        "nodes_created": 16,
+        "live_nodes": 0,
+        "peak_nodes": 16,
+        "budget_skips": 0,
+        "snapshots": 1,
+        "forests": 1,
+        "retained_nodes_before_release": 16
+      },
+      "task_stats": {
+        "tasks": 67,
+        "completed_tasks": 56,
+        "pruned_prefixes": 2956,
+        "leaf_visits": 41984,
+        "duplicate_leaves": 0,
+        "compile_s": 0.046815633308142424,
+        "search_nodes": 117998
+      },
+      "output_cap": 41984,
+      "task_time_limit": 60,
+      "rep": 1
+    },
+    {
+      "c4": 2,
+      "policy": "prefix",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 4294967296,
+      "returned": 41984,
+      "time_s": 0.2779155831085518,
+      "burnside_total": 268496896,
+      "distribution": {
+        "16": {
+          "returned": 4,
+          "composition_vectors": 3
+        },
+        "8": {
+          "returned": 90,
+          "composition_vectors": 3
+        },
+        "4": {
+          "returned": 1890,
+          "composition_vectors": 7
+        },
+        "2": {
+          "returned": 40000,
+          "composition_vectors": 15
+        },
+        "1": {
+          "returned": 0,
+          "composition_vectors": 0
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "5ba8ac62be1fb5c9b024b9ccb4f22aa9978484cc33eb682af6196c444e19415b",
+      "peak_rss_mib": 229.1875,
+      "native_kernel_s": 0.019463551230728626,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 3,
+        "nodes_created": 16,
+        "live_nodes": 0,
+        "peak_nodes": 16,
+        "budget_skips": 0,
+        "snapshots": 1,
+        "forests": 1,
+        "retained_nodes_before_release": 16
+      },
+      "task_stats": {
+        "tasks": 67,
+        "completed_tasks": 56,
+        "pruned_prefixes": 2956,
+        "leaf_visits": 41984,
+        "duplicate_leaves": 0,
+        "compile_s": 0.04377520899288356,
+        "search_nodes": 117998
+      },
+      "output_cap": 41984,
+      "task_time_limit": 60,
+      "rep": 2
+    },
+    {
+      "c4": 2,
+      "policy": "quota",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 4294967296,
+      "returned": 41984,
+      "time_s": 0.23660758300684392,
+      "burnside_total": 268496896,
+      "distribution": {
+        "16": {
+          "returned": 4,
+          "composition_vectors": 3
+        },
+        "8": {
+          "returned": 90,
+          "composition_vectors": 3
+        },
+        "4": {
+          "returned": 1890,
+          "composition_vectors": 7
+        },
+        "2": {
+          "returned": 20000,
+          "composition_vectors": 15
+        },
+        "1": {
+          "returned": 20000,
+          "composition_vectors": 15
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "648637945e7d66cc0ecf5285aeb1b3ef9dfe341f154fad4d20296c4822c5d892",
+      "peak_rss_mib": 240.25,
+      "native_kernel_s": 0.015501042362302542,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 16,
+        "nodes_created": 58,
+        "live_nodes": 0,
+        "peak_nodes": 32,
+        "budget_skips": 0,
+        "snapshots": 2,
+        "forests": 1,
+        "retained_nodes_before_release": 32
+      },
+      "task_stats": {
+        "tasks": 55,
+        "completed_tasks": 53,
+        "pruned_prefixes": 841,
+        "leaf_visits": 43360,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0056812516413629055,
+        "search_nodes": 105537
+      },
+      "output_cap": 100000,
+      "task_time_limit": 60,
+      "layers": [
+        {
+          "stabilizer_order": 16,
+          "rho": 1.0,
+          "quota": 20000,
+          "returned": 4,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.00018325005657970905,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 8,
+          "rho": 0.5,
+          "quota": 20000,
+          "returned": 90,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 15,
+          "task_timeouts": 0,
+          "elapsed_s": 0.0012459999416023493,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 4,
+          "rho": 0.25,
+          "quota": 20000,
+          "returned": 1890,
+          "fixed_layer_tasks": 35,
+          "tasks_started": 35,
+          "task_timeouts": 0,
+          "elapsed_s": 0.007908249972388148,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 2,
+          "rho": 0.125,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 3,
+          "task_timeouts": 0,
+          "elapsed_s": 0.01787837501615286,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 1,
+          "rho": 0.0625,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.01572054100688547,
+          "status": "quota_reached"
+        }
+      ],
+      "rep": 2
+    },
+    {
+      "c4": 3,
+      "policy": "prefix",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch",
+        "4c_B_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 1853020188851841,
+      "returned": 60549,
+      "time_s": 0.29711441695690155,
+      "burnside_total": 115813802159541,
+      "distribution": {
+        "16": {
+          "returned": 9,
+          "composition_vectors": 6
+        },
+        "8": {
+          "returned": 540,
+          "composition_vectors": 12
+        },
+        "4": {
+          "returned": 55440,
+          "composition_vectors": 42
+        },
+        "2": {
+          "returned": 4560,
+          "composition_vectors": 43
+        },
+        "1": {
+          "returned": 0,
+          "composition_vectors": 0
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "58685ccdd3d6999ff85e852198787330333592b094c1c5dc654fec46d5ccebab",
+      "peak_rss_mib": 259.921875,
+      "native_kernel_s": 0.020805124542675912,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 7,
+        "nodes_created": 23,
+        "live_nodes": 0,
+        "peak_nodes": 23,
+        "budget_skips": 0,
+        "snapshots": 1,
+        "forests": 1,
+        "retained_nodes_before_release": 23
+      },
+      "task_stats": {
+        "tasks": 67,
+        "completed_tasks": 51,
+        "pruned_prefixes": 4328,
+        "leaf_visits": 60549,
+        "duplicate_leaves": 0,
+        "compile_s": 0.020171619835309684,
+        "search_nodes": 105932
+      },
+      "output_cap": 60549,
+      "task_time_limit": 60,
+      "rep": 0
+    },
+    {
+      "c4": 3,
+      "policy": "quota",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch",
+        "4c_B_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 1853020188851841,
+      "returned": 60549,
+      "time_s": 0.27768095897044986,
+      "burnside_total": 115813802159541,
+      "distribution": {
+        "16": {
+          "returned": 9,
+          "composition_vectors": 6
+        },
+        "8": {
+          "returned": 540,
+          "composition_vectors": 12
+        },
+        "4": {
+          "returned": 20000,
+          "composition_vectors": 42
+        },
+        "2": {
+          "returned": 20000,
+          "composition_vectors": 54
+        },
+        "1": {
+          "returned": 20000,
+          "composition_vectors": 54
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "7cf9ce6ed913e3b47313d3dacc466afc8441d34d2e411a2fb7ff7c70295a4cd4",
+      "peak_rss_mib": 268.3125,
+      "native_kernel_s": 0.017395835020579398,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 26,
+        "nodes_created": 81,
+        "live_nodes": 0,
+        "peak_nodes": 40,
+        "budget_skips": 0,
+        "snapshots": 3,
+        "forests": 1,
+        "retained_nodes_before_release": 40
+      },
+      "task_stats": {
+        "tasks": 31,
+        "completed_tasks": 28,
+        "pruned_prefixes": 1182,
+        "leaf_visits": 61153,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0014351254794746637,
+        "search_nodes": 98505
+      },
+      "output_cap": 100000,
+      "task_time_limit": 60,
+      "layers": [
+        {
+          "stabilizer_order": 16,
+          "rho": 1.0,
+          "quota": 20000,
+          "returned": 9,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.00015899993013590574,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 8,
+          "rho": 0.5,
+          "quota": 20000,
+          "returned": 540,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 15,
+          "task_timeouts": 0,
+          "elapsed_s": 0.001535375020466745,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 4,
+          "rho": 0.25,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 35,
+          "tasks_started": 13,
+          "task_timeouts": 0,
+          "elapsed_s": 0.018496999982744455,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 2,
+          "rho": 0.125,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.014875125023536384,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 1,
+          "rho": 0.0625,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.037065207958221436,
+          "status": "quota_reached"
+        }
+      ],
+      "rep": 0
+    },
+    {
+      "c4": 3,
+      "policy": "quota",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch",
+        "4c_B_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 1853020188851841,
+      "returned": 60549,
+      "time_s": 0.28494412498548627,
+      "burnside_total": 115813802159541,
+      "distribution": {
+        "16": {
+          "returned": 9,
+          "composition_vectors": 6
+        },
+        "8": {
+          "returned": 540,
+          "composition_vectors": 12
+        },
+        "4": {
+          "returned": 20000,
+          "composition_vectors": 42
+        },
+        "2": {
+          "returned": 20000,
+          "composition_vectors": 54
+        },
+        "1": {
+          "returned": 20000,
+          "composition_vectors": 54
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "7cf9ce6ed913e3b47313d3dacc466afc8441d34d2e411a2fb7ff7c70295a4cd4",
+      "peak_rss_mib": 270.234375,
+      "native_kernel_s": 0.01729692064691335,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 26,
+        "nodes_created": 81,
+        "live_nodes": 0,
+        "peak_nodes": 40,
+        "budget_skips": 0,
+        "snapshots": 3,
+        "forests": 1,
+        "retained_nodes_before_release": 40
+      },
+      "task_stats": {
+        "tasks": 31,
+        "completed_tasks": 28,
+        "pruned_prefixes": 1182,
+        "leaf_visits": 61153,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0014933308120816946,
+        "search_nodes": 98505
+      },
+      "output_cap": 100000,
+      "task_time_limit": 60,
+      "layers": [
+        {
+          "stabilizer_order": 16,
+          "rho": 1.0,
+          "quota": 20000,
+          "returned": 9,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.00017170794308185577,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 8,
+          "rho": 0.5,
+          "quota": 20000,
+          "returned": 540,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 15,
+          "task_timeouts": 0,
+          "elapsed_s": 0.0015946250641718507,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 4,
+          "rho": 0.25,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 35,
+          "tasks_started": 13,
+          "task_timeouts": 0,
+          "elapsed_s": 0.01929870806634426,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 2,
+          "rho": 0.125,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.015795540995895863,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 1,
+          "rho": 0.0625,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.04079975001513958,
+          "status": "quota_reached"
+        }
+      ],
+      "rep": 1
+    },
+    {
+      "c4": 3,
+      "policy": "prefix",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch",
+        "4c_B_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 1853020188851841,
+      "returned": 60549,
+      "time_s": 0.3027621250366792,
+      "burnside_total": 115813802159541,
+      "distribution": {
+        "16": {
+          "returned": 9,
+          "composition_vectors": 6
+        },
+        "8": {
+          "returned": 540,
+          "composition_vectors": 12
+        },
+        "4": {
+          "returned": 55440,
+          "composition_vectors": 42
+        },
+        "2": {
+          "returned": 4560,
+          "composition_vectors": 43
+        },
+        "1": {
+          "returned": 0,
+          "composition_vectors": 0
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "58685ccdd3d6999ff85e852198787330333592b094c1c5dc654fec46d5ccebab",
+      "peak_rss_mib": 262.140625,
+      "native_kernel_s": 0.0212559187784791,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 7,
+        "nodes_created": 23,
+        "live_nodes": 0,
+        "peak_nodes": 23,
+        "budget_skips": 0,
+        "snapshots": 1,
+        "forests": 1,
+        "retained_nodes_before_release": 23
+      },
+      "task_stats": {
+        "tasks": 67,
+        "completed_tasks": 51,
+        "pruned_prefixes": 4328,
+        "leaf_visits": 60549,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0205552086699754,
+        "search_nodes": 105932
+      },
+      "output_cap": 60549,
+      "task_time_limit": 60,
+      "rep": 1
+    },
+    {
+      "c4": 3,
+      "policy": "prefix",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch",
+        "4c_B_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 1853020188851841,
+      "returned": 60549,
+      "time_s": 0.30235800007358193,
+      "burnside_total": 115813802159541,
+      "distribution": {
+        "16": {
+          "returned": 9,
+          "composition_vectors": 6
+        },
+        "8": {
+          "returned": 540,
+          "composition_vectors": 12
+        },
+        "4": {
+          "returned": 55440,
+          "composition_vectors": 42
+        },
+        "2": {
+          "returned": 4560,
+          "composition_vectors": 43
+        },
+        "1": {
+          "returned": 0,
+          "composition_vectors": 0
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "58685ccdd3d6999ff85e852198787330333592b094c1c5dc654fec46d5ccebab",
+      "peak_rss_mib": 261.96875,
+      "native_kernel_s": 0.021132413996383548,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 7,
+        "nodes_created": 23,
+        "live_nodes": 0,
+        "peak_nodes": 23,
+        "budget_skips": 0,
+        "snapshots": 1,
+        "forests": 1,
+        "retained_nodes_before_release": 23
+      },
+      "task_stats": {
+        "tasks": 67,
+        "completed_tasks": 51,
+        "pruned_prefixes": 4328,
+        "leaf_visits": 60549,
+        "duplicate_leaves": 0,
+        "compile_s": 0.020701250643469393,
+        "search_nodes": 105932
+      },
+      "output_cap": 60549,
+      "task_time_limit": 60,
+      "rep": 2
+    },
+    {
+      "c4": 3,
+      "policy": "quota",
+      "pool": [
+        "4c_1anC_Ch",
+        "4c_4B_fused_Ch",
+        "4c_B_Ch"
+      ],
+      "python": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "native_abi": 4,
+      "group_size": 16,
+      "naive": 1853020188851841,
+      "returned": 60549,
+      "time_s": 0.2918262080056593,
+      "burnside_total": 115813802159541,
+      "distribution": {
+        "16": {
+          "returned": 9,
+          "composition_vectors": 6
+        },
+        "8": {
+          "returned": 540,
+          "composition_vectors": 12
+        },
+        "4": {
+          "returned": 20000,
+          "composition_vectors": 42
+        },
+        "2": {
+          "returned": 20000,
+          "composition_vectors": 54
+        },
+        "1": {
+          "returned": 20000,
+          "composition_vectors": 54
+        }
+      },
+      "backend": "cpp",
+      "store": "cpp_trie",
+      "ordered_output_sha256": "7cf9ce6ed913e3b47313d3dacc466afc8441d34d2e411a2fb7ff7c70295a4cd4",
+      "peak_rss_mib": 269.09375,
+      "native_kernel_s": 0.017926331260241568,
+      "prefix_stats": {
+        "queries": 0,
+        "hits": 0,
+        "early_hits": 0,
+        "closed_prefixes": 26,
+        "nodes_created": 81,
+        "live_nodes": 0,
+        "peak_nodes": 40,
+        "budget_skips": 0,
+        "snapshots": 3,
+        "forests": 1,
+        "retained_nodes_before_release": 40
+      },
+      "task_stats": {
+        "tasks": 31,
+        "completed_tasks": 28,
+        "pruned_prefixes": 1182,
+        "leaf_visits": 61153,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0015780820976942778,
+        "search_nodes": 98505
+      },
+      "output_cap": 100000,
+      "task_time_limit": 60,
+      "layers": [
+        {
+          "stabilizer_order": 16,
+          "rho": 1.0,
+          "quota": 20000,
+          "returned": 9,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.00018266693223267794,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 8,
+          "rho": 0.5,
+          "quota": 20000,
+          "returned": 540,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 15,
+          "task_timeouts": 0,
+          "elapsed_s": 0.0017083329148590565,
+          "status": "layer_exhausted"
+        },
+        {
+          "stabilizer_order": 4,
+          "rho": 0.25,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 35,
+          "tasks_started": 13,
+          "task_timeouts": 0,
+          "elapsed_s": 0.020184166030958295,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 2,
+          "rho": 0.125,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 15,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.014848667080514133,
+          "status": "quota_reached"
+        },
+        {
+          "stabilizer_order": 1,
+          "rho": 0.0625,
+          "quota": 20000,
+          "returned": 20000,
+          "fixed_layer_tasks": 1,
+          "tasks_started": 1,
+          "task_timeouts": 0,
+          "elapsed_s": 0.039492374984547496,
+          "status": "quota_reached"
+        }
+      ],
+      "rep": 2
+    }
+  ],
+  "summary": [
+    {
+      "c4": 2,
+      "prefix": {
+        "pool": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ],
+        "returned": 41984,
+        "distribution": {
+          "16": {
+            "returned": 4,
+            "composition_vectors": 3
+          },
+          "8": {
+            "returned": 90,
+            "composition_vectors": 3
+          },
+          "4": {
+            "returned": 1890,
+            "composition_vectors": 7
+          },
+          "2": {
+            "returned": 40000,
+            "composition_vectors": 15
+          },
+          "1": {
+            "returned": 0,
+            "composition_vectors": 0
+          }
+        },
+        "median_s": 0.27463150001131,
+        "min_s": 0.2623947079991922,
+        "max_s": 0.2779155831085518,
+        "ordered_output_sha256": "5ba8ac62be1fb5c9b024b9ccb4f22aa9978484cc33eb682af6196c444e19415b"
+      },
+      "quota": {
+        "pool": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch"
+        ],
+        "returned": 41984,
+        "distribution": {
+          "16": {
+            "returned": 4,
+            "composition_vectors": 3
+          },
+          "8": {
+            "returned": 90,
+            "composition_vectors": 3
+          },
+          "4": {
+            "returned": 1890,
+            "composition_vectors": 7
+          },
+          "2": {
+            "returned": 20000,
+            "composition_vectors": 15
+          },
+          "1": {
+            "returned": 20000,
+            "composition_vectors": 15
+          }
+        },
+        "median_s": 0.23660758300684392,
+        "min_s": 0.22185591596644372,
+        "max_s": 0.2372750829672441,
+        "ordered_output_sha256": "648637945e7d66cc0ecf5285aeb1b3ef9dfe341f154fad4d20296c4822c5d892",
+        "layers": [
+          {
+            "stabilizer_order": 16,
+            "median_s": 0.00018325005657970905,
+            "status": "layer_exhausted"
+          },
+          {
+            "stabilizer_order": 8,
+            "median_s": 0.0012459999416023493,
+            "status": "layer_exhausted"
+          },
+          {
+            "stabilizer_order": 4,
+            "median_s": 0.007968417019583285,
+            "status": "layer_exhausted"
+          },
+          {
+            "stabilizer_order": 2,
+            "median_s": 0.018287291983142495,
+            "status": "quota_reached"
+          },
+          {
+            "stabilizer_order": 1,
+            "median_s": 0.01572054100688547,
+            "status": "quota_reached"
+          }
+        ]
+      }
+    },
+    {
+      "c4": 3,
+      "prefix": {
+        "pool": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ],
+        "returned": 60549,
+        "distribution": {
+          "16": {
+            "returned": 9,
+            "composition_vectors": 6
+          },
+          "8": {
+            "returned": 540,
+            "composition_vectors": 12
+          },
+          "4": {
+            "returned": 55440,
+            "composition_vectors": 42
+          },
+          "2": {
+            "returned": 4560,
+            "composition_vectors": 43
+          },
+          "1": {
+            "returned": 0,
+            "composition_vectors": 0
+          }
+        },
+        "median_s": 0.30235800007358193,
+        "min_s": 0.29711441695690155,
+        "max_s": 0.3027621250366792,
+        "ordered_output_sha256": "58685ccdd3d6999ff85e852198787330333592b094c1c5dc654fec46d5ccebab"
+      },
+      "quota": {
+        "pool": [
+          "4c_1anC_Ch",
+          "4c_4B_fused_Ch",
+          "4c_B_Ch"
+        ],
+        "returned": 60549,
+        "distribution": {
+          "16": {
+            "returned": 9,
+            "composition_vectors": 6
+          },
+          "8": {
+            "returned": 540,
+            "composition_vectors": 12
+          },
+          "4": {
+            "returned": 20000,
+            "composition_vectors": 42
+          },
+          "2": {
+            "returned": 20000,
+            "composition_vectors": 54
+          },
+          "1": {
+            "returned": 20000,
+            "composition_vectors": 54
+          }
+        },
+        "median_s": 0.28494412498548627,
+        "min_s": 0.27768095897044986,
+        "max_s": 0.2918262080056593,
+        "ordered_output_sha256": "7cf9ce6ed913e3b47313d3dacc466afc8441d34d2e411a2fb7ff7c70295a4cd4",
+        "layers": [
+          {
+            "stabilizer_order": 16,
+            "median_s": 0.00017170794308185577,
+            "status": "layer_exhausted"
+          },
+          {
+            "stabilizer_order": 8,
+            "median_s": 0.0015946250641718507,
+            "status": "layer_exhausted"
+          },
+          {
+            "stabilizer_order": 4,
+            "median_s": 0.01929870806634426,
+            "status": "quota_reached"
+          },
+          {
+            "stabilizer_order": 2,
+            "median_s": 0.014875125023536384,
+            "status": "quota_reached"
+          },
+          {
+            "stabilizer_order": 1,
+            "median_s": 0.039492374984547496,
+            "status": "quota_reached"
+          }
+        ]
+      }
+    }
+  ],
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "native_abi": 4,
+  "timing_scope": "enumerate; imports/group construction and validation excluded; task setup and outputs included"
+}

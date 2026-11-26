@@ -8,6 +8,34 @@ from enumerator import MOFEnumerator
 from verification import BridgeVerifier
 from assembler import StructureAssembler
 
+def get_enumerator_implementation(backend="auto", prefix_trie=False, prefix_trie_max_nodes=50000,
+                                 native_store=None, rho_quota_per_level=None):
+    """Select optimized subgroup DFS, preferring C++ without compiling on import."""
+    if rho_quota_per_level is not None and rho_quota_per_level <= 0:
+        raise ValueError("rho_quota_per_level must be positive")
+    if backend == "legacy":
+        if prefix_trie:
+            raise ValueError("Prefix Trie requires the python, auto or cpp DFS backend")
+        if native_store is not None:
+            raise ValueError("Native storage requires the python, auto or cpp backend")
+        if rho_quota_per_level is not None:
+            from enumerator_rho_quota import RhoQuotaMOFEnumerator
+            return RhoQuotaMOFEnumerator, {"rho_quota_per_level": rho_quota_per_level}
+        return MOFEnumerator, {}
+    if backend not in ("python", "auto", "cpp"):
+        raise ValueError("Unknown enumeration backend")
+    from enumerator_native import HybridMOFEnumerator
+    options = {"backend": backend}
+    if prefix_trie:
+        options.update(prefix_trie=True, prefix_trie_max_nodes=prefix_trie_max_nodes)
+    if native_store is not None:
+        options["native_store"] = native_store
+    if rho_quota_per_level is not None:
+        from enumerator_rho_native import HybridRhoQuotaMOFEnumerator
+        options["rho_quota_per_level"] = rho_quota_per_level
+        return HybridRhoQuotaMOFEnumerator, options
+    return HybridMOFEnumerator, options
+
 def enrich_graph_data_with_topology(graph_data):
     """Add cycle-basis and incidence data needed by the reconstruction stage."""
     nodes = graph_data['nodes']
@@ -144,7 +172,9 @@ def sample_by_symmetry(results, group_size,
 def run_enumeration(data_prefix, user_selected_ligands, forced_edge,
                     max_cifs=5, max_results=10_000,
                     sample_mode=False, n_per_cat=20,
-                    high_rho=0.75, low_rho=0.25):
+                    high_rho=0.75, low_rho=0.25, enumeration_backend="auto",
+                    prefix_trie=False, prefix_trie_max_nodes=50000, native_store=None,
+                    rho_quota_per_level=None):
     """Run symmetry analysis, enumeration, verification, and CIF reconstruction."""
     graph_path = os.path.join("data", data_prefix, f"{data_prefix}_graph.json")
     if not os.path.exists(graph_path):
@@ -170,10 +200,12 @@ def run_enumeration(data_prefix, user_selected_ligands, forced_edge,
     print(f"  Automorphism Group Size |G|: {group_size}")
 
     print("\n--- Step 2: Structure Enumeration ---")
-    enumerator = MOFEnumerator(perms, num_nodes, verbose=True,
+    enumerator_class, enumerator_options = get_enumerator_implementation(
+        enumeration_backend, prefix_trie, prefix_trie_max_nodes, native_store, rho_quota_per_level)
+    enumerator = enumerator_class(perms, num_nodes, verbose=True,
                                topology_requirements=topology_requirements,
                                user_selected_ligands=user_selected_ligands,
-                               node_degrees=node_degrees)
+                               node_degrees=node_degrees, **enumerator_options)
     results = enumerator.enumerate(all_ligands)
     print(f"  Found {len(results)} unique structures (early-pruned by degree & count constraints).")
     if len(results) > max_results:
@@ -247,7 +279,28 @@ def main():
                         help="If set, write a benchmark JSON record to this path after enumeration")
     parser.add_argument("--disable-budget", action="store_true", default=False,
                         help="Disable all enumeration budget limits for exhaustive runs")
+    parser.add_argument("--enumeration-backend", choices=("legacy", "python", "auto", "cpp"),
+                        default="auto", help=("Subgroup DFS: default auto prefers C++ and falls back "
+                        "to optimized Python; cpp requires the native core; legacy selects the original implementation"))
+    parser.add_argument("--rho-quota-per-level", type=int, default=None,
+                        help=("Enable the opt-in exact-rho-layer quota experiment; "
+                              "limit returned representatives per exact stabilizer order"))
+    parser.add_argument("--prefix-trie", action="store_true",
+                        help="Reuse completed DFS prefixes of interrupted subgroup tasks")
+    parser.add_argument("--prefix-trie-max-nodes", type=int, default=50000,
+                        help="Maximum cached prefix nodes; default 50000, zero disables caching")
+    parser.add_argument("--native-store", choices=("trie", "hash"), default=None,
+                        help="C++ complete-representative index; default compact trie; hash for comparison")
     args = parser.parse_args()
+
+    if args.rho_quota_per_level is not None and args.rho_quota_per_level <= 0:
+        parser.error("--rho-quota-per-level must be a positive integer")
+    if args.prefix_trie and args.enumeration_backend == "legacy":
+        parser.error("--prefix-trie requires --enumeration-backend python, auto or cpp")
+    if args.prefix_trie_max_nodes < 0:
+        parser.error("--prefix-trie-max-nodes must be non-negative")
+    if args.native_store is not None and args.enumeration_backend == "legacy":
+        parser.error("--native-store requires --enumeration-backend python, auto or cpp")
 
     if os.environ.get("ENUM_DISABLE_BUDGET") == "1":
         args.disable_budget = True
@@ -307,20 +360,30 @@ def main():
     print(f"  Automorphism Group Size |G|: {group_size}")
 
     print("\n--- Step 2: Structure Enumeration ---")
-    enumerator = MOFEnumerator(perms, num_nodes, verbose=True,
-                               topology_requirements=topology_requirements,
-                               user_selected_ligands=user_selected_ligands,
-                               node_degrees=node_degrees,
-                               task_time_limit=enum_task_time_limit,
-                               max_total_results=enum_max_total,
-                               identity_orbit_limit=enum_orbit_limit,
-                               identity_new_limit=enum_new_limit)
+    enumerator_class, enumerator_options = get_enumerator_implementation(
+        args.enumeration_backend, args.prefix_trie, args.prefix_trie_max_nodes, args.native_store,
+        args.rho_quota_per_level)
+    if args.rho_quota_per_level is not None:
+        print("  [Experiment] Exact stabilizer-order layers, descending; "
+              f"quota={args.rho_quota_per_level} per layer.")
+
+    enumerator = enumerator_class(perms, num_nodes, verbose=True,
+                                  topology_requirements=topology_requirements,
+                                  user_selected_ligands=user_selected_ligands,
+                                  node_degrees=node_degrees,
+                                  task_time_limit=enum_task_time_limit,
+                                  max_total_results=enum_max_total,
+                                  identity_orbit_limit=enum_orbit_limit,
+                                  identity_new_limit=enum_new_limit,
+                                  **enumerator_options)
 
     _bench_t0 = time_module.perf_counter()
     _rss_before = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     results = enumerator.enumerate(all_ligands)
     _rss_after = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     _bench_t1 = time_module.perf_counter()
+    if args.enumeration_backend != "legacy":
+        print(f"  [Backend] {enumerator.active_backend}: {enumerator.backend_reason}")
     _bench_time_s = _bench_t1 - _bench_t0
     # macOS ru_maxrss is bytes; compute peak as post-call high-watermark
     _bench_peak_mb = _rss_after / 1_048_576
@@ -344,8 +407,23 @@ def main():
             "orbits": len(results),
             "time_s": round(_bench_time_s, 6),
             "peak_mem_mb": round(_bench_peak_mb, 2),
-            "exhaustive": bool(args.disable_budget),
-            "budget_triggered": not is_verified and not args.disable_budget,
+            "exhaustive": bool(args.disable_budget and args.rho_quota_per_level is None),
+            "budget_triggered": not is_verified,
+            "enumeration_strategy": (
+                "exact_rho_layer_quota" if args.rho_quota_per_level is not None
+                else ("legacy_subgroup_dfs" if args.enumeration_backend == "legacy"
+                      else "subgroup_dfs")
+            ),
+            "enumeration_backend_requested": args.enumeration_backend,
+            "enumeration_backend_active": getattr(enumerator, "active_backend", "legacy"),
+            "prefix_trie": args.prefix_trie,
+            "prefix_trie_max_nodes": args.prefix_trie_max_nodes,
+            "prefix_trie_stats": getattr(enumerator, "prefix_trie_stats", {}),
+            "native_store_requested": args.native_store or "trie",
+            "result_store_active": getattr(enumerator, "active_store", "legacy_trie"),
+            "result_index_stats": getattr(enumerator, "result_index_stats", {}),
+            "rho_quota_per_level": args.rho_quota_per_level,
+            "rho_layer_report": getattr(enumerator, "rho_layer_report", None),
         }
         _bench_path = os.path.abspath(args.benchmark_json)
         os.makedirs(os.path.dirname(_bench_path) or ".", exist_ok=True)
@@ -357,6 +435,8 @@ def main():
 
     atoms_str = "".join(sorted(all_ligands))
     cif_subdir = f"{DATA_PREFIX}_{atoms_str}_cifs"
+    if args.rho_quota_per_level is not None:
+        cif_subdir += f"_rhoquota_{args.rho_quota_per_level}"
     cif_output_path = os.path.join("results", cif_subdir)
     os.makedirs(cif_output_path, exist_ok=True)
 
@@ -395,7 +475,17 @@ def main():
 
     out_path = generate_output_filename(DATA_PREFIX, all_ligands)
     final_output = {
-        "meta": {"topology": DATA_PREFIX, "group_size": group_size, "verification": stats},
+        "meta": {
+            "topology": DATA_PREFIX,
+            "group_size": group_size,
+            "verification": stats,
+            "enumeration_strategy": (
+                "exact_rho_layer_quota" if args.rho_quota_per_level is not None
+                else "legacy_subgroup_dfs"
+            ),
+            "rho_quota_per_level": args.rho_quota_per_level,
+            "rho_layer_report": getattr(enumerator, "rho_layer_report", None),
+        },
         "structures": results
     }
     with open(out_path, 'w') as f:

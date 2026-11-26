@@ -1,0 +1,117 @@
+Cell info:
+========================================================================
+number-of-unit-cells: 1 1 1
+unit-cell-vector-a:    33.322500000000     0.000000000000     0.000000000000
+unit-cell-vector-b:     0.000000000000    33.322500000000     0.000000000000
+unit-cell-vector-c:     0.000000000000     0.000000000000    14.916800000000
+
+cell-vector-a:    33.322500000000     0.000000000000     0.000000000000
+cell-vector-b:     0.000000000000    33.322500000000     0.000000000000
+cell-vector-c:     0.000000000000     0.000000000000    14.916800000000
+
+cell-lengths:    33.322500000000    33.322500000000    14.916800000000
+cell-angles:    90.000000000000    90.000000000000    90.000000000000
+
+
+Maximum changes for MC-moves:
+========================================================================
+Maximum-volume-change: 0.001563
+Maximum-Gibbs-volume-change: 0.006250
+Maximum-box-shape-change: 0.100000 0.100000 0.100000, 0.100000 0.100000 0.100000, 0.100000 0.100000 0.100000
+
+
+Acceptance targets for MC-moves:
+========================================================================
+Target-volume-change: 0.500000
+Target-box-shape-change: 0.500000
+Target-Gibbs-volume-change: 0.500000
+
+
+Components: 2 (Adsorbates 3, Cations 0)
+========================================================================
+Component 0 (CO2)
+	Fractional-molecule-id component 0: -1
+	Lambda-factors component 0:  0.000000 0.000000 0.000000
+	Number-of-biasing-factors component 0: 21
+	Biasing-factors component 0:  0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+	Maximum-CF-Lambda-change component 0: 0.500000
+	Maximum-CBCF-Lambda-change component 0: 0.500000
+
+	Maximum-translation-change component 0: 0.731250,0.731250,0.731250
+	Maximum-translation-in-plane-change component 0: 0.000000,0.000000,0.000000
+	Maximum-rotation-change component 0: 0.245437 0.245437 0.245437
+Component 1 (N2)
+	Fractional-molecule-id component 1: -1
+	Lambda-factors component 1:  0.000000 0.000000 0.000000
+	Number-of-biasing-factors component 1: 21
+	Biasing-factors component 1:  0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+	Maximum-CF-Lambda-change component 1: 0.500000
+	Maximum-CBCF-Lambda-change component 1: 0.500000
+
+	Maximum-translation-change component 1: 0.731250,0.731250,0.731250
+	Maximum-translation-in-plane-change component 1: 0.000000,0.000000,0.000000
+	Maximum-rotation-change component 1: 0.245437 0.245437 0.245437
+
+Reactions: 0
+
+Component: 0     Adsorbate    0 molecules of CO2
+------------------------------------------------------------------------
+
+Component: 1     Adsorbate    3 molecules of N2
+------------------------------------------------------------------------
+Adsorbate-atom-position: 0 0     5.068384583622    12.379791758077     5.532567091971
+Adsorbate-atom-position: 0 1     5.126716817368    12.499971942982     4.999037267442
+Adsorbate-atom-position: 0 2     5.185049051114    12.620152127886     4.465507442912
+Adsorbate-atom-position: 1 0    30.965905863899    22.778912052124     6.028378346753
+Adsorbate-atom-position: 1 1    30.939802507912    23.326032467679     6.078156511527
+Adsorbate-atom-position: 1 2    30.913699151926    23.873152883235     6.127934676301
+Adsorbate-atom-position: 2 0    28.905371689176    26.941317986408     1.607068546758
+Adsorbate-atom-position: 2 1    29.190926459554    26.574391077544     1.313260587938
+Adsorbate-atom-position: 2 2    29.476481229932    26.207464168680     1.019452629119
+Adsorbate-atom-velocity: 0 0     2.431646899067    -6.569948518050    -0.681788606829
+Adsorbate-atom-velocity: 0 1     1.611152291593    -5.071735318101    -0.434015661273
+Adsorbate-atom-velocity: 0 2     0.790657684118    -3.573522118152    -0.186242715717
+Adsorbate-atom-velocity: 1 0    -6.243604101596    -6.072110261325    -3.201101724782
+Adsorbate-atom-velocity: 1 1    -2.524049265043    -6.120513000472    -0.718587728397
+Adsorbate-atom-velocity: 1 2     1.195505571510    -6.168915739619     1.763926267988
+Adsorbate-atom-velocity: 2 0     4.413700403834     7.744751429004     3.859554963132
+Adsorbate-atom-velocity: 2 1     1.170735726608     4.842741343961     4.331909615493
+Adsorbate-atom-velocity: 2 2    -2.072228950618     1.940731258917     4.804264267854
+Adsorbate-atom-force:    0 0   -33.076973710810   192.062874918206    -3.154959903080
+Adsorbate-atom-force:    0 1    -2.517712330371     0.469843328539     0.064829601671
+Adsorbate-atom-force:    0 2   -59.526370831949   193.196113775096    12.123361512371
+Adsorbate-atom-force:    1 0    -8.461361984705   -32.053377483849   -18.587146779036
+Adsorbate-atom-force:    1 1    12.528277063485   -20.381774000783    24.344195516631
+Adsorbate-atom-force:    1 2    -9.154003037103    -4.100091468424   -25.167472573415
+Adsorbate-atom-force:    2 0     0.937169508312   -18.309384313705    -1.514418491305
+Adsorbate-atom-force:    2 1    -0.364636594636    30.147361969242     6.611646364114
+Adsorbate-atom-force:    2 2     3.534176423129   -21.711950710109     6.197427810479
+Adsorbate-atom-charge:   0 0    -0.405000000000
+Adsorbate-atom-charge:   0 1     0.810000000000
+Adsorbate-atom-charge:   0 2    -0.405000000000
+Adsorbate-atom-charge:   1 0    -0.405000000000
+Adsorbate-atom-charge:   1 1     0.810000000000
+Adsorbate-atom-charge:   1 2    -0.405000000000
+Adsorbate-atom-charge:   2 0    -0.405000000000
+Adsorbate-atom-charge:   2 1     0.810000000000
+Adsorbate-atom-charge:   2 2    -0.405000000000
+Adsorbate-atom-scaling:  0 0     1.000000000000
+Adsorbate-atom-scaling:  0 1     1.000000000000
+Adsorbate-atom-scaling:  0 2     1.000000000000
+Adsorbate-atom-scaling:  1 0     1.000000000000
+Adsorbate-atom-scaling:  1 1     1.000000000000
+Adsorbate-atom-scaling:  1 2     1.000000000000
+Adsorbate-atom-scaling:  2 0     1.000000000000
+Adsorbate-atom-scaling:  2 1     1.000000000000
+Adsorbate-atom-scaling:  2 2     1.000000000000
+Adsorbate-atom-fixed:    0 0       0 0 0
+Adsorbate-atom-fixed:    0 1       0 0 0
+Adsorbate-atom-fixed:    0 2       0 0 0
+Adsorbate-atom-fixed:    1 0       0 0 0
+Adsorbate-atom-fixed:    1 1       0 0 0
+Adsorbate-atom-fixed:    1 2       0 0 0
+Adsorbate-atom-fixed:    2 0       0 0 0
+Adsorbate-atom-fixed:    2 1       0 0 0
+Adsorbate-atom-fixed:    2 2       0 0 0
+
+

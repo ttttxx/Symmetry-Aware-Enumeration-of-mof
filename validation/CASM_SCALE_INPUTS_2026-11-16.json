@@ -1,0 +1,38 @@
+{
+  "captured": "2026-11-16 after completion",
+  "note": "Completion snapshot; source/library hashes were separately captured during the run.",
+  "sha256": {
+    "data/ffc/ffc_graph.json": "97d42047f3a0c5c2b89c4b724be455e7c68a50540f19dff69d20603027cb2d05",
+    "data/fjh/fjh_graph.json": "52b9a33e85953c0f29fa80383276b6c9cb714d048f1709059c501bb45d0f24fb",
+    "data/lil/lil_graph.json": "d89bbe30b92ede6dd21469dc50b6d5bf1396c9b717dbb043e03fb423d3683a53",
+    "data/mof/ffc.cif": "ef7b3a9d5afda4f20d1210b096a67bd1624103fcee40bed49909a0ed35b972d8",
+    "data/mof/fjh.cif": "2336d0bb1b146118a3492787e027b45cc61818f92cabeaa6f39c43296d892707",
+    "data/mof/lil.cif": "be1fd83ae02e30ab1a426095aeb9ea6d9f35897166f4a74a45e8c85a2f5cb8f1"
+  },
+  "template_filename_inventory": {
+    "3": [
+      "3c_B_Ch.cif",
+      "3c_Cu_imadazoline_Ch.cif",
+      "3c_pyrrole_Ch.cif",
+      "3c_triazine_Ch.cif",
+      "3c_uranyl.cif"
+    ],
+    "4": [
+      "4c_1anC_Ch.cif",
+      "4c_4B_fused_Ch.cif",
+      "4c_B_Ch.cif",
+      "4c_Cd_1_Ch.cif",
+      "4c_Cu_1_Ch.cif",
+      "4c_In_1_Ch.cif",
+      "4c_Ni_1_Ch.cif",
+      "4c_V_1_Ch.cif",
+      "4c_Zn_tet.cif",
+      "4c_bicyclooctane_Ch.cif",
+      "4c_ethene_Ch.cif",
+      "4c_porphyrin_Ch.cif",
+      "4c_pyrene_Ch.cif",
+      "4c_pyrene_NU_Ch.cif",
+      "4c_tetrathiafulvalene_Ch.cif"
+    ]
+  }
+}

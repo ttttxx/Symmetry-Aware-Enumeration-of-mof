@@ -1,0 +1,13 @@
+{
+  "enumerator.py": "e4133b14588817eb90f8336a2bf301616d468dd9ec8595dc9798472afa6e8adb",
+  "enumerator_native.py": "feac478c17838c3b0f8348ac878fa4f1ab479c8b5474598a39f4220f0238afb3",
+  "enumerator_rho_quota.py": "876f1dd72b1ebb6ba4ebf99b0c3044d274169032c47254dbf5e85dec8e170448",
+  "enumerator_casm_inspired.py": "a1af1864947d9621966e9861c7a294edcae39bc16982a182488c37674e7ab722",
+  "enumerator_task_dedup.py": "a5a4b05afa2583ce12d47098887fa3756ce4cdb2322816b643f400d2bb93c4ce",
+  "enumerator_storage.py": "e22dbea8a21ad8cfe33dd0cdca35ef2c98b253f81d69442af7ed51420d75bd83",
+  "main.py": "dc82e0bd45c1234bdbe77c5d2d98c689c4ddef716b3e3fc4e3ab79bf03f64f85",
+  "native/enumeration_core.cpp": "fc4b8da382229b3cfab8e7e5351dbd621dcfb973be52bf81d1cdb8e4f68bc764",
+  "native/libmof_enumeration.dylib": "4b2d0bffaa640d1e3420a4e056f1041bd33e753ae618450a9c8f8edf01d734c6",
+  "search_prefix_trie.py": "54ff33a4abf5fda1e579aab941d4cc8025845e54cf233d2e00ac417e2134212b",
+  "paper/main_MATCH.tex": "d2272fccea785b207f0814e2cfc6214b812158bd645d7a3ee0d5b169dad421ef"
+}

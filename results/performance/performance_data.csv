@@ -1,3 +1,0 @@
-Topology,Ligand_Label,Total_Atom_Types,Nodes,Degree_Dist,Group_Size,Naive_Log10,Unique_Found,Time_Sym,Time_Enum,Time_Total
-vba,4c×2,2,32,{4: 32},16,9.63,131864,0.0532,8.623,8.6762
-vba,4c×3,3,32,{4: 32},16,15.27,500000,0.0085,30.3655,30.374

@@ -1,0 +1,38 @@
+{
+  "purpose": "Compare output allocation across exact stabilizer-order strata under the existing 100,000-result cap; not a sample-quality or symmetry-preference test.",
+  "topology": "vba",
+  "pools": {
+    "C4x2_Cu_B": {
+      "4": [
+        "4c_Cu_1_Ch",
+        "4c_B_Ch"
+      ]
+    },
+    "C4x3_Cu_B_Cd": {
+      "4": [
+        "4c_Cu_1_Ch",
+        "4c_B_Ch",
+        "4c_Cd_1_Ch"
+      ]
+    }
+  },
+  "group_order": 16,
+  "rho_orders": [
+    16,
+    8,
+    4,
+    2,
+    1
+  ],
+  "output_cap": 100000,
+  "per_level_quota": 20000,
+  "task_time_limit_s": 60,
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "methods": [
+    "legacy_subgroup_dfs_at_100k_cap",
+    "exact_rho_layer_quota_at_100k_cap",
+    "legacy_subgroup_dfs_matched_to_rho_quota_return_count"
+  ],
+  "measurement": "enumeration wall time only; graph loading and automorphism discovery excluded"
+}

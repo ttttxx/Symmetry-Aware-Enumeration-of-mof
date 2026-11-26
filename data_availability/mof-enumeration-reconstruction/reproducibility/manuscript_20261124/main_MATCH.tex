@@ -1,0 +1,1126 @@
+\documentclass[a5paper, 10pt]{article}
+
+\usepackage{cite, amsmath, amssymb, booktabs, lastpage, graphicx, float}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{geometry}
+\geometry{margin=1.5cm,a5paper,twoside,inner=2cm}
+
+\usepackage{setspace}
+%% Changing the title, author, etc.
+\usepackage{graphicx}
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    \rule[.2em]{\textwidth}{0.353mm}
+    \begin{minipage}[m]{0.35\textwidth}
+      {\scriptsize
+        \begin{center}
+          \textsf{\textbf{\huge MATCH}\\
+            \textit{Communications in Mathematical\\
+              and in Computer Chemistry}}
+        \end{center}}
+    \end{minipage}\hfill
+    \begin{minipage}[m]{0.65\textwidth}
+      \begin{flushright}
+        \baselineskip=10pt
+        {\scriptsize\sffamily{\itshape MATCH Commun. Math. Comput. Chem.}
+          \textbf{\vol{}}
+          (\pubyear)
+          \thepage--\pageref{LastPage}}\\
+        {\scriptsize\sffamily {\bfseries ISSN:} 0340--6253}\\
+        {\scriptsize\sffamily \textbf{doi:} \doi{10.46793/match.\vol-\num.\id}}
+      \end{flushright}
+    \end{minipage}
+    \rule[1em]{\textwidth}{.353mm}
+    \baselineskip=0.30in
+    {\Large\bfseries \@title} \par
+    \vspace{5mm}
+    \baselineskip=0.2in
+    {\large\bfseries \@author}\par
+    \vspace{1mm}
+    {\it \@address} \par
+    {\small\tt \@email} \par
+    \vspace{3mm}
+    {\small (Received \@date)} \par
+  \end{center}
+  \vspace{3mm}
+}
+\newcommand{\address}[1]{\def\@address{#1}}
+\newcommand{\email}[1]{\def\@email{#1}}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
+
+\newcommand{\vol}{00}
+\newcommand{\num}{00}
+\newcommand{\pubyear}{0000}
+\newcommand{\id}{xxxxx}
+\setcounter{page}{1}
+\thispagestyle{empty}
+\makeatother
+
+\newcommand{\acknowledgment}[1]{\vspace{5mm}\singlespacing
+  {\noindent\textbf{\textit{Acknowledgment\/:}} #1}
+}
+
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{.3pt}
+\voffset = 18pt
+\headsep = 3pt
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\usepackage[margin=1cm,font=footnotesize,format=hang,labelsep=period,labelfont=bf]{caption}
+\fancyhead[RO]{\footnotesize \thepage}
+\fancyhead[LE]{\footnotesize \thepage}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PLACE ADDITIONAL PACKAGES HERE (if it is needed):
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{manyfoot}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, shapes.misc, arrows.meta, positioning}
+
+% YOU MAY ADD SOME ADDITIONAL LATEX PACKAGES TO THE PREAMBLE, BUT DO NOT MODIFY
+% THE EXISTING CODE ABOVE THIS LINE.
+
+\usepackage{array}
+
+\title{Symmetry-Constrained Enumeration and Oriented Construction of Ordered MOF Candidates}
+
+\author{Hui Li$^{a}$, Jing Tian$^{a,}$\footnote{Corresponding author.}, Dahuan Liu$^{a}$, Minman Tong$^{a}$, Qingyuan Yang$^{a}$}
+
+\address{$^a$Beijing University of Chemical Technology, Beijing 100029, China}
+
+\email{2024210575@buct.edu.cn}
+
+\date{\today}
+
+% No keywords!
+% No Mathematics Subject Classification!
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+\setlength{\emergencystretch}{2em}
+
+Metal-organic frameworks (MOFs) offer tunable structures for gas storage, catalysis, and separation, motivating systematic exploration of their building-unit arrangements. Assigning node types to the sites of a fixed MOF net produces different ordered arrangements. For such a net, we seek to identify assignments inequivalent under selected symmetries and construct periodic models with compatible building-unit connections and orientations.
+% 中文翻译：金属有机框架（MOF）具有可调结构，可用于气体储存、催化和分离，因此有必要系统探索其构建单元排布。在固定 MOF 网络的位点上指派节点类型，可形成不同的有序排布。对于这样的网络，我们要识别在所选对称操作下互不等价的指派，并构建构建单元连接与取向相容的周期模型。
+
+We formulate degree-compatible node assignments as quotient-graph colorings, with a single fixed linker template on every edge. Selected orientation-preserving net symmetries define candidate equivalence. We organize fixed-point searches through the subgroup lattice and use depth-first search with canonical prefix comparisons to identify orbit representatives. Completed search regions are reused across tasks to avoid repeated exploration. Kabsch-based node alignment and linker placement construct oriented periodic models from selected representatives. In the geometric construction audit, models recovered the target topology, passed the short-contact check, and were exported as reloadable crystallographic information files (CIFs). We also used models constructed by this method for CO$_2$/N$_2$ adsorption screening and single-point density functional theory (DFT) energy comparisons within composition groups.
+% 中文翻译：我们将度数相容的节点指派表述为商图着色问题，并在所有边上使用同一种固定连接体模板。所选网络保向对称操作定义候选等价关系。我们通过子群格组织固定点搜索，并采用带规范前缀比较的深度优先搜索识别轨道代表。已完成的搜索区域在任务间复用，以避免重复探索。基于 Kabsch 的节点配准与连接体放置由选定代表构建有取向的周期模型。在几何构建审计中，模型恢复了目标拓扑、通过了短接触检查，并导出为可重新载入的晶体学信息文件（CIF）。我们还将用该方法构建的模型用于 CO$_2$/N$_2$ 吸附筛选，以及各组成组内的单点密度泛函理论（DFT）能量比较。
+\end{abstract}
+\onehalfspacing
+
+
+
+
+\section{Introduction}
+\label{sec:intro}
+Metal-organic frameworks (MOFs) combine tunable porosity with diverse chemical functionality and are widely studied for gas storage, catalysis, and separation~\cite{furukawa2013chemistry}.
+MOFs are assembled from modular building blocks, allowing even a finite library to yield millions of hypothetical frameworks~\cite{wilmer2012large}. High-throughput computational screening (HTCS) is therefore an important strategy for exploring this design space~\cite{colon2014high}.
+Because screening evaluates generated structures, candidate generation must balance exploration with evaluation efficiency: it should propose varied building-unit arrangements, limit redundant candidates, and produce structural models suitable for downstream evaluation.% 中文翻译：金属有机框架（MOF）兼具可调孔隙率和多样的化学功能，且被广泛研究用于气体储存、催化和分离~\cite{furukawa2013chemistry}。MOF 由模块化构建单元组装而成，因此即使有限的构建单元库也可对应数百万种假设框架~\cite{wilmer2012large}。因此，高通量计算筛选（HTCS）是探索这一设计空间的重要策略~\cite{colon2014high}。由于筛选需要评价生成的结构，候选生成需要兼顾空间探索与评价效率：既要提出不同的构建单元排布、限制冗余候选，也要产出适合后续评价的结构模型。
+
+Topology-based assembly methods such as ToBaCCo place building units on selected nets~\cite{colon2017topologically}. Reverse-topological methods match unit geometry to topological constraints~\cite{wu2024precisionmof}. Genetic algorithms have also been used to search MOF candidates by evolving encoded choices of topology and building units~\cite{pham2025genetic}. Deep generative models have expanded candidate proposal: MOFGPT uses language modeling~\cite{badrinarayanan2025mofgpt}, whereas MOFFlow uses flow matching~\cite{Kim2024MOFFlowFM}. MOFFLOW-2 couples building-unit generation in Simplified Molecular Input Line Entry System (SMILES) format with flow-matching assembly into three-dimensional frameworks~\cite{kim2025flexiblemof}.% ToBaCCo 等拓扑组装方法在选定网络上放置构建单元~\cite{colon2017topologically}。反向拓扑方法将构建单元几何与拓扑约束相匹配~\cite{wu2024precisionmof}。遗传算法也被用于搜索 MOF 候选：通过演化编码后的网络拓扑与构建单元选择，提出新的组合~\cite{pham2025genetic}。深度生成模型拓展了候选提议方式：MOFGPT 使用语言建模~\cite{badrinarayanan2025mofgpt}，MOFFlow 则采用流匹配~\cite{Kim2024MOFFlowFM}。MOFFLOW-2 将以简化分子输入线性系统（SMILES）格式生成构建单元，与基于流匹配的三维框架组装衔接~\cite{kim2025flexiblemof}。
+
+For candidate spaces defined by site assignments, symmetry-constrained enumeration limits redundancy by identifying assignments equivalent under a chosen symmetry group.
+This approach is established for substitutional disorder in inorganic crystals~\cite{hart2012generating}. Hart--Forcade enumeration provides a framework for occupations on multicomponent parent crystals~\cite{hart2008algorithm}, and CASM implements occupation enumeration for first-principles studies of such crystals~\cite{PUCHALA2023111897}.% 对于由位点指派定义的候选空间，对称约束枚举通过识别在所选对称群下等价的指派，减少冗余候选。该方法已用于无机晶体的替位无序研究~\cite{hart2012generating}。Hart--Forcade 枚举为多组分母晶体的占位提供框架~\cite{hart2008algorithm}；CASM 则为这类晶体的第一性原理研究实现了占位枚举~\cite{PUCHALA2023111897}。
+
+On a fixed MOF net, node types can form distinct spatial arrangements at the same composition. The spatial distribution of node types is a relevant design variable in multivariate MOFs~\cite{ji2020sequencing}. A useful candidate set must distinguish patterns that are inequivalent under the chosen symmetry group. Each selected pattern must also map to a periodic model with compatible connection geometry and orientation for its secondary building units and linkers. Table~\ref{tab:related_capabilities} contrasts these approaches with our focus on identifying symmetry-distinct node assignments and constructing oriented periodic models on a fixed MOF net. % 固定 MOF 网络上，即使组成相同，节点类型也可以形成不同的空间排布。在多变量 MOF 中，节点类型的空间分布是一个相关设计变量~\cite{ji2020sequencing}。有用的候选集合需要区分在所选对称群下互不等价的排布。每个选定排布还需对应到周期模型，使其中的次级构建单元与连接体具有相容的连接几何和取向。表~\ref{tab:related_capabilities} 将前述方法与本文的侧重点作对照：在固定 MOF 网络上识别对称互异的节点指派，并构建有取向的周期模型。
+
+\begin{table}[htbp]
+\centering
+\small
+\singlespacing
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+\captionsetup{margin=0pt,skip=6pt}
+\caption{Design objects and principal operations of representative approaches to MOF candidate generation and crystal occupation enumeration.}
+% 中文翻译：代表性 MOF 候选生成与晶体占位枚举方法的设计对象和主要操作。
+\label{tab:related_capabilities}
+\begin{tabular}{@{}
+    >{\raggedright\arraybackslash}p{\dimexpr0.18\linewidth-4\tabcolsep/3\relax}
+    >{\raggedright\arraybackslash}p{\dimexpr0.27\linewidth-4\tabcolsep/3\relax}
+    >{\raggedright\arraybackslash}p{\dimexpr0.55\linewidth-4\tabcolsep/3\relax}@{}}
+\toprule
+\textbf{Approach} & \textbf{Design object} & \textbf{Principal operation} \\
+\midrule
+Topology-based assembly & Selected nets, node units, and linkers. & Place building units on selected nets or match their geometry to topological constraints to construct periodic models. \\
+\addlinespace[4pt]
+Genetic algorithm search & Encoded choices of topology and building units. & Evolve candidate combinations, then construct and evaluate the resulting structures. \\
+\addlinespace[4pt]
+Deep generative models & Learned chemical and structural representations. & Propose candidates through language modeling or flow matching; MOFFLOW-2 couples building-unit generation with framework assembly. \\
+\addlinespace[4pt]
+Hart--Forcade / CASM & Species occupations on parent-crystal sites. & Enumerate configurations under parent-crystal symmetry. \\
+\addlinespace[4pt]
+This work & Node-type assignments on a fixed embedded MOF net. & Enumerate orbit representatives and construct oriented periodic models from selected assignments. \\
+\bottomrule
+\end{tabular}
+
+% 表格中文对照：方法｜设计对象｜主要操作。
+% 拓扑组装：选定网络与节点、连接体构建单元｜将构建单元置于选定网络上，或使其几何与拓扑约束匹配，以构建周期模型。
+%% 遗传算法搜索：编码后的网络拓扑和构建单元选择｜演化候选组合，再构建并评价所得结构。
+%% 深度生成模型：学习到的化学与结构表征｜通过语言建模或流匹配提出候选；MOFFLOW-2 衔接构建单元生成与框架组装。
+% Hart--Forcade／CASM：母晶体位点上的物种占位｜按母晶体对称性枚举占位构型。
+% 本文：固定嵌入 MOF 网络上的节点类型指派｜枚举轨道代表，并由选定指派构建有取向的周期模型。
+\end{table}
+
+We study node-type arrangements within a chosen repeat cell of a fixed embedded MOF net. A single linker template is held fixed on every edge throughout node-assignment enumeration.
+% 中文翻译：我们研究固定嵌入 MOF 网络在所选重复晶胞内的节点排布。在节点指派枚举中，所有边均使用同一种固定连接体模板。
+
+The work makes two contributions:% 本文的贡献包括以下两项。
+\begin{enumerate}
+    \item In exhaustive runs, we organize deterministic fixed-point searches through the subgroup lattice and use canonical comparisons under the chosen symmetry group. This yields one representative per orbit and a candidate count specific to that group.
+    \item Kabsch-based node alignment and linker placement construct oriented periodic models from selected representatives, with each model linked to its source assignment.
+% 在穷尽运行中，我们通过子群格组织确定性的固定点搜索，并在所选对称群下进行规范比较。由此为每个轨道返回一个代表，候选计数由该群确定。
+% 基于 Kabsch 的节点配准和连接体放置由选定代表构建有取向的周期模型，每个模型均与其来源指派保持对应。
+\end{enumerate}
+
+\clearpage
+\section{Candidate Enumeration and Model Construction}
+
+
+
+\subsection{Coloring Space and Candidate Equivalence}
+%着色空间与候选等价
+
+%轨道顺序
+
+\label{sec:theory}
+We fix the embedded net, a chosen repeat cell, and a single linker template used on every graph edge. The enumerated variable is the node-type label at each vertex; we call a labeling of all vertices a node assignment. The linker template is held fixed and is used only when constructing periodic models. We represent these node assignments in the chosen repeat cell as graph colorings. Figure~\ref{fig:pipeline} summarizes the full pipeline from this assignment space to a periodic model.
+% 中文翻译：我们固定嵌入网络、所选重复晶胞以及所有图边共同使用的同一种连接体模板。枚举变量是每个顶点上的节点类型标签；所有顶点的标签指派称为节点指派。连接体模板保持固定，仅在构建周期模型时使用。我们将这些节点指派表示为所选重复晶胞中的图着色。图~\ref{fig:pipeline} 汇总了从该指派空间到周期模型的完整流程。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{pipline.png}
+    \caption{\textbf{Overview of the symmetry-constrained pipeline.} (a) Degree-compatible node labels define the assignment space; (b) subgroup fixed-point tasks return canonical representatives, with optional per-stratum quotas; (c) selected representatives are assembled by node alignment, linker placement, and sanitization; (d) representative pre-relaxation models labeled by exact $\rho$. A single linker template is fixed on all edges and not enumerated; symbols are defined in Sections 2.1--2.3.}
+    % 中文翻译：对称约束流程总览。(a) 度数相容的节点标签定义指派空间；(b) 子群固定点任务返回规范代表，并可选地施加分层输出配额；(c) 选定代表经节点配准、连接体放置和清理组装为周期模型；(d) 以精确 $\rho$ 标注的代表性弛豫前模型。所有边共同使用同一种固定连接体模板，不参与枚举；符号定义见第 2.1--2.3 节。
+    \label{fig:pipeline}
+\end{figure}
+
+Let $\mathsf{T}\cong\mathbb{Z}^{3}$ be the translation subgroup generated by the lattice vectors of the chosen repeat cell. Factoring $\mathsf{T}$ out of the periodic net $\widetilde{Q}$ gives the finite quotient graph
+\begin{equation}
+Q=\widetilde{Q}/\mathsf{T}=(V,E).
+\label{eq:quotient}
+\end{equation}
+% 令 $\mathsf{T}\cong\mathbb{Z}^{3}$ 为所选重复晶胞基矢生成的平移子群，将其从周期网络 $\widetilde{Q}$ 中约去，得到公式~\ref{eq:quotient} 的有限商图。
+
+The choice of $\mathsf{T}$ sets the translational periodicity of the assignments. If the repeat cell is a supercell, parent-net translations outside $\mathsf{T}$ connect positions represented by distinct vertices of $Q$. Independent labels on these vertices allow colorings that retain the repeat-cell periodicity while breaking shorter parent-net translations.
+% $\mathsf{T}$ 的选择确定指派所采用的平移周期性。若重复晶胞是超胞，不属于 $\mathsf{T}$ 的母网络平移会联系由 $Q$ 中不同顶点表示的位置。对这些顶点独立赋予标签，可使着色保留重复晶胞周期性，同时破坏母网络较短的平移对称性。
+
+A vertex of $Q$ represents an orbit of positions under $\mathsf{T}$; all positions in that orbit receive the same label. For vertices of degree $d$, let $\mathcal{C}_d$ be the admissible node labels and $n_d$ the number of such vertices. We choose a label independently at each vertex, subject to its degree-specific pool. The set $X$ of all such node assignments is
+\begin{equation}
+X=\{c:V\to\cup_d\mathcal{C}_d\mid c(v)\in\mathcal{C}_{\deg(v)}\ \forall v\in V\},
+\qquad |X|=\prod_d|\mathcal{C}_d|^{n_d}.
+\label{eq:coloring_space}
+\end{equation}
+% $Q$ 的每个顶点代表位置在 $\mathsf{T}$ 下的一个轨道，同一轨道内的所有位置取相同标签。对于度数 $d$ 的顶点，$\mathcal{C}_d$ 表示相容的节点标签，$n_d$ 表示此类顶点数。每个顶点在其度数对应的标签池内独立选择标签，所有此类节点指派构成集合 $X$，其定义及大小由公式~\ref{eq:coloring_space} 给出。
+
+We compare assignments in $X$ under a finite group $\Gamma\leq\mathrm{Sym}(V)$ of degree-preserving vertex permutations.
+Here $\Gamma$ is the permutation image of the orientation-preserving crystallographic operations of the embedded net (Section~\ref{sec:reconstruction_method}). Assignments related only by a reflection are therefore kept distinct unless an orientation-preserving operation maps one to the other.
+% 我们在有限度数保持顶点置换群 $\Gamma\leq\mathrm{Sym}(V)$ 下比较 $X$ 中的节点指派。这里 $\Gamma$ 是嵌入网络保向晶体学操作的置换像（第~\ref{sec:reconstruction_method} 节）。因此，仅由反射联系的指派保持为不同候选，除非存在保向操作将其中之一映射为另一个。
+
+The action of each $g\in\Gamma$ moves labels with their vertices, giving
+\begin{equation}
+(g\cdot c)(v)=c(g^{-1}v),\qquad
+\mathcal{O}_{\Gamma}(c)=\{g\cdot c:g\in\Gamma\}.
+\label{eq:group_action}
+\end{equation}
+% 每个 $g\in\Gamma$ 随顶点移动其标签，给出公式~\ref{eq:group_action} 的作用及指派轨道。
+Because $\Gamma$ preserves degrees, this action maps $X$ to itself. Assignments in the same $\Gamma$-orbit are treated as one candidate, while different orbits remain distinct even at the same composition. Thus $N_\Gamma=|X/\Gamma|$, and changing $\Gamma$ can change the candidate count. For $\Gamma_1\leq\Gamma_2$ acting on the same $X$, each $\Gamma_2$-orbit is a union of $\Gamma_1$-orbits, giving $N_{\Gamma_2}\leq N_{\Gamma_1}$.
+% 中文翻译：由于 $\Gamma$ 保持顶点度数，该作用将 $X$ 映射到自身。同一 $\Gamma$ 轨道中的指派按同一候选处理，不同轨道在组成相同时仍保持区分。因此候选数为 $N_\Gamma=|X/\Gamma|$，改变 $\Gamma$ 可以改变候选计数。对于作用于同一 $X$ 的 $\Gamma_1\leq\Gamma_2$，每个 $\Gamma_2$ 轨道由若干 $\Gamma_1$ 轨道合并而成，故有 $N_{\Gamma_2}\leq N_{\Gamma_1}$。
+
+%轨道序号
+
+Fix a vertex order $v_1,\ldots,v_{|V|}$ and a total order on labels, and compare colorings lexicographically in these orders. Canonical comparisons use the lexicographic order of label strings. Depth-first search (DFS) visits the admissible labels in their supplied pool order, which determines the traversal sequence within each task. The least coloring in each orbit is its canonical representative:
+\begin{equation}
+\kappa(c)=\min_{g\in\Gamma}(g\cdot c),\qquad
+\Omega=\{\kappa(c):c\in X\},\qquad |\Omega|=|X/\Gamma|.
+\label{eq:canonical_rep}
+\end{equation}
+% 中文翻译：固定顶点顺序 $v_1,\ldots,v_{|V|}$ 和标签全序后，按这些次序对着色作字典序比较；规范比较采用标签字符串字典序。深度优先搜索（DFS）按输入标签池的顺序遍历相容标签，该顺序确定各任务内部的遍历序列。每个轨道中的最小着色为其规范代表，见公式~\ref{eq:canonical_rep}。
+
+For a coloring $c\in X$, the operations in $\Gamma$ that preserve $c$ form its stabilizer subgroup. The orbit--stabilizer relation gives its relative size $\rho(c)$:
+\begin{equation}
+\mathrm{Stab}_{\Gamma}(c)=\{g\in\Gamma:g\cdot c=c\},\qquad
+\rho(c)=\frac{|\mathrm{Stab}_{\Gamma}(c)|}{|\Gamma|}
+=\frac{1}{|\mathcal{O}_{\Gamma}(c)|}.
+\label{eq:stabilizer_rho}
+\end{equation}
+Here, $\rho$ is the fraction of group elements preserving $c$. Stabilizers within an orbit are conjugate, making their order and $\rho$ well defined for each candidate.
+% 中文翻译：对着色 $c\in X$，$\Gamma$ 中保持 $c$ 不变的操作构成其稳定子子群。由轨道--稳定子定理得到公式~\ref{eq:stabilizer_rho} 中的相对大小 $\rho(c)$，即保持 $c$ 的群元素比例。同一轨道内的稳定子互为共轭，因此其阶数和 $\rho$ 均由候选唯一确定。
+
+
+\subsection{Enumeration by Subgroup-Lattice Descent}
+%基于子群格下降的枚举
+
+%算法的顺序实现
+%方法是方法 实现是实现 之间的联系不紧密，2.1数学 2.2计算机
+
+\label{sec:enumeration}
+Each coloring is fixed by its stabilizer subgroup, so subgroup operations can be imposed as constraints during enumeration. For a chosen $H\leq\Gamma$, the constraint is $c(hv)=c(v)$ for every $h\in H$ and $v\in V$. Let $\mathcal{P}_H=\{Hv:v\in V\}$ denote the distinct $H$-orbits on $V$. A coloring fixed by $H$ is constant on each $P\in\mathcal{P}_H$. Since $H\leq\Gamma$ preserves degrees, all vertices in each $P$ have a common degree, denoted $\deg(P)$. Assigning one admissible label to each $H$-orbit gives the fixed-point domain
+\begin{equation}
+\begin{aligned}
+\mathrm{Fix}(H)&=\{c\in X:H\leq\mathrm{Stab}_{\Gamma}(c)\}\\
+&\cong\prod_{P\in\mathcal{P}_H}\mathcal{C}_{\deg(P)},\\
+|\mathrm{Fix}(H)|&=\prod_d|\mathcal{C}_d|^{m_{H,d}},
+\end{aligned}
+\label{eq:fixed_layer}
+\end{equation}
+where $m_{H,d}$ counts the degree-$d$ vertex orbits in $\mathcal{P}_H$. The cardinality of this domain counts assignments before $\Gamma$-equivalence reduction.
+% 中文翻译：每个着色均由其稳定子子群保持，因此可将子群操作作为枚举约束。对所选子群 $H\leq\Gamma$，约束为任意 $h\in H$ 和 $v\in V$ 均满足 $c(hv)=c(v)$。令 $\mathcal{P}_H=\{Hv:v\in V\}$ 表示 $H$ 在 $V$ 上的不同顶点轨道。被 $H$ 保持的着色在每个 $P\in\mathcal{P}_H$ 上取常值。由于 $H\leq\Gamma$ 保持度数，每个 $P$ 中顶点的度数相同，记为 $\deg(P)$。每个 $H$-轨道选择一个相容标签即得到固定点域，见公式~\ref{eq:fixed_layer}。其中 $m_{H,d}$ 为 $\mathcal{P}_H$ 中度数为 $d$ 的顶点轨道数。该域的基数统计 $\Gamma$ 等价约简之前的指派数。
+
+If $H_1\leq H_2$, every coloring fixed by $H_2$ is also fixed by $H_1$, giving $\mathrm{Fix}(H_2)\subseteq\mathrm{Fix}(H_1)$. Each $H_2$-orbit is a union of $H_1$-orbits, so the weaker constraints for $H_1$ allow labels to vary between those smaller orbits. At the identity subgroup $\{e\}$, every vertex is a singleton orbit and $\mathrm{Fix}(\{e\})=X$.
+% 中文翻译：若 $H_1\leq H_2$，被 $H_2$ 保持的每个着色也被 $H_1$ 保持，故 $\mathrm{Fix}(H_2)\subseteq\mathrm{Fix}(H_1)$。每个 $H_2$-轨道由若干 $H_1$-轨道组成，因此 $H_1$ 较弱的约束允许这些较小轨道之间取不同标签。在恒等子群 $\{e\}$ 处，每个顶点都是单点轨道，且 $\mathrm{Fix}(\{e\})=X$。
+
+The subgroups ordered by inclusion form the subgroup lattice of $\Gamma$. Algorithm~\ref{alg:enum} constructs fixed-point tasks from their vertex-orbit partitions, including the full-group and identity tasks. Identical partitions among proper nontrivial subgroup tasks are merged. Tasks are searched in increasing order of the number of vertex orbits, beginning with the full-group partition; ties retain the construction order.
+% 中文翻译：这些子群按包含关系构成 $\Gamma$ 的子群格。算法~\ref{alg:enum} 根据顶点轨道划分构造固定点任务，包括全群和恒等任务。非平凡真子群任务中的相同划分被合并。搜索按顶点轨道数递增执行，从全群划分开始；轨道数相同时保留任务的构造顺序。
+
+Different subgroup tasks can have overlapping fixed-point domains. After a task has been searched to completion, its vertex-orbit partition is recorded as a set of equal-label constraints. A later branch is rejected when every completion satisfies the constraints of an already completed task. This coverage test can discard an entire branch before a complete assignment is formed.
+% 中文翻译：不同子群任务的固定点域可以相交。一个任务搜索完成后，其顶点轨道划分被记录为一组标签相等约束。若后续分支的每个补全均满足某个已完成任务的约束，则拒绝该分支。这项覆盖检查可以在形成完整指派之前排除整个分支。
+
+Within each task, depth-first search assigns labels one $H$-orbit at a time. At an intermediate state, a partial coloring $c_p$ records admissible labels on an assigned set $D_p\subseteq V$ and the marker $\bot$ elsewhere. A completion is a coloring $c\in X$ satisfying $c(v)=c_p(v)$ for every $v\in D_p$.
+% 中文翻译：每个任务内部采用深度优先搜索，每次为一个 $H$-轨道赋值。在中间状态，部分着色 $c_p$ 在已赋值集合 $D_p\subseteq V$ 上记录相容标签，其余位置记为 $\bot$。补全是满足对任意 $v\in D_p$ 均有 $c(v)=c_p(v)$ 的着色 $c\in X$。
+
+The canonical minimum in Eq.~\ref{eq:canonical_rep} allows early rejection when assigned labels force a smaller $\Gamma$-image for every completion of a branch.
+% 中文翻译：公式~\ref{eq:canonical_rep} 中的规范最小元允许提前剪枝：若已赋值标签使分支的每个补全都存在更小的 $\Gamma$ 群像，就可以拒绝该分支。
+For each $g\in\Gamma$, compare $c_p(v_i)$ and $c_p(g^{-1}v_i)$ in the fixed vertex order. For this $g$, the common assigned prefix is the longest initial segment with $v_i,g^{-1}v_i\in D_p$ at every position. Comparison stops before the first unassigned entry; $\bot$ does not participate in label comparisons. Reject the branch if some $g\in\Gamma$ and $1\leq j\leq |V|$ satisfy%对于每个 $g\in\Gamma$，按照固定的顶点顺序，比较 $c_p(v_i)$ 与 $c_p(g^-1v_i)$。对于给定的 $g$，共同已赋值前缀定义为满足每个位置均有 $v_i,g^-1v_i\in D_p$ 的最长初始序列。比较在遇到第一个未赋值项之前停止；$\bot$ 不参与标签比较。如果存在某个 $g\in\Gamma$ 和 $1\leq j\leq |V|$ 满足以下条件，则剪除该搜索分支：
+\begin{equation}
+\begin{aligned}
+v_i,\ g^{-1}v_i&\in D_p &&(1\leq i\leq j),\\
+c_p(g^{-1}v_i)&=c_p(v_i) &&(1\leq i<j),\\
+c_p(g^{-1}v_j)&<c_p(v_j).
+\end{aligned}
+\label{eq:prefix_rejection}
+\end{equation}
+Every completion agrees with $c_p$ on $D_p$ and therefore inherits the comparison at the first differing position $j$ in the common assigned prefix. If $c_p(g^{-1}v_j)<c_p(v_j)$, then $g\cdot c<_{\mathrm{lex}}c$ for every completion: the branch contains no canonical representative and is rejected. If $c_p(g^{-1}v_j)>c_p(v_j)$, then $g\cdot c>_{\mathrm{lex}}c$ for every completion: $g$ cannot produce a smaller image, so it is removed from the active comparison set while the branch remains searchable.
+% 中文翻译：每个补全都与 $c_p$ 在 $D_p$ 上一致，因而继承共同已赋值前缀中首个差异位点 $j$ 处的比较。若 $c_p(g^{-1}v_j)<c_p(v_j)$，则每个补全都满足 $g\cdot c<_{\mathrm{lex}}c$：该分支不含规范代表，整支被拒绝。若 $c_p(g^{-1}v_j)>c_p(v_j)$，则每个补全都满足 $g\cdot c>_{\mathrm{lex}}c$：$g$ 不可能产生更小的群像，因此只将其移出活跃比较集，分支仍可搜索。
+
+For each operation in the active comparison set, the search stores the end of the vertex prefix already confirmed to be equal. Descendant states resume comparison from that position, and backtracking restores the comparison state. At a complete surviving leaf, the coloring is already the canonical representative. The active set $\mathcal{A}$ then contains exactly the nonidentity operations that fix this coloring, giving
+\begin{equation}
+ s(c)=|\mathrm{Stab}_{\Gamma}(c)|=1+|\mathcal{A}|,
+ \qquad |\Gamma\cdot c|=\frac{|\Gamma|}{s(c)}.
+\label{eq:active_stabilizer}
+\end{equation}
+A complete representative is retained once, together with its stabilizer order and orbit size, when it satisfies the selected schedule's acceptance rule.
+% 中文翻译：对活跃比较集中的每个操作，搜索保存已经确认相等的顶点前缀的结束位置。后代状态从该位置继续比较，回溯时恢复比较状态。在完整且未被拒绝的叶节点，当前着色已经是规范代表。此时，活跃集 $\mathcal{A}$ 恰好由保持该着色不变的非恒等操作组成，稳定子阶数及轨道大小由公式~\ref{eq:active_stabilizer} 给出。完整代表满足所选调度的接收规则时，连同其稳定子阶数和轨道大小一起保留，每个代表只保留一次。
+
+\medskip
+\noindent\textbf{Completeness.}
+The identity task has domain $\mathrm{Fix}(\{e\})=X$, so every canonical representative lies in its search space. Canonical prefix rejection removes only branches whose completions have a smaller $\Gamma$-image. Coverage rejection removes a branch only after its canonical search has been completed in an earlier task or subtree. Each canonical representative is therefore either retained earlier or remains reachable in the identity task. The global membership check records it once. With quotas, output caps, and task timeouts disabled and all tasks searched to completion, the algorithm returns every member of $\Omega$ exactly once.
+% 中文翻译：恒等任务的搜索域为 $\mathrm{Fix}(\{e\})=X$，因此每个规范代表均位于其搜索空间中。规范前缀拒绝仅移除补全存在更小 $\Gamma$ 群像的分支。覆盖拒绝仅在该分支的规范搜索已由先前任务或子树完成后才排除它。因此，每个规范代表要么已在此前保留，要么仍能在恒等任务中到达。全局成员检查确保它只记录一次。关闭配额、输出上限和任务超时，并使全部任务搜索完成时，算法恰好返回 $\Omega$ 的每个成员一次。
+
+A representative with full stabilizer order $s$ belongs to the candidate stratum $\Omega_s$:
+% 中文翻译：完整稳定子阶数为 $s$ 的代表属于候选层 $\Omega_s$：
+\begin{equation}
+\begin{aligned}
+\Omega_s&=\{c^\star\in\Omega:|\mathrm{Stab}_{\Gamma}(c^\star)|=s\},\\
+\Omega&=\bigsqcup_s\Omega_s,\qquad
+\rho(c^\star)=s/|\Gamma|\quad(c^\star\in\Omega_s).
+\end{aligned}
+\label{eq:rho_strata}
+\end{equation}
+
+For large assignment spaces, the user may bound output by specifying an exact-$\rho$ quota $B_s$ for each stabilizer stratum $\Omega_s$. The search retains the same fixed-point constraints and canonical prefix comparisons. When quotas are enabled, tasks are ordered by decreasing subgroup order, with identical partitions merged within each order and the remaining partitions searched lexicographically. An order-$s$ task retains a canonical representative only when its full stabilizer order equals $s$. Only newly retained representatives count towards $B_s$.
+% 中文翻译：对于较大的指派空间，用户可以为各稳定子层 $\Omega_s$ 指定精确 $\rho$ 配额 $B_s$，以限制输出。搜索沿用相同的固定点约束和规范前缀比较。启用配额后，任务按子群阶数递减排列，在同阶内合并相同划分，并按字典序搜索其余划分。阶数为 $s$ 的任务仅保留完整稳定子阶数恰为 $s$ 的规范代表。只有新保留的代表计入 $B_s$。
+
+When quotas are enabled, coverage records are shared only among tasks targeting the same stabilizer order. A completed task certifies that all representatives in its fixed-point domain belonging to that stratum have been processed. Changing the target order starts a new set of coverage records, while previously retained representatives remain available for global deduplication.
+% 中文翻译：启用配额后，覆盖记录仅在目标稳定子阶数相同的任务之间共享。已完成任务证明其固定点域中属于当前层的全部代表均已处理。改变目标阶数时重新建立覆盖记录，先前保留的代表仍用于全局去重。
+
+\medskip
+\noindent\textbf{Bounded output.}
+Task deadlines and a total output cap may further limit the search. An interrupted task contributes coverage records only for its completed subtrees. Such a record can be reused when every completion of a later branch satisfies the source task's fixed-point constraints, lies within its admissible label domains, and matches the completed prefix. In quota-controlled searches, reuse remains restricted to the same target stabilizer order.
+% 中文翻译：任务截止时间和总输出上限可以进一步限制搜索。中断任务仅为已经完成的子树提供覆盖记录。后续分支的每个补全满足来源任务的固定点约束、位于其允许标签域内且匹配已完成前缀时，可以复用该记录。启用配额时，复用仍限定在相同目标稳定子阶数内。
+
+If no task times out and $M_{\mathrm{total}}\geq\sum_sB_s$, stratum $s$ returns the first $\min\{B_s,|\Omega_s|\}$ representatives in the fixed task and vertex-orbit orders, with labels visited in their supplied pool order. Reaching $B_s$ fills the quota; completing all tasks for that stratum before filling the quota establishes exhaustion. The coverage and sequence guarantees are proved in Supplementary Section~\ref{app:quota_proof}.
+% 中文翻译：若无任务超时且 $M_{\mathrm{total}}\geq\sum_sB_s$，层 $s$ 按固定任务顺序、顶点轨道顺序及输入标签池遍历顺序返回前 $\min\{B_s,|\Omega_s|\}$ 个代表。达到 $B_s$ 表示配额填满；在配额填满前完成该层全部任务，才能确认此层耗尽。覆盖和序列保证的证明见补充材料第~\ref{app:quota_proof} 节。
+
+\begin{algorithm}[H]
+\caption{Subgroup-Lattice Descent}
+% 中文翻译：子群格下降枚举
+\label{alg:enum}
+\scriptsize
+\setlength{\baselineskip}{7.1pt}
+\begin{algorithmic}[1]
+\Require $\Gamma$; degree-typed label pools $\{\mathcal C_d\}$; optional quotas $B_s$, task deadline and total output cap
+\Ensure Distinct retained representatives with stabilizer orders and orbit sizes
+\State initialize records $R$, membership set $K$, coverage records $C$, and stratum counts $N_s\gets0$
+\State build raw tasks $Q_0=\{(\mathcal P_H,|H|)\}$ for the full group, identity and proper subgroups
+\State write $\mathcal P=(P_0,\ldots,P_{m-1})$, ordering blocks by their smallest vertex index
+\State form $Q$ from $Q_0$, merging proper-subgroup partitions; prioritize fewer vertex orbits, retaining construction order for ties
+\If{quotas are enabled}
+  \State rebuild $Q$ from $Q_0$, merging within each subgroup order; search orders decreasingly and partitions lexicographically
+\EndIf
+\For{each task $(\mathcal P,s)$ in $Q$, where $s$ is the source subgroup order}
+% 中文补充：任务保存来源子群阶数s，块按P_0至P_{m-1}编号；完整叶的实际稳定子阶数仍记为t。
+  \State \textbf{if} total output cap reached \textbf{then break}
+  \State \textbf{if} quotas enabled and $N_s\ge B_s$ \textbf{then continue}
+  \State \textbf{if} quotas enabled and target order changes \textbf{then} clear $C$
+  \State initialize $c_p$, $\mathcal A\gets\Gamma\setminus\{e\}$, cursors $\boldsymbol\ell\gets\mathbf0$, and task deadline
+  \State compile eligible coverage checks for $\mathcal P$; initialize completed-choice progress
+  \State $state\gets$ \Call{CanonicalDFS}{$0,c_p,\mathcal A,\boldsymbol\ell,\mathcal P,s$}
+  \State register completed task or subtree coverage in $C$ according to $state$ and the saved frontier
+\EndFor
+\State stable-sort $R$ by decreasing stabilizer order; \Return $R$
+\Statex
+\Function{CanonicalDFS}{$k,c_p,\mathcal A,\boldsymbol\ell,\mathcal P,s$}
+  \State \textbf{if} an applicable time or output limit is reached \textbf{then} save frontier; \Return OPEN
+  \State \textbf{if} eligible coverage contains every completion \textbf{then} \Return CLOSED
+  \If{$k=|\mathcal P|$}
+    \State $t\gets1+|\mathcal A|$
+    \State \textbf{if} quotas enabled and $t\ne s$ \textbf{then} \Return CLOSED
+    \If{$c_p\notin K$}
+      \State insert $c_p$ into $K$; append $(c_p,t,|\Gamma|/t)$ to $R$; $N_t\gets N_t+1$
+    \EndIf
+    \State \Return CLOSED
+  \EndIf
+  \State initialize completed-choice progress at this level
+  \For{each admissible label for $P_k$ in the supplied order}
+    \State \textbf{if} a limit is reached \textbf{then} save frontier; \Return OPEN
+    \State assign the label to $P_k$; $\mathcal A'\gets\emptyset$; $\boldsymbol\ell'\gets\boldsymbol\ell$; $rejected\gets false$
+    \For{each $g\in\mathcal A$}
+      \State compare from $\ell_g+1$, stopping at an unassigned pair or the first unequal pair
+      \If{the first difference gives a smaller image}
+        \State $rejected\gets true$; \textbf{break}
+      \ElsIf{no difference was reached}
+        \State retain $g$ in $\mathcal A'$; advance $\ell'_g$ to the end of the confirmed equal prefix
+      \EndIf
+    \EndFor
+    \State $child\gets CLOSED$
+    \If{not $rejected$}
+      \State $child\gets$ \Call{CanonicalDFS}{$k+1,c_p,\mathcal A',\boldsymbol\ell',\mathcal P,s$}
+    \EndIf
+    \State restore assignment and comparison state
+    \State \textbf{if} $child=OPEN$ \textbf{then} \Return OPEN
+    \State mark the label choice completed
+  \EndFor
+  \State \Return CLOSED
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Crystallographic Symmetry and Geometric Construction}
+%晶体学对称与几何构建
+
+%算法和数学要融合
+%核心部分和数学有对照关系
+%代码-运行直接有结果和图片
+%abstract intro
+
+
+\label{sec:reconstruction_method}
+The crystallographic symmetries of the embedded net induce vertex permutations in the chosen repeat cell. We use their orientation-preserving permutation image as $\Gamma$.
+% 中文翻译：嵌入网络的晶体学对称操作在所选重复晶胞中诱导顶点置换。我们把其中保向操作的置换像用作Γ。
+
+Let $\mathsf{S}_{\mathrm{emb}}^{+}$ denote the orientation-preserving crystallographic operations of the embedded net that preserve $\mathsf{T}$ and the degree-typed label pools. Each operation $q$ induces the vertex permutation $\Phi(q)(v)=[q\widetilde v]_{\mathsf T}$, where $\widetilde v$ represents the periodic position associated with $v$. Their permutation image is
+\begin{equation}
+\Gamma=\Phi(\mathsf{S}_{\mathrm{emb}}^{+})\leq\mathrm{Sym}(V).
+\label{eq:rotation_group}
+\end{equation}
+Parent translations outside $\mathsf{T}$ can induce nontrivial permutations within the repeat cell, while the embedding excludes graph automorphisms that are not crystallographic symmetries of the periodic net.
+% 令 $\mathsf{S}_{\mathrm{emb}}^{+}$ 表示嵌入网络中保持 $\mathsf{T}$ 和度数标签池的保向晶体学操作。每个操作 $q$ 在商图顶点上诱导置换 $\Phi(q)(v)=[q\widetilde v]_{\mathsf T}$，其中 $\widetilde v$ 表示与 $v$ 对应的周期位置；这些置换像构成公式~\ref{eq:rotation_group} 中的群。$\mathsf{T}$ 以外的母网络平移可在重复晶胞内诱导非平凡置换，而嵌入几何排除了并非周期网络晶体学对称的图自同构。
+We retain only proper operations because template placement uses proper rotations ($\det R=1$) to align oriented connection vectors; a reflection would reverse template handedness.
+% 我们仅保留真操作，因为模板放置使用真旋转（$\det R=1$）配准有取向的连接向量；反射会反转模板手性。
+
+The implementation derives candidate permutations from the crystallographic operations of the embedded vertex set. The selection and matching steps are summarized in Algorithm~\ref{alg:gamma_construction}. Supplementary Section~\ref{app:benchmark_symmetry} reports the group orders, generators, and operation-selection counts for the three benchmark nets. Their resulting permutation sets were independently checked for group closure, degree preservation, and quotient-graph adjacency preservation.
+% 实现从嵌入顶点集的晶体学操作导出候选置换。操作集选择和顶点匹配步骤概括于算法~\ref{alg:gamma_construction}。补充材料第~\ref{app:benchmark_symmetry} 节列出三个基准网络的群阶数、生成元及操作筛选数量。另对所得置换集独立核查了群闭合性、顶点度数保持性和商图邻接保持性。
+
+\begin{algorithm}[htbp]
+\caption{Numerical construction of the embedded-net permutation group}
+% 中文翻译：嵌入网络置换群的数值构造
+\label{alg:gamma_construction}
+\scriptsize
+\begin{algorithmic}[1]
+\Require Lattice and fractional coordinates $\{x_i\}_{i=1}^{|V|}$ of the embedded vertices
+\Ensure Unique proper-operation permutations $\Gamma$
+\State Build the periodic structure using the implementation's placeholder species: Zn if a node symbol contains Z or M, and C otherwise
+\State $\mathcal{O}^*\gets\emptyset$; $n^*\gets0$
+\For{$\delta\in(0.01,0.1,0.3)\,\text{\AA}$, in ascending order}
+    \State $\mathcal{O}_{\delta}\gets$ \texttt{SpacegroupAnalyzer} operations at $\texttt{symprec}=\delta$ (default angle tolerance $5^\circ$; continue if analysis fails)
+    \If{$|\mathcal{O}_{\delta}|>n^*$}
+        \State $(\mathcal{O}^*,n^*)\gets(\mathcal{O}_{\delta},|\mathcal{O}_{\delta}|)$
+    \EndIf
+    \If{$|\mathcal{O}_{\delta}|>16$} \State \textbf{break} \EndIf
+\EndFor
+\If{no operation set was obtained} \State \Return $\{e\}$ \EndIf
+\State $P\gets\emptyset$
+\For{each $q\in\mathcal{O}^*$ with $\det R_q\geq0$}
+    \State Map each $q x_i$ to the first index $j$ with periodic distance $d_{ij}<0.8\,\text{\AA}$
+    \If{every vertex is mapped and the map is bijective} \State add its permutation to $P$ \EndIf
+\EndFor
+\State $\Gamma\gets\operatorname{sort}(P\cup\{e\})$ after removing duplicates
+\State \Return $\Gamma$
+\end{algorithmic}
+\end{algorithm}
+
+For a selected canonical representative $c^\star$, the vertex labels specify node templates at graph vertices. The same linker template is used on every graph edge when constructing the periodic model; it is not enumerated in $X$. The periodic embedding supplies placement centers and connection vectors. Node and linker templates retain their specified conformations. Connection-site labels beginning with \texttt{X} mark the atoms used for attachment; they retain their template chemical species during placement. When needed, the repeat cell is uniformly expanded to accommodate the required connections, with a 5\% buffer on the expansion factor.
+% 对选定的规范代表 $c^\star$，顶点标签指定图顶点处的节点模板。构建周期模型时，所有图边使用同一种连接体模板；该模板不在 $X$ 中枚举。周期嵌入提供放置中心和连接向量。节点与连接体模板保持各自指定的构象。以 \texttt{X} 开头的连接位点标签标记用于连接的原子，这些原子在放置时保留模板中的化学元素种类。必要时均匀扩张重复晶胞以容纳所需连接，并在扩张因子上留出 5\% 余量。
+
+For each node, let $p_i$ denote a template connection-site vector relative to the centroid of its connection sites. We take $a_i$ to point from the embedded vertex to the position of the adjacent vertex. The candidate correspondences are the bijections between the template connection sites and the incident network vectors. For each bijection, Kabsch alignment~\cite{kabsch1976solution,lawrence2019kabschumeyama} determines the least-squares proper rotation% 对每个节点，令 $p_i$ 表示模板连接位点相对于这些位点质心的向量。我们取 $a_i$ 从嵌入顶点指向相邻顶点的位置。候选对应是模板连接位点与入射网络向量之间的双射。对每个双射，Kabsch 配准求解公式~\ref{eq:kabsch_alignment} 中的最小二乘真旋转。
+\begin{equation}
+R^\star=\underset{R^{\mathsf T}R=I,\;\det R=1}{\operatorname{arg\,min}}
+\sum_i\lVert R p_i-a_i\rVert^2.
+\label{eq:kabsch_alignment}
+\end{equation}
+
+The root mean square deviation (RMSD) of the aligned vectors ranks the bijections. The rotation yielding the lowest RMSD is applied to every template atom, with ties resolved by the fixed site order; the connection-site centroid is placed at the embedded vertex. The constraint $\det R=1$ preserves template handedness during placement.%以均方根偏差（RMSD）对配准后的向量排序。将 RMSD 最小的旋转应用于模板全部原子，并列时按固定位点顺序取第一个；再将连接位点质心放置到嵌入顶点。约束 $\det R=1$ 在放置过程中保持模板手性。
+
+Each linker is aligned along the axis joining its connection anchors, with periodic images chosen to match the neighboring node endpoints. Interfragment bridge bonds are constructed using periodic endpoint distances and connection-count constraints, with distance-based repair of missing node--linker connections. Discrete rotations about the linker endpoint axis are then evaluated to reduce nonbonded clashes while retaining the template conformation.
+% 每个连接体沿其连接锚点之间的轴线配准，并选择与相邻节点端点相匹配的周期像。依据周期端点距离和连接数约束建立片段间桥接键，并通过基于距离的修补补充缺失的节点--连接体连接。随后评估绕连接体端点轴的离散旋转，在保持模板构象的同时减少非键冲突。
+
+After these rotations, the geometric audit measures the actual separations of topology-linked node--linker \texttt{X}--\texttt{X} pairs before endpoint fusion. Node-side and linker-side \texttt{X} endpoints with a Cartesian separation strictly below $0.8\,\text{\AA}$ are then merged one-to-one. After fusion, the remaining topology-linked pairs define the bridge connections. Their CIF bond-table entries use a nominal length of $1.485\,\text{\AA}$ without displacing the atomic coordinates. The numerical criteria are listed in Supplementary Section~\ref{app:reconstruction_protocol}. Appendix~\ref{app:x_fusion} reports the fixed-geometry scan of the fusion cutoff.
+% 中文翻译：轴向旋转完成后，几何审计在端点融合前测量拓扑相连的节点--连接体 \texttt{X}--\texttt{X} 对的真实间距。随后，对笛卡尔距离严格小于 $0.8\,\text{\AA}$ 的节点侧与连接体侧 \texttt{X} 端点进行一对一融合。融合后，剩余的拓扑相连位点对定义桥接连接。它们在 CIF 键表中的条目使用 $1.485\,\text{\AA}$ 的名义长度，但不移动原子坐标。数值判据见补充材料第~\ref{app:reconstruction_protocol}节。附录~\ref{app:x_fusion}报告融合阈值的固定几何扫描。
+
+\begingroup\setlength{\emergencystretch}{1em}
+Residual dummy sites with chemical species \texttt{X} are then removed. Framework sites within $0.2\,\text{\AA}$ are merged to eliminate coincident coordinates. The resulting periodic pre-relaxation model is exported as a CIF linked to $c^\star$ for structural audit and downstream screening.
+% 随后移除化学元素种类为 \texttt{X} 的残余虚拟位点，并合并距离在 $0.2\,\text{\AA}$ 内的框架位点以消除重合坐标。所得周期性弛豫前模型导出为与 $c^\star$ 对应的 CIF，用于结构审计和下游筛选。
+\par\endgroup
+
+\section{Results}
+
+The \texttt{ffc} and \texttt{fjh} nets were used for exhaustive enumeration benchmarks, and \texttt{vba} was used to examine bounded output across symmetry strata. The timing benchmarks varied the sizes of the degree-compatible node-label pools; their exact membership is recorded in Supplementary Section~\ref{app:enum_benchmark}. Models for construction audits and property screening used the separately specified building-unit pools in Supplementary Table~\ref{tab:building_units}, with \texttt{1B\_4H\_Ch} fixed as the linker on every edge.
+% 中文翻译：\texttt{ffc} 和 \texttt{fjh} 网络用于穷尽枚举基准，\texttt{vba} 用于考察受限输出在各对称层间的分布。计时基准改变度数相容节点标签池的大小，其具体成员记录于补充材料第~\ref{app:enum_benchmark} 节。用于构建审计和性质筛选的模型采用补充表~\ref{tab:building_units} 中另行指定的构建单元池，每条边均固定使用 \texttt{1B\_4H\_Ch} 连接体。
+
+\subsection{Exact and External Enumeration Checks}
+
+For each exhaustive case, distinct canonical representatives defined disjoint $\Gamma$-orbits whose sizes summed to $|X|$, confirming complete coverage. The matched CASM workflow used the same assignment space, group action, and output fields. After normalization to a common canonical convention, the complete representative records agreed.
+% 中文翻译：对每个穷尽算例，不同规范代表定义互不相交的$\Gamma$轨道，其轨道大小之和等于$|X|$，确认完整覆盖。匹配CASM流程使用相同的指派空间、群作用和输出字段。转换到共同规范约定后，完整代表记录一致。
+
+Enumeration wall times were lower for this method in 5 of the eight \texttt{ffc} and \texttt{fjh} cases in Table~\ref{tab:casm}. In the largest \texttt{fjh} case, 16,777,216 assignments yielded 1,078,816 orbits in 2.74 s, compared with 20.88 s for CASM. CASM was faster in the three smallest assignment spaces. These measurements support generating complete candidate libraries over the tested spaces, with relative performance dependent on the case.
+% 中文翻译：在表~\ref{tab:casm}的八个ffc和fjh算例中，本文方法在五例上具有较低的枚举壁钟耗时。最大的fjh算例中，16,777,216个指派产生1,078,816个轨道，本文耗时2.74秒，CASM耗时20.88秒。CASM在原始指派空间最小的三个算例上更快。这些测量支持在被测空间中生成完整候选库，相对性能随算例变化。
+
+CASM's native full factor group $F$ additionally includes orientation-reversing operations. Its orbit counts are reported separately in Supplementary Table~\ref{tab:orbit_group_counts}, showing the effect of the equivalence group.
+% 中文翻译：CASM的原生完整因子群$F$另包含反向操作。其轨道计数单列于补充表~\ref{tab:orbit_group_counts}，说明所选等价群的影响。
+
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{1.2mm}
+\caption{\textbf{Matched-group enumeration on benchmark quotient graphs.} Both workflows use the same $\Gamma$ and return complete assignments, stabilizer orders, and orbit sizes. Times are enumeration wall-time medians of three single-threaded runs. Input pools and timing boundaries are specified in Supplementary Section~\ref{app:enum_benchmark}.}
+% 中文翻译：基准商图上的同群枚举。两种流程使用相同的$\Gamma$，并返回完整指派、稳定子阶数及轨道大小。时间为三次单线程运行的枚举壁钟中位数；输入池和计时边界见补充材料第~\ref{app:enum_benchmark}节。
+\label{tab:casm}
+\begin{tabular}{llrrrr}
+\toprule
+Net & $|\mathcal C_3|/|\mathcal C_4|$ & $|X|$ & Orbits & This work (s) & CASM (s) \\
+\midrule
+\texttt{ffc} & 2/2 & 128 & 42 & 0.004731 & 0.0002792 \\
+\texttt{ffc} & 3/3 & 2,187 & 513 & 0.00515 & 0.003053 \\
+\texttt{ffc} & 5/5 & 78,125 & 14,250 & 0.01491 & 0.0942 \\
+\texttt{ffc} & 5/15 & 2,109,375 & 381,375 & 0.5123 & 2.636 \\
+\texttt{fjh} & 1/2 & 4,096 & 394 & 0.04508 & 0.005913 \\
+\texttt{fjh} & 2/1 & 65,536 & 4,756 & 0.04954 & 0.09325 \\
+\texttt{fjh} & 1/3 & 531,441 & 36,369 & 0.119 & 0.6977 \\
+\texttt{fjh} & 1/4 & 16,777,216 & 1,078,816 & 2.74 & 20.88 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+The 32 vertices of \texttt{vba} admit $2^{32}$ or $3^{32}$ assignments for the two node-label pools. Table~\ref{tab:vba_bounded} compares per-stratum quotas with DFS prefixes containing the same total number of representatives. The ordered label pools and run settings are specified in Supplementary Section~\ref{app:enum_benchmark}. The quota runs retained representatives from every exact-$\rho$ stratum, including the trivial-stabilizer stratum $\rho=1/16$; the matched DFS prefixes omitted that stratum. The quota guarantee classifies entries below $B_s$ as exhausted and entries at $B_s$ as quota-filled. Neither quota run timed out or reached the global cap. At the same output size, the DFS prefixes therefore left a symmetry stratum unrepresented, whereas the per-stratum quotas retained candidates from each stratum for subsequent construction.
+% 中文翻译：\texttt{vba} 的 32 个顶点在两个节点标签池下允许 $2^{32}$ 或 $3^{32}$ 个指派。表~\ref{tab:vba_bounded} 将分层配额与代表总数相同的 DFS 前缀进行比较。有序标签池与运行设置见补充材料第~\ref{app:enum_benchmark}节。配额运行在每个精确 $\rho$ 层均保留了代表，包括稳定子仅含恒等元的 $\rho=1/16$ 层；匹配的 DFS 前缀则未覆盖该层。配额保证将小于 $B_s$ 的条目判为已耗尽、等于 $B_s$ 的条目判为配额填满。两次配额运行均未超时或达到总数上限。因此，在相同输出数下，DFS 前缀遗漏了一个对称层，而分层配额在各层均保留了候选，可供后续构建。
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5mm}
+\renewcommand{\arraystretch}{1.2}
+\caption{\textbf{Bounded \texttt{vba} output across exact-$\rho$ strata.} For each node-label pool, the DFS prefix and per-stratum quota contain the same total number of representatives. The two quota runs used $B_s=20{,}000$, $M_{\mathrm{total}}=100{,}000$, and a 60\,s limit per task. Parentheses give the number of distinct node-label count vectors in each stratum; layer times are medians of three runs for the layer intervals defined in Supplementary Section~\ref{app:enum_benchmark}.}
+% 中文翻译：受限 \texttt{vba} 输出在精确 $\rho$ 层间的分布。对每个节点标签池，DFS 前缀与分层配额包含相同总数的代表元。两次配额运行均采用 $B_s=20{,}000$、$M_{\mathrm{total}}=100{,}000$ 及每任务 60 秒限制。括号内为该层不同的节点标签计数向量数；层耗时为三次运行中位数，其层区间定义见补充材料第~\ref{app:enum_benchmark}节。
+\label{tab:vba_bounded}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Pool} & $\boldsymbol{\rho}$ & \textbf{DFS prefix} & \textbf{Per-$\rho$ quota} & \textbf{Layer time (s)} \\
+\midrule
+\multicolumn{5}{l}{$|\mathcal{C}_4|=2$; matched total = 41,984} \\
+$|\mathcal C_4|=2$ & $1$ & 4\;(3) & 4\;(3) & 0.0002 \\
+$|\mathcal C_4|=2$ & $0.5$ & 90\;(3) & 90\;(3) & 0.0012 \\
+$|\mathcal C_4|=2$ & $0.25$ & 1,890\;(7) & 1,890\;(7) & 0.0080 \\
+$|\mathcal C_4|=2$ & $0.125$ & 40,000\;(15) & 20,000\;(15) & 0.0183 \\
+$|\mathcal C_4|=2$ & $0.0625$ & 0\;(0) & 20,000\;(15) & 0.0157 \\
+\addlinespace
+\multicolumn{5}{l}{$|\mathcal{C}_4|=3$; matched total = 60,549} \\
+$|\mathcal C_4|=3$ & $1$ & 9\;(6) & 9\;(6) & 0.0002 \\
+$|\mathcal C_4|=3$ & $0.5$ & 540\;(12) & 540\;(12) & 0.0016 \\
+$|\mathcal C_4|=3$ & $0.25$ & 55,440\;(42) & 20,000\;(42) & 0.0193 \\
+$|\mathcal C_4|=3$ & $0.125$ & 4,560\;(43) & 20,000\;(54) & 0.0149 \\
+$|\mathcal C_4|=3$ & $0.0625$ & 0\;(0) & 20,000\;(54) & 0.0395 \\
+\bottomrule
+\end{tabular}%
+\end{table}
+
+\subsection{Geometric Construction Audit}
+\label{sec:reconstruction}
+
+Periodic atomic models were constructed from the canonical ordering representatives to test whether their assigned building units could realize the intended network connectivity. For the construction audit, the \texttt{ffc} pool comprised \texttt{3c\_B\_Ch} and \texttt{3c\_triazine\_Ch} at three-connected vertices, and \texttt{4c\_B\_Ch} and \texttt{4c\_Cd\_1\_Ch} at four-connected vertices. The \texttt{fjh} pool used \texttt{3c\_B\_Ch} at three-connected vertices and the same two four-connected templates. All 42 \texttt{ffc} representatives and a fixed-seed sample of 30 out of 394 \texttt{fjh} representatives were assembled successfully. Each model produced a sanitized, reloadable CIF, recovered the target topology, and passed the short-contact check. These results establish successful transfer from discrete assignments to periodic structures for the 72 tested cases. Figure~\ref{fig:reconstruction_gallery} illustrates constructed models from all three benchmark nets; the quantitative audit covers \texttt{ffc} and \texttt{fjh}.
+% 中文翻译：由规范排布代表构建周期原子模型，以检验所指派构建单元能否实现预期的网络连接关系。构建审计的 \texttt{ffc} 池在三连接顶点使用 \texttt{3c\_B\_Ch} 和 \texttt{3c\_triazine\_Ch}，在四连接顶点使用 \texttt{4c\_B\_Ch} 和 \texttt{4c\_Cd\_1\_Ch}；\texttt{fjh} 池在三连接顶点使用 \texttt{3c\_B\_Ch}，四连接顶点使用相同的两种模板。全部 42 个 \texttt{ffc} 代表和从 394 个 \texttt{fjh} 代表中按固定种子抽取的 30 个代表均成功组装。每个模型均生成经清理且可重载的 CIF，恢复目标拓扑，并通过短接触检查。这些结果确认，在所测试的 72 个算例中，离散指派已成功转化为周期结构。图~\ref{fig:reconstruction_gallery} 展示三个基准网络的已构建模型；定量审计覆盖 \texttt{ffc} 和 \texttt{fjh}。
+
+The node--linker bridge lengths quantify how closely rigid building-unit placement matches the target connection geometry. Across 3,888 topology-linked \texttt{X}--\texttt{X} pairs, the RMSD from the nominal $1.485$\,\AA{} bridge length was 0.388\,\AA{}. The fusion tolerance is 0.8\,\AA{}. Separately, the closure audit measures the actual \texttt{X}--\texttt{X} separation against the nominal $1.485$\,\AA{} bridge length; 95.7\% of separations lie within a 0.8\,\AA{} deviation window. Together with topology recovery and the short-contact check, these measurements support using the constructed models as periodic starting structures for downstream calculations. Structural relaxation remains a subsequent step. The contact criterion and sample selection are detailed in Supplementary Section~\ref{app:reconstruction_audit}.
+% 中文翻译：节点--连接体桥键长度量化了刚性构建单元放置与目标连接几何的接近程度。在 3,888 对拓扑相连的 \texttt{X}--\texttt{X} 位点中，相对于 $1.485$\,\AA{} 名义桥长的 RMSD 为 0.388\,\AA{}。融合容差为 0.8\,\AA{}。闭合审计另外测量实际 \texttt{X}--\texttt{X} 间距相对名义 $1.485$\,\AA{} 桥长的偏差；95.7\% 的间距位于 0.8\,\AA{} 偏差窗口内。结合拓扑恢复和短接触检查，这些测量结果支持将构建模型用作下游计算的周期起始结构。结构弛豫仍需后续进行。短接触判据和抽样方式详见补充材料第~\ref{app:reconstruction_audit} 节。
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={400bp 35bp 350bp 35bp},clip]{ffc_comp_b_21.png}
+        \caption*{\textbf{(a)}\quad\texttt{ffc}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={400bp 20bp 350bp 20bp},clip]{fjh_comp_b_1.png}
+        \caption*{\textbf{(b)}\quad\texttt{fjh}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={400bp 90bp 450bp 90bp},clip]{vba_rho1.png}
+        \caption*{\textbf{(c)}\quad\texttt{vba}}
+    \end{subfigure}
+    \caption{Representative pre-relaxation crystal models constructed from symmetry-distinct assignments in \texttt{ffc}, \texttt{fjh}, and \texttt{vba}.}
+    % 中文翻译：由 \texttt{ffc}、\texttt{fjh} 和 \texttt{vba} 中的对称互异指派构建得到的代表性弛豫前晶体模型。
+    \label{fig:reconstruction_gallery}
+\end{figure}
+
+\subsection{Downstream Screening of Constructed Models}
+\label{sec:screening}
+\subsubsection{\texorpdfstring{CO$_2$/N$_2$ Adsorption Screening}{CO2/N2 Adsorption Screening}}
+
+The \texttt{ffc} models were grouped by node composition and exact $\rho$, retaining groups with at least three successfully screened ordering representatives. This matching holds composition and stabilizer fraction fixed while comparing spatial arrangements. The group compositions are listed in Supplementary Table~\ref{tab:adsorption_group_compositions}. Zeo++ supplied the pore-limiting diameter (PLD) and largest-cavity diameter (LCD) of the corresponding constructed models~\cite{willems2012algorithms}.
+% 中文翻译：按节点组成和精确 $\rho$ 对 \texttt{ffc} 模型分组，保留至少含三个成功完成筛选的排布代表的组。该匹配在固定组成和稳定子比例的条件下比较空间排布。各组组成列于补充表~\ref{tab:adsorption_group_compositions}。采用 Zeo++ 计算相应构建模型的孔道限制直径（PLD）和最大空腔直径（LCD）~\cite{willems2012algorithms}。
+
+Grand canonical Monte Carlo (GCMC) simulations in RASPA2 estimated equilibrium CO$_2$/N$_2$ adsorption by sampling molecular exchange with a gas reservoir~\cite{dubbeldam2016raspa,altintas2018database}. For species $i$, let $q_i(p)$ be its adsorbed loading at pressure $p$ and $y_i$ its gas-phase mole fraction. With adsorption and desorption pressures $p_{\mathrm{ads}}$ and $p_{\mathrm{des}}$, the screening metrics are
+\begin{equation}
+\label{eq:co2_metrics}
+\begin{aligned}
+S &= \frac{q_{\mathrm{CO_2}}(p_{\mathrm{ads}})/q_{\mathrm{N_2}}(p_{\mathrm{ads}})}{y_{\mathrm{CO_2}}/y_{\mathrm{N_2}}},\\
+WC &= q_{\mathrm{CO_2}}(p_{\mathrm{ads}})-q_{\mathrm{CO_2}}(p_{\mathrm{des}}),\\
+R &= \frac{WC}{q_{\mathrm{CO_2}}(p_{\mathrm{ads}})},\\
+APS &= S\times WC.
+\end{aligned}
+\end{equation}
+% 中文翻译：通过 RASPA2 进行巨正则蒙特卡洛（GCMC）模拟，以与气相储库交换分子的采样估计 CO$_2$/N$_2$ 的平衡吸附~\cite{dubbeldam2016raspa,altintas2018database}。对于组分 $i$，$q_i(p)$ 表示压力 $p$ 下的吸附载量，$y_i$ 为其气相摩尔分数。以 $p_{\mathrm{ads}}$ 和 $p_{\mathrm{des}}$ 表示吸附与脱附压力，筛选指标由公式~\ref{eq:co2_metrics} 给出。
+The selectivity $S$ measures preferential CO$_2$ adsorption, and $WC$ measures the loading released over the pressure swing. The working-capacity fraction $R$ expresses that release relative to the adsorption loading; the adsorbent performance score $APS$ combines selectivity and capacity~\cite{altintas2018database,avci2018high}. Numerical conditions and the averaging protocol are given in Supplementary Section~\ref{app:adsorption_screening}.
+% 中文翻译：选择性 $S$ 衡量对 CO$_2$ 的优先吸附，工作容量 $WC$ 衡量压力摆动中释放的载量。工作容量比例 $R$ 将释放载量相对于吸附载量归一化；吸附剂性能分数 $APS$ 综合选择性和容量~\cite{altintas2018database,avci2018high}。数值条件和平均方式见补充材料第~\ref{app:adsorption_screening} 节。
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{\textbf{Pore geometry and CO$_2$/N$_2$ screening within matched \texttt{ffc} ordering groups.} The 30 models form nine groups of fixed node composition and exact $\rho$; $n$ counts symmetry-distinct orderings per group. Entries give within-group minimum--maximum ranges. For each model, $WC$, $S$, and $R$ are means over five independent GCMC runs; $APS$ is mean $S$ times mean $WC$. Across the nine groups, within-group spans range from 0.019 to 0.100 mmol\,g$^{-1}$ for $APS$, 0.03 to 1.02~\AA{} for PLD, and 0.18 to 0.92~\AA{} for LCD, calculated before rounding.}
+% 中文翻译：\texttt{ffc} 匹配排布组内的孔结构与 CO$_2$/N$_2$ 筛选结果。30 个模型按固定节点组成和精确 $\rho$ 分为九组；$n$ 为每组的对称互异排布数。各项为组内最小值--最大值。对每个模型，$WC$、$S$ 和 $R$ 为五次独立 GCMC 运行的均值；$APS$ 为平均 $S$ 与平均 $WC$ 的乘积。按未取整数据计算，九组的组内跨度中，$APS$ 为 0.019--0.100 mmol\,g$^{-1}$，PLD 为 0.03--1.02~\AA{}，LCD 为 0.18--0.92~\AA{}。
+\label{tab:ffc_co2n2_ordering}
+\setlength{\tabcolsep}{0.6mm}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+\textbf{Group} & \textbf{$\rho$} & \textbf{$n$} & \textbf{PLD} & \textbf{LCD} & \textbf{WC} & \textbf{S} & \textbf{R} & \textbf{APS} \\
+ & & & (\AA) & (\AA) & (mmol\,g$^{-1}$) & (1) & (1) & (mmol\,g$^{-1}$) \\
+\midrule
+G1 & 0.125 & 3 & 26.44--26.97 & 27.68--28.00 & 0.083--0.091 & 1.915--2.104 & 0.896--0.904 & 0.158--0.192 \\
+G2 & 0.25 & 4 & 26.41--27.07 & 27.39--28.27 & 0.084--0.092 & 1.939--2.110 & 0.897--0.901 & 0.163--0.194 \\
+G3 & 0.125 & 3 & 26.36--26.51 & 27.85--28.20 & 0.085--0.090 & 1.898--1.996 & 0.900--0.903 & 0.160--0.180 \\
+G4 & 0.25 & 3 & 26.38--26.41 & 27.39--28.31 & 0.092--0.100 & 2.019--2.151 & 0.894--0.905 & 0.188--0.214 \\
+G5 & 0.25 & 3 & 27.01--27.06 & 27.93--28.20 & 0.084--0.089 & 1.909--2.022 & 0.898--0.901 & 0.161--0.180 \\
+G6 & 0.25 & 3 & 27.01--27.06 & 27.93--28.20 & 0.092--0.097 & 1.881--1.992 & 0.899--0.904 & 0.174--0.192 \\
+G7 & 0.50 & 4 & 26.15--26.83 & 27.36--27.79 & 0.082--0.093 & 1.923--2.112 & 0.896--0.904 & 0.157--0.196 \\
+G8 & 0.50 & 4 & 25.80--26.81 & 27.31--27.78 & 0.085--0.098 & 1.954--2.128 & 0.897--0.906 & 0.166--0.209 \\
+G9 & 0.50 & 3 & 26.50--26.74 & 27.45--27.63 & 0.097--0.118 & 2.206--2.662 & 0.892--0.906 & 0.213--0.313 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Within the matched groups, distinct ordering representatives can differ in pore dimensions and mean adsorption metrics (Table~\ref{tab:ffc_co2n2_ordering}). Fixing composition and exact $\rho$ therefore still leaves geometrically distinct candidates for screening. The highest-$APS$ ordering was unchanged across all five runs in only two groups, indicating that most within-group rankings were sensitive to simulation runs. Orbit enumeration removes symmetry-equivalent assignments while retaining distinct orderings for model-level property evaluation under a common protocol.
+% 中文翻译：在匹配组内，不同排布代表对应的模型在孔尺寸和平均吸附指标上可以不同（表~\ref{tab:ffc_co2n2_ordering}）。因此，即使固定组成和精确 $\rho$，仍有几何互异的候选可供筛选。只有两个组的最高 $APS$ 排布在五次运行中始终相同，说明多数组内排名对模拟运行较为敏感。轨道枚举将对称等价指派归并为代表，同时保留不同排布，以便在共同协议下进行模型层面的性质评价。
+
+
+\subsubsection{Single-point DFT Energy Screening}
+
+A separate set of constructed \texttt{ffc} and \texttt{fjh} models was evaluated with single-point PBE+D3 calculations to compare ordering energies at fixed composition. The atomic coordinates were held fixed, so the comparison evaluates the geometries supplied by construction. Within each sampled composition, the relative energy $\Delta E$ is the per-atom energy difference from the lowest-energy model.
+% 中文翻译：对另一组 \texttt{ffc} 和 \texttt{fjh} 构建模型进行单点 PBE+D3 计算，以在固定组成下比较排布能量。计算中保持原子坐标不变，因此比较针对构建所提供的几何结构。在每个抽样组成内，相对能量 $\Delta E$ 为各模型每原子能量与该组成内最低能模型之间的差。
+
+The composition-controlled panels in Fig.~\ref{fig:symmetry_screening} show energy differences among the retained orderings, with composition minima occurring in multiple $\rho$ strata. Stabilizer orders organize the fixed-point tasks, and the calculated energies provide a separate basis for ranking the resulting models within each composition. Keeping representatives across symmetry strata therefore preserves alternatives for this energetic comparison. These calculations demonstrate the connection from canonical assignments through periodic construction to electronic-structure screening; the rankings concern the sampled starting geometries before relaxation. Computational settings are given in Supplementary Section~\ref{app:dft_screening}.
+% 中文翻译：图~\ref{fig:symmetry_screening} 中控制组成的面板展示了所保留排布之间的能量差异，各组成最低能模型分布于多个 $\rho$ 层。稳定子阶数组织固定点任务，计算能量则为各组成内构建模型的排序提供独立依据。因此，跨对称层保留代表可为该能量比较保留不同候选。这些计算展示了从规范指派经周期构建进入电子结构筛选的连接；排序针对弛豫前的抽样起始几何。计算设置见补充材料第~\ref{app:dft_screening} 节。
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ffc_pooled_symmetry_energy_a.pdf}
+        \caption{Pooled energies, \texttt{ffc}.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ffc_pooled_symmetry_energy_b.pdf}
+        \caption{Composition-controlled $\Delta E$, \texttt{ffc}.}
+    \end{subfigure}
+
+    \vspace{0.35em}
+
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={0 0 262 0},clip]{fjh_dual_delta_symmetry_energy.pdf}
+        \caption{Composition-controlled $\Delta E$, \texttt{fjh comp\_a}.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={262 0 0 0},clip]{fjh_dual_delta_symmetry_energy.pdf}
+        \caption{Composition-controlled $\Delta E$, \texttt{fjh comp\_b}.}
+    \end{subfigure}
+    \caption{\textbf{Single-point DFT screening of constructed \texttt{ffc} and \texttt{fjh} models.} PBE+D3 calculations converged for all 21 \texttt{ffc} models from eight composition groups and all 32 \texttt{fjh} models from two fixed compositions: \texttt{comp\_a} (16 \texttt{3c\_B\_Ch}, 4 \texttt{4c\_B\_Ch}, and 8 \texttt{4c\_Cd\_1\_Ch}) and \texttt{comp\_b} (16 \texttt{3c\_B\_Ch}, 8 \texttt{4c\_B\_Ch}, and 4 \texttt{4c\_Cd\_1\_Ch}). Panel (a) pools the \texttt{ffc} per-atom energies (eV\,atom$^{-1}$) across compositions; panels (b)--(d) show $\Delta E$ (meV\,atom$^{-1}$), the per-atom energy relative to the lowest value in each sampled composition. Filled-marker shapes distinguish compositions, and open orange diamonds mark their minima. Vertical guides indicate low ($\rho<0.25$), medium ($0.25\le\rho\le0.75$), and high ($\rho>0.75$) $\rho$ ranges.}
+    % 中文翻译：\texttt{ffc} 和 \texttt{fjh} 构建模型的单点 DFT 筛选。八个组成组的全部 21 个 \texttt{ffc} 模型，以及两个固定组成下的全部 32 个 \texttt{fjh} 模型，其 PBE+D3 计算均收敛：\texttt{comp\_a} 含 16 个 \texttt{3c\_B\_Ch}、4 个 \texttt{4c\_B\_Ch} 和 8 个 \texttt{4c\_Cd\_1\_Ch}；\texttt{comp\_b} 含 16 个 \texttt{3c\_B\_Ch}、8 个 \texttt{4c\_B\_Ch} 和 4 个 \texttt{4c\_Cd\_1\_Ch}。面板 (a) 汇总不同组成的 \texttt{ffc} 每原子能量（eV\,atom$^{-1}$）；面板 (b)--(d) 展示 $\Delta E$（meV\,atom$^{-1}$），即每原子能量相对于各抽样组成内最低值的差。实心标记形状区分组成，橙色空心菱形标出其最低能点。竖直参考线标示低（$\rho<0.25$）、中（$0.25\le\rho\le0.75$）和高（$\rho>0.75$）三个$\rho$区间。
+    \label{fig:symmetry_screening}
+\end{figure}
+
+\section{Conclusion}
+\label{sec:discussion}
+In exhaustive runs, the method returns one representative per $\Gamma$-orbit. The matched-group benchmarks support its use for generating symmetry-distinct candidate libraries over the tested assignment spaces. Selected representatives are then used to construct pre-relaxation periodic models for subsequent screening.
+% 中文翻译：在穷尽运行中，该方法为每个 $\Gamma$ 轨道返回一个代表。同群基准支持将其用于被测指派空间中对称互异候选库的生成。随后，以选定代表构建弛豫前周期模型，供后续筛选使用。
+
+The 72-model audit established successful construction from discrete assignments. Separate matched screening sets demonstrated the use of constructed models for downstream evaluation. Within the matched groups, distinct orderings can differ in pore descriptors and protocol-specific mean screening metrics, although the highest-APS ordering was unchanged across all five runs in only two of the nine groups. The evaluated models are pre-relaxation starting structures; whether distinct models remain structurally distinct and stable after relaxation requires further evaluation.
+% 中文翻译：72例模型审计确认离散指派成功转化为周期模型。另行选取的匹配筛选集合展示了构建模型的下游评价用途。在匹配组内，不同排布在孔结构描述符和特定协议下的平均筛选指标上可以不同，但只有两个组的最高 APS 排布在五次运行中始终相同。本文评价的模型是弛豫前起始结构；不同模型在弛豫后是否仍保持结构互异且稳定，尚需进一步评价。
+
+\section*{Data Availability}
+\label{sec:data}
+% 数据可用性
+The code and data supporting the reported enumeration, model construction, adsorption, and single-point DFT results are available in the \href{https://github.com/Buct454/mof-enumeration-reconstruction.git}{GitHub repository}. The package includes representative and audited CIF models, source tables for the matched-group CASM benchmarks and DFT energies, CO$_2$/N$_2$ screening data, bounded-\texttt{vba} records, and the X-site fusion audit. Versioned benchmark records, input pools, and source snapshots document the reported enumeration results. The README and file manifest map these data to the manuscript figures and tables. All deposited CIFs are pre-relaxation starting models.
+% 中文翻译：支持本文枚举、模型构建、吸附和单点 DFT 结果的代码与数据位于 GitHub 仓库：https://github.com/Buct454/mof-enumeration-reconstruction.git。数据包包括代表性及审计用 CIF、同群CASM基准和DFT能量源数据表、CO$_2$/N$_2$筛选数据、受限\texttt{vba}记录及X位点融合审计数据。版本化基准记录、输入标签池和源码快照记录了本文枚举结果。README 和文件清单将这些数据对应到文中图表。所有存放的 CIF 均为弛豫前起始模型。
+
+\acknowledgment{This work was supported by the National Key R\&D Program of China (No. 2021YFB3802200).}
+
+\section*{Author Contributions}
+H.L. conceived the study. H.L. and J.T. developed the algorithm, implemented the workflow, and performed the computational experiments. D.L., M.T., and Q.Y. contributed to method discussion, result interpretation, and manuscript refinement. All authors discussed the results, reviewed the manuscript, and approved the final version.
+% 中文翻译：H.L. 构思了本研究。H.L. 和 J.T. 开发了算法、实现了工作流程并完成了计算实验。D.L.、M.T. 和 Q.Y. 参与了方法讨论、结果解释和手稿完善。所有作者讨论了研究结果、审阅了手稿并批准了最终版本。
+
+
+\section*{Competing Interests}
+The authors declare that they have no competing financial interests, personal relationships, or other conflicts of interest that could have influenced the work reported in this manuscript.
+% 中文翻译：作者声明不存在可能影响本文工作的竞争性经济利益、个人关系或其他利益冲突。
+
+
+
+\singlespacing
+
+\bibliographystyle{unsrt}
+\bibliography{reference}
+
+
+\clearpage
+\appendix
+\section{Supplementary Information}
+\label{app:supplementary}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{A\arabic{equation}}
+\renewcommand{\theHequation}{A.\arabic{equation}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\theHtable}{A.\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\theHfigure}{A.\arabic{figure}}
+\subsection{Building-unit templates}
+\label{app:building_units}
+
+Table~\ref{tab:building_units} lists the ten node templates used for model construction and screening, together with the fixed linker template. The adsorption set contains all ten node types. Enumeration timing benchmarks additionally used larger degree-compatible label pools, whose membership is listed in Supplementary Section~\ref{app:enum_benchmark}.
+% 中文翻译：表~\ref{tab:building_units} 列出模型构建和筛选使用的十种节点模板，以及固定连接体模板。吸附筛选集合涉及全部十种节点类型。枚举计时基准另外采用了更大的度数相容标签池，具体成员列于补充材料第~\ref{app:enum_benchmark} 节。
+
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{1.2mm}
+\renewcommand{\arraystretch}{1.15}
+\caption{Node and linker templates used for model construction and screening.}
+% 中文翻译：模型构建和筛选使用的节点与连接体模板。
+\label{tab:building_units}
+\begin{tabular}{@{}p{0.32\linewidth}p{0.16\linewidth}p{0.46\linewidth}@{}}
+\toprule
+\textbf{Template} & \textbf{Type} & \textbf{Role in this study} \\
+\midrule
+\texttt{3c\_B\_Ch} & 3-connected node & Enumeration, construction, and screening \\
+\texttt{3c\_pyrrole\_Ch} & 3-connected node & CO$_2$/N$_2$ adsorption screening \\
+\texttt{3c\_triazine\_Ch} & 3-connected node & Enumeration, construction, and screening \\
+\texttt{4c\_B\_Ch} & 4-connected node & Enumeration, construction, and screening \\
+\texttt{4c\_Cd\_1\_Ch} & 4-connected node & Construction and screening \\
+\texttt{4c\_Cu\_1\_Ch} & 4-connected node & Construction, adsorption screening, and visual examples \\
+\texttt{4c\_In\_1\_Ch} & 4-connected node & CO$_2$/N$_2$ adsorption screening \\
+\texttt{4c\_Ni\_1\_Ch} & 4-connected node & CO$_2$/N$_2$ adsorption screening \\
+\texttt{4c\_V\_1\_Ch} & 4-connected node & CO$_2$/N$_2$ adsorption screening \\
+\texttt{4c\_tetrathiafulvalene\_Ch} & 4-connected node & CO$_2$/N$_2$ adsorption screening \\
+\texttt{1B\_4H\_Ch} & Linker & Fixed edge template in all constructed models \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Benchmark symmetry groups}
+\label{app:benchmark_symmetry}
+
+The benchmark symmetry operations were determined from the sorted vertex coordinates and lattice vectors in each graph input. To construct periodic structures for symmetry analysis, vertices with symbols containing Z or M were assigned Zn, and all other vertices were assigned C. For all three nets, the selected crystallographic operation sets used a positional tolerance of 0.01\,\AA{} and an angular tolerance of $5^\circ$. The reported space-group symbols describe these placeholder structures. An operation was included when its rotation determinant was positive and its periodic vertex map was bijective; operations with negative determinant were excluded to preserve orientation. No operation failed vertex matching or bijectivity in these benchmarks. The listed generators are affine operations on fractional coordinates; their induced permutations generate the reported $\Gamma$. Independent checks confirmed that each resulting permutation set is closed and preserves vertex degrees and quotient-graph adjacency.
+% 中文翻译：基准对称操作由各 graph 输入中排序后的顶点坐标和晶格矢量确定。为进行对称性分析，将符号含 Z 或 M 的顶点赋为 Zn，其余顶点赋为 C，以构建周期占位结构。三个网络选用的晶体学操作集均采用 0.01\,\AA{} 位置容差和 $5^\circ$ 角度容差。报告的空间群符号对应这些占位结构。操作的旋转行列式为正且周期顶点映射为双射时纳入；行列式为负的操作为保持取向而排除。在这三个基准中，没有操作因顶点匹配或双射条件失败而被剔除。生成元为分数坐标上的仿射操作，其诱导置换生成表列出的 $\Gamma$。独立核查确认三个所得置换集均满足群闭合性，并保持顶点度数和商图邻接关系。
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\caption{Benchmark permutation-group orders and operation selection. Candidate operations are those in the selected placeholder-structure symmetry set.}
+% 中文翻译：基准置换群阶数及操作筛选。候选操作指占位结构所选对称操作集中的操作。
+\label{tab:benchmark_symmetry}
+\begin{tabular}{@{}lccp{0.34\linewidth}p{0.30\linewidth}@{}}
+\toprule
+Net & $|V|$ & $|\Gamma|$ & Selected placeholder space group & Included / excluded operations \\
+\midrule
+\texttt{ffc} & 7 & 8 & $P4/mmm$ ($16$ operations) & $8$ included ($\det R>0$); $8$ excluded ($\det R<0$); $0$ other rejections \\
+\texttt{fjh} & 28 & 16 & $I4/mcm$ ($32$ operations) & $16$ included ($\det R>0$); $16$ excluded ($\det R<0$); $0$ other rejections \\
+\texttt{vba} & 32 & 16 & $Fddd$ ($32$ operations) & $16$ included ($\det R>0$); $16$ excluded ($\det R<0$); $0$ other rejections \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{Generating crystallographic operations for the benchmark permutation groups. Each listed operation acts on fractional coordinates modulo lattice translations.}
+% 中文翻译：基准置换群的晶体学生成操作。表列操作作用于分数坐标，并按晶格平移取模。
+\label{tab:benchmark_generators}
+\begin{tabular}{@{}lp{0.78\linewidth}@{}}
+\toprule
+Net & Generating operations $q_i:(x,y,z)\mapsto(x',y',z')$ \\
+\midrule
+\texttt{ffc} & \shortstack[l]{$q_1:(x,y,z)\mapsto(-x,y,-z)$\\$q_2:(x,y,z)\mapsto(x,-y,-z)$\\$q_3:(x,y,z)\mapsto(y,x,-z)$} \\
+\texttt{fjh} & \shortstack[l]{$q_1:(x,y,z)\mapsto(-y,x,z)$\\$q_2:(x,y,z)\mapsto(x,-y,-z+\tfrac12)$\\$q_3:(x,y,z)\mapsto(-y+\tfrac12,-x+\tfrac12,-z)$} \\
+\texttt{vba} & \shortstack[l]{$q_1:(x,y,z)\mapsto(-x+\tfrac34,-y+\tfrac34,z)$\\$q_2:(x,y,z)\mapsto(-x+\tfrac34,y,-z+\tfrac34)$\\$q_3:(x,y,z)\mapsto(-x+\tfrac34,y+\tfrac12,-z+\tfrac14)$\\$q_4:(x,y,z)\mapsto(-x+\tfrac14,y,-z+\tfrac14)$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Enumeration implementation}
+\label{app:enumeration_implementation}
+
+\begingroup\setlength{\emergencystretch}{3em}
+Python prepares the subgroup tasks and their coverage constraints. A C++ kernel performs depth-first assignment, canonical prefix comparisons, stabilizer extraction, and complete-representative membership checks. When quotas are enabled, the kernel additionally receives the target stabilizer order and remaining layer budget. Records are returned in batches and decoded and sorted in Python.
+% 中文翻译：Python准备子群任务及其覆盖约束。C++核执行深度优先赋值、规范前缀比较、稳定子提取和完整代表成员检查。启用配额后，搜索核额外接收目标稳定子阶数及该层剩余预算。记录分批返回，再由Python解码和排序。
+\par\endgroup
+
+\begingroup\setlength{\emergencystretch}{3em}
+\subsection{Matched-group enumeration benchmarks}
+\label{app:enum_benchmark}
+
+The enumeration benchmarks used the current ABI-4 implementation snapshot, Python 3.11.1, and CASM 2.3.1, with OMP, OpenBLAS, and MKL thread counts set to one. CPU affinity was not pinned. The implementation tested here used the C++ DFS backend and the path-compressed representative index, with completed-prefix caching enabled. The CASM workflow called its occupation counter and canonical-configuration test with a subgroup whose site permutations matched $\Gamma$, and constructed the same output fields: the complete assignment, stabilizer order, and orbit size. Count-only timings under $\Gamma$ were measured separately.
+% 中文翻译：枚举基准采用当前ABI-4实现快照、Python 3.11.1 和 CASM 2.3.1，并将 OMP、OpenBLAS 和 MKL 线程数设为1，未固定CPU亲和性。本文被测实现采用C++ DFS后端及路径压缩代表索引，并开启已完成前缀缓存。CASM流程调用占位计数器及规范构型测试，指定子群的位点置换与 $\Gamma$ 一致，并构建相同的输出字段：完整指派、稳定子阶数和轨道大小。$\Gamma$ 下的仅计数时间另行测量。
+
+Wall times are medians of three independent sequential runs. Dependency imports, graph and group construction, and verification were outside the timed interval; subgroup-task preparation, search, result storage, decoding, and sorting were included where performed. All exhaustive attempts finished within the external limits of 180\,s and 1536\,MiB per process, with internal output budgets and task timeouts disabled. Representative counts agreed with independent Burnside calculations, orbit sizes summed to $|X|$, and complete records agreed after normalization to the same canonical convention.
+% 中文翻译：壁钟耗时为三次独立顺序运行的中位数。依赖导入、图与群构建及验证不计时；各流程实际执行的子群任务准备、搜索、结果保存、解码和排序计入时间。所有穷尽运行均在每进程180秒和1536 MiB的外部限制内完成，内部输出预算和任务超时均关闭。代表计数与独立Burnside计算一致，轨道大小之和等于 $|X|$，转换到相同规范约定后完整记录一致。
+
+For each degree, the timing pools were prefixes of the available template filenames in lexicographic order. Both workflows used the same pools, with cardinalities given in Table~\ref{tab:casm} and Supplementary Table~\ref{tab:matched_extra}. The ordered master lists were:
+% 中文翻译：对每种度数，计时标签池均按可用模板文件名的字典序取前若干项。两种流程使用相同标签池，池大小见表~\ref{tab:casm}及补充表~\ref{tab:matched_extra}。有序主列表如下：
+
+\noindent $\mathcal{C}_{3}$ ordered master list:
+\begin{center}\small
+\begin{tabular}{rl}
+1 & \texttt{3c\_B\_Ch} \\
+2 & \texttt{3c\_Cu\_imadazoline\_Ch} \\
+3 & \texttt{3c\_pyrrole\_Ch} \\
+4 & \texttt{3c\_triazine\_Ch} \\
+5 & \texttt{3c\_uranyl} \\
+\end{tabular}
+\end{center}
+
+\noindent $\mathcal{C}_{4}$ ordered master list:
+\begin{center}\small
+\begin{tabular}{rl}
+1 & \texttt{4c\_1anC\_Ch} \\
+2 & \texttt{4c\_4B\_fused\_Ch} \\
+3 & \texttt{4c\_B\_Ch} \\
+4 & \texttt{4c\_Cd\_1\_Ch} \\
+5 & \texttt{4c\_Cu\_1\_Ch} \\
+6 & \texttt{4c\_In\_1\_Ch} \\
+7 & \texttt{4c\_Ni\_1\_Ch} \\
+8 & \texttt{4c\_V\_1\_Ch} \\
+9 & \texttt{4c\_Zn\_tet} \\
+10 & \texttt{4c\_bicyclooctane\_Ch} \\
+11 & \texttt{4c\_ethene\_Ch} \\
+12 & \texttt{4c\_porphyrin\_Ch} \\
+13 & \texttt{4c\_pyrene\_Ch} \\
+14 & \texttt{4c\_pyrene\_NU\_Ch} \\
+15 & \texttt{4c\_tetrathiafulvalene\_Ch} \\
+\end{tabular}
+\end{center}
+
+The bounded \texttt{vba} runs used the first two or three labels of the same ordered $\mathcal C_4$ master list. Canonical comparisons used label-string lexicographic order, and DFS visited labels in the listed order. Both policies used the ABI-4 C++ backend with the representative index and completed-prefix cache enabled. Quota runs used $B_s=20{,}000$, a total cap of 100,000, and a 60\,s task limit; DFS prefixes stopped at the corresponding quota run's total output. No task timed out. Layer times are medians of three independent runs and include the work performed within each layer; initial subgroup setup is outside those layer intervals.
+% 中文翻译：受限vba运行使用同一有序四连接主列表的前两或前三个标签。规范比较按标签字符串字典序，DFS按表列顺序遍历。两种策略均使用ABI-4 C++后端并开启代表索引与已完成前缀缓存。配额运行采用每层20,000、总上限100,000及每任务60秒；DFS前缀在对应配额运行的总输出数处停止。没有任务超时。层耗时为三次独立运行中位数，包含层内执行的工作；初始子群准备在层时间之外。
+
+These benchmarks enumerated assignments without constructing atomic models. The construction-audit pools are specified separately in Section~\ref{sec:reconstruction}.
+% 中文翻译：这些基准枚举指派，不构建原子模型。构建审计的节点池另行列于第~\ref{sec:reconstruction} 节。
+
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{1.2mm}
+\caption{Matched-group enumeration with complete representative records. Times are enumeration wall times; CASM uses the same $\Gamma$.}
+% 中文翻译：保留完整代表记录的同群枚举。时间为枚举壁钟耗时，CASM采用相同的$\Gamma$。
+\label{tab:matched_extra}
+\begin{tabular}{llrrrr}
+\toprule
+Net & $|\mathcal C_3|/|\mathcal C_4|$ & $|X|$ & Orbits & This work (s) & CASM (s) \\
+\midrule
+\texttt{ffc} & 2/2 & 128 & 42 & 0.004731 & 0.0002792 \\
+\texttt{ffc} & 3/3 & 2,187 & 513 & 0.00515 & 0.003053 \\
+\texttt{ffc} & 5/5 & 78,125 & 14,250 & 0.01491 & 0.0942 \\
+\texttt{ffc} & 5/15 & 2,109,375 & 381,375 & 0.5123 & 2.636 \\
+\texttt{fjh} & 1/2 & 4,096 & 394 & 0.04508 & 0.005913 \\
+\texttt{fjh} & 2/1 & 65,536 & 4,756 & 0.04954 & 0.09325 \\
+\texttt{fjh} & 1/3 & 531,441 & 36,369 & 0.119 & 0.6977 \\
+\texttt{fjh} & 1/4 & 16,777,216 & 1,078,816 & 2.74 & 20.88 \\
+\texttt{lil} & 4/3 & 5,308,416 & 1,328,832 & 1.978 & 6.858 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+An additional \texttt{lil} case used $|\mathcal C_3|=4$, $|\mathcal C_4|=3$, and $|\Gamma|=4$. This case tested enumeration on a further net; no atomic models were constructed for it.
+% 中文翻译：额外的\texttt{lil}算例采用$|\mathcal C_3|=4$、$|\mathcal C_4|=3$及$|\Gamma|=4$。该算例补充另一个网络上的枚举检验，不构建原子模型。
+
+CASM's native full factor group $F$ also includes orientation-reversing operations. Under $F$, the \texttt{ffc} orbit counts matched those under $\Gamma$ for the tested pools, whereas the \texttt{fjh} counts were smaller. For \texttt{fjh} 1/4, the counts were 577,456 under $F$ and 1,078,816 under $\Gamma$. These counts describe the effect of the selected equivalence group; the matched-group timings in this section use $\Gamma$ on both sides.
+% 中文翻译：CASM的原生完整因子群 $F$ 还包含反向操作。在被测标签池下，\texttt{ffc} 在 $F$ 与 $\Gamma$ 下的轨道计数相同，而 \texttt{fjh} 在 $F$ 下的计数较少。对于 \texttt{fjh} 1/4，$F$ 下为577,456个轨道，$\Gamma$ 下为1,078,816个。这些计数说明所选等价群的影响；本节的同群计时两侧均使用 $\Gamma$。
+
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{1.2mm}
+\caption{Assignment-orbit counts under the orientation-preserving group $\Gamma$ and the native full factor group $F$.}
+% 中文翻译：保向群$\Gamma$与原生完整因子群$F$下的指派轨道计数。
+\label{tab:orbit_group_counts}
+\begin{tabular}{llrr}
+\toprule
+Net & $|\mathcal C_3|/|\mathcal C_4|$ & Orbits ($\Gamma$) & Orbits ($F$) \\
+\midrule
+\texttt{ffc} & 2/2 & 42 & 42 \\
+\texttt{ffc} & 3/3 & 513 & 513 \\
+\texttt{ffc} & 5/5 & 14,250 & 14,250 \\
+\texttt{ffc} & 5/15 & 381,375 & 381,375 \\
+\texttt{fjh} & 1/2 & 394 & 265 \\
+\texttt{fjh} & 2/1 & 4,756 & 2,476 \\
+\texttt{fjh} & 1/3 & 36,369 & 20,655 \\
+\texttt{fjh} & 1/4 & 1,078,816 & 577,456 \\
+\texttt{lil} & 4/3 & 1,328,832 & 667,872 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Peak process memory was 921.2\,MiB for this work and 734.1\,MiB for CASM in the largest \texttt{fjh} case. The completed-prefix cache had no hits in the timed runs. Process memory includes interpreter and dependency allocations through enumeration completion; it is distinct from the logical size of the representative index.
+% 中文翻译：在最大的 \texttt{fjh} 算例中，本文与CASM的进程峰值内存分别为921.2 MiB和734.1 MiB。已完成前缀缓存在计时运行中没有命中。进程内存包含至枚举结束时解释器和依赖产生的分配，与代表索引的逻辑大小不同。
+
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{1.2mm}
+\caption{Observed wall-time ranges over three runs and peak process memory medians. Time ranges are in seconds and memory is in MiB.}
+% 中文翻译：三次运行的壁钟耗时范围及进程峰值内存中位数。耗时单位为秒，内存单位为MiB。
+\begin{tabular}{llrrrr}
+\toprule
+Net & Pool & Time range (ours) & Time range (CASM) & RSS (ours) & RSS (CASM) \\
+\midrule
+\texttt{ffc} & 2/2 & 0.004529--0.004801 & 0.0002756--0.0003917 & 143.9 & 142.0 \\
+\texttt{ffc} & 3/3 & 0.005073--0.00527 & 0.002942--0.003115 & 143.8 & 143.3 \\
+\texttt{ffc} & 5/5 & 0.01471--0.01499 & 0.09231--0.1014 & 149.6 & 145.2 \\
+\texttt{ffc} & 5/15 & 0.5049--0.5139 & 2.612--2.662 & 377.2 & 276.2 \\
+\texttt{fjh} & 1/2 & 0.04423--0.04549 & 0.005912--0.00593 & 145.0 & 142.9 \\
+\texttt{fjh} & 2/1 & 0.04908--0.04958 & 0.09037--0.1113 & 146.5 & 142.8 \\
+\texttt{fjh} & 1/3 & 0.1138--0.1208 & 0.6882--0.7228 & 172.6 & 162.2 \\
+\texttt{fjh} & 1/4 & 2.74--2.746 & 20.54--21.11 & 921.2 & 734.1 \\
+\texttt{lil} & 4/3 & 1.867--2.057 & 6.825--6.969 & 855.3 & 700.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{1.2mm}
+\caption{Native-core time of this work and a separate CASM count-only comparison under $\Gamma$ (seconds, medians of three runs). Native-core time is a subset of enumeration wall time.}
+% 中文翻译：本文原生核时间与$\Gamma$下CASM仅计数的独立对照，单位为秒，取三次中位数。原生核时间是枚举壁钟时间的一部分。
+\begin{tabular}{llrr}
+\toprule
+Net & Pool & Native core (ours) & CASM count only \\
+\midrule
+\texttt{ffc} & 2/2 & 5.25e-05 & 0.0001502 \\
+\texttt{ffc} & 3/3 & 0.0001472 & 0.001801 \\
+\texttt{ffc} & 5/5 & 0.001824 & 0.06066 \\
+\texttt{ffc} & 5/15 & 0.04905 & 1.623 \\
+\texttt{fjh} & 1/2 & 0.000874 & 0.004513 \\
+\texttt{fjh} & 2/1 & 0.001904 & 0.07653 \\
+\texttt{fjh} & 1/3 & 0.03399 & 0.5555 \\
+\texttt{fjh} & 1/4 & 0.838 & 17.23 \\
+\texttt{lil} & 4/3 & 0.1648 & 3.722 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\endgroup
+
+\subsection{Bounded output and exact-$\rho$ quotas}
+\label{app:quota_proof}
+
+We prove the coverage and prefix guarantee stated in Section~\ref{sec:enumeration}. Quota setup starts from cyclic subgroups and repeatedly takes proper pairwise joins. The cyclic subgroups generated by elements of any $S<\Gamma$ join to $S$, and all intermediate joins remain in $S$; $\Gamma$ is added separately. Within each order, tasks with identical vertex-orbit partitions are merged and the remaining partitions are searched lexicographically.
+% 中文翻译：我们证明第~\ref{sec:enumeration} 节陈述的覆盖与前缀保证。配额任务构造从循环子群出发，反复取仍为真子群的两两并生成。任意 $S<\Gamma$ 中各元素生成的循环子群可并生成 $S$，且中间并生成子群均包含于 $S$；$\Gamma$ 单独加入。每个阶数内部合并顶点轨道划分相同的任务，并按字典序搜索剩余划分。
+
+For $c^\star\in\Omega_s$, let $S=\mathrm{Stab}_{\Gamma}(c^\star)$. The task for $S$ contains $c^\star$, and its canonical minimality protects the corresponding branch from prefix rejection. Coverage rejection can remove this branch only after $c^\star$ has been processed under the same target order. Otherwise the search reaches the leaf, which satisfies the exact-order acceptance rule.
+% 中文翻译：对 $c^\star\in\Omega_s$，令 $S=\mathrm{Stab}_{\Gamma}(c^\star)$。$S$对应的任务包含 $c^\star$，且其规范最小性保证相应分支不会被前缀拒绝。覆盖拒绝只有在相同目标阶数下已经处理过 $c^\star$ 后才会排除该分支；否则，搜索会到达该叶，且该叶满足精确阶数接收规则。
+
+A coverage record for target order $s$ certifies that every member of $\Omega_s$ in its source task or completed subtree has been processed. If all completions of a later branch satisfy the source fixed-point and label-domain constraints and lie in that recorded region, the branch contains no new eligible representative. Same-order partition merging preserves the source domain. These coverage checks therefore preserve the new representatives and their order of acceptance.
+% 中文翻译：目标阶数 $s$ 下的覆盖记录证明，其来源任务或已完成子树中的全部 $\Omega_s$ 成员均已处理。若后续分支的所有补全满足来源固定点和标签域约束，且位于该记录区域内，则该分支不含新的合格代表。同阶内的划分合并保留来源域。因此，这些覆盖检查保留了新代表及其接收顺序。
+
+A task for $H$ containing $c^\star\in\Omega_s$ satisfies
+\begin{equation}
+\begin{aligned}
+c^\star\in\mathrm{Fix}(H)\cap\Omega_s
+&\Longrightarrow H\leq\mathrm{Stab}_{\Gamma}(c^\star),\\
+&\Longrightarrow |H|\leq s.
+\end{aligned}
+\label{eq:quota_layer_order}
+\end{equation}
+Thus no earlier, higher-order task can retain $c^\star$. Its first encounter in an order-$s$ task passes the exact-order filter, establishing layer coverage when the order-$s$ tasks are searched to exhaustion.
+% 中文翻译：若 $H$ 的任务包含 $c^\star\in\Omega_s$，则 $H\leq\mathrm{Stab}_{\Gamma}(c^\star)$，从而 $|H|\leq s$。因此此前更高阶任务无法保留 $c^\star$；在阶数为 $s$ 的任务中首次遇到时，它通过精确阶数筛选。阶数为 $s$ 的任务全部搜索至耗尽时即可覆盖此层。
+
+Fix the subgroup-task order, the vertex-orbit order within each task, and the supplied label-pool order. Let $L_s$ list the distinct representatives accepted by the order-$s$ tasks with the exact-order filter retained. This reference search uses the quota task order without quotas, timeouts, or a global cap. The preceding coverage argument shows that $L_s$ contains every member of $\Omega_s$ exactly once. Earlier higher-order quotas cannot change this sequence: their retained records belong to other strata, and their coverage records are discarded before order $s$ is searched. Within order $s$, coverage reuse skips only eligible representatives already processed, preserving the order of new retained representatives.
+% 中文翻译：固定子群任务顺序、各任务内的顶点轨道顺序及输入标签池的遍历顺序。令 $L_s$ 为阶数为 $s$ 的任务在精确阶数筛选后接收互异代表的序列；该参考搜索沿用配额任务顺序，但关闭配额、超时和总上限。前述覆盖证明说明 $L_s$ 恰好列出 $\Omega_s$ 的每个成员一次。此前更高阶层的配额无法改变此序列：其已保留记录属于其他层，且其覆盖记录在阶数 $s$ 开始搜索前清除。在阶数 $s$ 内，覆盖复用仅跳过已经处理的合格代表，因此保留新代表的次序不变。
+
+Only distinct accepted representatives consume $B_s$. If no task times out and $M_{\mathrm{total}}\geq\sum_s B_s$, the returned sequence is
+\begin{equation}
+Y_s=\operatorname{prefix}_{\min\{B_s,|\Omega_s|\}}(L_s),
+\label{eq:quota_prefix}
+\end{equation}
+where $\operatorname{prefix}_k(L_s)$ denotes the first $k$ entries and $Y_s$ is the returned sequence for stratum $s$. A smaller global cap can stop later tasks, and a task timeout can skip candidates; in either case, this prefix result is no longer guaranteed. Reaching $B_s$ alone does not establish that the stratum is exhausted.
+% 中文翻译：只有被接收的互异代表才占用 $B_s$。若无任务超时且 $M_{\mathrm{total}}\geq\sum_s B_s$，则返回序列满足公式~\ref{eq:quota_prefix}；其中 $\operatorname{prefix}_k(L_s)$ 表示前 $k$ 项，$Y_s$ 是层 $s$ 的返回序列。更小的总上限可能停止后续任务，单任务超时可能跳过候选；出现任一情况时，上述前缀结论不再有保证。仅达到 $B_s$ 不能证明该层已耗尽。
+
+\subsection{Construction audit protocol}
+\label{app:reconstruction_audit}
+
+Using the node pools specified in Section~\ref{sec:reconstruction}, the audit constructed periodic models for all 42 representatives in the \texttt{ffc} pool and a fixed-seed sample of 30 out of 394 representatives in the \texttt{fjh} pool. The \texttt{fjh} selection was stratified by stabilizer size. Each model was checked for assembly completion, CIF sanitization and reload, target-topology recovery, and short contacts.
+% 中文翻译：采用第~\ref{sec:reconstruction} 节明确列出的节点池，审计为 \texttt{ffc} 池中的全部 42 个代表，以及从 \texttt{fjh} 池的 394 个代表中按固定种子抽取的 30 个代表构建周期模型。\texttt{fjh} 的选择按稳定子大小分层。逐模型检查组装完成、CIF 清理与重载、目标拓扑恢复及短接触。
+
+A short contact was flagged when a nonbonded atom pair had a periodic separation below $0.6$ times the sum of its van der Waals radii. Atom pairs separated by at most two bonds in the molecular graph were excluded. For each topology-linked node--linker \texttt{X}--\texttt{X} pair, the closure error was the absolute deviation of the actual separation before endpoint fusion from the nominal $1.485$\,\AA{} bridge length. RMSD and threshold fractions were calculated across all audited pairs.
+% 中文翻译：非键合原子对的周期距离若小于其范德华半径之和的 $0.6$ 倍，则判为短接触；分子图上相隔不超过两条键的原子对不参与该检查。对每对拓扑相连的节点--连接体 \texttt{X}--\texttt{X} 位点，闭合误差为端点融合前的实际间距相对于 $1.485$\,\AA{} 名义桥长的绝对偏差。在全部审计位点对上计算 RMSD 和阈值内比例。
+
+\subsection{Construction protocol}
+\label{app:reconstruction_protocol}
+
+The construction steps in Section~\ref{sec:reconstruction_method} use the operational criteria summarized in Table~\ref{tab:reconstruction_protocol}. The expansion factor $s$ is unity unless the rigid node and linker templates require a larger repeat cell; when $s>1$, a 5\% buffer is applied.
+% 中文翻译：第~\ref{sec:reconstruction_method} 节的构建步骤采用表~\ref{tab:reconstruction_protocol} 汇总的操作判据。扩张因子 $s$ 在刚性节点与连接体模板不需要更大重复晶胞时取 1；当 $s>1$ 时施加 5\% 余量。
+
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
+\caption{\textbf{Operational criteria for geometric construction.} $s$ is the uniform cell-expansion factor. The bridge uses a nominal 1.485\,\AA{} CIF bond-table length without moving coordinates.}
+% 中文翻译：几何构建的操作判据。$s$ 为均匀晶胞扩张因子。节点--连接体桥接在 CIF 键表中使用 $1.485$\,\AA{} 的名义长度；原子坐标不按该值缩放。
+\label{tab:reconstruction_protocol}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.43\linewidth}>{\raggedright\arraybackslash}p{0.35\linewidth}@{}}
+\toprule
+\textbf{Step} & \textbf{Operation} & \textbf{Parameter or criterion} \\
+\midrule
+Cell expansion & Uniform scaling when the required node--linker span exceeds the edge length & $s\ge 1$; 5\% buffer if $s>1$ \\
+\addlinespace[2pt]
+Node alignment & Kabsch fit over all bijections between template connection sites and adjacent-vertex vectors & Minimum RMSD; ties by fixed site order \\
+\addlinespace[2pt]
+\shortstack[l]{Linker\\alignment} & Align the linker connection vector to the periodic edge vector; choose periodic images matching node endpoints & Axis endpoints; no additional tolerance \\
+\addlinespace[2pt]
+\shortstack[l]{Bridge\\construction} & Candidate node--linker \texttt{X}--\texttt{X} bonds; each \texttt{X} site forms one bridge & $5.0s$\,\AA{} search length; $2.5s$\,\AA{} bond tolerance \\
+\addlinespace[2pt]
+\shortstack[l]{Missing-bridge\\repair} & One-to-one nearest unmatched node/edge \texttt{X} pairs & $\max((1.485+0.8)s,\,2.75)$\,\AA{} \\
+\addlinespace[2pt]
+Axial rotation & 30$^\circ$ increments about the linker endpoint axis; accept strict improvement & Clash if distance $<0.6(r_i+r_j)$; pairs within two bonds excluded \\
+\addlinespace[2pt]
+\texttt{X} fusion & Merge node-side and linker-side \texttt{X} endpoints & Cartesian separation $<0.8$\,\AA{}; one-to-one \\
+\addlinespace[2pt]
+\shortstack[l]{Cleanup and\\export} & Remove residual dummy species \texttt{X}; merge coincident framework sites; write CIF & $0.2$\,\AA{} site merge \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{CO$_2$/N$_2$ screening protocol}
+\label{app:adsorption_screening}
+
+The matched set includes every successfully screened \texttt{ffc} model in a composition--$\rho$ group containing at least three such models. The resulting set contains 30 models in nine groups, with three or four orderings per group. Zeo++ descriptors were reused or computed with the same protocol~\cite{willems2012algorithms}; nine models received new calculations using a 1.86\,\AA{} probe and 50{,}000 samples.
+% 中文翻译：匹配集合纳入每个至少含三个成功筛选模型的组成--$\rho$ 组中的全部此类 \texttt{ffc} 模型。最终包含九组共 30 个模型，每组含三或四种排布。Zeo++ 描述符采用已有结果或按同一协议计算~\cite{willems2012algorithms}；另对九个模型使用 1.86\,\AA{} 探针和 50{,}000 次采样补算。
+
+RASPA2 calculations used a dry CO$_2$/N$_2$ mixture with gas mole fractions of 0.15/0.85 at 298\,K~\cite{dubbeldam2016raspa,altintas2018database}. The pressures in Eq.~\ref{eq:co2_metrics} were $p_{\mathrm{ads}}=1.0$\,bar and $p_{\mathrm{des}}=0.1$\,bar. Charges came from the CIF files. The input specified the MOF force field as ExampleMOFsForceField and the CO$_2$/N$_2$ molecular definitions as ExampleDefinitions. The simulation cell contained one crystallographic unit cell along each lattice vector. Each run comprised 5000 initialization cycles followed by 10000 Monte Carlo cycles.
+% 中文翻译：RASPA2 计算采用干态 CO$_2$/N$_2$ 混合气，气相摩尔分数为 0.15/0.85，温度为 298\,K~\cite{dubbeldam2016raspa,altintas2018database}。公式~\ref{eq:co2_metrics} 中的压力为 $p_{\mathrm{ads}}=1.0$\,bar 和 $p_{\mathrm{des}}=0.1$\,bar。电荷取自 CIF 文件。输入文件将 MOF 力场指定为 ExampleMOFsForceField，将 CO$_2$/N$_2$ 的分子定义指定为 ExampleDefinitions。模拟晶胞沿每个晶格矢量各包含一个晶体学晶胞。每次运行先进行 5000 个初始化循环，再进行 10000 个蒙特卡洛循环。
+
+Each model was evaluated in five independent runs, and $WC$, $S$, and $R$ were averaged arithmetically across runs. The tabulated $APS$ was calculated as the product of mean $S$ and mean $WC$; its run-to-run standard deviation was calculated from the per-run $APS$ values. Loadings were read from the RASPA output as moles per kilogram of framework, numerically equivalent to mmol\,g$^{-1}$.
+% 中文翻译：每个模型独立运行五次，对 $WC$、$S$ 和 $R$ 分别取跨运行算术平均。表中 $APS$ 为平均 $S$ 与平均 $WC$ 的乘积，其运行间标准差由各次运行的 $APS$ 计算。载量从 RASPA 输出中按每千克框架的摩尔数读取，数值等同于 mmol\,g$^{-1}$。
+
+
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{1.2mm}
+\caption{Node compositions of the matched adsorption groups. Entries are node counts; N1--N10 follow the template order given below.}
+% 中文翻译：吸附匹配组的节点组成。表项为节点数；N1--N10对应下列模板顺序。
+\label{tab:adsorption_group_compositions}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+Group & N1 & N2 & N3 & N4 & N5 & N6 & N7 & N8 & N9 & N10 \\
+\midrule
+G1 & 1 & 1 & 2 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+G2 & 1 & 1 & 2 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+G3 & 1 & 1 & 2 & 1 & 1 & 0 & 1 & 0 & 0 & 0 \\
+G4 & 1 & 1 & 2 & 1 & 1 & 0 & 1 & 0 & 0 & 0 \\
+G5 & 1 & 0 & 3 & 1 & 0 & 0 & 0 & 0 & 2 & 0 \\
+G6 & 1 & 0 & 3 & 2 & 0 & 0 & 0 & 0 & 1 & 0 \\
+G7 & 2 & 2 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+G8 & 2 & 2 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 \\
+G9 & 0 & 4 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{\linewidth}\raggedright\scriptsize
+N1: \texttt{3c\_B\_Ch}; N2: \texttt{3c\_pyrrole\_Ch}; N3: \texttt{3c\_triazine\_Ch}; N4: \texttt{4c\_B\_Ch}; N5: \texttt{4c\_Cd\_1\_Ch}; N6: \texttt{4c\_Cu\_1\_Ch}; N7: \texttt{4c\_In\_1\_Ch}; N8: \texttt{4c\_Ni\_1\_Ch}; N9: \texttt{4c\_V\_1\_Ch}; N10: \texttt{4c\_tetrathiafulvalene\_Ch}.
+\end{minipage}
+\end{table}
+
+\subsection{Single-point DFT protocol}
+\label{app:dft_screening}
+
+The reported single-point DFT sets used the closed-shell Cd node.
+% 中文翻译：报告的单点 DFT 集合使用闭壳层 Cd 节点。
+
+To keep the comparison on a common electronic-structure footing, the constructed models were evaluated with one CP2K/Quickstep~\cite{cp2k2020} protocol at the PBE+D3~\cite{perdew1996pbe,grimme2010d3} level. The protocol combined DZVP-MOLOPT-PBE-GTH basis sets, GTH pseudopotentials, 500/60\,Ry cutoffs, and SCF settings of diagonalization with 300\,K Fermi--Dirac smearing, 30 additional molecular orbitals, Broyden mixing, $\mathrm{EPS\_SCF}=5\times10^{-5}$, and a 300-step limit.
+% 中文翻译：为保证不同构建模型在共同的电子结构基准上可比，我们采用同一套 CP2K/Quickstep~\cite{cp2k2020} 协议，在 PBE+D3~\cite{perdew1996pbe,grimme2010d3} 水平下进行评估。该协议结合了 DZVP-MOLOPT-PBE-GTH 基组、GTH 赝势、500/60\,Ry 截断能，以及以下 SCF 设置：对角化、300\,K Fermi--Dirac 展宽、30 个附加分子轨道、Broyden 混合、$\mathrm{EPS\_SCF}=5\times10^{-5}$ 和 300 步上限。
+
+\subsection{X-site fusion}
+\label{app:x_fusion}
+
+We audited 12 \texttt{ffc} and 15 \texttt{fjh} constructed models sampled across symmetry strata (base seed 20260703). For each model, the placed coordinates were held fixed while the strict Cartesian matching cutoff was varied. A topology-linked pair is a node--linker \texttt{X}--\texttt{X} bridge specified by the template connectivity; merging such a pair collapses its two finite-separation endpoints. The shortest periodic distance among these pairs was 1.11\,\AA{} in \texttt{ffc} and 1.44\,\AA{} in \texttt{fjh}. The scan also records any merged pair that is absent from the template connectivity.
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{X-site merges across 27 fixed-geometry audit models. Counts aggregate all models.}
+\label{tab:x-fusion-sensitivity}
+\begin{tabular}{rccc}
+\hline
+Cutoff (\AA) & \texttt{ffc} linked & \texttt{fjh} linked & Unlinked \\
+\hline
+0.4 & 0 & 0 & 0 \\
+0.6 & 0 & 0 & 0 \\
+0.8 & 0 & 0 & 0 \\
+1.0 & 0 & 0 & 0 \\
+1.2 & 70 & 0 & 0 \\
+1.4 & 70 & 0 & 0 \\
+1.6 & 120 & 577 & 0 \\
+1.8 & 120 & 577 & 0 \\
+2.0 & 140 & 1,155 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+At cutoffs through 1.0\,\AA{}, no endpoint was merged. At 1.2\,\AA{}, 70 \texttt{ffc} bridge pairs with separations of 1.11--1.13\,\AA{} were collapsed. A cutoff below the shortest topology-linked separation is supported; 0.8\,\AA{} is a conservative operational value, and the data do not distinguish it from 0.4, 0.6, or 1.0\,\AA{}. Full topology and CIF checks passed at 0.8 and 1.2\,\AA{} for all 27 models; higher cutoffs were assessed for geometric matching only.
+\end{document}

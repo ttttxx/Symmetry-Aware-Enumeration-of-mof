@@ -1,0 +1,348 @@
+{
+  "source_sha256": "8a766b6f7e2a0e81023e2bd0c931bf9dde75df04ac9c527493eebfd2c141a0aa",
+  "scope": "English source after abstract, including prose, headings, captions and algorithms; main text and SI separated; comments excluded; rendered bibliography not included.",
+  "matching": "Case insensitive exact word/phrase; singular/plural and synonyms NOT combined; LaTeX commands removed; CO2/N2 normalized.",
+  "abstract_tokens": 151,
+  "abstract_word_forms_absent_later": [
+    "offer",
+    "motivating",
+    "systematic",
+    "produces",
+    "seek",
+    "orientations",
+    "duplication",
+    "density",
+    "functional",
+    "theory"
+  ],
+  "counts": [
+    {
+      "term": "metal-organic frameworks",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "MOFs",
+      "abstract": 1,
+      "main_text": 3,
+      "SI": 0,
+      "later_total": 3,
+      "whole_total": 4
+    },
+    {
+      "term": "tunable structures",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "gas storage",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "catalysis",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "separation",
+      "abstract": 1,
+      "main_text": 4,
+      "SI": 5,
+      "later_total": 9,
+      "whole_total": 10
+    },
+    {
+      "term": "building-unit arrangements",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "node types",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 1,
+      "later_total": 2,
+      "whole_total": 3
+    },
+    {
+      "term": "fixed MOF net",
+      "abstract": 1,
+      "main_text": 2,
+      "SI": 0,
+      "later_total": 2,
+      "whole_total": 3
+    },
+    {
+      "term": "ordered arrangements",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "inequivalent",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "selected symmetries",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "periodic models",
+      "abstract": 2,
+      "main_text": 8,
+      "SI": 1,
+      "later_total": 9,
+      "whole_total": 11
+    },
+    {
+      "term": "compatible building-unit connections and orientations",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "degree-compatible node assignments",
+      "abstract": 1,
+      "main_text": 2,
+      "SI": 0,
+      "later_total": 2,
+      "whole_total": 3
+    },
+    {
+      "term": "quotient-graph colorings",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "fixed linker template",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 1,
+      "later_total": 2,
+      "whole_total": 3
+    },
+    {
+      "term": "orientation-preserving",
+      "abstract": 1,
+      "main_text": 6,
+      "SI": 0,
+      "later_total": 6,
+      "whole_total": 7
+    },
+    {
+      "term": "candidate equivalence",
+      "abstract": 1,
+      "main_text": 2,
+      "SI": 0,
+      "later_total": 2,
+      "whole_total": 3
+    },
+    {
+      "term": "subgroup-lattice fixed-point searches",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "subgroup fixed-point searches",
+      "abstract": 0,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 1
+    },
+    {
+      "term": "canonicalization",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "orbit representatives",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "without duplication",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "Kabsch-based node alignment",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "node alignment",
+      "abstract": 1,
+      "main_text": 2,
+      "SI": 1,
+      "later_total": 3,
+      "whole_total": 4
+    },
+    {
+      "term": "linker placement",
+      "abstract": 1,
+      "main_text": 2,
+      "SI": 0,
+      "later_total": 2,
+      "whole_total": 3
+    },
+    {
+      "term": "oriented periodic models",
+      "abstract": 1,
+      "main_text": 4,
+      "SI": 0,
+      "later_total": 4,
+      "whole_total": 5
+    },
+    {
+      "term": "selected representatives",
+      "abstract": 1,
+      "main_text": 4,
+      "SI": 0,
+      "later_total": 4,
+      "whole_total": 5
+    },
+    {
+      "term": "geometric construction audit",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "target topology",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "short-contact check",
+      "abstract": 1,
+      "main_text": 2,
+      "SI": 0,
+      "later_total": 2,
+      "whole_total": 3
+    },
+    {
+      "term": "reloadable",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "crystallographic information files",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "CIFs",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    },
+    {
+      "term": "CO2/N2",
+      "abstract": 1,
+      "main_text": 4,
+      "SI": 8,
+      "later_total": 12,
+      "whole_total": 13
+    },
+    {
+      "term": "adsorption screening",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 6,
+      "later_total": 7,
+      "whole_total": 8
+    },
+    {
+      "term": "single-point density functional theory",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "DFT",
+      "abstract": 1,
+      "main_text": 4,
+      "SI": 2,
+      "later_total": 6,
+      "whole_total": 7
+    },
+    {
+      "term": "energy comparisons",
+      "abstract": 1,
+      "main_text": 0,
+      "SI": 0,
+      "later_total": 0,
+      "whole_total": 1
+    },
+    {
+      "term": "composition groups",
+      "abstract": 1,
+      "main_text": 1,
+      "SI": 0,
+      "later_total": 1,
+      "whole_total": 2
+    }
+  ]
+}

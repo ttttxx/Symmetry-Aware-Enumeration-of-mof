@@ -1,0 +1,49 @@
+{
+  "topology": "vba",
+  "pool": "C4x2_Cu_B",
+  "ligands_by_degree": {
+    "4": [
+      "4c_Cu_1_Ch",
+      "4c_B_Ch"
+    ]
+  },
+  "strategy": "legacy",
+  "output_cap": 41984,
+  "per_level_quota": null,
+  "task_time_limit_s": 60,
+  "group_order": 16,
+  "returned": 41984,
+  "elapsed_s": 3.7638603339437395,
+  "rho_setup_s": null,
+  "burnside_coverage_percent": 0.007630884647369385,
+  "rho_layers": {
+    "16": {
+      "count": 4,
+      "distinct_composition_vectors": 3,
+      "layer_report": null
+    },
+    "8": {
+      "count": 90,
+      "distinct_composition_vectors": 3,
+      "layer_report": null
+    },
+    "4": {
+      "count": 1890,
+      "distinct_composition_vectors": 7,
+      "layer_report": null
+    },
+    "2": {
+      "count": 40000,
+      "distinct_composition_vectors": 15,
+      "layer_report": null
+    },
+    "1": {
+      "count": 0,
+      "distinct_composition_vectors": 0,
+      "layer_report": null
+    }
+  },
+  "layer_report": null,
+  "log": "C4x2_Cu_B_legacy_matched_41984.log",
+  "representatives": "C4x2_Cu_B_legacy_matched_41984_representatives.jsonl.gz"
+}

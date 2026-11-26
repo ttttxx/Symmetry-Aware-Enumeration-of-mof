@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "item6_quota_definition_unchanged": true,
+    "item7_bounded_output_unchanged": true,
+    "item9_completeness_unchanged": true,
+    "item13_geometric_metrics_unchanged": true,
+    "item14_group_checks_unchanged": true,
+    "item15_screening_sample_unchanged": true,
+    "item22_requirement_unchanged": true,
+    "item24_intro_table_unchanged": true,
+    "all_numerical_tables_unchanged": true,
+    "math_equations_unchanged": true
+  },
+  "changed_nonnumerical_tables": [
+    4,
+    11
+  ],
+  "measured_code_and_inputs_unchanged": true,
+  "source_sha256": "2cc3507077b90fd8390a2f486e8cc5abde5243e6383bff664e5fd11064ab4448",
+  "compiled_pages": 33,
+  "visual_review_passed": true,
+  "new_overfull": 0,
+  "existing_overfull": 5,
+  "local_cleanup_line_break_adjustment": true
+}

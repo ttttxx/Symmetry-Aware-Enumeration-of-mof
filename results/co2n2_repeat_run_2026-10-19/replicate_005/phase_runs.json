@@ -1,0 +1,542 @@
+[
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00001",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 30.211,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00001/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00001_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350226,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00001",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 15.003,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00001/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00001_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350256,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00002",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 26.671,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00002/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00002_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350271,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00002",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 13.342,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00002/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00002_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350298,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00003",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 25.615,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00003/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00003_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350311,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00003",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.142,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00003/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00003_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350337,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00004",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.223,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00004/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00004_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350349,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00004",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.054,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00004/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00004_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350373,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00005",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.34,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00005/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00005_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350385,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00005",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.14,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00005/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00005_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350409,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00006",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.026,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00006/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00006_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350422,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00006",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.913,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00006/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00006_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350446,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00007",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 23.98,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00007/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00007_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350458,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00007",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.865,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00007/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00007_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350481,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00008",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 23.774,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00008/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00008_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350493,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00008",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.857,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00008/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00008_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350517,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00009",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 23.779,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00009/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00009_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350529,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00009",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.812,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00009/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00009_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350553,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00010",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.029,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00010/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00010_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350565,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00010",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.097,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00010/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00010_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350589,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00011",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.899,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00011/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00011_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350601,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00011",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.467,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00011/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00011_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350626,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00013",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 25.776,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00013/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00013_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350638,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00013",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.652,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00013/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00013_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350664,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00014",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 25.744,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00014/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00014_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350676,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00014",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.391,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00014/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00014_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350702,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00015",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 25.079,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00015/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00015_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350715,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00015",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.362,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00015/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00015_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350740,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00016",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 25.276,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00016/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00016_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350752,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00016",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.239,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00016/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00016_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350777,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00017",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.948,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00017/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00017_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350790,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00017",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.855,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00017/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00017_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350815,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00018",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.62,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00018/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00018_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350826,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00018",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.893,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00018/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00018_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350851,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00019",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.727,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00019/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00019_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350863,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00019",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.085,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00019/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00019_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350888,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00021",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.135,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00021/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00021_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350900,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00021",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.859,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00021/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00021_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350924,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00022",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.305,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00022/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00022_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350936,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00022",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.174,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00022/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00022_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350960,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00023",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.625,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00023/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_00023_1.1.1_298.000000_100000.data",
+    "random_seed": 1792350972,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_00023",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.899,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_00023/desorption/Output/System_0/output_ffc_co2n2_cleanpool_00023_1.1.1_298.000000_10000.data",
+    "random_seed": 1792350997,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_01889",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 26.108,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_01889/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_01889_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351009,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_01889",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.116,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_01889/desorption/Output/System_0/output_ffc_co2n2_cleanpool_01889_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351035,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_01890",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 25.651,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_01890/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_01890_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351047,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_01890",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.152,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_01890/desorption/Output/System_0/output_ffc_co2n2_cleanpool_01890_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351073,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_01891",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 25.393,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_01891/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_01891_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351085,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_01891",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 12.298,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_01891/desorption/Output/System_0/output_ffc_co2n2_cleanpool_01891_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351110,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03207",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.253,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03207/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_03207_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351122,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03207",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.899,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03207/desorption/Output/System_0/output_ffc_co2n2_cleanpool_03207_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351147,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03208",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 24.072,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03208/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_03208_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351159,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03208",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.927,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03208/desorption/Output/System_0/output_ffc_co2n2_cleanpool_03208_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351183,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03209",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 23.841,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03209/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_03209_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351195,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03209",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.663,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03209/desorption/Output/System_0/output_ffc_co2n2_cleanpool_03209_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351218,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03229",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 23.208,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03229/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_03229_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351230,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03229",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.463,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03229/desorption/Output/System_0/output_ffc_co2n2_cleanpool_03229_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351253,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03230",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 23.335,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03230/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_03230_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351265,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03230",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.524,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03230/desorption/Output/System_0/output_ffc_co2n2_cleanpool_03230_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351288,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03231",
+    "phase": "adsorption",
+    "returncode": 0,
+    "elapsed_s": 23.17,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03231/adsorption/Output/System_0/output_ffc_co2n2_cleanpool_03231_1.1.1_298.000000_100000.data",
+    "random_seed": 1792351300,
+    "finished": true
+  },
+  {
+    "candidate_id": "ffc_co2n2_cleanpool_03231",
+    "phase": "desorption",
+    "returncode": 0,
+    "elapsed_s": 11.56,
+    "output_file": "/Users/jing/PyCharmMiscProject/mof/results/co2n2_repeat_run_2026-10-19/replicate_005/ffc_co2n2_cleanpool_03231/desorption/Output/System_0/output_ffc_co2n2_cleanpool_03231_1.1.1_298.000000_10000.data",
+    "random_seed": 1792351323,
+    "finished": true
+  }
+]

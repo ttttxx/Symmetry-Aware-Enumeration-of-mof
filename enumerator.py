@@ -184,7 +184,9 @@ class MOFEnumerator:
         orbit_degree = self.node_degrees[current_nodes[0]] if self.node_degrees else None
 
         tryable_atoms = atom_types
-        if orbit_degree is not None and orbit_degree in self.user_selected_ligands:
+        if self.topology_requirements and self.user_selected_ligands and orbit_degree is not None:
+            tryable_atoms = self.user_selected_ligands.get(orbit_degree, [])
+        elif orbit_degree is not None and orbit_degree in self.user_selected_ligands:
             tryable_atoms = self.user_selected_ligands[orbit_degree]
 
         for atom in tryable_atoms:
@@ -337,7 +339,7 @@ class MOFEnumerator:
         if self.topology_requirements and self.user_selected_ligands:
             _naive_space = 1
             for _deg, _cnt in self.topology_requirements.items():
-                _n_ch = len(self.user_selected_ligands.get(_deg, atom_types))
+                _n_ch = len(self.user_selected_ligands.get(_deg, []))
                 _naive_space *= _n_ch ** _cnt
         else:
             _naive_space = len(atom_types) ** self.n
@@ -415,7 +417,7 @@ class MOFEnumerator:
         if self.topology_requirements and self.user_selected_ligands:
             total_schemes = 1
             for deg, count in self.topology_requirements.items():
-                n_choices = len(self.user_selected_ligands.get(deg, atom_types))
+                n_choices = len(self.user_selected_ligands.get(deg, []))
                 total_schemes *= (n_choices ** count)
         else:
             total_schemes = len(atom_types) ** self.n

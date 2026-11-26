@@ -1,0 +1,156 @@
+{
+  "topology": "vba",
+  "pool": "C4x3_Cu_B_Cd",
+  "ligands_by_degree": {
+    "4": [
+      "4c_Cu_1_Ch",
+      "4c_B_Ch",
+      "4c_Cd_1_Ch"
+    ]
+  },
+  "strategy": "rho_quota",
+  "output_cap": 100000,
+  "per_level_quota": 20000,
+  "task_time_limit_s": 60,
+  "group_order": 16,
+  "returned": 60549,
+  "elapsed_s": 9.559061875101179,
+  "rho_setup_s": 0.28167862514965236,
+  "burnside_coverage_percent": 3.027970247575441e-08,
+  "rho_layers": {
+    "16": {
+      "count": 9,
+      "distinct_composition_vectors": 6,
+      "layer_report": {
+        "stabilizer_order": 16,
+        "rho": 1.0,
+        "quota": 20000,
+        "returned": 9,
+        "fixed_layer_tasks": 1,
+        "tasks_started": 1,
+        "task_timeouts": 0,
+        "elapsed_s": 0.0009947919752448797,
+        "status": "layer_exhausted"
+      }
+    },
+    "8": {
+      "count": 540,
+      "distinct_composition_vectors": 12,
+      "layer_report": {
+        "stabilizer_order": 8,
+        "rho": 0.5,
+        "quota": 20000,
+        "returned": 540,
+        "fixed_layer_tasks": 15,
+        "tasks_started": 15,
+        "task_timeouts": 0,
+        "elapsed_s": 0.07288600015453994,
+        "status": "layer_exhausted"
+      }
+    },
+    "4": {
+      "count": 20000,
+      "distinct_composition_vectors": 42,
+      "layer_report": {
+        "stabilizer_order": 4,
+        "rho": 0.25,
+        "quota": 20000,
+        "returned": 20000,
+        "fixed_layer_tasks": 35,
+        "tasks_started": 13,
+        "task_timeouts": 0,
+        "elapsed_s": 2.4051807920914143,
+        "status": "quota_reached"
+      }
+    },
+    "2": {
+      "count": 20000,
+      "distinct_composition_vectors": 70,
+      "layer_report": {
+        "stabilizer_order": 2,
+        "rho": 0.125,
+        "quota": 20000,
+        "returned": 20000,
+        "fixed_layer_tasks": 15,
+        "tasks_started": 1,
+        "task_timeouts": 0,
+        "elapsed_s": 2.6671095420606434,
+        "status": "quota_reached"
+      }
+    },
+    "1": {
+      "count": 20000,
+      "distinct_composition_vectors": 54,
+      "layer_report": {
+        "stabilizer_order": 1,
+        "rho": 0.0625,
+        "quota": 20000,
+        "returned": 20000,
+        "fixed_layer_tasks": 1,
+        "tasks_started": 1,
+        "task_timeouts": 0,
+        "elapsed_s": 4.103617708198726,
+        "status": "quota_reached"
+      }
+    }
+  },
+  "layer_report": [
+    {
+      "stabilizer_order": 16,
+      "rho": 1.0,
+      "quota": 20000,
+      "returned": 9,
+      "fixed_layer_tasks": 1,
+      "tasks_started": 1,
+      "task_timeouts": 0,
+      "elapsed_s": 0.0009947919752448797,
+      "status": "layer_exhausted"
+    },
+    {
+      "stabilizer_order": 8,
+      "rho": 0.5,
+      "quota": 20000,
+      "returned": 540,
+      "fixed_layer_tasks": 15,
+      "tasks_started": 15,
+      "task_timeouts": 0,
+      "elapsed_s": 0.07288600015453994,
+      "status": "layer_exhausted"
+    },
+    {
+      "stabilizer_order": 4,
+      "rho": 0.25,
+      "quota": 20000,
+      "returned": 20000,
+      "fixed_layer_tasks": 35,
+      "tasks_started": 13,
+      "task_timeouts": 0,
+      "elapsed_s": 2.4051807920914143,
+      "status": "quota_reached"
+    },
+    {
+      "stabilizer_order": 2,
+      "rho": 0.125,
+      "quota": 20000,
+      "returned": 20000,
+      "fixed_layer_tasks": 15,
+      "tasks_started": 1,
+      "task_timeouts": 0,
+      "elapsed_s": 2.6671095420606434,
+      "status": "quota_reached"
+    },
+    {
+      "stabilizer_order": 1,
+      "rho": 0.0625,
+      "quota": 20000,
+      "returned": 20000,
+      "fixed_layer_tasks": 1,
+      "tasks_started": 1,
+      "task_timeouts": 0,
+      "elapsed_s": 4.103617708198726,
+      "status": "quota_reached"
+    }
+  ],
+  "log": "C4x3_Cu_B_Cd_rho_quota.log",
+  "representatives": "C4x3_Cu_B_Cd_rho_quota_representatives.jsonl.gz"
+}

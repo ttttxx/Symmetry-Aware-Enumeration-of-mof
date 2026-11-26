@@ -1,0 +1,17 @@
+{
+  "protected_sections": {
+    "abstract": true,
+    "results": true,
+    "conclusion": true,
+    "data availability": true
+  },
+  "after_sha256": "0b990b3239d1f9ecef7f8f4575c6f70c2bd72cc055c0e2ac7fc401c9cef1c65f",
+  "before_sha256": "1693f334bcb71d5ceced3d0a50dff30b3c85654c2ce924ed425bc8acc49f88de",
+  "duplicate_labels": false,
+  "compile_exit_code": 0,
+  "ordinary_schedule_term_removed": true,
+  "existing_overfull_boxes": 5,
+  "new_float_overflow": false,
+  "pages": 34,
+  "algorithm_position": "fixed within Section 2.2"
+}

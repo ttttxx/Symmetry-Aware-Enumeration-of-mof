@@ -1,0 +1,2 @@
+# Preserve exact bytes, including frozen scientific input hashes, on every OS.
+* -text

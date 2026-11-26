@@ -83,6 +83,24 @@ python main.py --disable-budget
 python main.py --benchmark-json results/performance/demo.json
 ```
 
+### 6. Optional Python/C++ subgroup DFS
+
+The experimental byte-key backend keeps subgroup scheduling in Python and can
+run the search core in C++17. Build and run with:
+
+```bash
+python tools/build_enumeration_core.py
+python main.py --enumeration-backend cpp --benchmark-json results/performance/hybrid.json
+```
+
+Use `--enumeration-backend auto` to allow Python fallback, or `python` to force
+the optimized Python byte-key backend. The default is `auto`; exact-rho quota runs also use the optimized search core. See [native/README.md](native/README.md)
+for build support, limits and validation commands.
+
+The expanded CASM comparison uses matched proper-group site actions and 15
+size gradients. Run/reproduction instructions and separate count-only/full-group
+references are in [experiment/casm_scale_compare_README.md](experiment/casm_scale_compare_README.md).
+
 ## What This Repository Covers
 
 ### 1. Topology to finite design space
@@ -247,3 +265,9 @@ For readers matching the manuscript to the implementation:
 ## Notes on Repository State
 
 This repository currently contains research artifacts in addition to source code, including intermediate results, manuscript files, and validation outputs. For manuscript review, the most relevant source files are the Python modules listed above rather than every file under `results/` or `paper/`.
+
+
+## Working across machines
+
+See [docs/multi_machine_workflow.md](docs/multi_machine_workflow.md) for cloning,
+local environment setup, rebuilding the native library and synchronizing changes.

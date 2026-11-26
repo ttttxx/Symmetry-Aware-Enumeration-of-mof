@@ -1,0 +1,42 @@
+term,abstract,main_text,SI,later_total,whole_total
+metal-organic frameworks,1,1,0,1,2
+MOFs,1,3,0,3,4
+tunable structures,1,0,0,0,1
+gas storage,1,1,0,1,2
+catalysis,1,1,0,1,2
+separation,1,4,5,9,10
+building-unit arrangements,1,1,0,1,2
+node types,1,1,1,2,3
+fixed MOF net,1,2,0,2,3
+ordered arrangements,1,0,0,0,1
+inequivalent,1,1,0,1,2
+selected symmetries,1,0,0,0,1
+periodic models,2,8,1,9,11
+compatible building-unit connections and orientations,1,0,0,0,1
+degree-compatible node assignments,1,2,0,2,3
+quotient-graph colorings,1,0,0,0,1
+fixed linker template,1,1,1,2,3
+orientation-preserving,1,6,0,6,7
+candidate equivalence,1,2,0,2,3
+subgroup-lattice fixed-point searches,1,0,0,0,1
+subgroup fixed-point searches,0,1,0,1,1
+canonicalization,1,1,0,1,2
+orbit representatives,1,1,0,1,2
+without duplication,1,0,0,0,1
+Kabsch-based node alignment,1,1,0,1,2
+node alignment,1,2,1,3,4
+linker placement,1,2,0,2,3
+oriented periodic models,1,4,0,4,5
+selected representatives,1,4,0,4,5
+geometric construction audit,1,1,0,1,2
+target topology,1,1,0,1,2
+short-contact check,1,2,0,2,3
+reloadable,1,1,0,1,2
+crystallographic information files,1,0,0,0,1
+CIFs,1,1,0,1,2
+CO2/N2,1,4,8,12,13
+adsorption screening,1,1,6,7,8
+single-point density functional theory,1,0,0,0,1
+DFT,1,4,2,6,7
+energy comparisons,1,0,0,0,1
+composition groups,1,1,0,1,2

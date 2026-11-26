@@ -1,0 +1,407 @@
+[
+  {
+    "case": [
+      "ffc",
+      2,
+      2
+    ],
+    "naive": 128,
+    "representatives": 42,
+    "timings_s": {
+      "subgroup_dfs": [
+        0.001769250025972724,
+        0.0019163750112056732,
+        0.0016184579581022263,
+        0.0016882499912753701
+      ],
+      "subgroup_counter": [
+        0.0018870419589802623,
+        0.001619416056200862,
+        0.0016727909678593278,
+        0.0015754170017316937
+      ],
+      "single_dfs": [
+        0.0001722910674288869,
+        0.00016433303244411945,
+        0.00021554192062467337,
+        0.00020345905795693398
+      ],
+      "single_counter": [
+        0.00020474998746067286,
+        0.00019808299839496613,
+        0.00020358304027467966,
+        0.00020158302504569292
+      ]
+    },
+    "medians_s": {
+      "subgroup_dfs": 0.001728750008624047,
+      "subgroup_counter": 0.0016461035120300949,
+      "single_dfs": 0.00018787506269291043,
+      "single_counter": 0.0002025830326601863
+    },
+    "stats": {
+      "subgroup_dfs": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 37,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0001101270318031311
+      },
+      "subgroup_counter": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 1,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 0.00010579207446426153,
+        "counter_candidates": 328,
+        "counter_excluded": 200
+      },
+      "single_dfs": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 3.584078513085842e-06
+      },
+      "single_counter": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 42,
+        "duplicate_leaves": 0,
+        "compile_s": 3.750086762011051e-06,
+        "counter_candidates": 128,
+        "counter_excluded": 0
+      }
+    },
+    "all_representatives_and_metadata_match": true,
+    "traversal_order_matches_within_each_schedule": true
+  },
+  {
+    "case": [
+      "ffc",
+      3,
+      3
+    ],
+    "naive": 2187,
+    "representatives": 513,
+    "timings_s": {
+      "subgroup_dfs": [
+        0.0030198749154806137,
+        0.002875791979022324,
+        0.0037612089654430747,
+        0.0029611249919980764
+      ],
+      "subgroup_counter": [
+        0.006554999970830977,
+        0.0051893339259549975,
+        0.02220004191622138,
+        0.005236875033006072
+      ],
+      "single_dfs": [
+        0.0012524169869720936,
+        0.0012356670340523124,
+        0.0012784999562427402,
+        0.0011750409612432122
+      ],
+      "single_counter": [
+        0.0023267919896170497,
+        0.00223220803309232,
+        0.0022772500524297357,
+        0.002355832955799997
+      ]
+    },
+    "medians_s": {
+      "subgroup_dfs": 0.002990499953739345,
+      "subgroup_counter": 0.0058959375019185245,
+      "single_dfs": 0.001244042010512203,
+      "single_counter": 0.0023020210210233927
+    },
+    "stats": {
+      "subgroup_dfs": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 124,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0001159588573500514
+      },
+      "subgroup_counter": {
+        "tasks": 8,
+        "completed_tasks": 8,
+        "pruned_prefixes": 1,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0001409989781677723,
+        "counter_candidates": 4077,
+        "counter_excluded": 1890
+      },
+      "single_dfs": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 4.667090252041817e-06
+      },
+      "single_counter": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 513,
+        "duplicate_leaves": 0,
+        "compile_s": 4.917033948004246e-06,
+        "counter_candidates": 2187,
+        "counter_excluded": 0
+      }
+    },
+    "all_representatives_and_metadata_match": true,
+    "traversal_order_matches_within_each_schedule": true
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      2
+    ],
+    "naive": 4096,
+    "representatives": 394,
+    "timings_s": {
+      "subgroup_dfs": [
+        0.044446874991990626,
+        0.04524333297740668,
+        0.044516374939121306,
+        0.043986584059894085
+      ],
+      "subgroup_counter": [
+        0.051449708989821374,
+        0.051602958934381604,
+        0.05005433293990791,
+        0.051059417077340186
+      ],
+      "single_dfs": [
+        0.006161042023450136,
+        0.006066041067242622,
+        0.006295125000178814,
+        0.030435916036367416
+      ],
+      "single_counter": [
+        0.007549916976131499,
+        0.007579667028039694,
+        0.0076525830663740635,
+        0.006799416965804994
+      ]
+    },
+    "medians_s": {
+      "subgroup_dfs": 0.044481624965555966,
+      "subgroup_counter": 0.05125456303358078,
+      "single_dfs": 0.006228083511814475,
+      "single_counter": 0.007564792002085596
+    },
+    "stats": {
+      "subgroup_dfs": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 708,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0038735391572117805
+      },
+      "subgroup_counter": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 4,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004057290614582598,
+        "counter_candidates": 6680,
+        "counter_excluded": 2584
+      },
+      "single_dfs": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 1.200009137392044e-05
+      },
+      "single_counter": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 394,
+        "duplicate_leaves": 0,
+        "compile_s": 9.958050213754177e-06,
+        "counter_candidates": 4096,
+        "counter_excluded": 0
+      }
+    },
+    "all_representatives_and_metadata_match": true,
+    "traversal_order_matches_within_each_schedule": true
+  },
+  {
+    "case": [
+      "fjh",
+      2,
+      1
+    ],
+    "naive": 65536,
+    "representatives": 4756,
+    "timings_s": {
+      "subgroup_dfs": [
+        0.06077116704545915,
+        0.06521925004199147,
+        0.06348329200409353,
+        0.1059880000539124
+      ],
+      "subgroup_counter": [
+        0.3663866249844432,
+        0.3735094170551747,
+        0.361643458949402,
+        0.35966066597029567
+      ],
+      "single_dfs": [
+        0.03228024998679757,
+        0.020057625020854175,
+        0.02079399989452213,
+        0.020286208018660545
+      ],
+      "single_counter": [
+        0.16519283398520201,
+        0.23722279199864715,
+        0.16234754107426852,
+        0.15870149992406368
+      ]
+    },
+    "medians_s": {
+      "subgroup_dfs": 0.0643512710230425,
+      "subgroup_counter": 0.3640150419669226,
+      "single_dfs": 0.020540103956591338,
+      "single_counter": 0.16377018752973527
+    },
+    "stats": {
+      "subgroup_dfs": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 1410,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004453997127711773
+      },
+      "subgroup_counter": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 9,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004618625622242689,
+        "counter_candidates": 76404,
+        "counter_excluded": 10868
+      },
+      "single_dfs": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 1.237494871020317e-05
+      },
+      "single_counter": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 4756,
+        "duplicate_leaves": 0,
+        "compile_s": 1.2042000889778137e-05,
+        "counter_candidates": 65536,
+        "counter_excluded": 0
+      }
+    },
+    "all_representatives_and_metadata_match": true,
+    "traversal_order_matches_within_each_schedule": true
+  },
+  {
+    "case": [
+      "fjh",
+      1,
+      3
+    ],
+    "naive": 531441,
+    "representatives": 36369,
+    "timings_s": {
+      "subgroup_dfs": [
+        0.9201867909869179,
+        1.3507614999543875,
+        1.558963333023712,
+        1.5722867499571294
+      ],
+      "subgroup_counter": [
+        2.127828457974829,
+        2.825850790948607,
+        2.640555875026621,
+        2.6528327909763902
+      ],
+      "single_dfs": [
+        0.8881279999623075,
+        1.3142490830505267,
+        1.5127795420121402,
+        1.120611249934882
+      ],
+      "single_counter": [
+        1.4890319579280913,
+        1.730353374965489,
+        1.3189802499255165,
+        1.3419744579587132
+      ]
+    },
+    "medians_s": {
+      "subgroup_dfs": 1.4548624164890498,
+      "subgroup_counter": 2.6466943330015056,
+      "single_dfs": 1.2174301664927043,
+      "single_counter": 1.4155032079434022
+    },
+    "stats": {
+      "subgroup_dfs": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 8959,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 0.004072210052981973
+      },
+      "subgroup_counter": {
+        "tasks": 33,
+        "completed_tasks": 33,
+        "pruned_prefixes": 4,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 0.0041979990201070905,
+        "counter_candidates": 585009,
+        "counter_excluded": 53568
+      },
+      "single_dfs": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 1.229101326316595e-05
+      },
+      "single_counter": {
+        "tasks": 1,
+        "completed_tasks": 1,
+        "pruned_prefixes": 0,
+        "leaf_visits": 36369,
+        "duplicate_leaves": 0,
+        "compile_s": 1.2125005014240742e-05,
+        "counter_candidates": 531441,
+        "counter_excluded": 0
+      }
+    },
+    "all_representatives_and_metadata_match": true,
+    "traversal_order_matches_within_each_schedule": true
+  }
+]

@@ -9,9 +9,9 @@ from dft_validation import config
 
 RHO_CMAP = "viridis"
 RHO_BANDS = [
-    ("Low", 0.0, 0.25, "#D8D8D8"),
-    ("Medium", 0.25, 0.75, "#DCEBF7"),
-    ("High", 0.75, 1.0, "#E3F1DE"),
+    ("Low", 0.0, 0.25),
+    ("Medium", 0.25, 0.75),
+    ("High", 0.75, 1.0),
 ]
 
 plt.rcParams.update({
@@ -24,6 +24,9 @@ plt.rcParams.update({
     "axes.spines.top": False,
     "axes.linewidth": 0.8,
     "legend.frameon": False,
+    "axes.facecolor": "white",
+    "figure.facecolor": "white",
+    "savefig.facecolor": "white",
 })
 
 def _spearman_for_comp(records: list) -> tuple:
@@ -121,10 +124,12 @@ def _rho_band(rho: float) -> str:
     return "High"
 
 def _add_rho_bands(ax) -> None:
-    for label, lo, hi, color in RHO_BANDS:
-        ax.axvspan(lo, hi, color=color, alpha=0.42, lw=0, zorder=0)
-        ax.text((lo + hi) / 2, 0.985, label, transform=ax.get_xaxis_transform(),
-                ha="center", va="top", fontsize=6.3, color="#4D4D4D")
+    for label, lo, hi in RHO_BANDS:
+        if lo > 0:
+            ax.axvline(lo, color="#A8B0B7", linewidth=0.65,
+                       linestyle=(0, (2.2, 2.2)), zorder=1)
+        ax.text((lo + hi) / 2, 1.015, label, transform=ax.get_xaxis_transform(),
+                ha="center", va="bottom", fontsize=6.3, color="#59636C")
 
 def _composition_minima(records: list) -> list:
     groups = defaultdict(list)
@@ -148,7 +153,7 @@ def _normalized_records(records: list) -> list:
 def _plot_single_screening_panel(ax, points: list, minima: list, *,
                                  y_key: str, y_label: str,
                                  legend: bool = False) -> None:
-    colors = {"all": "#5F6F7A", "min": "#B64342"}
+    colors = {"all": "#365C78", "min": "#D55E00"}
     comp_labels = sorted({r.get("composition_label", "") for r in points})
     marker_map = {label: marker for label, marker in zip(
         comp_labels, ["o", "s", "^", "D", "P", "X", "v", "<", ">", "h", "*"]
@@ -165,22 +170,22 @@ def _plot_single_screening_panel(ax, points: list, minima: list, *,
         subset = [r for r in points if r.get("composition_label") == label]
         ax.scatter([r["rho"] for r in subset],
                    [r[y_key] for r in subset],
-                   marker=marker_map[label], s=30, color=colors["all"],
-                   alpha=0.58, edgecolor="white", linewidth=0.35, zorder=2)
+                   marker=marker_map[label], s=36, color=colors["all"],
+                   alpha=0.52, edgecolor="#183244", linewidth=0.45, zorder=3)
 
     ax.scatter([r["rho"] for r in minima],
                [r[y_key] for r in minima],
-               s=68, facecolor="white", edgecolor=colors["min"],
-               linewidth=1.3, zorder=4)
+               marker="D", s=58, facecolor="none", edgecolor=colors["min"],
+               linewidth=1.3, alpha=0.82, zorder=5)
 
     if legend:
         legend_handles = [
-            Line2D([0], [0], marker="o", linestyle="none", markersize=4.8,
-                   markerfacecolor=colors["all"], markeredgecolor="white",
-                   alpha=0.65, label="completed candidate"),
-            Line2D([0], [0], marker="o", linestyle="none", markersize=6.8,
-                   markerfacecolor="white", markeredgecolor=colors["min"],
-                   markeredgewidth=1.25, label="composition minimum"),
+            Line2D([0], [0], marker="o", linestyle="none", markersize=5.8,
+                   markerfacecolor=colors["all"], markeredgecolor="#183244",
+                   label="completed candidate"),
+            Line2D([0], [0], marker="D", linestyle="none", markersize=6.5,
+                   markerfacecolor="none", markeredgecolor=colors["min"],
+                   markeredgewidth=1.3, label="composition minimum"),
         ]
         ax.legend(handles=legend_handles, loc="upper left",
                   bbox_to_anchor=(0.0, -0.2), ncol=2,
@@ -303,11 +308,6 @@ def _plot_pooled_topology(records: list, results_dir: str, topology: str) -> Non
         return
     minima = _composition_minima(pts)
     normalized = _normalized_records(pts)
-    rs, p = spearmanr([r["rho"] for r in pts], [r["dft_e_per_atom"] for r in pts])
-
-    min_band_counts = defaultdict(int)
-    for rec in minima:
-        min_band_counts[_rho_band(rec["rho"])] += 1
     minima_norm = []
     min_norm_by_label = {
         rec.get("composition_label", ""): rec for rec in normalized if rec["delta_mev_atom"] == 0
@@ -322,11 +322,6 @@ def _plot_pooled_topology(records: list, results_dir: str, topology: str) -> Non
         y_label="Single-point DFT energy (eV atom$^{-1}$)",
         legend=True,
     )
-    ax_abs.text(0.02, 0.03,
-                f"n={len(pts)} candidates, {len(minima)} compositions\n"
-                f"pooled $\\rho_s$={rs:.2f}, p={p:.2f}",
-                transform=ax_abs.transAxes, ha="left", va="bottom",
-                fontsize=6.5, color="#4D4D4D")
     fig_abs.tight_layout(pad=0.45)
 
     fig_delta, ax_delta = plt.subplots(figsize=(3.55, 3.0))
@@ -336,13 +331,6 @@ def _plot_pooled_topology(records: list, results_dir: str, topology: str) -> Non
         y_label=r"$\Delta E$ from composition minimum (meV atom$^{-1}$)",
     )
     ax_delta.axhline(0, color="#B64342", linewidth=0.75, alpha=0.65, zorder=1)
-    ax_delta.text(0.02, 0.07,
-                  "Composition-wise minima:\n"
-                  f"Low {min_band_counts['Low']} | "
-                  f"Medium {min_band_counts['Medium']} | "
-                  f"High {min_band_counts['High']}",
-                  transform=ax_delta.transAxes, ha="left", va="bottom",
-                  fontsize=6.5, color="#4D4D4D")
     fig_delta.tight_layout(pad=0.45)
 
     pooled_stem = os.path.join(results_dir, f"rho_energy_{topology}_pooled")
@@ -359,24 +347,12 @@ def _plot_pooled_topology(records: list, results_dir: str, topology: str) -> Non
         y_label="Single-point DFT energy (eV atom$^{-1}$)",
         legend=True,
     )
-    combo_abs.text(0.02, 0.03,
-                   f"n={len(pts)} candidates, {len(minima)} compositions\n"
-                   f"pooled $\\rho_s$={rs:.2f}, p={p:.2f}",
-                   transform=combo_abs.transAxes, ha="left", va="bottom",
-                   fontsize=6.5, color="#4D4D4D")
     _plot_single_screening_panel(
         combo_delta, normalized, minima_norm,
         y_key="delta_mev_atom",
         y_label=r"$\Delta E$ from composition minimum (meV atom$^{-1}$)",
     )
     combo_delta.axhline(0, color="#B64342", linewidth=0.75, alpha=0.65, zorder=1)
-    combo_delta.text(0.02, 0.07,
-                     "Composition-wise minima:\n"
-                     f"Low {min_band_counts['Low']} | "
-                     f"Medium {min_band_counts['Medium']} | "
-                     f"High {min_band_counts['High']}",
-                     transform=combo_delta.transAxes, ha="left", va="bottom",
-                     fontsize=6.5, color="#4D4D4D")
     fig_combo.tight_layout(pad=0.55, w_pad=1.4)
     _save_publication_figure(fig_combo, pooled_stem)
 

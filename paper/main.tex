@@ -3,6 +3,7 @@
 
 
 \usepackage{graphicx}%
+\usepackage{subcaption}%
 \usepackage{multirow}%
 \usepackage{amsmath,amssymb,amsfonts}%
 \usepackage{amsthm}%
@@ -41,33 +42,30 @@
 
 \begin{document}
 
-\title{Symmetry-Aware Enumeration of Metal–Organic Frameworks via Stratified Subgroup Decomposition}
+\title{From Topological Design to Screening-Ready MOF Candidate Models: Symmetry-Aware Enumeration and Reconstruction}
 
-%%=============================================================%%
-%GivenName	-> \fnm{Hui}
-%% Particle	-> \spfx{van der} -> surname prefix
-%FamilyName	-> \sur{Li}
-%Suffix	-> \sfx{IV}
-%\author[1]{\fnm{Hui} \sur{Li}}\email{ray@mail.buct.edu.cn}
-%\sfx{IV}}\email{ray@mail.buct.edu.cn}
-%%=============================================================%%
-
-\author*[]{\fnm{Hui} \sur{Li}}
+\author[]{\fnm{Hui} \sur{Li}}
 
 \author[]{\fnm{Jing} \sur{Tian}}
+
+\author[]{\fnm{Dahuan} \sur{Liu}}
+
+\author[]{\fnm{Minman} \sur{Tong}}
+
+\author[]{\fnm{Qingyuan} \sur{Yang}}
 
 \affil[]{\orgname{Beijing University of Chemical Technology}, \city{Beijing}, \postcode{100029}, \country{China}}
 
 
 \abstract{
-Designing metal-organic frameworks (MOFs) requires searching a vast combinatorial space for structures that are chemically plausible and energetically promising at the screening stage. Existing high-throughput screening workflows scale rapidly with building-block diversity and often treat polyatomic building units as topological labels, leaving their geometric directionality to post-generation correction. This produces expensive candidate sets with substantial low-symmetry redundancy. Here we introduce a decoupled framework that separates algebraic enumeration from geometric instantiation. A group-theoretic Subgroup Lattice Descent algorithm first identifies symmetry-unique topological configurations without redundancy. Kabsch-based rotational alignment then maps each abstract graph assignment to a physical crystal model with oriented building units.
-% 中文翻译：金属有机框架（MOF）的设计需要在巨大的组合空间中寻找具有化学合理性、并在筛选阶段显示能量潜力的结构。现有高通量筛选流程会随着构建单元多样性的增加而迅速放大，并且常将多原子构建单元视为拓扑标签，把几何方向性留到生成后修正。这会产生计算成本高且包含大量低对称冗余的候选集。本文提出一种解耦框架，将代数枚举与几何实例化分离。首先，基于群论的子群格下降算法无冗余地识别对称唯一的拓扑构型；随后，基于 Kabsch 的旋转对齐将每个抽象图指派映射为具有定向构建单元的物理晶体模型。
+Metal-organic frameworks (MOFs) are modular porous crystals whose properties can be tuned by changing metal nodes, organic linkers, topology, and component ordering. This tunability makes MOF design a large combinatorial problem, where redundant candidates can consume screening effort before any atomistic evaluation begins. Existing construction, identification, and screening workflows do not by themselves define an orientation-compatible quotient of fixed-net ordered assignments. Here we couple proper-rotation enumeration with Kabsch-based rigid-body reconstruction to generate one representative per symmetry-distinct assignment and carry it forward as an oriented periodic model.% 中文翻译：金属有机框架（MOF）是模块化多孔晶体，其性质可通过改变金属节点、有机连接体、拓扑和组分排布来调控。这种可调性使 MOF 设计成为大规模组合问题，其中冗余候选会在原子级评估开始前消耗筛选资源。已有构建、识别和筛选工作流本身并不定义固定网络有序指派中与取向相容的取商方式。本文将真旋转枚举与基于 Kabsch 的刚体重构相耦合，为每个对称互异指派生成一个代表元，并将其转化为具有取向信息的周期模型。
 
-Across the tested topologies, the method enumerates all symmetry-distinct configurations in seconds in exhaustive cases and returns symmetry-prioritized representatives when a budget is triggered. The largest exhaustive degree-constrained space contains $\sim\!5\times10^{5}$ configurations. A Burnside identity certifies orbit-count completeness when the search is exhaustive. The geometric reconstruction assumes rigid or semi-rigid building units and maps each abstract coloring to a physical crystal model through Kabsch alignment. The framework therefore provides a deterministic route from symmetry-aware enumeration to physically instantiated MOF candidates for the rigid-unit regime.
-% 中文翻译：在所测试的拓扑中，该方法在可穷举算例中可于秒级枚举全部对称互异构型，并在触发预算限制时返回按对称性优先排序的代表元。最大的可穷举度数约束空间包含约 $\sim\!5\times10^{5}$ 个构型。当搜索穷尽时，Burnside 恒等式证明轨道计数完备性。几何重建假设构建单元为刚性或半刚性，通过 Kabsch 对齐将每个抽象着色映射为物理晶体模型。因此，该框架为刚性单元体系提供了一条从对称性感知枚举到物理实例化 MOF 候选结构的确定性路径。
+
+In representative nets, exhaustive degree-constrained spaces with up to $\sim\!5\times10^{5}$ configurations are enumerated in seconds, and orbit counts agree with Burnside and CASM checks. In a sampled \texttt{ffc}/\texttt{fjh} reconstruction audit, all 27 tested assignments produced sanitizable, topology-consistent, and clash-free periodic starting models. Fixed-composition DFT calculations and CO$_2$/N$_2$ screening examples show that the reconstructed models can be directly used in downstream scoring. For rigid or semi-rigid building units, the workflow thus provides a traceable route from fixed-net assignment spaces to crystal-level starting models suitable for subsequent validation.%在代表性网络中，规模最高约为 $\sim\!5\times10^{5}$ 个构型的可穷举度约束空间可在数秒内完成枚举，轨道计数与 Burnside 及 CASM 校验一致。在抽样的 \texttt{ffc}/\texttt{fjh} 重构审计中，全部 27 个受试指派均生成了可清理、拓扑一致且无碰撞的周期性起始模型。固定组成 DFT 计算和 CO$_2$/N$_2$ 筛选示例表明，重构模型可直接用于下游打分。对于刚性或半刚性构建单元，该工作流由此提供了一条从固定网络指派空间到适用于后续验证的晶体级起始模型的可追踪路线。
+
 }
 
-\keywords{Metal–Organic Frameworks; Symmetry Redundancy; Orbit-Stabilizer Theorem; Combinatorial Enumeration; Algorithmic Design}
+\keywords{Metal-Organic Frameworks; Crystal Engineering; Candidate Generation; Geometric Reconstruction; Symmetry-Constrained Screening}
 
 \pacs[MSC Classification]{05A10, 01A05}
 
@@ -75,176 +73,106 @@ Across the tested topologies, the method enumerates all symmetry-distinct config
 
 \section*{Introduction}
 \label{sec:intro}
-Metal-organic frameworks (MOFs) combine tunable porosity with diverse chemical functionality, making them attractive for gas storage, catalysis, and separation~\cite{zhou2012introduction,furukawa2013chemistry}. Their rational design is constrained by an exponentially expanding chemical space, because even a finite library of building blocks can generate millions of hypothetical structures~\cite{wilmer2012large}. High-throughput computational screening (HTCS), increasingly coupled with data-driven machine learning, has therefore become a standard route for identifying promising candidates~\cite{colon2014high, park2024data, kim2025machine}.
-% 中文翻译：金属有机框架（MOF）结合了可调孔隙率和多样化学功能，因此在气体存储、催化和分离等领域具有吸引力。其理性设计受到指数级扩张的化学空间限制，因为即使有限的构建单元库也能生成数百万种假设结构。因此，高通量计算筛选（HTCS）及其与数据驱动机器学习的结合，已成为识别潜在候选材料的标准路径。
+Metal-organic frameworks (MOFs) are studied for gas storage, catalysis, and separation because their pore structures and chemical functions can be varied~\cite{zhou2012introduction,furukawa2013chemistry}. This same modularity creates a design problem: a finite library of nodes and linkers can generate millions of hypothetical frameworks~\cite{wilmer2012large}. High-throughput computational screening (HTCS), often combined with machine learning, is used to select candidates for further study~\cite{colon2014high, park2024data, kim2025machine}. The useful candidate set must be broad enough to sample chemical space, compact enough to avoid redundant simulations, and concrete enough for structure-based evaluation.
+% 中文翻译：金属有机框架（MOF）因孔结构和化学功能可调，被用于气体储存、催化和分离等研究~\cite{zhou2012introduction,furukawa2013chemistry}。同样的模块化也形成了设计问题：有限的节点和连接体库即可生成数百万种假设框架~\cite{wilmer2012large}。高通量计算筛选（HTCS）常与机器学习结合，用于筛选后续研究候选~\cite{colon2014high, park2024data, kim2025machine}。有用的候选集合既要足以采样化学空间，又要紧凑到避免冗余模拟，并且必须具体到能接受结构层面评估。
 
-To support HTCS, several classes of structural generation algorithms have been developed. These include topology-based assembly methods such as ToBaCCo~\cite{colon2017topologically}, heuristic searches such as evolutionary algorithms~\cite{jin2025intelligent}, and recent deep generative models. Language models such as MOFGPT~\cite{badrinarayanan2025mofgpt} and flow-matching networks such as MOFFlow~\cite{Kim2024MOFFlowFM} have extended this search to increasingly complex MOF compositions and topologies.
-% 中文翻译：为支撑 HTCS，研究者已经发展出多类结构生成算法，包括 ToBaCCo 等基于拓扑的组装方法、进化算法等启发式搜索，以及近期的深度生成模型。MOFGPT 等语言模型和 MOFFlow 等流匹配网络进一步将搜索扩展到更复杂的 MOF 组成和拓扑空间。
+Several method classes already support this process. ToBaCCo constructs hypothetical MOFs from selected nets and building units by manipulating net embeddings and then optimizing geometries~\cite{colon2017topologically}. MOFid and MOFkey identify and deconstruct MOF structures for search and cheminformatics analysis~\cite{bucior2019identification}. Data-driven work from the Snurr, Rosen, Smit, and Kulik communities has advanced large-scale screening, inverse design, diversity analysis, and stability prediction~\cite{colon2014high,bucior2019identification,yao2021inverse,moosavi2020diversity,nandy2021stable}. Recent language-model, flow-based, and free-energy models further address generative or downstream scoring tasks~\cite{niyongabo2025freeenergy,badrinarayanan2025mofgpt,Kim2024MOFFlowFM}. These approaches define important parts of the design pipeline. They leave a narrower combinatorial step: for a fixed embedded net and a degree-compatible building-unit library, decide which ordered assignments are related by admissible rotations and should therefore share one representative.
+% 中文翻译：已有多类方法支撑这一过程。ToBaCCo 通过调节网络嵌入并优化几何，从选定网络和构建单元构建假想 MOF~\cite{colon2017topologically}。MOFid 和 MOFkey 用于 MOF 结构的识别、拆分、检索和化学信息学分析~\cite{bucior2019identification}。来自 Snurr、Rosen、Smit 和 Kulik 等团队的数据驱动工作推动了大规模筛选、逆向设计、多样性分析和稳定性预测~\cite{colon2014high,bucior2019identification,yao2021inverse,moosavi2020diversity,nandy2021stable}。近期语言模型、基于流的模型和自由能模型进一步处理生成或下游打分任务~\cite{niyongabo2025freeenergy,badrinarayanan2025mofgpt,Kim2024MOFFlowFM}。这些方法定义了设计流程中的重要环节，但仍留下一个更窄的组合问题：对于固定嵌入网络和配位数相容的构建单元库，判断哪些有序指派可由允许的旋转互相联系，因而应共享同一个代表元。
 
-Despite this progress, constructive and probabilistic generators usually do not guarantee combinatorial completeness. In high-dimensional spaces constrained by strict geometry, they may spend substantial effort on symmetry-equivalent structures or chemically anomalous candidates~\cite{ALIMARDANI20267967}. As a result, post-generation isomorphism checks and structural sanitization are often needed before stability or viability can be assessed~\cite{jin2025mofchecker, trejo2026assessing}.
-% 中文翻译：尽管已有这些进展，构建式和概率式生成器通常无法保证组合完备性。在受到严格几何约束的高维空间中，它们可能把大量计算投入到对称等价结构或化学异常候选中。因此，在评估稳定性或可行性之前，往往还需要生成后的同构检查和结构净化。
+This step is important in multivariate and digital reticular chemistry. In multivariate MOFs, function can depend on both component identities and their arrangement over crystallographic positions or local sequences~\cite{zhang2015multivariate,helal2017multivariate,ji2020sequencing,canossa2023sequences}. Digital reticular chemistry treats such choices as variables in automated searches across reticular chemical space~\cite{lyu2020digital}. Before relaxation or property prediction, the same composition on the same net can therefore correspond to many ordered candidates. Non-redundant enumeration is needed to keep the genuinely distinct arrangements while removing copies generated by the net symmetry.
+% 中文翻译：这一步在多变量和数字网状化学中尤为重要。在多变量 MOF 中，功能可能同时取决于组分身份，以及这些组分在晶体学位置或局部序列中的排布~\cite{zhang2015multivariate,helal2017multivariate,ji2020sequencing,canossa2023sequences}。数字网状化学把这类选择作为网状化学空间自动搜索中的变量~\cite{lyu2020digital}。因此，在弛豫或性质预测之前，同一网络和同一组成仍可能对应多个有序候选。无冗余枚举的作用是保留真正互异的排布，同时去除由网络对称性产生的重复副本。
 
-This limitation matters because atomic ordering in crystalline materials is closely tied to space-group symmetry, which affects thermodynamic stability and synthesizability~\cite{peng2024learning}. Recent generative models likewise show that explicit symmetry constraints help produce thermodynamically stable structures~\cite{zeni2023mattergen,okabe2025structural}. Crystallographic symmetry should therefore be treated as an \textit{a priori} algorithmic constraint, not only as an \textit{a posteriori} descriptor.
-% 中文翻译：这一限制很重要，因为晶体材料中的原子排序与空间群对称性密切相关，而空间群对称性会影响热力学稳定性和可合成性。近期生成模型同样表明，显式对称性约束有助于生成热力学稳定结构。因此，晶体学对称性应被视为一种先验算法约束，而不仅是后验描述符。
+We solve this fixed-net problem by formulating building-unit assignment as coloring on a quotient graph. The proper-rotation group $\Gamma$ acts on the independent sites, and each orbit represents one symmetry-distinct ordered assignment. A subgroup-lattice descent algorithm visits fixed-point spaces from high-symmetry strata to the identity layer, while degree pools and composition counts prune infeasible branches. Because fixed-point spaces can overlap, complete colorings are canonicalized over the full group before insertion into a global representative set. The result is one retained assignment per proper-rotation orbit.
+% 中文翻译：本文通过把构建单元指派表述为商图着色来解决这一固定网络问题。真旋转群 $\Gamma$ 作用在独立位点上，每条轨道代表一个对称互异的有序指派。子群格下降算法从高对称层级到恒等层依次访问不动点空间，并用配位数构建单元库和组成计数剪除不可行分支。由于不同不动点空间可能重叠，完整着色在插入全局代表元集合之前会在完整群 $\Gamma$ 下正则化。所得结果是每个真旋转轨道只保留一个指派。
 
-Deterministic, symmetry-constrained enumeration is well established for substitutional disorder in inorganic crystals.
-Isomorph-free configurations can be generated by orderly generation and canonical augmentation~\cite{mckay1998isomorph, mckay2014practical}, or by the derivative-structure algorithms of Hart and Forcade and their extensions~\cite{hart2008algorithm, hart2009generating, hart2012generating, morgan2017generating}. Related implementations include CASM and MAGUS~\cite{VANDEWALLE2002539, PUCHALA2023111897, wang2023magus}. The combinatorial core of the present work---a canonical-augmentation depth-first search with stabilizer-refined look-ahead pruning over partial colorings---follows the framework of Morgan et al.~\cite{morgan2017generating}. Our algorithmic contribution lies not in the search strategy itself, but in three adaptations required by the chemistry of framework materials. First, MOF vertices carry fixed coordination numbers; we encode this as per-degree ligand pools $\{\mathcal{C}_d\}$ and enforce degree-count pruning during descent. Second, the subgroup lattice of $\Gamma$ provides a symmetry-graded execution schedule that discovers high-symmetry configurations before descending to the asymmetric stratum, enabling meaningful budgeted enumeration. Third, we restrict the symmetry group to proper rotations ($\det(R)>0$) throughout the enumeration, so that algebraic equivalence remains consistent with the Kabsch-based geometric reconstruction that follows.
-% 中文翻译：对于无机晶体中的替位无序，确定性的对称约束枚举已经相当成熟。无同构构型可以通过有序生成与正则增广得到，也可以通过 Hart 与 Forcade 的衍生结构算法及其扩展得到。CASM 和 MAGUS 是相关实现。本文的组合核心——对部分着色进行稳定子精化的正则增广深度优先搜索——沿用了 Morgan 等人提出的框架。我们的算法贡献不在于搜索策略本身，而在于框架材料化学所要求的三项适配。第一，MOF 顶点具有固定配位数；我们将其编码为按配位数分类的配体池 $\{\mathcal{C}_d\}$，并在下降过程中施加度数计数剪枝。第二，利用 $\Gamma$ 的子群格提供对称性分级执行调度，在下降到非对称层之前先发现高对称构型，使预算限制下的枚举具有实际意义。第三，在整个枚举过程中将对称群限制为真旋转（$\det(R)>0$），使代数等价性与后续 Kabsch 几何重建保持一致。
+The retained representative is then carried into rigid-body reconstruction. Secondary building units (SBUs) and linkers have connection geometry, directionality, and possible handedness, so the symmetry reduction must remain compatible with the placement step. We therefore use proper rotations as the default equivalences; improper operations are included only when the building-unit library is known to be invariant under them. Kabsch alignment then maps each accepted assignment to an oriented periodic model.
+% 中文翻译：保留的代表元随后进入刚体重构。次级构建单元（SBU）和连接体具有连接几何、方向性以及可能的手性，因此对称约化必须与后续放置步骤保持相容。因此，本文默认只使用真旋转作为等价操作；只有当构建单元库已知对相应非真操作不变时，才纳入非真操作。随后，Kabsch 对齐把每个被接受的指派映射为具有取向信息的周期模型。
 
-Adapting these methods to reticular chemistry introduces a challenge that is absent from atom substitution: directionality. In substitutional enumeration, each site is an isotropic point, and algebraic validity directly implies physical realizability. MOF secondary building units (SBUs) and linkers, by contrast, are polyatomic bodies whose connection sites must be orientationally aligned with the net. An algebraically valid coloring therefore does not by itself define a physical crystal---linker connection vectors may be misoriented relative to metal-node binding sites. This gap between algebraic assignment and geometric validity is the central problem we address. Topology-based constructors address this gap by embedding building blocks into a chosen net~\cite{boyd2016generalized, colon2017topologically}; here, we close it by decoupling algebraic enumeration from geometric reconstruction.
-% 中文翻译：将这些方法适配到网状化学会引入一个替位枚举中不存在的挑战：方向性。在替位枚举中，每个位点是一个各向同性点，代数有效性直接意味着物理可实现性。相比之下，MOF 次级构建单元和连接体是多原子实体，其连接位点必须与网络进行取向对齐。因此，一个代数上有效的着色本身并不能定义物理晶体——连接体的连接向量可能相对于金属节点结合位点存在取向错配。代数指派与几何有效性之间的这一鸿沟是本文要解决的核心问题。基于拓扑的构建器通过将构建单元嵌入所选网络来弥合这一缺口；本文则通过将代数枚举与几何重建解耦来解决这一问题。
+Deterministic symmetry-constrained enumeration is already well developed for substitutional disorder in inorganic crystals~\cite{mckay1998isomorph, mckay2014practical, hart2008algorithm, hart2009generating, hart2012generating, morgan2017generating}. We use these ideas in a reticular setting where the enumerated graph assignments are carried forward into oriented framework models. This coupling of orbit enumeration and geometric reconstruction distinguishes the workflow from substitutional enumeration on an isotropic lattice.
+% 中文翻译：针对无机晶体中的替位无序，确定性的对称约束枚举已经发展得较为成熟~\cite{mckay1998isomorph, mckay2014practical, hart2008algorithm, hart2009generating, hart2012generating, morgan2017generating}。本文在网状化学场景中使用这些思想，其中被枚举的图指派会继续进入具有取向信息的框架模型。轨道枚举与几何重构的耦合，是该流程区别于各向同性晶格替位枚举的关键。
 
-To resolve this, we decouple the problem into three phases. Phase~I extracts the proper-rotation automorphism group $\Gamma$ of the underlying net and constructs the quotient graph on which enumeration operates. Phase~II enumerates symmetry-distinct vertex colorings under $\Gamma$, using a canonical-augmentation depth-first search that follows Morgan et al.~\cite{morgan2017generating} and enforces canonicity on partial colorings during descent. Phase~III maps each abstract coloring to a physical crystal model through RMSD-minimizing Kabsch alignment of rigid building units.
-% 中文翻译：为解决这一问题，我们将问题解耦为三个阶段。阶段 I 提取底层网络的真旋转自同构群 $\Gamma$ 并构建枚举所基于的商图。阶段 II 在 $\Gamma$ 下枚举对称互异的顶点着色，采用沿袭 Morgan 等人的正则增广深度优先搜索，在下降过程中对部分着色施加正则性。阶段 III 通过最小化 RMSD 的 Kabsch 对齐，将每个抽象着色映射为由刚性构建单元构成的物理晶体模型。
+The study therefore tests a complete fixed-net route: non-redundant assignment generation, oriented reconstruction, and downstream screening on the resulting periodic models. The CIFs are traceable pre-relaxation candidates within specified design spaces. Their role is to connect controlled topological assignments to crystal-level validation, not to claim final materials discovery before relaxation or property testing.
+% 中文翻译：因此，本文检验的是一条完整的固定网络路线：无冗余指派生成、有取向重构，以及在所得周期模型上的下游筛选。所得 CIF 是指定设计空间内可追踪的弛豫前候选。它们的作用是把受控拓扑指派连接到晶体层面的验证，而不是在弛豫或性质测试之前宣称最终材料发现。
 
-The decoupling is structured so that the algebraic enumeration (Phase~II) can be validated independently of the geometric library. Within Phase~II, three design choices adapt the generic enumeration framework to MOF chemistry. Each vertex draws its color from a coordination-number-specific ligand pool $\mathcal{C}_d$, with degree-count pruning that rejects branches exceeding the per-degree stoichiometry. The symmetry group is restricted to proper rotations, so that two configurations distinguished only by an improper operation remain distinct---matching the physical reality that oriented building units cannot be superimposed by mirror or inversion. The subgroup lattice of $\Gamma$ provides a symmetry-graded execution schedule: strata are processed in order of decreasing symmetry, so that every configuration with $|\mathrm{Stab}(c)|>1$ is discovered before the identity stratum runs. When the configuration space exceeds practical limits, a budget truncates only the identity stratum, preserving the entire symmetric subspace. When no budget is triggered, Burnside's identity certifies that all orbits have been found.
-% 中文翻译：这种解耦使得代数枚举（阶段 II）可以独立于几何库进行验证。在阶段 II 内部，三项设计选择将通用枚举框架适配到 MOF 化学场景。每个顶点从与其配位数对应的配体池 $\mathcal{C}_d$ 中取色，度数计数剪枝拒绝超过各配位数化学计量比的分支。对称群被限制为真旋转，使得仅被非真操作区分的两个构型保持互异，这与定向构建单元无法通过镜面或反演重合的物理事实一致。$\Gamma$ 的子群格提供了对称性分级执行调度：各层按对称性降序处理，使得每个满足 $|\mathrm{Stab}(c)|>1$ 的构型都在恒等层运行前被发现。当构型空间超出实际限制时，预算仅截断恒等层，保留整个对称子空间。未触发预算时，Burnside 恒等式证明所有轨道均已被发现。
+\section*{Candidate Generation and Reconstruction}
 
-\section*{Results}
-
-\subsection*{Theoretical Framework}
+\subsection*{Organizing Non-Redundant Candidate Generation}
 \label{sec:theory}
-We formulate MOF structure exploration as a configuration enumeration problem in algebraic graph theory. The periodic topology is first abstracted as a finite quotient graph by factoring out lattice translations.
-% 中文翻译：我们将 MOF 结构探索形式化为代数图论中的构型枚举问题。首先，通过商去格点平移，将周期性拓扑抽象为有限商图。
+We formulate candidate generation as coloring on a quotient graph. The topological design input is a chosen net, degree-typed building-unit pools, and optional composition counts. Factoring lattice translations leaves the unique primitive-cell sites, and each coloring assigns a degree-compatible building unit to each site. The reduced space is finite, but it still grows rapidly and contains many symmetry-equivalent assignments.
+% 中文翻译：我们把候选生成表述为商图着色问题。拓扑设计输入包括所选网络、按配位数分类的构建单元库和可选组成计数。扣除晶格平移后，只保留初基胞中的独立位点；每种着色把配位数相容的构建单元分配到各位点。该空间有限，但仍会快速增长，并包含大量对称等价指派。
 
-\begin{definition}[Quotient Graph]
-Let $\tilde{\mathcal{G}}$ be the infinite periodic graph of a crystal net, on which the lattice translation group $\mathbb{T}\cong\mathbb{Z}^3$ acts freely. The associated finite \emph{quotient graph} is $\mathcal{G}=\tilde{\mathcal{G}}/\mathbb{T}=(V_{\mathrm{cell}}, E_{\mathrm{cell}})$, whose vertices $V_{\mathrm{cell}}$ are the translation orbits of Secondary Building Units (SBUs) within a single primitive cell and whose edges $E_{\mathrm{cell}}$ are the corresponding linker classes. A supercell corresponds to a finite-index sublattice $\mathbb{T}'\le\mathbb{T}$ with enlarged vertex set $V_{\mathrm{cell}}'=\tilde{\mathcal{G}}/\mathbb{T}'$. For brevity we write $V\equiv V_{\mathrm{cell}}$ and $E\equiv E_{\mathrm{cell}}$ hereafter.
-\end{definition}
-% 中文翻译：设 $\tilde{\mathcal{G}}$ 为晶体网的无限周期图，格点平移群 $\mathbb{T}\cong\mathbb{Z}^3$ 自由作用其上。与之关联的有限商图为 $\mathcal{G}=\tilde{\mathcal{G}}/\mathbb{T}=(V_{\mathrm{cell}}, E_{\mathrm{cell}})$，其顶点集 $V_{\mathrm{cell}}$ 为单个初基晶胞内次级构建单元（SBU）的平移轨道，边集 $E_{\mathrm{cell}}$ 为相应的连接体类。超胞对应一个有限指数子格 $\mathbb{T}'\le\mathbb{T}$ 及放大的顶点集 $V_{\mathrm{cell}}'=\tilde{\mathcal{G}}/\mathbb{T}'$。后文简记 $V\equiv V_{\mathrm{cell}}$、$E\equiv E_{\mathrm{cell}}$。
+The workflow is sketched in Fig.~\ref{fig:pipeline}. It quotients the design space by the proper-rotation group $\Gamma$, the finite set of orientation-preserving rotations acting on quotient-graph sites. This choice keeps enumeration compatible with oriented reconstruction. Improper operations can be added only when the building-unit library is known to be invariant under them.
+% 中文翻译：该流程见图~\ref{fig:pipeline}。本文按真旋转群 $\Gamma$ 对设计空间取商，即作用在商图位点上的有限保取向旋转集合。这一选择使枚举与有取向重构相容。只有当构建单元库已知对某些非真操作不变时，才将这些操作加入等价规则。
 
-Based on this topology, chemical diversity is represented via the configuration space.
-% 中文翻译：在此拓扑基础上，化学多样性通过构型空间来表示。
-
-\begin{definition}[Configuration Space]
-Given a library of candidate building blocks $\mathcal{C}$, a configuration is a mapping $c: V_{\mathrm{cell}} \to \mathcal{C}$. The set of all such mappings is the configuration space $X = \mathcal{C}^{V_{\mathrm{cell}}}$, a finite set of size $|\mathcal{C}|^{|V_{\mathrm{cell}}|}$ defined over a single periodic cell (or a specified supercell).
-\end{definition}
-% 中文翻译：给定候选构建单元库 $\mathcal{C}$，一个构型为映射 $c: V_{\mathrm{cell}} \to \mathcal{C}$。所有此类映射构成构型空间 $X = \mathcal{C}^{V_{\mathrm{cell}}}$，它是定义在单个周期晶胞（或指定超胞）上的有限集合，规模为 $|\mathcal{C}|^{|V_{\mathrm{cell}}|}$。
-
-
-
-The cardinality of $X$ grows exponentially with $|V|$ and includes many physically equivalent assignments. The relevant physical symmetry is the permutation group $\Gamma$ induced on $V_{\mathrm{cell}}$ by proper space-group operations modulo $\mathbb{T}$. Equivalently, $\Gamma$ is the proper-rotation subgroup of the factor group $\mathcal{S}/\mathbb{T}$ acting on the quotient graph. This group satisfies $\Gamma \le \mathrm{Aut}(\mathcal{G})$ and acts on $X$ by permutation. Two configurations $c_1$ and $c_2$ are equivalent if and only if they belong to the same orbit $\mathcal{O}$. All subsequent statements of uniqueness and completeness are made relative to $\Gamma$.
-% 中文翻译：空间 $X$ 的基数随 $|V|$ 呈指数增长，并包含大量物理上等价的指派。相关的物理对称性由置换群 $\Gamma$ 表示，它由模去 $\mathbb{T}$ 后的真空间群操作在 $V_{\mathrm{cell}}$ 上诱导得到。等价地，$\Gamma$ 是因子群 $\mathcal{S}/\mathbb{T}$ 中作用于商图的真旋转子群。该群满足 $\Gamma \le \mathrm{Aut}(\mathcal{G})$，并以置换形式作用于 $X$。两个构型 $c_1$ 和 $c_2$ 等价，当且仅当它们属于同一轨道 $\mathcal{O}$。下文关于唯一性与完备性的所有陈述均相对于 $\Gamma$ 而言。
-
-\begin{theorem}[Orbit-Stabilizer Theorem]
-\label{the:symmetry-complexity}
-For any configuration $c \in X$, the size of its orbit $|\mathcal{O}_c|$ is inversely proportional to the order of its stabilizer subgroup $\mathrm{Stab}(c)$:
+If a coloring $c$ belongs to the orbit $\mathcal{O}_c$, then
 \begin{equation}
-|\mathcal{O}_c| = \frac{|\Gamma|}{|\mathrm{Stab}(c)|}
+|\mathcal{O}_c| = \frac{|\Gamma|}{|\mathrm{Stab}(c)|},
 \end{equation}
-\end{theorem}
+where the stabilizer $\mathrm{Stab}(c)\le\Gamma$ is the subgroup of proper rotations that leave the coloring $c$ unchanged, and $|\mathrm{Stab}(c)|$ is the number of those rotations. Two assignments are symmetry-distinct when they belong to different proper-rotation orbits. We compare such assignments across topologies by the normalized symmetry index
+\begin{equation}
+\rho(c)=\frac{|\mathrm{Stab}(c)|}{|\Gamma|}=\frac{1}{|\mathcal{O}_c|}.
+\end{equation}
+% 中文翻译：若着色 $c$ 属于轨道 $\mathcal{O}_c$，则轨道大小由上式给出，其中稳定子 $\mathrm{Stab}(c)\le\Gamma$ 是使 $c$ 保持不变的真旋转子群。若两个指派属于不同的真旋转轨道，则它们是对称互异的。不同拓扑之间的比较通过归一化对称性指数 $\rho(c)$ 完成。
 
-Low-symmetry configurations ($|\mathrm{Stab}(c)| \to 1$) therefore have the largest orbits and dominate the combinatorial search space. High-symmetry configurations ($|\mathrm{Stab}(c)| \approx |\Gamma|$) have the smallest orbits. We quantify this contrast with a normalized symmetry metric.
-% 中文翻译：因此，低对称构型（$|\mathrm{Stab}(c)| \to 1$）具有最大的轨道，并主导组合搜索空间。高对称构型（$|\mathrm{Stab}(c)| \approx |\Gamma|$）具有最小的轨道。我们用一个归一化的对称性度量来量化这种差异。
+The same relation determines the search order. Higher-symmetry assignments occupy smaller strata, where each stratum is indexed by stabilizer order or $\rho$. For each subgroup $H \le \Gamma$, the fixed-point space $\mathrm{Fix}(H)=\{c \in X \mid h\cdot c=c,\ \forall h\in H\}$ forces vertices in the same $H$-orbit to share one color. Degree pools and composition counts prune the descent, and the scheduler visits high-symmetry strata before the asymmetric identity layer.
+% 中文翻译：同一关系也决定搜索顺序。高对称指派位于较小层级，本文按稳定子阶或 $\rho$ 标记。对每个子群 $H \le \Gamma$，不动点空间 $\mathrm{Fix}(H)=\{c \in X \mid h\cdot c=c,\ \forall h\in H\}$ 要求同一 $H$-轨道上的顶点共享颜色。按配位数划分的构建单元池和组成计数约束用于剪枝，调度器先访问高对称层级，再进入非对称恒等层。
 
-
-
-\begin{definition}[Symmetry Index]
-\label{def:symmetry_index}
-For any configuration $c$ in the configuration space $X$ acted upon by the symmetry group $\Gamma$, its Symmetry Index $\rho(c)$ is defined as the ratio of the order of its stabilizer subgroup to the order of the full group:
-$$ \rho(c) = \frac{|\mathrm{Stab}(c)|}{|\Gamma|} = \frac{1}{|\mathcal{O}_c|} $$
-% 中文翻译：对于由对称群 $\Gamma$ 作用的构型空间 $X$ 中的任意构型 $c$，其对称性指数 $\rho(c)$ 定义为其稳定子群阶数与全群阶数之比：$\rho(c) = \frac{|\mathrm{Stab}(c)|}{|\Gamma|} = \frac{1}{|\mathcal{O}_c|}$。
-\end{definition}
-
-This index $\rho(c)$ lies in $[\frac{1}{|\Gamma|}, 1]$. A value of $\rho(c)=1$ denotes a fully symmetry-preserving configuration with a singleton orbit ($|\mathcal{O}_c|=1$). In contrast, $\rho(c)=\frac{1}{|\Gamma|}$ denotes a completely asymmetric configuration with maximal orbit length ($|\mathcal{O}_c|=|\Gamma|$).
-% 中文翻译：该指数 $\rho(c)$ 取值于 $[\frac{1}{|\Gamma|}, 1]$。当 $\rho(c)=1$ 时，构型完全保持对称性，并具有单元素轨道（$|\mathcal{O}_c|=1$）。相反，当 $\rho(c)=\frac{1}{|\Gamma|}$ 时，构型完全不对称，并具有最大轨道长度（$|\mathcal{O}_c|=|\Gamma|$）。
-The reciprocal $1/\rho(c) = |\mathcal{O}_c|$ is the configurational multiplicity standard in derivative-structure enumeration~\cite{hart2008algorithm}, and the normalization renders $\rho(c)$ comparable across topologies of different group order.
-% 中文翻译：其倒数 $1/\rho(c)=|\mathcal{O}_c|$ 对应衍生结构枚举中的标准构型多重度；归一化后，$\rho(c)$ 可在不同群阶的拓扑之间进行比较。
-
-
-\begin{proposition}[Subspace Dimensionality Reduction]
-\label{prop:dim_reduction}
-Searching within the fixed-point subspace $Fix(H) = \{c \in X \mid \forall h \in H, h \cdot c = c\}$ of a subgroup $H \le \Gamma$ reduces the search dimensionality from the number of vertices $|V|$ to the number of orbits under $H$, denoted as $|\mathcal{O}_H|$.
-\end{proposition}
-% 中文翻译：命题 1（子空间降维）：在子群 $H \le \Gamma$ 的不动点子空间 $Fix(H) = \{c \in X \mid \forall h \in H, h \cdot c = c\}$ 中进行搜索，可将搜索维度从顶点数 $|V|$ 降低为 $H$ 作用下的轨道数 $|\mathcal{O}_H|$。
-
-To apply Proposition \ref{prop:dim_reduction} systematically, the algebraic relationships among all possible subgroups must be considered. The set of all subgroups of $\Gamma$ forms a partially ordered set under inclusion ($\le$), known as the \textit{Subgroup Lattice} $\mathcal{L}(\Gamma)$.
-% 中文翻译：为了系统地应用命题 \ref{prop:dim_reduction}，必须考虑所有可能子群之间的代数关系。$\Gamma$ 的所有子群在包含关系（$\le$）下构成一个偏序集，称为子群格 $\mathcal{L}(\Gamma)$。
-
-
-\subsection*{Algorithm Implementation}
-Building on the subgroup lattice theory established in Section \ref{sec:theory}, we formalize the configuration search as a stratified, deterministic computational pipeline.
-% 中文翻译：基于第 \ref{sec:theory} 节建立的子群格理论，我们将构型搜索形式化为一个分层的确定性计算流水线。
-
-
-\paragraph{Topological Symmetry Extraction}
-The physical configuration space $\mathcal{C}_{phys}$ is first mapped surjectively onto an abstract discrete graph space $\mathcal{G}_{abs}$ via a homomorphism $\Phi$.
-% 中文翻译：物理构型空间 $\mathcal{C}_{phys}$ 首先通过同态映射 $\Phi$ 满射到抽象的离散图空间 $\mathcal{G}_{abs}$。
-
-Unlike methods that rely solely on graph topology, our approach explicitly preserves crystallographic symmetry via a continuous-to-discrete mapping of the space-group operations.
-% 中文翻译：与仅依赖图拓扑的方法不同，我们的方法通过空间群操作的连续到离散映射显式保留晶体学对称性。
-Specifically, for a periodic crystal graph $\mathcal{G}=(V, E)$, any polyatomic entity (e.g., metal cluster or organic linker) is mapped to a single vertex $v \in V$ and assigned a discrete "color" property $c(v)$ representing its chemical identity.
-% 中文翻译：具体而言，对于周期性晶体图 $\mathcal{G}=(V, E)$，任何多原子实体（如金属簇或有机连接体）都被映射为单个顶点 $v \in V$，并赋予离散的“颜色”属性 $c(v)$ 以表示其化学类型。
-This homomorphic mapping $\Phi: \mathcal{C}_{phys} \to \mathcal{G}_{abs}$ removes translational and rotational degrees of freedom, reducing the system to a discrete graph-coloring problem.
-% 中文翻译：该同态映射 $\Phi: \mathcal{C}_{phys} \to \mathcal{G}_{abs}$ 消除了平移与旋转自由度，将体系约化为离散的图着色问题。
-
-First, the set of space group operations $\{Op_{cryst}\}$ of the underlying topological net is analyzed using the \texttt{pymatgen} engine.
-% 中文翻译：首先，使用 \texttt{pymatgen} 引擎分析底层拓扑网的空间群操作集合 $\{Op_{cryst}\}$。
-With a coordinate tolerance of $\epsilon=0.8$\,\AA\ to accommodate numerical noise, continuous proper rotation and translation operations are projected onto discrete vertex permutations $\pi \in S_V$. Improper operations, including mirrors, inversion, and glide planes, are excluded by requiring $\det(R)>0$. This projection constructs the permutation group $\Gamma \le \mathrm{Aut}(\mathcal{G})$, which represents the action of proper space-group operations on the net vertices, including translational components associated with screw rotations. Excluding improper operations keeps algebraic equivalence consistent with the proper-rotation reconstruction in Phase III. Consequently, enantiomeric colorings are treated as distinct configurations, and $\Gamma$ is generally a proper subgroup of the full combinatorial automorphism group $\mathrm{Aut}(\mathcal{G})$.
-% 中文翻译：为容纳数值噪声，我们采用 $\epsilon=0.8$\,\AA\ 的坐标容差，将连续的真旋转和平移操作投影为离散顶点置换 $\pi \in S_V$。通过要求 $\det(R)>0$，排除镜面、反演和滑移面等非真操作。该投影构造出置换群 $\Gamma \le \mathrm{Aut}(\mathcal{G})$，表示真空间群操作在网络顶点上的作用，其中包括与螺旋旋转相关的平移分量。排除非真操作可使代数等价与第三阶段的真旋转重建保持一致。因此，对映着色被视为不同构型，且 $\Gamma$ 通常是完整组合自同构群 $\mathrm{Aut}(\mathcal{G})$ 的真子群。
-\paragraph{Subgroup Lattice Descent.}
-\label{par:enum}
-
-Figure~\ref{fig:pipeline} outlines the Phase II enumeration pipeline.
-% 中文翻译：图~\ref{fig:pipeline} 概述了第二阶段的枚举流程。
+Algorithm~\ref{alg:enum} gives the implementation-faithful core of this procedure. The subgroup lattice orders tasks by the orbit partitions induced by the full group and its proper subgroups, with the identity task handled separately. Orbit-partition fingerprints keep equivalent task descriptions from entering the queue more than once. Within each task, a canonical depth-first search combines degree/count pruning with an active permutation set carried through recursion. At completion, each coloring is mapped to its canonical form under the full group and inserted into the global representative set $\Omega$ and the Trie. Task ordering therefore guides the search, while the same full-group canonical form defines the retained output across all tasks. With all safeguards disabled, the Burnside sum closes exactly. With operational caps enabled, the same implementation returns a partial-coverage diagnostic rather than a full-space completeness claim.
+% 中文翻译：算法~\ref{alg:enum} 给出了这一流程在实现层面上的核心形式。子群格按照全群及其真子群所诱导的轨道划分组织任务，恒等任务单独处理。轨道划分指纹用于合并等价的任务描述，避免同一任务重复进入队列。每个任务内部都通过正则深度优先搜索，并结合度数/计数剪枝与递归过程中持续传递的活跃置换集合。着色完成后，统一在完整群下映射到正则形式，再插入全局代表元集合 $\Omega$ 和 Trie。这样，任务顺序负责组织搜索，而所有任务都依据同一套完整群正则形式确定最终输出。在关闭所有保护限制时，Burnside 求和会精确闭合；而在启用运行上限时，同一实现返回的是部分覆盖诊断，而不是全空间完备性声明。
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{pipline.png}
-    \caption{\textbf{Pipeline of the symmetry-aware enumeration.} Subfigures (a) through (d) sequentially correspond to the framework search, atomic replacement, bonding enumeration, and topological validation stages, highlighting the symmetry-assisted pruning strategy.}
+    \caption{\textbf{Symmetry-aware candidate-generation pipeline.}}
     \label{fig:pipeline}
 \end{figure}
-
-We enumerate the orbit space with a single Subgroup Lattice Descent procedure (Algorithm~\ref{alg:enum}). The space is partitioned by the orbit partitions of subgroups $H\le\Gamma$. In the stratum of $H$, every vertex within the same $H$-orbit carries one color. A coloring in that stratum therefore makes $|\mathcal{O}_H|$ free decisions instead of $|V|$ decisions (Proposition~\ref{prop:dim_reduction}). The subgroup lattice $\mathcal{L}(\Gamma)$ is enumerated by computational group algebra. Strata are deduplicated by orbit-partition signature and executed in ascending $|\mathcal{O}_H|$, namely in descending symmetry, from $H=\Gamma$ to $H=\{e\}$ with $\mathrm{Fix}(\{e\})=X$.
-% 中文翻译：我们用单一的子群格下降过程枚举轨道空间（算法~\ref{alg:enum}）。该空间按照子群 $H\le\Gamma$ 的轨道划分进行分层。在 $H$ 对应的层中，同一 $H$-轨道内的所有顶点取同一种颜色。因此，该层中的一次着色只需做 $|\mathcal{O}_H|$ 个自由决策，而不是 $|V|$ 个决策（命题~\ref{prop:dim_reduction}）。子群格 $\mathcal{L}(\Gamma)$ 由计算群代数枚举。各层按轨道划分签名去重，并按 $|\mathcal{O}_H|$ 升序执行，即按对称性降序从 $H=\Gamma$ 到 $H=\{e\}$ 执行，其中 $\mathrm{Fix}(\{e\})=X$。
-
-Within each stratum, a depth-first search assigns one color per orbit. The color of a degree-$d$ orbit is drawn from the degree-specific pool $\mathcal{C}_d$, and any branch exceeding the per-degree count $n_d$ is pruned. Efficiency comes from enforcing canonicity during descent, as in orderly generation~\cite{mckay1998isomorph, morgan2017generating}. The search maintains an active set of permutations initialized to $\Gamma\setminus\{e\}$. A branch is rejected when a retained permutation maps assigned positions to a lexicographically smaller image. A permutation is dropped once it can no longer yield an equal image, so the active set contracts toward the stabilizer. Consequently, the number of explored partial colorings scales with the number of symmetry-distinct configurations rather than with $|X|$.
-% 中文翻译：在每一层内，深度优先搜索为每条轨道指派一种颜色。度为 $d$ 的轨道从对应配位数的配体池 $\mathcal{C}_d$ 中取色，任何超过该配位数计数上限 $n_d$ 的分支都会被剪除。效率来自下降过程中施加的正则性，这与有序生成中的思想一致。搜索维护一个活动置换集合，初始为 $\Gamma\setminus\{e\}$。当某个保留置换将已赋值位置映射为字典序更小的像时，该分支被拒绝。当某个置换不再可能产生相等的像时，该置换被丢弃，因此活动集合逐步收缩至稳定子。由此，被探索的部分着色数量随对称互异构型数量增长，而不是随 $|X|$ 增长。
-
-At a complete leaf, the coloring is reduced to its canonical form under the full group $\Gamma$ and inserted into a prefix tree (Trie). Because acceptance is decided by this full-group canonical form, correctness does not depend on the tightness of the look-ahead test. The look-ahead only affects the size of the search tree.
-% 中文翻译：在完整叶节点处，着色被约化为其在全群 $\Gamma$ 下的正则形，并插入前缀树（Trie）。由于是否接受由全群正则形决定，正确性不依赖于前瞻测试的紧致程度。前瞻测试只影响搜索树的大小。
-
-Because $\mathrm{Fix}(\{e\})=X$, the identity stratum alone can produce a complete set of canonical representatives. The non-trivial strata are therefore redundant for completeness, but they determine output order. Since $|\mathcal{O}_H|\ll|V|$ for non-trivial $H$, every configuration with $|\mathrm{Stab}(c)|>1$ is found and recorded at negligible cost before the identity stratum runs.
-% 中文翻译：由于 $\mathrm{Fix}(\{e\})=X$，仅恒等层本身就可以产生完整的正则代表元集合。因此，非平凡层对于完备性而言是冗余的，但它们决定输出顺序。由于对非平凡 $H$ 有 $|\mathcal{O}_H|\ll|V|$，所有满足 $|\mathrm{Stab}(c)|>1$ 的构型都会在恒等层运行前以很小代价被找到并记录。
-
-The identity stratum is the only stratum that may be budgeted. When its estimated orbit count exceeds a preset threshold $\tau$, a budget $B$ caps the number of new representatives it contributes. The symmetry-graded schedule then guarantees that the returned set contains the entire symmetric subspace and a prefix of the asymmetric configurations, not an arbitrary subset. When no budget is triggered, orbit-count completeness is certified by the Burnside identity $\sum_{c\in\Omega}1/|\mathrm{Stab}(c)|=|X|/|\Gamma|$. Canonical-form correctness is independently ensured by full-group minimization and Trie insertion at each leaf. When a budget is triggered, the same identity reports the covered fraction of orbit space.
-% 中文翻译：恒等层是唯一可能被预算限制的层。当其估计轨道数超过预设阈值 $\tau$ 时，预算 $B$ 会限制其新增代表元数量。此时，对称性分级调度保证返回集合包含整个对称子空间以及非对称构型的一个前缀，而不是任意子集。未触发预算时，轨道计数完备性由 Burnside 恒等式 $\sum_{c\in\Omega}1/|\mathrm{Stab}(c)|=|X|/|\Gamma|$ 证明。正则形正确性则由每个叶节点处的全群最小化和 Trie 插入独立保证。触发预算时，同一恒等式给出轨道空间的覆盖比例。
 
 \begin{algorithm}
 \caption{Subgroup Lattice Descent}
 \label{alg:enum}
+\footnotesize
 \begin{algorithmic}[1]
-\Require Symmetry group $\Gamma$ (proper-rotation-induced vertex permutations); vertex degrees $\{\deg(v)\}$; degree-typed ligand pools $\{\mathcal{C}_d\}$; degree counts $\{n_d\}$; identity-stratum budget $B$ and threshold $\tau$ (optional); global cap $M$
-\Ensure Canonical representative set $\Omega$
-\State $\mathcal{P} \gets \{\, \mathcal{O}_H : H \in \mathcal{L}(\Gamma) \,\}$ \Comment{orbit partitions; $\mathcal{L}(\Gamma)$ via computational group algebra}
-\State deduplicate $\mathcal{P}$ by orbit-partition signature; sort by $|\mathcal{O}_H|$ ascending \Comment{highest symmetry first}
-\For{each $\mathcal{O} \in \mathcal{P}$}
-    \State $s \gets |\Omega|$ \Comment{representatives recorded before this stratum}
-    \State $b \gets B$ \textbf{if} $\mathcal{O} = \mathcal{O}_{\{e\}}$ and $\widehat{|\Omega_{\mathcal{O}}|} > \tau$, \textbf{else} $\infty$ \Comment{budget only the identity stratum}
-    \State \Call{CanonicalDFS}{$1,\; \langle \perp, \dots, \perp \rangle,\; \Gamma \setminus \{e\},\; \mathcal{O},\; b,\; s$}
+\Require Proper-rotation group $\Gamma$; vertex degrees $\{\deg(v)\}$; degree-typed ligand pools $\{\mathcal{C}_d\}$; degree counts $\{n_d\}$; optional task timeout $T_{\mathrm{task}}$; global cap $M_{\mathrm{total}}$; optional identity trigger $\Lambda_{\mathrm{id}}$ and identity cap $B_{\mathrm{id}}$
+\Ensure Canonical representative set $\Omega$ with exact or partial Burnside report
+\State initialize min-heap $Q$ keyed by orbit count; $\Omega \gets \emptyset$
+\State push full-group task $\big(\mathcal{O}_{\Gamma},\,\infty\big)$ into $Q$
+\For{each proper subgroup $H < \Gamma$ found from the subgroup lattice}
+    \State compute $\mathcal{O}_H$ and its orbit-partition fingerprint
+    \If{the fingerprint has not appeared before}
+        \State push task $\big(\mathcal{O}_H,\,\infty\big)$ into $Q$
+    \EndIf
 \EndFor
-\State \Call{BurnsideVerify}{$\Omega, \Gamma$}
-  \Comment{orbit-count check: $\sum_c 1/|\mathrm{Stab}(c)| = |X|/|\Gamma|$ if no budget; else covered fraction}
+\State $\mathcal{O}_{\{e\}} \gets \big\{\{v_1\},\dots,\{v_{|V|}\}\big\}$
+\State estimate $\widehat{N}_{\mathrm{id}} \gets \text{naive-space} / |\Gamma|$
+\State $b_{\mathrm{id}} \gets B_{\mathrm{id}}$ if $\widehat{N}_{\mathrm{id}} > \Lambda_{\mathrm{id}}$, else $\infty$
+\State push identity task $\big(\mathcal{O}_{\{e\}},\,b_{\mathrm{id}}\big)$ into $Q$
+\While{$Q$ is not empty}
+    \State pop task $(\mathcal{O}, b)$ with smallest orbit count
+    \State $s \gets |\Omega|$; deadline $\gets$ now $+\,T_{\mathrm{task}}$ if timeout is enabled
+    \State \Call{CanonicalDFS}{$1,\; \langle \perp, \dots, \perp \rangle,\; \Gamma_{\mathrm{active}},\; \mathcal{O},\; b,\; s,\; \text{deadline}$}
+\EndWhile
+\State \Call{BurnsideReport}{$\Omega, \Gamma$} \Comment{exact closure or partial coverage}
 \State \Return $\Omega$
 \Statex
-\Function{CanonicalDFS}{$k,\, c,\, \mathcal{A},\, \mathcal{O},\, b,\, s$}
-    \If{$|\Omega|-s \ge b$ \textbf{ or } $|\Omega| \ge M$}
-        \State \Return \Comment{budget / global cap}
+\Function{CanonicalDFS}{$k,\, c,\, \mathcal{A},\, \mathcal{O},\, b,\, s,\, \text{deadline}$}
+    \If{deadline exceeded \textbf{ or } $|\Omega| \ge M_{\mathrm{total}}$ \textbf{ or } $|\Omega|-s \ge b$}
+        \State \Return
     \EndIf
-    \If{$k > |\mathcal{O}|$} \Comment{leaf: complete coloring}
-        \State $c^{\star} \gets \min_{g \in \Gamma} (g \cdot c)$ \Comment{lexicographically minimal image under the full group}
+    \If{$k > |\mathcal{O}|$}
+        \State $c^{\star} \gets \min_{g \in \Gamma} (g \cdot c)$
         \If{$c^{\star} \notin \text{Trie}$}
-            \State insert $c^{\star}$; record $|\mathrm{Stab}_{\Gamma}(c^{\star})|$; $\;\Omega \gets \Omega \cup \{c^{\star}\}$
+            \State insert $c^{\star}$; record $|\mathrm{Stab}_{\Gamma}(c^{\star})|$; $\Omega \gets \Omega \cup \{c^{\star}\}$
         \EndIf
         \State \Return
     \EndIf
-    \State $d \gets \deg(\mathcal{O}_k)$ \Comment{degree is uniform within an orbit}
+    \State $d \gets \deg(\mathcal{O}_k)$
     \For{each $a \in \mathcal{C}_d$}
         \State assign $a$ to all vertices of $\mathcal{O}_k$
         \If{$\text{count}_d + |\mathcal{O}_k| > n_d$}
-            \State undo $\mathcal{O}_k$; \textbf{continue} \Comment{degree-count pruning}
+            \State undo $\mathcal{O}_k$; \textbf{continue}
         \EndIf
         \State $\mathcal{A}' \gets \emptyset$; $\;pruned \gets \textbf{false}$
-        \For{each $g \in \mathcal{A}$} \Comment{look-ahead canonicity test on assigned vertices}
+        \For{each $g \in \mathcal{A}$}
             \If{$(g \cdot c) <_{lex} c$}
                 \State $pruned \gets \textbf{true}$; \textbf{break}
             \ElsIf{$(g \cdot c) =_{lex} c$}
@@ -252,7 +180,7 @@ The identity stratum is the only stratum that may be budgeted. When its estimate
             \EndIf
         \EndFor
         \If{\textbf{not} $pruned$}
-            \State \Call{CanonicalDFS}{$k+1,\, c,\, \mathcal{A}',\, \mathcal{O},\, b,\, s$}
+            \State \Call{CanonicalDFS}{$k+1,\, c,\, \mathcal{A}',\, \mathcal{O},\, b,\; s$}
         \EndIf
         \State undo assignment of $\mathcal{O}_k$
     \EndFor
@@ -260,78 +188,46 @@ The identity stratum is the only stratum that may be budgeted. When its estimate
 \end{algorithmic}
 \end{algorithm}
 
-\paragraph{Implementation notes on Algorithm~\ref{alg:enum}.}
-
-\textit{Subgroup lattice enumeration.}
-For the small automorphism groups typical of high-symmetry MOF nets, the subgroup lattice $\mathcal{L}(\Gamma)$ is tractable by exhaustive enumeration. Our implementation uses a bottom-up closure: cyclic subgroups are generated from each group element, then pairwise combinations are iterated to closure. For $|\Gamma|=8$ (\texttt{ffc}), this yields 10 subgroups collapsing to 5 distinct orbit partitions after deduplication; for $|\Gamma|=16$ (\texttt{fjh}, \texttt{vba}), 23--29 subgroups collapse to 8--9 distinct strata. The enumeration is a one-time preprocessing step whose cost is negligible relative to the subsequent search. For larger groups ($|\Gamma|>100$), subgroup enumeration would become a bottleneck; in such cases one could restrict to the cyclic-subgroup backbone or sample representative strata by conjugacy class.
-% 中文翻译：子群格枚举。对于高对称 MOF 网络典型的小自同构群，子群格 $\mathcal{L}(\Gamma)$ 可通过穷举枚举处理。我们的实现使用自底向上的闭包方法：从每个群元素生成循环子群，然后迭代地进行两两组合直至闭包。对于 $|\Gamma|=8$（\texttt{ffc}），这产生 10 个子群，去重后坍缩为 5 个不同的轨道划分；对于 $|\Gamma|=16$（\texttt{fjh}、\texttt{vba}），23--29 个子群坍缩为 8--9 个不同的层。该枚举是一次性预处理步骤，其成本相对于后续搜索可忽略。对于更大的群（$|\Gamma|>100$），子群枚举将成为瓶颈；此时可限制为循环子群骨架或按共轭类抽样代表性层。
-
-\textit{Orbit-partition deduplication.}
-Different subgroups may induce identical orbit partitions on $V$. We represent each partition as a frozen set of frozen sets and use a hash set to retain only unique partitions. Deduplication is critical because distinct subgroups that partition the vertices identically produce identical search spaces; running each would duplicate work without discovering new configurations.
-% 中文翻译：轨道划分去重。不同子群可能在 $V$ 上诱导出相同的轨道划分。我们将每个划分表示为冻结集的冻结集，并使用哈希集合仅保留唯一划分。去重很关键，因为产生相同顶点划分的不同子群会产生相同的搜索空间；逐一运行将重复计算而不会发现新构型。
-
-\textit{Correctness of the look-ahead canonicity test.}
-At each partial coloring, the active set $\mathcal{A}$ contains those non-identity permutations $g\in\Gamma$ for which $g\cdot c =_{\mathrm{lex}} c$ on the assigned vertices. A branch is pruned when a retained permutation maps the assigned portion to a lexicographically smaller image, which is a sufficient condition for the completed coloring to be non-canonical. The test never prunes a canonical branch, because any permutation capable of making a completed coloring non-canonical must already act non-trivially on some assigned prefix. That the test may retain permutations that later fail the equality check affects only the size of the search tree, not which leaves are reached. At the leaf, canonical-form acceptance is decided by explicit minimization over the full group $\Gamma$ and Trie insertion, independent of the look-ahead tightness. This separation between pruning heuristic and acceptance criterion follows the orderly-generation design principle~\cite{mckay1998isomorph} and the stabilizer-refinement strategy of Morgan et al.~\cite{morgan2017generating}.
-% 中文翻译：前瞻正则性测试的正确性。在每个部分着色处，活动集合 $\mathcal{A}$ 包含那些在已赋值顶点上满足 $g\cdot c =_{\mathrm{lex}} c$ 的非恒等置换 $g\in\Gamma$。当某个保留置换将已赋值部分映射为字典序更小的像时，该分支被剪除，这是完成着色非正则的充分条件。该测试永不会剪除正则分支，因为任何能使完成着色非正则的置换必定已在某个已赋值前缀上非平凡地作用。测试可能保留后来不满足相等性检查的置换，但这只影响搜索树的大小，不影响哪些叶节点被到达。在叶节点处，正则形的接受由全群 $\Gamma$ 上的显式最小化和 Trie 插入决定，与前瞻测试的紧致性无关。这种剪枝启发式与接受判据之间的分离，遵循了有序生成的设计原则以及 Morgan 等人的稳定子精化策略。
-
-\paragraph{Geometric Reconstruction.}
-The inverse mapping $\Phi^{-1}$ restores the physical geometry of the abstract graph. The unit cell is first scaled according to the maximum edge constraint with a 5\% buffer. Directionality is then recovered through two complementary alignment operations:
-% 中文翻译：逆映射 $\Phi^{-1}$ 恢复抽象图的物理几何形态。首先，根据最大边约束并加入 5\% 缓冲对晶胞进行缩放。随后，通过两个互补的对齐操作恢复方向性：
+\subsection*{From Enumerated Assignments to Crystal Models}
+An enumerated assignment becomes a crystal model only after building-unit orientation is specified. The assignment is lifted to the periodic net, the unit-cell scale is set from the longest required connection length with a 5\% buffer, and directionality is recovered by two operations:
+% 中文翻译：只有在指定构建单元取向之后，枚举指派才成为晶体模型。该指派先被提升回周期网络，晶胞尺度由最长所需连接长度加 5\% 缓冲确定，随后通过两个步骤恢复方向性：
 
 \begin{enumerate}
-\item \textbf{Node Alignment.} For each topological node, we identify the periodic connectivity vectors to all its neighbors.
-Using the Kabsch algorithm, we compute the optimal rotation matrix $\mathbf{R}_{node}$ that aligns the connection sites of the node SBU with these topological vectors, thereby fixing the spatial orientation of the SBU.
-% 中文翻译：首先是“节点对齐”。对于每个拓扑节点，我们识别其与所有相邻节点之间的周期性连接向量。利用 Kabsch 算法，我们计算最优旋转矩阵 $\mathbf{R}_{node}$，使节点构建单元（SBU）的连接位点与这些拓扑向量对齐，从而固定 SBU 的空间取向。
+\item \textbf{Node Alignment.} For each topological node, we collect the periodic connectivity vectors to all its neighbors.
+The Kabsch algorithm then gives the optimal rotation matrix $\mathbf{R}_{node}$ for aligning the connection sites of the node SBU with these vectors, which fixes the spatial orientation of the SBU.
+% 中文翻译：首先是“节点对齐”。对于每个拓扑节点，我们收集其与所有相邻节点之间的周期性连接向量。随后利用 Kabsch 算法求得最优旋转矩阵 $\mathbf{R}_{node}$，使节点构建单元（SBU）的连接位点与这些向量对齐，从而固定 SBU 的空间取向。
 
-\item \textbf{Edge Assembly.} For each edge in the graph, we compute the connection vector between two aligned nodes.
-The algorithm retrieves the best-matching linker from the library and rigidly transforms it to align with this vector axis, while correcting its axial rotation by minimizing RMSD.
-% 中文翻译：其次是“边组装”。对于图中的每条边，我们计算两个已对齐节点之间的连接向量。算法从库中检索最佳匹配的连接体，并通过刚体变换将其对齐到该向量轴上，同时通过最小化 RMSD 修正其绕轴旋转角度。
+\item \textbf{Linker Placement.} For each edge in the graph, we compute the connection vector between two aligned nodes.
+The algorithm retrieves the best-matching linker from the library, aligns it as a rigid body to this vector axis, and then refines its axial rotation by minimizing RMSD.
+% 中文翻译：其次是“连接体放置”。对于图中的每条边，我们计算两个已对齐节点之间的连接向量。算法从库中检索最佳匹配的连接体，将其作为刚体对齐到该向量轴上，再通过最小化 RMSD 微调其绕轴旋转角度。
 \end{enumerate}
 
 
-Finally, periodic boundary mismatches are resolved through coordinate normalization, lattice-aware edge adjustment, X-site fusion at a 0.8\,\AA\ tolerance, and a final merge of near-duplicate sites. Structures that pass the subsequent sanitization checks are retained as CP2K input geometries.
-% 中文翻译：最后，通过坐标归一化、考虑晶格周期性的边连接调整、0.8\,\AA\ 容差下的 X 位点融合，以及近重复位点的最终合并，解决周期性边界错位问题。通过后续净化检查的结构被保留为 CP2K 输入几何。
+After placement, coordinate normalization, lattice-aware edge adjustment, 0.8\,\AA\ X-site fusion, and near-duplicate merging handle periodic mismatches. A retained structure is a sanitizable periodic CIF: it passes deterministic CIF-format, reloadability, duplicate-site, and periodic-bookkeeping checks.
+% 中文翻译：放置完成后，通过坐标归一化、考虑晶格周期性的边连接调整、0.8\,\AA\ X 位点融合和近重复位点合并处理周期性错位。被保留的结构即本文所说的可净化周期 CIF：它通过确定性的 CIF 格式、可重载性、重复位点和周期簿记检查。
 
-The reconstruction treats each building unit as a rigid body and determines its orientation by Kabsch alignment of its connection sites to the topological net. This treatment is appropriate for SBUs with well-defined connection geometry---such as paddlewheel, triangular-prismatic, and tetrahedral metal clusters---and for linkers whose internal degrees of freedom are either absent (e.g., BDC, BPDC, imidazolates) or can be represented by a single input conformer. It does not sample the conformational space of linkers with rotatable bonds, such as alkoxy-functionalized or peptide-based linkers. For such cases, the method returns one structure per supplied conformer. The rigid-body assumption and the scope of its applicability are discussed further in Section~4.
-% 中文翻译：该重建将每个构建单元视为刚体，通过将其连接位点与拓扑网络进行 Kabsch 对齐来确定其取向。这种处理适用于具有明确连接几何的 SBU——如桨轮型、三棱柱型和四面体型金属簇——以及内部自由度要么不存在（如 BDC、BPDC、咪唑类）、要么可被单一输入构象代表的连接体。它不对含可旋转键的连接体（如烷氧基功能化或肽基连接体）进行构象空间采样。对于这些情况，该方法每个输入构象返回一个结构。刚体假设及其适用范围在第4节进一步讨论。
+Reconstruction treats each building unit as a rigid body. This is appropriate for SBUs with defined connection geometry and for linkers represented by one input conformer. The workflow does not perform conformational search. Section~\ref{sec:limits} states this boundary.
+% 中文翻译：重构把每个构建单元视为刚体。该近似适用于具有明确连接几何的 SBU，以及由一个输入构象表示的连接体。该工作流不执行构象搜索。第~\ref{sec:limits}节说明这一边界。
 
-\paragraph{Implementation Details.}
-The algorithm is implemented in Python 3 and uses \texttt{pymatgen} to map continuous crystallographic symmetry operations onto discrete graph permutations, with coordinate matching tolerance $\epsilon=0.8$\,\AA. Placeholder element labels in the topological net are normalized to standard atomic symbols, such as Zn and C, before symmetry analysis to ensure compatibility with \texttt{pymatgen}.
-% 中文翻译：算法采用 Python 3 实现，并使用 \texttt{pymatgen} 将连续晶体对称操作映射为离散图置换，坐标匹配容差为 $\epsilon=0.8$\,\AA。在对称性分析前，拓扑网中的占位元素标签会被归一化为 Zn、C 等标准原子符号，以确保与 \texttt{pymatgen} 兼容。
+\section*{Results}
 
-To reduce memory overhead, we employ a Union-Find data structure for near-linear-time orbit calculations and a custom prefix tree (Trie) in place of hash maps, enabling compact duplicate detection for large sets of canonical configurations.
-% 中文翻译：为降低内存开销，我们采用并查集（Union-Find）进行近线性时间轨道计算，并以自定义前缀树（Trie）替代哈希表，从而对大规模正则构型集合进行紧凑的重复检测。
+We used the \texttt{ffc}, \texttt{fjh}, and \texttt{vba} nets as benchmark topologies because together they span small, larger, and beyond-exhaustive quotient-graph assignment spaces while retaining degree-compatible MOF building-unit placement.
+% 中文翻译：本文采用 \texttt{ffc}、\texttt{fjh} 和 \texttt{vba} 网络作为基准拓扑，因为它们共同覆盖了小规模、较大规模以及超出完整穷举范围的商图指派空间，同时仍保持与 MOF 构建单元配位数相容的放置条件。
 
-The search scheduler uses a min-heap priority queue to process orbit partitions in symmetry-graded order. Practical runs are bounded by an identity-stratum contribution limit, an identity-orbit estimate threshold, and a global cap on returned representatives.
-% 中文翻译：搜索调度器使用最小堆优先队列，按对称性分级顺序处理轨道划分。实际运行由恒等层新增代表元上限、恒等层轨道数估计阈值以及返回代表元全局上限共同约束。
-
-The entire codebase is modular and operates without dependence on external proprietary software.
-% 中文翻译：整个代码库采用模块化设计，无需依赖外部专有软件即可独立运行。
-
-\subsection*{Cross-Validation and Benchmarking against Algebraic Enumeration}
-\label{sec:searchEC}
-We benchmark against CASM~\cite{PUCHALA2023111897}, an established isomorph-free algebraic enumerator, to provide an independent correctness check. The comparison also exposes a structural difference between substitutional enumeration and oriented-coloring enumeration.
-% 中文翻译：我们以 CASM~\cite{PUCHALA2023111897}（一个成熟的无同构代数枚举器）作为基准，以提供独立的正确性检查。该比较也揭示了替位枚举与定向着色枚举之间的结构差异。
-
-On identical quotient graphs, the two codes quotient by different groups. Our method uses the proper-rotation automorphism group $\Gamma$, whereas CASM uses the full crystallographic factor group. After reconciling these group actions, the two enumerators return identical symmetry-distinct counts in every exhaustive case. This agreement provides an external correctness check independent of the internal Burnside identity.
-% 中文翻译：在相同商图上，两种代码按不同群取商。本文方法使用真旋转自同构群 $\Gamma$，而 CASM 使用完整晶体学因子群。在对这两种群作用进行对账后，两种枚举器在所有可穷举算例中返回完全相同的对称互异计数。这一一致性提供了独立于内部 Burnside 恒等式的外部正确性检查。
-
-The larger \texttt{vba} spaces expose the practical value of symmetry-graded search. CASM did not return within 30 minutes for either tested \texttt{vba} ligand pool, while our graded schedule returned $10^{5}$ representatives in approximately 5\,s. The purpose of this comparison is not to claim raw-speed dominance. CASM is faster in small exhaustive cases, but it emits site labelings on a fixed lattice. Our pipeline returns oriented crystal models that are then screened by geometry checks before DFT input generation.
-% 中文翻译：更大的 \texttt{vba} 空间体现了对称性分级搜索的实际价值。对于两个测试的 \texttt{vba} 配体池，CASM 在 30 分钟内均未返回结果，而本文的分级调度可在约 5\,s 内返回 $10^{5}$ 个代表元。该比较的目的不是声称原始速度占优。CASM 在小型可穷举算例中更快，但其输出是固定晶格上的位点标记；本文流水线返回定向晶体模型，随后经过几何检查筛选，再生成 DFT 输入。
+\subsection*{Algebraic Enumeration Checks}
+Enumeration was checked by Burnside closure and CASM on identical quotient graphs (Table~\ref{tab:casm}). The \texttt{ffc} rows are exhaustive on both sides and provide the direct count check. The \texttt{fjh} rows compare exhaustive enumeration with matched bounded CASM runs, so they report larger-space coverage rather than exact-count disagreement.
+% 中文翻译：枚举通过 Burnside 闭合以及同一商图上的 CASM 对照进行核对（表~\ref{tab:casm}）。\texttt{ffc} 行在双方均为可穷举运行，因此提供直接计数核对。\texttt{fjh} 行比较的是可穷举枚举器与匹配受限 CASM 运行，因此报告较大空间中的覆盖情况，而不是精确计数分歧。
 
 \begin{table}[htbp]
 \centering
-\small
-\setlength{\tabcolsep}{1.6mm}
+\tiny
+\setlength{\tabcolsep}{1.0mm}
 \renewcommand{\arraystretch}{1.2}
-\caption{\textbf{Cross-validation against CASM algebraic enumeration on identical quotient graphs (exhaustive cases).}
-``Orbits ($\Gamma$)'' is the proper-rotation count $P$ from our enumerator.
-``CASM (full grp)'' is the raw count $F_{\mathrm{total}}$ modulo the complete crystallographic factor group; the full-group count is reconciled to the proper-rotation count by $P=A+2C$, and the undercount is $(P-F_{\mathrm{total}})/P$.
-Times are single-core wall-clock for the enumeration core only (median of three runs); sub-$0.1$\,s values for the Python implementation are startup-dominated.}
+\caption{CASM cross-checks on identical quotient graphs. Times are single-core wall-clock medians for the enumeration core.}
 \label{tab:casm}
 \begin{tabular}{llccccc}
 \toprule
-\textbf{Topology} & \textbf{Ligand pool} & \textbf{Naive space} & \textbf{Orbits ($\Gamma$)} & \textbf{CASM (full grp)} & \textbf{Undercount} & $t_{\text{ours}}/t_{\text{CASM}}$ (s) \\
+\textbf{Topology} & \textbf{Ligand pool} & \textbf{Naive} & \textbf{Orbits ($\Gamma$)} & \textbf{CASM} & \textbf{Undercount} & \textbf{Time ratio (s)} \\
 \midrule
 \texttt{ffc} & $|\mathcal{C}_3|{=}2,|\mathcal{C}_4|{=}2$ & $1.28\times10^{2}$ & 42      & 42      & 0\%  & $0.098 / 1.5\!\times\!10^{-4}$ \\
 \texttt{ffc} & $|\mathcal{C}_3|{=}3,|\mathcal{C}_4|{=}3$ & $2.19\times10^{3}$ & 513     & 513     & 0\%  & $0.100 / 1.7\!\times\!10^{-3}$ \\
@@ -342,163 +238,222 @@ Times are single-core wall-clock for the enumeration core only (median of three 
 \bottomrule
 \end{tabular}
 \end{table}
-% 中文翻译（表注）：在相同商图上与 CASM 代数枚举的交叉验证（可穷举算例）。“Orbits (Γ)”为我方枚举器给出的真旋转计数 $P$；“CASM (full grp)”为以完整晶体学因子群取模的原始计数 $F_{\mathrm{total}}$，完整群计数通过 $P=A+2C$ 与真旋转计数对账，少计比例为 $(P-F_{\mathrm{total}})/P$。时间为单核、仅枚举核心的墙钟（三次中位数）；我方 Python 实现低于 0.1s 的值主要由启动开销主导。
 
-
-\subsection*{Validation of Geometric Assembly}
+For bounded \texttt{vba} runs, current safeguards returned 131{,}864 orbits from $4.29\times10^{9}$ assignments (0.026\%) for $|\mathcal{C}_4|{=}2$ and 500{,}000 orbits from $1.85\times10^{15}$ assignments ($<0.001\%$) for $|\mathcal{C}_4|{=}3$. These outputs are symmetry-prioritized prefixes, not exhaustive counts.
+% 中文翻译：对于受限 \texttt{vba} 运行，当前保护机制在 $|\mathcal{C}_4|{=}2$ 时从 $4.29\times10^{9}$ 个指派中返回 131{,}864 个轨道（0.026\%），在 $|\mathcal{C}_4|{=}3$ 时从 $1.85\times10^{15}$ 个指派中返回 500{,}000 个轨道（$<0.001\%$）。这些输出是按对称性优先排序的前缀，而不是可穷举计数。
+\subsection*{Geometric Instantiation Across Representative Topologies}
 \label{sec:validation}
 
-Geometric reconstruction was evaluated after algebraic enumeration to test whether abstract assignments could be converted into usable crystal models.
-% 中文翻译：我们在代数枚举之后评估几何重构，以检验抽象指派能否转化为可用的晶体模型。
-
-Structural analysis showed that the algorithm accommodates different nodal environments and linker directionalities. The generated crystal models contained no detectable atomic overlaps or unphysical bond lengths. Kabsch optimization also aligned rigid building units with the underlying topological nodes across the tested frameworks.
-% 中文翻译：结构分析表明，该算法能够适应不同的节点环境和连接体方向性。生成的晶体模型未发现原子重叠或非物理键长。Kabsch 优化也能在所测试框架中将刚性构建单元与底层拓扑节点对齐。
+We next tested whether accepted assignments could be reconstructed as periodic frameworks. Figure~\ref{fig:reconstruction_gallery} gives representative models, while Table~\ref{tab:reconstruction_audit} reports the quantitative audit for sampled \texttt{ffc} and \texttt{fjh} candidates.
+% 中文翻译：随后检验被接受的指派能否重构为周期性框架。图~\ref{fig:reconstruction_gallery} 给出代表模型，表~\ref{tab:reconstruction_audit} 报告抽样 \texttt{ffc} 和 \texttt{fjh} 候选的定量审计。
 
 
-RMSD-minimizing alignment supported the orientational consistency of the reconstructed rigid building units with the target topological backbone.
-% 中文翻译：最小化 RMSD 的对齐结果支持重构刚性构建单元与目标拓扑骨架之间的取向一致性。
-After coordinate sanitization and downstream geometry checks, the accepted CIF files were used as density functional theory (DFT) input structures.
-% 中文翻译：经过坐标净化和后续几何检查后，通过筛选的 CIF 文件被用作密度泛函理论（DFT）的输入结构。
-
-
-\begin{figure}[htbp]
+\begin{figure}[p]
     \centering
-    % 建议图片宽度设为 \linewidth，保持清晰
-    \includegraphics[width=0.6\linewidth]{ffc_fjh_vba.png}
-    % 中文翻译：代表性拓扑上的几何组装验证：(a) ffc，(b) fjh，(c) vba。插图显示用于几何检查的局部配位区域。
-    \caption{Validation of geometric assembly across representative topologies: (a) \texttt{ffc}, (b) \texttt{fjh}, and (c) \texttt{vba}. Insets show the local coordination regions used for geometric inspection.}
+    \begin{subfigure}[t]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={130bp 35bp 420bp 35bp},clip]{ffc_comp_b_21.png}
+        \caption*{\texttt{ffc}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={130bp 20bp 400bp 20bp},clip]{fjh_comp_b_1.png}
+        \caption*{\texttt{fjh}}
+    \end{subfigure}
+
+    \vspace{0.75em}
+
+    \begin{subfigure}[t]{0.72\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={130bp 90bp 435bp 90bp},clip]{vba_rho1.png}
+        \caption*{\texttt{vba}}
+    \end{subfigure}
+    \caption{Representative pre-relaxation crystal models reconstructed from symmetry-distinct assignments in \texttt{ffc}, \texttt{fjh}, and \texttt{vba}.}
+    % 中文翻译：由 \texttt{ffc}、\texttt{fjh} 和 \texttt{vba} 中的对称互异指派重构得到的代表性弛豫前晶体模型。
     \label{fig:reconstruction_gallery}
 \end{figure}
 
+\begin{table}[htbp]
+\centering
+\caption{\textbf{Reconstruction audit for sampled \texttt{ffc} and \texttt{fjh} pre-relaxation starting models.}}
+% 中文翻译：抽样 \texttt{ffc} 和 \texttt{fjh} 弛豫前起始模型的重构审计。
+\label{tab:reconstruction_audit}
+\begin{tabular}{lccccc}
+\toprule
+Topology & Attempted & Assembled & Sanitizable CIF & Topology-pass & Clash-free \\
+\midrule
+\texttt{ffc} & 12 & 12/12 & 12/12 & 12/12 & 12/12 \\
+\texttt{fjh} & 15 & 15/15 & 15/15 & 15/15 & 15/15 \\
+\midrule
+Combined & 27 & 27/27 & 27/27 & 27/27 & 27/27 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\subsection*{Symmetry-Stability Correlation}
 
-To test whether symmetry-prioritized enumeration retains energetically promising candidates at the screening stage, we evaluated single-point DFT energies for a selected \texttt{ffc} validation set. The comparison was restricted to fixed chemical compositions, because even per-atom absolute single-point energies depend strongly on building-block identity. The resulting \texttt{ffc} dataset is therefore used here as a limited qualitative check rather than as a high-power statistical test.
-% 中文翻译：为检验对称性优先枚举在筛选阶段是否能够保留具有能量潜力的候选结构，我们对选定的 \texttt{ffc} 验证集合进行了单点 DFT 能量评估。由于即使按原子归一化后的绝对单点能也会强烈依赖构建单元身份，因此比较被限制在固定化学组成内部。因此，本文将所得 \texttt{ffc} 数据集视为有限的定性检验，而不是高统计功效的趋势检验。
+\subsection*{Illustrative Screening-Stage DFT Example}
 
-The selected \texttt{ffc} set contains 21 converged calculations across eight composition groups, so most groups remain small. Within this limited set, the composition-wise minimum occurs in the medium- or high-symmetry portion of the enumerated space for all eight groups (six high, two medium, zero low). This pattern supports the practical screening aim of Subgroup Lattice Descent: inspect symmetric strata first to retain strong candidates early, then expand to lower-symmetry strata as the computational budget allows. It should not be read as evidence for a universal monotonic symmetry--energy law.
-% 中文翻译：选定的 \texttt{ffc} 集合包含 8 个组成组中的 21 个已收敛计算，因此大多数组内样本仍然较少。在这一有限数据集中，8 个组成组的组内最低能点均出现在枚举空间的中等或高对称部分（其中 6 个为高对称，2 个为中对称，低对称为 0）。这一模式支持子群格下降的实际筛选目标：先检查高对称层级以尽早保留强候选，再根据计算预算扩展到低对称层级。该结果不应被解读为普适的、单调的对称性--能量定律。
+We evaluated single-point density functional theory (DFT) energies for rigidly assembled structures within fixed chemical compositions. The structures were not relaxed, so all energy differences refer to the same assembled-geometry basis.
+% 中文翻译：我们对固定化学组成内的刚性组装结构计算了单点密度泛函理论（DFT）能量。结构未进行弛豫，因此所有能量差异均对应同一组装几何基准。
 
-The \texttt{fjh} DFT set is not yet composition-complete and is therefore excluded from the present symmetry-energy claim. Once the planned calculations are complete, it should be analyzed with the same within-composition protocol used for \texttt{ffc}.
-% 中文翻译：当前 \texttt{fjh} DFT 数据尚未达到组分完备，因此不纳入本文现阶段的对称性-能量论证。计划计算完成后，应采用与 \texttt{ffc} 相同的组分内比较协议进行分析。
+For \texttt{ffc}, 21 converged calculations span eight fixed-composition groups. Using the bins low $[0,0.25)$, medium $[0.25,0.75]$, and high $(0.75,1]$, every composition-wise minimum falls in the medium- or high-symmetry strata (Fig.~\ref{fig:symmetry_screening}).
+% 中文翻译：对于 \texttt{ffc}，21 个已收敛计算分布在 8 个固定组成组中。按低对称 $[0,0.25)$、中对称 $[0.25,0.75]$ 和高对称 $(0.75,1]$ 划分时，每个组成组的最低能点均落在中对称或高对称层级（图~\ref{fig:symmetry_screening}）。
+
+For \texttt{fjh}, two completed fixed-composition sets each contain 16 converged calculations across five $\rho$ strata. Their minima occur at $\rho=0.5$ for \texttt{comp\_a} and $\rho=1.0$ for \texttt{comp\_b}. Together with \texttt{ffc}, these tests indicate that the symmetry-prioritized traversal includes low-energy structures in the sampled screening space~\cite{peng2024learning,zeni2023mattergen,okabe2025structural}.
+% 中文翻译：对于 \texttt{fjh}，两个已完成固定组成集合各包含 16 个已收敛计算，并覆盖 5 个 $\rho$ 层级。最低能点分别出现在 \texttt{comp\_a} 的 $\rho=0.5$ 和 \texttt{comp\_b} 的 $\rho=1.0$。结合 \texttt{ffc} 结果，这些测试表明对称性优先遍历在当前采样筛选空间中包含低能结构~\cite{peng2024learning,zeni2023mattergen,okabe2025structural}。
 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.74\linewidth]{ffc_pooled_symmetry_energy.png}
-    \caption{Composition-controlled single-point DFT energies classified by fixed Symmetry Index intervals for \texttt{ffc}.
-    Low, medium, and high symmetry correspond to $0<\rho\leq0.25$, $0.25<\rho\leq0.75$, and $0.75<\rho\leq1$, respectively. Filled circles denote all completed candidates, and open circles mark the lowest-energy candidate within each fixed composition. The open-circle pattern is intended as a qualitative retention check under composition control, not as a formal statistical trend estimate.}
-    % 中文翻译：按固定对称性指数区间分类的 \texttt{ffc} 组分控制单点 DFT 能量图。低、中、高对称性分别对应 $0<\rho\leq0.25$、$0.25<\rho\leq0.75$ 和 $0.75<\rho\leq1$。实心圆表示所有已完成候选，空心圆表示每个固定组成内的最低能候选。空心圆模式用于在组成控制条件下给出定性的保留检验，而不是形式化的统计趋势估计。
-    \label{fig:pooled_symmetry_energy}
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ffc_pooled_symmetry_energy_a.pdf}
+        \caption{Pooled single-point energies for the \texttt{ffc} set.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ffc_pooled_symmetry_energy_b.pdf}
+        \caption{Composition-controlled $\Delta E$ for the same \texttt{ffc} candidates.}
+    \end{subfigure}
+    
+    \vspace{0.5em}
+
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={0 0 262 0},clip]{fjh_dual_delta_symmetry_energy.pdf}
+        \caption{\texttt{fjh comp\_a} composition-controlled $\Delta E$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={262 0 0 0},clip]{fjh_dual_delta_symmetry_energy.pdf}
+        \caption{\texttt{fjh comp\_b} composition-controlled $\Delta E$.}
+    \end{subfigure}
+\caption{Illustrative single-point DFT screening results across two topology scales. Filled markers denote converged candidates; open markers denote fixed-composition minima.}
+% 中文翻译：两种拓扑尺度下的说明性单点 DFT 筛选结果。实心标记表示已收敛候选，空心标记表示固定组成比较中的最低能点。
+    \label{fig:symmetry_screening}
 \end{figure}
+
+\subsection*{Matched Ordering Check for CO$_2$/N$_2$ Screening}
+
+We also tested whether fixed-composition orderings can differ in a gas-separation screen. Existing \texttt{ffc} CO$_2$/N$_2$ labels were grouped with composition, $\rho$, and symmetry stratum fixed within each comparison.
+% 中文翻译：我们还检验固定组成排布是否会在气体分离筛选中产生差异。已有 \texttt{ffc} CO$_2$/N$_2$ 标签按比较组整理，并在组内固定组成、$\rho$ 和对称层级。
+
+Table~\ref{tab:ffc_co2n2_ordering} summarizes three matched groups. Within each group, ordering changes altered pore descriptors and GCMC-derived labels. These labels are screening-stage responses for as-assembled starting models.
+% 中文翻译：表~\ref{tab:ffc_co2n2_ordering} 汇总了 3 个匹配比较组。在每个组内，排布变化会改变孔结构描述符和 GCMC 派生标签。这些标签只是组装初始模型的筛选阶段响应。
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\caption{\textbf{Matched \texttt{ffc} ordering check using CO$_2$/N$_2$ screening labels.} Ranges summarize four symmetry-distinct orderings per fixed-composition group.}
+% 中文翻译：使用 CO$_2$/N$_2$ 筛选标签进行的匹配 \texttt{ffc} 排布检查。范围值汇总每个固定组成组内的 4 个对称互异排布。
+\label{tab:ffc_co2n2_ordering}
+\setlength{\tabcolsep}{1.0mm}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Group} & \textbf{$n$} & \textbf{$\rho$/stratum} & \textbf{PLD (\AA)} & \textbf{LCD (\AA)} & \textbf{WC} & \textbf{S} & \textbf{APS} \\
+\midrule
+A & 4 & 0.25/Med & 27.39--28.27 & 26.41--27.07 & 0.345--0.411 & 1.948--2.188 & 0.595--0.817 \\
+B & 4 & 0.50/High & 27.36--27.79 & 26.15--26.83 & 0.341--0.386 & 1.923--2.187 & 0.588--0.760 \\
+C & 4 & 0.50/High & 27.31--27.78 & 25.80--26.81 & 0.349--0.422 & 1.981--2.208 & 0.626--0.839 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
 \section*{Discussion}
+\label{sec:discussion}
+The workflow couples non-redundant enumeration to reconstruction-ready models. Exact Burnside/CASM checks support the orbit-counting logic for the exhaustive \texttt{ffc} cases, and bounded \texttt{vba} runs show how the same scheduler behaves beyond the exhaustive range. The sampled \texttt{ffc}/\texttt{fjh} audit then checks whether retained assignments can be written as sanitizable, topology-consistent, clash-free CIFs.
+% 中文翻译：该工作流把无冗余枚举与可重构模型相连接。精确 Burnside/CASM 核对支撑可穷举 \texttt{ffc} 算例中的轨道计数逻辑，受限 \texttt{vba} 运行说明同一调度器在超出可穷举范围后的行为。随后，抽样 \texttt{ffc}/\texttt{fjh} 审计检验保留指派能否写成可净化、拓扑一致且无短接触警告的 CIF。
 
-\subsection{Directional Enumeration in Reticular Chemistry}
-The central contribution of this work is not the use of group theory alone, but its specialization to reticular chemistry. Generic crystal enumeration algorithms, as used for alloys or simple ionic crystals, often treat atoms as isotropic points. Their symmetry operations therefore act mainly as positional permutations.
-% 中文翻译：本文的核心贡献并不只是使用群论，而是将群论特化到网状化学场景中。用于合金或简单离子晶体的通用晶体枚举算法通常将原子视为各向同性点。因此，它们的对称操作主要表现为位置置换。
+The DFT and CO$_2$/N$_2$ examples test the interface to downstream screening. They indicate that reconstructed sets can be scored under fixed-composition controls and that ordered assignments can carry different screening labels. This is the crystal-engineering relevance of the ordering step: arrangement becomes a controlled variable before expensive evaluation, rather than an accidental duplicate in a generated database. These examples support candidate preparation, not final material ranking.
+% 修改点：晶体工程意义移到 Discussion，由结果支撑，而不是在 Introduction 里提前判断。
+% 中文翻译：DFT 和 CO$_2$/N$_2$ 示例检验该流程与下游筛选的接口。它们说明重构集合可以在固定组成控制下打分，且有序指派可携带不同筛选标签。这正是排布步骤的晶体工程意义：排布在高成本评估之前成为受控变量，而不是生成数据库中的偶然重复项。这些示例支撑的是候选准备，而不是最终材料排序。
 
-MOFs, by contrast, are composed of polyatomic building units with intrinsic directionality. A graph assignment that is valid at the algebraic level may still fail to define a physically valid crystal if linker connection sites are misoriented relative to metal nodes. Our framework addresses this oriented-coloring problem by combining subgroup-based enumeration with Kabsch reconstruction of SBU rotational degrees of freedom. This shift from point permutation to vector alignment is essential for deterministic inverse design of complex porous frameworks.
-% 中文翻译：相比之下，MOF 由具有内在方向性的多原子构建单元组成。如果连接体连接位点相对于金属节点发生取向错配，一个在代数层面有效的图指派仍可能无法定义物理上有效的晶体。本文框架通过将基于子群的枚举与 SBU 旋转自由度的 Kabsch 重建结合，解决这一“定向着色”问题。这种从点置换到向量对齐的转变，是复杂多孔框架确定性逆向设计的关键。
+\subsection*{Current Limits of the Validation}
+\label{sec:limits}
+The main model limit is rigid-body reconstruction. The implementation assumes that node SBUs and linkers can be placed as rigid units once connection geometry is specified. It therefore tests fixed-conformer geometric compatibility, not flexible-framework conformational space. The DFT results are single-point scores on as-assembled structures, and the CO$_2$/N$_2$ labels come from one screening protocol. Neither replaces relaxation, thermodynamic ranking, or longer adsorption studies.
+% 中文翻译：主要模型限制来自刚体重构。当前实现假定节点 SBU 和连接体在连接几何给定后可作为刚性单元放置。因此，它检验的是固定构象几何相容性，而不是柔性框架的构象空间。DFT 结果是组装初始结构的单点分数，CO$_2$/N$_2$ 标签来自一个筛选协议。二者都不能替代弛豫、热力学排序或更完整的吸附研究。
 
-By eliminating isomorphic duplicates at the algebraic level, the framework produces a non-redundant reference set for the material configuration space. Such a set can support training, evaluation, and error analysis for machine-learning models without relying on randomly duplicated candidates.
-% 中文翻译：通过在代数层面消除同构重复，该框架为材料构型空间生成了无冗余参考集合。这样的集合可支持机器学习模型的训练、评估和误差分析，并避免依赖随机重复的候选结构。
+The implementation also assumes a single primitive quotient graph and one embedded net. It does not automatically generate interpenetrated frameworks, multiple independent nets, or supercell colorings. These cases require explicit multi-net or supercell inputs. Distinct enumerated assignments may also relax into similar or identical geometries, so post-relaxation identity remains a separate validation step.
+% 中文翻译：当前实现还假定输入为单个初基商图和一个嵌入网络。它不会自动生成互穿框架、多个独立网络或超胞着色。这些情形需要显式的多网络或超胞输入。不同枚举指派也可能在弛豫后收敛到相似或相同几何，因此弛豫后的同一性仍是独立验证步骤。
 
-Together, the validation steps define the scope of the method. Proper-rotation enumeration preserves orientation-sensitive configurations that would be merged under a full improper-symmetry quotient. Burnside self-checks and CASM reconciliation verify the algebraic counts in exhaustive cases. Kabsch reconstruction then converts these representatives into geometrically usable structures, and the selected \texttt{ffc} DFT set provides a limited but direct check that composition-wise low-energy candidates are not confined to the low-symmetry tail of the symmetry-prioritized traversal. These results support the framework as a deterministic enumeration and pre-screening tool, while final thermodynamic ranking still requires relaxed electronic-structure calculations and larger within-composition validation sets. The planned \texttt{fjh} validation should therefore be treated as an extension of the same protocol, not as evidence already used in the present claim.
-% 中文翻译：这些验证步骤共同界定了该方法的适用范围。真旋转枚举保留了会被完整非真对称取商合并的取向敏感构型。Burnside 自检和 CASM 对账验证了可穷举算例中的代数计数。随后，Kabsch 重构将这些代表元转化为几何上可用的结构；选定的 \texttt{ffc} DFT 集合提供了一个有限但直接的检验，说明按组成比较的低能候选并不局限于对称性优先遍历中的低对称尾部。这些结果支持将该框架作为确定性枚举和预筛选工具，而最终热力学排序仍需要弛豫后的电子结构计算以及更大的组分内验证样本。因此，计划中的 \texttt{fjh} 验证应被视为同一协议的扩展，而不是本文现阶段论断已经使用的证据。
+\section*{Conclusion}
+This work describes a deterministic route from fixed topological MOF design spaces to symmetry-distinct, oriented candidate models. Proper-rotation orbit enumeration removes reconstruction-compatible redundancy, and rigid-body Kabsch alignment converts retained assignments into periodic models with explicit building-unit orientation.
+% 中文翻译：本文描述了一条确定性路线，将固定拓扑 MOF 设计空间转化为对称互异、具有取向信息的候选模型。真旋转轨道枚举去除与重构相容的冗余，刚体 Kabsch 对齐把保留指派转化为具有显式构建单元取向的周期模型。
 
-\subsection*{Limitations and Geometric Rigidity}
-The rigid-body treatment in Phase III restricts the current framework to building units with limited conformational freedom. This assumption covers many reported MOF and COF SBUs, but it does not fully describe highly flexible linkers. Extending the method to such linkers would require coupling alignment with conformational search, for example over a rotamer library. We leave this extension to future work.
-% 中文翻译：第三阶段的刚体处理使当前框架适用于构象自由度有限的构建单元。这一假设覆盖了许多已报道的 MOF 和 COF SBU，但不能完全描述高度柔性的连接体。若要将该方法扩展到此类连接体，需要将对齐步骤与构象搜索耦合，例如基于旋转异构体库进行搜索。这一扩展留待未来工作。
+The evidence supports that route within a defined scope: exhaustive orbit checks, sampled reconstruction audits, and screening-stage DFT and CO$_2$/N$_2$ examples. The deposited CIFs are pre-relaxation starting models. Subsequent relaxation, adsorption or electronic-structure screening, and active selection should test which candidates remain distinct and useful after higher-cost evaluation.
+% 中文翻译：本文证据在明确范围内支撑这一路线：可穷举轨道核对、抽样重构审计，以及筛选阶段 DFT 和 CO$_2$/N$_2$ 示例。存放的 CIF 是弛豫前起始模型。后续弛豫、吸附或电子结构筛选以及主动选择应进一步检验哪些候选在高成本评估后仍保持互异且有用。
 
 \section*{Methods}
-\subsection*{Computational Implementation Details}
-The framework is implemented in Python 3.8 with a modular architecture supporting the three-stage pipeline.
-% 中文翻译：该框架基于 Python 3.8 实现，采用模块化架构支持三阶段流水线。
+\subsection*{Computational Details}
+The framework is implemented in Python 3.8. It follows three stages: symmetry extraction on the periodic net, symmetry-distinct enumeration on the quotient graph, and rigid-body reconstruction of accepted assignments.
+% 中文翻译：该框架基于 Python 3.8 实现，包含三个阶段：周期网络对称性提取、商图上的对称互异枚举，以及被接受指派的刚体重构。
 
-In Phase I (Abstraction), \texttt{pymatgen} is used for crystallographic symmetry analysis. We scan \texttt{symprec} $\in \{0.01, 0.1, 0.3\}$\,\AA\ to identify a robust set of symmetry operations, which are then projected onto graph automorphism groups.
-% 中文翻译：在第一阶段（抽象）中，我们使用 \texttt{pymatgen} 进行晶体学对称性分析。通过扫描 \texttt{symprec} $\in \{0.01, 0.1, 0.3\}$\,\AA，我们鲁棒地识别对称操作集合，并随后将其投影为图自同构群。
+Inputs are a primitive quotient graph, one chosen net embedding, and degree-compatible building-unit pools. Benchmark topologies were taken from net embeddings associated with the Reticular Chemistry Structure Resource (RCSR)~\cite{okeeffe2008rcsr}. The method removes redundant building-block assignments within this fixed input; it does not benchmark global net classification or cross-database colored-net equivalence.
+% 中文翻译：输入包括初基商图、一个选定网络嵌入以及配位数相容的构建单元库。基准拓扑来自与网状化学结构资源（RCSR）关联的网络嵌入~\cite{okeeffe2008rcsr}。该方法只在固定输入内去除冗余 building-block 指派，不对全局网络分类或跨数据库 colored-net 等价性做基准。
 
-In Phase II (Enumeration), we handle degree-constrained spaces of up to $\sim\!5\times10^{5}$ configurations under a fixed memory budget (Table~\ref{tab:casm}). A Union-Find-based orbit calculator supports near-linear orbit computation. A custom prefix tree (Trie) performs duplicate detection in $O(|V|)$ time with a smaller memory footprint than hash-table-based storage, because canonical configurations share prefixes.
-% 中文翻译：在第二阶段（枚举）中，我们在固定内存预算下处理至多约 $\sim\!5\times10^{5}$ 个构型的度数约束空间（表~\ref{tab:casm}）。基于并查集的轨道计算器支持近线性轨道计算。自定义前缀树（Trie）以 $O(|V|)$ 时间执行重复检测，并且相比基于哈希表的存储具有更小内存占用，因为正则构型之间共享前缀。
+In Phase I, \texttt{pymatgen} is used for crystallographic symmetry analysis. We scan \texttt{symprec} $\in \{0.01, 0.1, 0.3\}$\,\AA\ and project consistent operations onto graph automorphism groups.
+% 中文翻译：第一阶段使用 \texttt{pymatgen} 进行晶体学对称性分析。我们扫描 \texttt{symprec} $\in \{0.01, 0.1, 0.3\}$\,\AA，并将一致的操作投影为图自同构群。
 
-In Phase III (Reconstruction), the Kabsch algorithm is implemented through singular value decomposition in \texttt{NumPy} to compute RMSD-minimizing rotation matrices. The assembled structure then undergoes secondary symmetry analysis (\texttt{symprec}=0.3\,\AA) to recover the nominal space group while tolerating minor distortions introduced during rigid-body placement.
-% 中文翻译：在第三阶段（重构）中，Kabsch 算法通过 \texttt{NumPy} 中的奇异值分解实现，用于计算最小化 RMSD 的旋转矩阵。组装后的结构随后进行二次对称性分析（\texttt{symprec}=0.3\,\AA），以在容许刚体放置引入微小畸变的情况下恢复标称空间群。
+In Phase II, proper subgroups are traversed with a SymPy-based lattice walk and a cyclic-subgroup fallback. Orbit calculations, canonical checks, and duplicate removal use compact data structures. Optional safeguards include per-task timeouts and global caps.
+% 中文翻译：第二阶段通过基于 SymPy 的子群格搜索遍历真子群，并设置循环子群回退路径。轨道计算、正则形检查和去重使用紧凑数据结构。可选保护机制包括任务超时和全局数量上限。
+
+In Phase III, the Kabsch algorithm is implemented by singular value decomposition in \texttt{NumPy}. The assembled structure then undergoes secondary symmetry analysis with \texttt{symprec}=0.3\,\AA.
+% 中文翻译：第三阶段通过 \texttt{NumPy} 奇异值分解实现 Kabsch 算法。组装结构随后以 \texttt{symprec}=0.3\,\AA 进行二次对称性分析。
+
+The reconstruction sequence is graph enrichment, rigid-body node/linker placement, periodic coordinate normalization, and sanitization before downstream screening.
+% 中文翻译：重构顺序为图信息增强、节点/连接体刚体放置、周期性坐标归一化，以及下游筛选前的净化。
 
 All computations were executed on a single-core Intel Core i5 processor.
 % 中文翻译：所有计算均在单核 Intel Core i5 处理器上执行。
 
+The main-text validation cases used \texttt{3c\_B\_Ch}, \texttt{3c\_triazine\_Ch}, \texttt{4c\_B\_Ch}, \texttt{4c\_Cd\_1\_Ch}, \texttt{4c\_Cu\_1\_Ch}, and \texttt{1B\_4H\_Ch}. Full inventories and CIF files are provided in the data package. Cd is the primary closed-shell metal node in the reported \texttt{ffc}/\texttt{fjh} DFT sets; Cu appears in optional open-shell probe or visual-example pools.
+% 中文翻译：主文验证算例使用 \texttt{3c\_B\_Ch}、\texttt{3c\_triazine\_Ch}、\texttt{4c\_B\_Ch}、\texttt{4c\_Cd\_1\_Ch}、\texttt{4c\_Cu\_1\_Ch} 和 \texttt{1B\_4H\_Ch}。完整清单和 CIF 文件见数据包。Cd 是报告的 \texttt{ffc}/\texttt{fjh} DFT 集合中的主要闭壳金属节点；Cu 出现在可选开壳探针或可视化示例池中。
+
 \subsection*{CASM Comparison Protocol}
 
-Cross-validation uses \textsf{libcasm-configuration}~2.3.1 and \textsf{libcasm-xtal}~2.3.0 under Python~3.11 (Algorithm~\ref{alg:casm}). The worker presents CASM with the same degree-constrained space traversed by our enumerator, with each site carrying the occupant set fixed by its coordination number. A run is accepted only if the proper-rotation subgroup of the resulting factor group attains the order $|\Gamma|$ shared by both codes. Enumeration over the primitive supercell then yields one representative per full-group orbit, which is reconciled to the proper-rotation count $P=A+2C$ and checked against our result. For comparable timings, each case is enumerated in an isolated single-threaded subprocess and reported as the median of three runs. The \texttt{vba} pools are placed under a watchdog that declares the run intractable once it exceeds the wall-clock or memory limit.
-% 中文翻译：交叉验证在 Python~3.11 下使用 \textsf{libcasm-configuration}~2.3.1 和 \textsf{libcasm-xtal}~2.3.0 执行（算法~\ref{alg:casm}）。worker 向 CASM 提供与本文枚举器相同的度数约束空间，每个位点携带由其配位数决定的占据集合。仅当所得因子群的真旋转子群达到两种代码共享的阶 $|\Gamma|$ 时，才接受该次运行。随后在初基超胞上枚举，为每个全群轨道产生一个代表元，并将其对账为真旋转计数 $P=A+2C$ 后与本文结果比较。为使计时可比，每个算例均在隔离的单线程子进程中枚举，并报告三次运行的中位数。\texttt{vba} 配体池由看门狗监控，一旦超过墙钟或内存限制即判定为不可处理。
-
-\begin{algorithm}[h]
-\caption{CASM cross-validation for one (topology $\tau$, ligand pool)}
-\label{alg:casm}
-\begin{algorithmic}[1]
-\Procedure{Worker}{$\tau,\,|\mathcal{C}_3|,\,|\mathcal{C}_4|$}\Comment{python3.11; libcasm}
-  \State match CIF sites to graph nodes $v_i$ ($\lVert\Delta\mathrm{frac}\rVert<10^{-3}$)
-  \State $\mathrm{occ}(s_i)\gets$ $|\mathcal{C}_3|$ labels if $\deg v_i{=}3$ else $|\mathcal{C}_4|$ labels
-  \State $\textsc{Prim}\gets\textsc{BuildPrim}(\text{lattice},\{\mathrm{frac}(s_i)\},\mathrm{occ})$
-  \State $\Gamma_{\!c}\gets\{g\in\textsc{FactorGroup}(\textsc{Prim}):\det g>0\}$
-  \State \textbf{abort if} $|\Gamma_{\!c}|\neq|\Gamma|$\Comment{proper symmetry must match}
-  \State $t_0\gets\textsc{Clock}();\ F\gets 0$\Comment{time enumeration only}
-  \For{$c\in\textsc{ConfigEnumAllOccupations}(\textsc{Prim},\text{vol-1 cell})$}
-    \State $F\gets F+1$\Comment{one rep per full-group orbit}
-  \EndFor
-  \State \Return $F,\ \textsc{Clock}()-t_0,\ \text{peak RSS}$
-\EndProcedure
-\Statex
-\Procedure{Compare}{$\tau,\,|\mathcal{C}_3|,\,|\mathcal{C}_4|,\,P$}\Comment{$P$ from our enumerator}
-  \For{$r\gets 1$ to $3$}
-    \State run \textsc{Worker} in a fresh single-thread subprocess
-    \State \textbf{if} $\tau=\texttt{vba}$: kill as intractable if $t>30$\,min or RSS$>8$\,GB
-  \EndFor
-  \State $(F,t,\text{mem})\gets$ median-wall-clock run
-  \State $C\gets P-F;\quad A\gets 2F-P$\Comment{$F{=}A{+}C,\ P{=}A{+}2C$}
-  \State \textbf{assert} $A\ge0\wedge C\ge0$
-  \State \Return $F,\ P,\ t,\ \text{mem}$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
+Cross-validation uses \textsf{libcasm-configuration}~2.3.1 and \textsf{libcasm-xtal}~2.3.0 under Python~3.11. CASM receives the same degree-constrained quotient graph, with each site assigned the occupant set allowed by its coordination number. A run is accepted only when the proper-rotation subgroup of the CASM factor group has the same order $|\Gamma|$. Primitive-cell enumeration gives one representative per full-group orbit, which is reconciled to the proper-rotation count $P=A+2C$. Each timing is the median of three isolated single-thread subprocess runs. \texttt{vba} CASM attempts were stopped by a wall-clock or memory watchdog.
+% 中文翻译：交叉验证在 Python~3.11 下使用 \textsf{libcasm-configuration}~2.3.1 和 \textsf{libcasm-xtal}~2.3.0。CASM 接收相同的度数约束商图，每个位点的占据集合由其配位数决定。仅当 CASM 因子群的真旋转子群阶与 $|\Gamma|$ 一致时，才接受该运行。初基胞枚举给出每个全群轨道的一个代表元，并通过 $P=A+2C$ 对账到真旋转计数。计时为三个隔离单线程子进程运行的中位数。\texttt{vba} CASM 尝试由墙钟或内存看门狗停止。
 
 \subsection*{DFT Energy Validation}
-Single-point energies were computed with CP2K/Quickstep~\cite{cp2k2020} using the Gaussian--plane-wave method at the PBE+D3 level~\cite{perdew1996pbe,grimme2010d3}. Calculations used DZVP-MOLOPT-PBE-GTH basis sets and GTH pseudopotentials. Plane-wave and relative cutoffs were set to 500 and 60\,Ry, respectively.
-% 中文翻译：单点能通过 CP2K/Quickstep~\cite{cp2k2020} 的 Gaussian--plane-wave 方法在 PBE+D3 水平下计算~\cite{perdew1996pbe,grimme2010d3}。计算采用 DZVP-MOLOPT-PBE-GTH 基组和 GTH 赝势。平面波截断能和相对截断能分别设为 500 和 60\,Ry。
+Single-point energies were computed with CP2K/Quickstep~\cite{cp2k2020} using PBE+D3~\cite{perdew1996pbe,grimme2010d3}, DZVP-MOLOPT-PBE-GTH basis sets, GTH pseudopotentials, and 500/60\,Ry plane-wave/relative cutoffs. Self-consistent field (SCF) calculations used diagonalization, Fermi--Dirac smearing at 300\,K, 30 added molecular orbitals, Broyden charge mixing, $\mathrm{EPS\_SCF}=5\times10^{-5}$, and a 300-step ceiling.
+% 中文翻译：单点能通过 CP2K/Quickstep~\cite{cp2k2020} 计算，采用 PBE+D3~\cite{perdew1996pbe,grimme2010d3}、DZVP-MOLOPT-PBE-GTH 基组、GTH 赝势，以及 500/60\,Ry 的平面波/相对截断能。自洽场（SCF）计算使用对角化、300\,K Fermi--Dirac 展宽、30 个附加分子轨道、Broyden 电荷混合、$\mathrm{EPS\_SCF}=5\times10^{-5}$ 和 300 步上限。
 
-Because the frameworks combine transition metals with conjugated linkers, they have small HOMO--LUMO gaps. The orbital-transformation SCF scheme therefore did not converge reliably. We used traditional diagonalization with Fermi--Dirac smearing, an electronic temperature of 300\,K, 30 added molecular orbitals, and Broyden charge mixing. The SCF settings were $\mathrm{EPS\_SCF}=5\times10^{-5}$ with a 300-step ceiling.
-% 中文翻译：由于这些框架同时包含过渡金属和共轭连接体，其 HOMO--LUMO 能隙较小。因此，轨道变换 SCF 方案难以稳定收敛。我们采用传统对角化，并结合 Fermi--Dirac 展宽、300\,K 电子温度、30 个附加分子轨道和 Broyden 电荷混合。SCF 设置为 $\mathrm{EPS\_SCF}=5\times10^{-5}$，最大步数为 300。
+Energy comparisons were made only within fixed compositions on rigidly assembled geometries. The \texttt{ffc} set contains 21 converged calculations across eight composition groups. The completed \texttt{fjh comp\_a} and \texttt{fjh comp\_b} subsets contain 32 converged structures across two independent fixed-composition tests. Reported energies are geometry-consistent screening scores; thermodynamic ranking requires later relaxation.
+% 中文翻译：能量比较只在固定组成内部、基于刚性组装几何进行。\texttt{ffc} 集合包含 8 个组成组中的 21 个已收敛计算；已完成的 \texttt{fjh comp\_a} 和 \texttt{fjh comp\_b} 子集在两个独立固定组成测试中共包含 32 个已收敛结构。报告能量是几何一致的筛选阶段分数；热力学排序需要后续弛豫。
 
-The DFT calculation was used to evaluate an enumeration-stage pre-screening criterion rather than final thermodynamic stability. We therefore ranked the rigidly assembled, as-enumerated geometries at the single-point level instead of fully relaxing every candidate. This protocol keeps graph connectivity and initial placement fixed across symmetry classes, so the comparison probes whether symmetry-prioritized traversal retains promising candidates on a common assembled-geometry manifold. It does not establish the final relaxed ordering of those candidates. Consequently, the reported energies should be interpreted as geometry-consistent screening scores, not as relaxed formation energies or as a substitute for full stability ranking. A stronger thermodynamic claim would require subsequent geometry relaxation and a larger within-composition dataset.
-% 中文翻译：DFT 计算用于评估枚举阶段的预筛选准则，而不是给出最终热力学稳定性。因此，我们对刚性组装得到的枚举初始几何进行单点能排序，而不是对每个候选进行完全几何弛豫。该方案保持不同对称性类别之间的图连接关系和初始放置方式一致，因此它检验的是：在共同的组装几何流形上，对称性优先遍历是否能够保留有前景的候选；它并不建立这些候选在完全弛豫后的最终排序。因此，本文报告的能量应理解为几何一致的筛选分数，而不是弛豫后的形成能，也不能替代完整稳定性排序。若要提出更强的热力学论断，还需要后续几何弛豫以及更大的组分内数据集。
+\subsection*{CO$_2$/N$_2$ Screening Labels}
+The matched ordering check used existing \texttt{ffc} clean-pool CO$_2$/N$_2$ labels. We selected three fixed-composition groups, each with four symmetry-distinct orderings at the same $\rho$ and stratum. Pore-limiting and largest-cavity diameters were computed with Zeo++~\cite{willems2012algorithms}.
+% 中文翻译：匹配排布检查使用已有 \texttt{ffc} clean-pool CO$_2$/N$_2$ 标签。我们选取 3 个固定组成组，每组含 4 个具有相同 $\rho$ 和层级的对称互异排布。孔限制直径和最大孔腔直径由 Zeo++ 计算~\cite{willems2012algorithms}。
 
-To reduce chemical-composition bias, energy comparisons were made within fixed compositions. The current \texttt{ffc} validation contains 21 converged single-point calculations across eight composition groups, and most groups contain only two or three structures. Accordingly, the composition-wise minima are treated as qualitative retention markers rather than as a basis for formal statistical inference. The available \texttt{fjh} calculations are not yet balanced across composition and symmetry strata, so they were excluded from the present symmetry-energy analysis and reserved for later evaluation with the same protocol.
-% 中文翻译：为降低化学组成偏差，能量比较在固定组成内部进行。当前 \texttt{ffc} 验证包含 8 个组成组中的 21 个已收敛单点能计算，而且大多数组仅包含 2 到 3 个结构。因此，组内最低能点被视为定性的保留标记，而不是形式化统计推断的基础。现有 \texttt{fjh} 计算尚未在组成和对称性层级上达到平衡，因此未纳入本文当前的对称性-能量分析，并保留给后续采用同一协议评估。
+Grand canonical Monte Carlo labels were generated with RASPA2~\cite{dubbeldam2016raspa} for dry CO$_2$/N$_2$ screening~\cite{altintas2018database}. Simulations used 0.15/0.85 gas mole fractions at 298\,K, 1.0/0.1\,bar adsorption/desorption pressures, CIF-derived charges, \texttt{ExampleMOFsForceField}, \texttt{ExampleDefinitions}, \texttt{UnitCells 1 1 1}, 10000 Monte Carlo cycles, and 5000 initialization cycles. Metrics were $S=(q_{\mathrm{CO_2}}/q_{\mathrm{N_2}})/(y_{\mathrm{CO_2}}/y_{\mathrm{N_2}})$, $WC=q_{\mathrm{CO_2}}(1.0\,\mathrm{bar})-q_{\mathrm{CO_2}}(0.1\,\mathrm{bar})$, $R=WC/q_{\mathrm{CO_2}}(1.0\,\mathrm{bar})$, and $APS=S\times WC\times R$.
+% 中文翻译：巨正则蒙特卡洛标签由 RASPA2 生成~\cite{dubbeldam2016raspa}，用于干态 CO$_2$/N$_2$ 筛选~\cite{altintas2018database}。模拟采用 0.15/0.85 气相摩尔分数、298\,K、1.0/0.1\,bar 吸附/脱附压力、CIF 电荷、\texttt{ExampleMOFsForceField}、\texttt{ExampleDefinitions}、\texttt{UnitCells 1 1 1}、10000 个蒙特卡洛循环和 5000 个初始化循环。指标为 $S=(q_{\mathrm{CO_2}}/q_{\mathrm{N_2}})/(y_{\mathrm{CO_2}}/y_{\mathrm{N_2}})$、$WC=q_{\mathrm{CO_2}}(1.0\,\mathrm{bar})-q_{\mathrm{CO_2}}(0.1\,\mathrm{bar})$、$R=WC/q_{\mathrm{CO_2}}(1.0\,\mathrm{bar})$ 和 $APS=S\times WC\times R$。
 
-\section*{Data Availability}
-The source code for the self-verifying enumeration framework and the benchmark experiments is available on GitHub at \url{https://github.com/ttttxx/Symmetry-Aware-Enumeration-of-mof.git}
-% 中文翻译：自验证枚举框架和基准实验的源代码可在 GitHub 获取：\url{https://github.com/ttttxx/Symmetry-Aware-Enumeration-of-mof.git}。
-
+\section*{Data availability}
+The code and supporting data are publicly available at GitHub: https://github.com/Buct454/mof-enumeration-reconstruction.git. The package includes representative CIFs for Fig.~\ref{fig:reconstruction_gallery}, sampled \texttt{ffc}/\texttt{fjh} CIFs and reconstruction audit tables for Table~\ref{tab:reconstruction_audit}, and the CO$_2$/N$_2$ ordering CSV with 12 candidate labels. Deposited CIFs are pre-relaxation starting models with validation metadata, not relaxed crystal structures.
+% 中文翻译：代码和支撑数据已公开存放于 GitHub：https://github.com/Buct454/mof-enumeration-reconstruction.git。数据包包括图~\ref{fig:reconstruction_gallery} 的代表性 CIF、支撑表~\ref{tab:reconstruction_audit} 的抽样 \texttt{ffc}/\texttt{fjh} CIF 和重构审计表，以及包含 12 个候选标签的 CO$_2$/N$_2$ 排布 CSV。存放的 CIF 是带验证元数据的弛豫前起始模型，不是已弛豫晶体结构。
 
 \section*{Acknowledgements}
-Funding information will be added before submission.
-% 中文翻译：资助信息将在投稿前补充。
+This work was supported by the National Key R\&D Program of China (No. 2021YFB3802200).
 
 \section*{Author Contributions}
-H.L. conceived the study; H.L. and J.T. developed the algorithm and performed the experiments; all authors discussed results and contributed to the manuscript.
-% 中文翻译：H.L. 构思了本研究；H.L. 和 J.T. 开发了算法并进行了实验；所有作者讨论了结果并共同撰写了手稿。
+H.L. conceived the study. H.L. and J.T. developed the algorithm, implemented the workflow, and performed the computational experiments. D.L., M.T., and Q.Y. contributed to method discussion, result interpretation, and manuscript refinement. All authors discussed the results, reviewed the manuscript, and approved the final version.
+% 中文翻译：H.L. 构思了本研究。H.L. 和 J.T. 开发了算法、实现了工作流程并完成了计算实验。D.L.、M.T. 和 Q.Y. 参与了方法讨论、结果解释和手稿完善。所有作者讨论了研究结果、审阅了手稿并批准了最终版本。
+
 
 \section*{Competing Interests}
-The authors declare no competing interests
-% 中文翻译：作者声明不存在利益冲突。
-%%===========================================================================================%%
+The authors declare that they have no competing financial interests, personal relationships, or other conflicts of interest that could have influenced the work reported in this manuscript.
+% 中文翻译：作者声明不存在可能影响本文工作的竞争性经济利益、个人关系或其他利益冲突。
+
+
 
 \newpage
 \clearpage
-\section*{Reference}
 
 \bibliography{reference}
 

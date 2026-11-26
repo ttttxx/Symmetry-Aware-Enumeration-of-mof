@@ -1,0 +1,234 @@
+{
+  "source_json": "/Users/jing/Desktop/selected_structures.json",
+  "generated_from": "results/dft_validation/selected_structures.json",
+  "topologies": {
+    "ffc": {
+      "selected": 22,
+      "converged": 21,
+      "status_counts": {
+        "no_output_file": 1,
+        "converged": 21
+      },
+      "rho_selected": {
+        "0.125": 2,
+        "0.25": 4,
+        "0.5": 12,
+        "1.0": 4
+      },
+      "rho_converged": {
+        "0.125": 2,
+        "0.25": 4,
+        "0.5": 11,
+        "1.0": 4
+      },
+      "compositions": {
+        "comp_a": {
+          "selected": 5,
+          "converged": 4,
+          "rho_selected": {
+            "0.125": 1,
+            "0.25": 1,
+            "0.5": 3
+          },
+          "rho_converged": {
+            "0.125": 1,
+            "0.25": 1,
+            "0.5": 2
+          },
+          "min_id": "ffc_comp_a_11",
+          "min_rho": 0.5,
+          "min_band_fixed_thresholds": "Medium",
+          "min_e_per_atom": -152.2049661806245,
+          "spearman_rs": -0.21081851067789195,
+          "spearman_p": 0.7891814893221081
+        },
+        "comp_b": {
+          "selected": 5,
+          "converged": 5,
+          "rho_selected": {
+            "0.125": 1,
+            "0.25": 1,
+            "0.5": 3
+          },
+          "rho_converged": {
+            "0.125": 1,
+            "0.25": 1,
+            "0.5": 3
+          },
+          "min_id": "ffc_comp_b_21",
+          "min_rho": 0.25,
+          "min_band_fixed_thresholds": "Low",
+          "min_e_per_atom": -132.05921618356302,
+          "spearman_rs": 0.11180339887498948,
+          "spearman_p": 0.8579446176050993
+        },
+        "comp_c": {
+          "selected": 2,
+          "converged": 2,
+          "rho_selected": {
+            "0.25": 1,
+            "0.5": 1
+          },
+          "rho_converged": {
+            "0.25": 1,
+            "0.5": 1
+          },
+          "min_id": "ffc_comp_c_23",
+          "min_rho": 0.25,
+          "min_band_fixed_thresholds": "Low",
+          "min_e_per_atom": -110.47469539072057,
+          "spearman_rs": 0.9999999999999999,
+          "spearman_p": null
+        },
+        "comp_d": {
+          "selected": 2,
+          "converged": 2,
+          "rho_selected": {
+            "0.25": 1,
+            "0.5": 1
+          },
+          "rho_converged": {
+            "0.25": 1,
+            "0.5": 1
+          },
+          "min_id": "ffc_comp_d_9",
+          "min_rho": 0.5,
+          "min_band_fixed_thresholds": "Medium",
+          "min_e_per_atom": -171.24449219306393,
+          "spearman_rs": -0.9999999999999999,
+          "spearman_p": null
+        },
+        "comp_e": {
+          "selected": 2,
+          "converged": 2,
+          "rho_selected": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "rho_converged": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "min_id": "ffc_comp_e_8",
+          "min_rho": 0.5,
+          "min_band_fixed_thresholds": "Medium",
+          "min_e_per_atom": -144.26044211250922,
+          "spearman_rs": 0.9999999999999999,
+          "spearman_p": null
+        },
+        "comp_f": {
+          "selected": 2,
+          "converged": 2,
+          "rho_selected": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "rho_converged": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "min_id": "ffc_comp_f_1",
+          "min_rho": 1.0,
+          "min_band_fixed_thresholds": "High",
+          "min_e_per_atom": -124.57622285440794,
+          "spearman_rs": -0.9999999999999999,
+          "spearman_p": null
+        },
+        "comp_g": {
+          "selected": 2,
+          "converged": 2,
+          "rho_selected": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "rho_converged": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "min_id": "ffc_comp_g_13",
+          "min_rho": 0.5,
+          "min_band_fixed_thresholds": "Medium",
+          "min_e_per_atom": -160.66234571516827,
+          "spearman_rs": 0.9999999999999999,
+          "spearman_p": null
+        },
+        "comp_h": {
+          "selected": 2,
+          "converged": 2,
+          "rho_selected": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "rho_converged": {
+            "0.5": 1,
+            "1.0": 1
+          },
+          "min_id": "ffc_comp_h_3",
+          "min_rho": 1.0,
+          "min_band_fixed_thresholds": "High",
+          "min_e_per_atom": -140.06218808106678,
+          "spearman_rs": -0.9999999999999999,
+          "spearman_p": null
+        }
+      }
+    },
+    "fjh": {
+      "selected": 32,
+      "converged": 10,
+      "status_counts": {
+        "converged": 10,
+        "clean": 22
+      },
+      "rho_selected": {
+        "0.0625": 8,
+        "0.125": 8,
+        "0.25": 8,
+        "0.5": 6,
+        "1.0": 2
+      },
+      "rho_converged": {
+        "0.125": 2,
+        "0.25": 4,
+        "0.5": 3,
+        "1.0": 1
+      },
+      "compositions": {
+        "comp_a": {
+          "selected": 16,
+          "converged": 10,
+          "rho_selected": {
+            "0.0625": 4,
+            "0.125": 4,
+            "0.25": 4,
+            "0.5": 3,
+            "1.0": 1
+          },
+          "rho_converged": {
+            "0.125": 2,
+            "0.25": 4,
+            "0.5": 3,
+            "1.0": 1
+          },
+          "min_id": "fjh_comp_a_12",
+          "min_rho": 0.5,
+          "min_band_fixed_thresholds": "Medium",
+          "min_e_per_atom": -144.432455559441,
+          "spearman_rs": -0.20340535237239304,
+          "spearman_p": 0.5730075104458181
+        },
+        "comp_b": {
+          "selected": 16,
+          "converged": 0,
+          "rho_selected": {
+            "0.0625": 4,
+            "0.125": 4,
+            "0.25": 4,
+            "0.5": 3,
+            "1.0": 1
+          },
+          "rho_converged": {}
+        }
+      }
+    }
+  }
+}

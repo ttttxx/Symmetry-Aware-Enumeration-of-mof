@@ -1,0 +1,6 @@
+tolerance_A,samples,assembled,expected_pairs_missed,false_pairs,topology_pass,cif_reload_ok
+0.4,27,27,1728,0,27,27
+0.6,27,27,1728,0,27,27
+0.8,27,27,1728,0,27,27
+1.0,27,27,1728,0,27,27
+1.2,27,27,1658,0,27,27

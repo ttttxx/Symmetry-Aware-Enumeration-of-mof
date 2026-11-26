@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-24",
+  "approved_items": [
+    2,
+    5,
+    6,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15
+  ],
+  "search_only": [
+    7
+  ],
+  "preserve": [
+    10,
+    11,
+    16
+  ],
+  "before_sha256": "2cc3507077b90fd8390a2f486e8cc5abde5243e6383bff664e5fd11064ab4448",
+  "after_sha256": "4817fd5b1d4647cefc35e02ca1304d055577e8034a7e45537936ff325aa4b881",
+  "edits": [
+    {
+      "item": 2,
+      "before": "A completion is a coloring $c\\in X$ satisfying",
+      "after": "A completion within the current $H$-task is a coloring $c\\in\\mathrm{Fix}(H)$ satisfying"
+    },
+    {
+      "item": 2,
+      "before": "补全是满足对任意 $v\\in D_p$ 均有 $c(v)=c_p(v)$ 的着色 $c\\in X$。",
+      "after": "当前 $H$ 任务中的补全是满足对任意 $v\\in D_p$ 均有 $c(v)=c_p(v)$ 的着色 $c\\in\\mathrm{Fix}(H)$。"
+    },
+    {
+      "item": 6,
+      "before": "A complete representative is retained once, together with its stabilizer order and orbit size, when it satisfies the selected schedule's acceptance rule.",
+      "after": "In exhaustive enumeration, each complete canonical representative is retained once, together with its stabilizer order and orbit size."
+    },
+    {
+      "item": 6,
+      "before": "完整代表满足所选调度的接收规则时，连同其稳定子阶数和轨道大小一起保留，每个代表只保留一次。",
+      "after": "在穷尽枚举中，每个完整规范代表连同其稳定子阶数和轨道大小一起保留一次。"
+    },
+    {
+      "item": 5,
+      "before": "The selection and matching steps are summarized in Algorithm~\\ref{alg:gamma_construction}. Supplementary Section",
+      "after": "The selection and matching steps are summarized in Algorithm~\\ref{alg:gamma_construction}. Use of the resulting permutation set as $\\Gamma$ requires group closure, degree preservation, and quotient-graph adjacency preservation. Supplementary Section"
+    },
+    {
+      "item": 5,
+      "before": "操作集选择和顶点匹配步骤概括于算法~\\ref{alg:gamma_construction}。补充材料",
+      "after": "操作集选择和顶点匹配步骤概括于算法~\\ref{alg:gamma_construction}。将所得置换集用作 $\\Gamma$，要求其满足群闭合性，并保持顶点度数和商图邻接关系。补充材料"
+    },
+    {
+      "item": 5,
+      "before": "\\Ensure Unique proper-operation permutations $\\Gamma$",
+      "after": "\\Ensure Candidate set $P$ of unique proper-operation permutations"
+    },
+    {
+      "item": 5,
+      "before": "\\State $\\Gamma\\gets\\operatorname{sort}(P\\cup\\{e\\})$ after removing duplicates\n\\State \\Return $\\Gamma$",
+      "after": "\\State $P\\gets\\operatorname{sort}(P\\cup\\{e\\})$ after removing duplicates\n\\State \\Return $P$"
+    },
+    {
+      "item": 8,
+      "before": "layer times are medians of three runs for the layer intervals defined",
+      "after": "layer times for the per-stratum quota policy are medians of three runs for the layer intervals defined"
+    },
+    {
+      "item": 8,
+      "before": "层耗时为三次运行中位数，其层区间定义见",
+      "after": "分层配额策略的层耗时为三次运行中位数，其层区间定义见"
+    },
+    {
+      "item": 12,
+      "before": "At the same output size, the DFS prefixes therefore left a symmetry stratum unrepresented, whereas the per-stratum quotas retained candidates from each stratum for subsequent construction.",
+      "after": "The representatives retained across strata provide a bounded candidate set for subsequent periodic model construction."
+    },
+    {
+      "item": 12,
+      "before": "因此，在相同输出数下，DFS 前缀遗漏了一个对称层，而分层配额在各层均保留了候选，可供后续构建。",
+      "after": "跨层保留的代表构成受限规模的候选集合，可供后续周期模型构建使用。"
+    },
+    {
+      "item": 13,
+      "before": "Stabilizer orders organize the fixed-point tasks, and the calculated energies provide a separate basis for ranking the resulting models within each composition. Keeping representatives across symmetry strata therefore preserves alternatives for this energetic comparison.",
+      "after": "Retaining representatives across symmetry strata provides alternatives for energy comparisons within each sampled composition."
+    },
+    {
+      "item": 13,
+      "before": "稳定子阶数组织固定点任务，计算能量则为各组成内构建模型的排序提供独立依据。因此，跨对称层保留代表可为该能量比较保留不同候选。",
+      "after": "跨对称层保留代表，为各抽样组成内的能量比较提供了不同候选。"
+    },
+    {
+      "item": 14,
+      "before": "Orbit enumeration removes symmetry-equivalent assignments while retaining distinct orderings for model-level property evaluation under a common protocol.",
+      "after": "The observed geometric differences and run-sensitive rankings support evaluating the retained orderings individually under the screening protocol."
+    },
+    {
+      "item": 14,
+      "before": "轨道枚举将对称等价指派归并为代表，同时保留不同排布，以便在共同协议下进行模型层面的性质评价。",
+      "after": "所观察到的几何差异和随运行变化的排名，支持在该筛选协议下逐一评价所保留的排布。"
+    },
+    {
+      "item": 15,
+      "before": "Within the matched groups, distinct orderings can differ in pore descriptors and protocol-specific mean screening metrics, although the highest-APS ordering was unchanged across all five runs in only two of the nine groups. The evaluated models",
+      "after": "Within the matched adsorption groups, distinct orderings can differ in pore descriptors and protocol-specific mean screening metrics, although the highest-APS ordering was unchanged across all five runs in only two of the nine groups. Separate single-point DFT calculations compared the energies of constructed orderings within fixed-composition groups. The evaluated models"
+    },
+    {
+      "item": 15,
+      "before": "在匹配组内，不同排布在孔结构描述符和特定协议下的平均筛选指标上可以不同，但只有两个组的最高 APS 排布在五次运行中始终相同。本文评价的模型",
+      "after": "在吸附匹配组内，不同排布在孔结构描述符和特定协议下的平均筛选指标上可以不同，但只有两个组的最高 APS 排布在五次运行中始终相同。另行开展的单点 DFT 计算比较了固定组成组内构建排布的能量。本文评价的模型"
+    },
+    {
+      "item": 9,
+      "before": "CPU affinity was not pinned. The implementation tested here",
+      "after": "CPU affinity was not pinned. The recorded platform was macOS 26.6.2 on arm64; the archived native build script specifies C++17 with \\texttt{-O3} optimization. The implementation tested here"
+    },
+    {
+      "item": 9,
+      "before": "未固定CPU亲和性。本文被测实现",
+      "after": "未固定CPU亲和性。记录的运行平台为 arm64 架构的 macOS 26.6.2；归档原生核构建脚本指定 C++17 及 \\texttt{-O3} 优化。本文被测实现"
+    },
+    {
+      "item": 5,
+      "before": "Numerical construction of the embedded-net permutation group",
+      "after": "Numerical generation of candidate embedded-net permutations"
+    },
+    {
+      "item": 5,
+      "before": "中文翻译：嵌入网络置换群的数值构造",
+      "after": "中文翻译：嵌入网络候选置换的数值生成"
+    },
+    {
+      "item": 5,
+      "before": "Their resulting permutation sets were independently checked for group closure, degree preservation, and quotient-graph adjacency preservation.",
+      "after": "These properties were independently checked for all three resulting permutation sets."
+    },
+    {
+      "item": 5,
+      "before": "另对所得置换集独立核查了群闭合性、顶点度数保持性和商图邻接保持性。",
+      "after": "对三个所得置换集均独立核查了这些性质。"
+    }
+  ],
+  "environment_evidence": [
+    "validation/MATCH_UNIFIED_VBA_2026-11-23.json: platform",
+    "validation/snapshots/unified_review_20261123/tools/build_enumeration_core.py: C++17 and -O3"
+  ],
+  "environment_limit": "Historical CPU model and native compiler version not established; neither inferred from current host nor from the Python compiler string.",
+  "editor_compile": "success: final saved source compiled with desktop editor compiler",
+  "scope_checks": [
+    "inverse reconstruction matches pre-edit SHA-256",
+    "all equation environments unchanged",
+    "all tabular environments unchanged",
+    "abstract and introduction unchanged",
+    "closure paragraph and APS aggregation unchanged"
+  ]
+}

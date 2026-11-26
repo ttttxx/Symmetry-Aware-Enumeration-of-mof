@@ -1,46 +1,28 @@
-# Next Actions
+# 下一步
 
-Last updated: 2026-06-30
+最后更新：2026-11-26。对话保持通俗、短句、少字，一次少量信息。
 
-## Immediate
+## 当前状态
 
-- Check current DFT run status on `huangbo@Lab207` before changing or deleting any DFT output directories.
-- Harvest already completed CP2K outputs before deciding to rerun anything:
-  `python -u dft_validation/run_dft_validation.py --resume --harvest-only --summary`
-- Before deploying the parallel runner, stop the old serial nohup Python job and confirm no old CP2K processes remain; otherwise the same structures may be run twice.
-- If DFT jobs are running, monitor `run_all.log` and the active `cp2k_run.out`.
-- When new DFT results complete, run or inspect `dft_validation/analyze.py` outputs grouped by topology and composition.
-- Until `fjh` finishes, keep the paper claim on `ffc` explicitly limited to a qualitative retention check, not a statistical symmetry--energy trend.
+- 本轮31项审读已全部处理：此前明确批准的修改和新批准十四项均已落实；没有仍待审批的本轮候选。审批见 `validation/MATCH_REVIEW_DECISIONS_2026-11-23.json`，最新修改及范围核查见 `MATCH_APPROVED_REVIEW_EDITS_2026-11-24.json` 和 `MATCH_APPROVED_REVIEW_SCOPE_2026-11-24.json`。
+- 作者明确不改6/13/14/15/22/24，7/9此前也已决定保留。不再自行推动逐层配额接口、通用群自动检查、吸附母样本补充或第13项段落重排。
 
-## Analysis
+## 后续检查
 
-- For each fixed composition, report Spearman rank correlation between `rho` and energy per atom.
-- Check whether the lowest-energy structure in each composition group falls in the maximum-`rho` subset; use continuous `rho` as the primary symmetry variable.
-- Treat mixed-composition trends cautiously; do not pool all structures as evidence for symmetry-stability correlation.
-- Use separate figures for topology-level evidence: `rho_energy_ffc.png` and `rho_energy_fjh.png`.
-- Treat `fjh` as the stronger validation evidence because it has more nodes and five distinct `rho` levels within fixed composition; use `ffc` mainly as a smaller sanity-check topology.
-- Prefer expanding `fjh` to 2 composition groups and up to 4 structures per `rho` before making the paper claim too strong.
-- Keep the paper claim as candidate-retention/enrichment in medium/high symmetry, not monotonic `rho`-energy decrease.
-- Keep the `ffc` open-circle markers unless a replacement figure still preserves composition-controlled minima explicitly; removing them and highlighting only global minima would weaken the logic.
-- In the main paper, keep `ffc_pooled_symmetry_energy.png` and `fjh_pooled_symmetry_energy.png` as parallel panels under `fig:pooled_symmetry_energy`; do not reintroduce the old duplicate `fig:symmetry_stability` main-text figure unless it is moved to supplementary material with a distinct purpose.
-- After more `fjh` DFT jobs finish, regenerate `paper/fjh_pooled_symmetry_energy.png` from the updated CSV/JSON and remove or soften the "preliminary" caveat if all selected strata are complete.
-- If reviewers may question non-relaxed single points, consider a small relaxed sanity check for representative `fjh` points after the main single-point screening is complete.
-- Do not assume that adding `3c_Cu_imadazoline_Ch` to `ffc.atom_choices` will automatically strengthen the paper. It changes the chemistry pool and may worsen composition confounding unless the validation design is revised intentionally.
+- GitHub同步待作者确认公开完整项目/结果，或选择私有仓库；本地准备分支 `codex/github-sync-20261126`，尚未推送。获确认后推送、核验远端提交，再将本机master接续到同步提交。
 
-## Code Consistency
+- 新机器按 `docs/multi_machine_workflow.md` 克隆并安装依赖；切换机器前 push，开始前 pull。更换曾在旧历史中提交的 `.env` 密钥。
 
-- Keep `dft_validation/select_structures.py` aligned with the composition-controlled stratified sampling design.
-- Keep `dft_validation/run_dft_validation.py` topology handling generic; avoid reintroducing hard-coded `ffc` assumptions.
-- Keep `dft_validation/cp2k_runner.py` aligned with the current `.ssmp` OpenMP CP2K setup and single-point method.
-- Keep `dft_validation/run_dft_validation.py` batch concurrency conservative on the shared 128 GB server, especially for `fjh`.
+- 同步2026-11-24后续修改到本地复现包；无注释交付稿及桌面包已同步并独立编译验证。
 
-## Paper Consistency
+- 若继续语言终审，基于当前33页主稿检查段间衔接，不再把旧讨论稿当作未落稿版本。5处既有overfull留待排版终审。
+- 投稿前核验数据仓库公开状态及上传版本；本地复现包已更新，未推送远端。无注释match.tex和桌面交付包已于2026-11-24导出。
+- 所有枚举计时以2026-11-23当前ABI-4、新字典序池的 `MATCH_UNIFIED_REFRESH_2026-11-23.*` 和 `MATCH_UNIFIED_VBA_2026-11-23.*` 为准，不混入旧ABI数字。若要归因各项加速，须另做独立插桩/消融；中断前缀缓存在穷尽计时中没有命中。
+- 若以后新增vba同群CASM比较，须先解决实际位点作用匹配；不得用受限输出冒充全空间穷尽。
 
-- Keep `paper/main.tex` consistent with actual DFT settings:
-  - PBE+D3.
-  - `DZVP-MOLOPT-PBE-GTH`.
-  - `500 / 60 Ry`.
-  - Single-point `ENERGY`.
-  - Composition-controlled stratified sampling.
-- Avoid claiming that higher symmetry guarantees lower energy.
-- Present symmetry-prioritized enumeration as an a priori pre-screening heuristic.
+## 保持的边界
+
+- 全部边使用同一种固定连接体模板；枚举变量为节点类型指派。
+- 完整覆盖限定于关闭截断且全部任务完成的穷尽运行。配额是完整枚举主流程下的可选受限处理。
+- 72例审计、吸附与DFT为分别定义的样本；模型是弛豫前起始结构，不声称弛豫稳定性或普遍性质排序。
+- 保留作者确定的subgroup lattice与topology recovery表述。

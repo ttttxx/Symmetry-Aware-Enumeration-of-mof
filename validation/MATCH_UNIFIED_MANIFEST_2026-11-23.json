@@ -1,0 +1,340 @@
+{
+  "snapshot_root": "validation/snapshots/unified_review_20261123",
+  "native_abi": 4,
+  "files": [
+    {
+      "path": "main.py",
+      "sha256": "e6819b62bbcc96ae69083babbf3a793be47b3196f656241c11e912ac1fd6cfc5",
+      "bytes": 22593
+    },
+    {
+      "path": "symmetry.py",
+      "sha256": "0c6029cadd8b20415890b4ba8ca8844811ffe2cbcd5167442f666ade749d9f8a",
+      "bytes": 3923
+    },
+    {
+      "path": "enumerator.py",
+      "sha256": "e4133b14588817eb90f8336a2bf301616d468dd9ec8595dc9798472afa6e8adb",
+      "bytes": 17487
+    },
+    {
+      "path": "enumerator_native.py",
+      "sha256": "1004d13fc7bac7c6d2bf3b19776c288768b6905be7990d766b86c04fdf9b4b0f",
+      "bytes": 13520
+    },
+    {
+      "path": "enumerator_rho_native.py",
+      "sha256": "50624ebefc6edba7ca254b787ec6d4feadf9a79a19330fa57ddb43fce4927575",
+      "bytes": 2379
+    },
+    {
+      "path": "enumerator_rho_quota.py",
+      "sha256": "a98f11be54a7a56e0e52d5b36fcd7727162e835a77fea115c84f6662264a51dd",
+      "bytes": 9730
+    },
+    {
+      "path": "enumerator_casm_inspired.py",
+      "sha256": "a1af1864947d9621966e9861c7a294edcae39bc16982a182488c37674e7ab722",
+      "bytes": 9755
+    },
+    {
+      "path": "enumerator_task_dedup.py",
+      "sha256": "a5a4b05afa2583ce12d47098887fa3756ce4cdb2322816b643f400d2bb93c4ce",
+      "bytes": 8524
+    },
+    {
+      "path": "enumerator_storage.py",
+      "sha256": "e22dbea8a21ad8cfe33dd0cdca35ef2c98b253f81d69442af7ed51420d75bd83",
+      "bytes": 1958
+    },
+    {
+      "path": "search_prefix_trie.py",
+      "sha256": "54ff33a4abf5fda1e579aab941d4cc8025845e54cf233d2e00ac417e2134212b",
+      "bytes": 7033
+    },
+    {
+      "path": "native/enumeration_core.cpp",
+      "sha256": "d2b99630a8f785747e2a39dbbd4517bcbb5e23bea9235c7c25e69ea339c7a41f",
+      "bytes": 23717
+    },
+    {
+      "path": "native/libmof_enumeration.dylib",
+      "sha256": "1fb1df743ca6cd17252468d2cb87cf8fcddaada666ace55c8d0d82b4be52fa32",
+      "bytes": 75944
+    },
+    {
+      "path": "tools/build_enumeration_core.py",
+      "sha256": "9f468fef5ffd7a9b4a353e6704693a2c04be0eccab3242683f64e1ce5156038b",
+      "bytes": 940
+    },
+    {
+      "path": "experiment/casm_scale_common.py",
+      "sha256": "75b4ef13460d8ff52bf4234cbe4f8b6660fdcefcbfe2fc5c1cf3c7fc882c471a",
+      "bytes": 5839
+    },
+    {
+      "path": "experiment/_match_refresh_worker.py",
+      "sha256": "9af8f35c46274ad9dc0354dc53c6b268dd76641c97d19a2ef25aedb66f519a54",
+      "bytes": 5140
+    },
+    {
+      "path": "experiment/match_refresh_compare.py",
+      "sha256": "4816ca7387d180858fd887c1e267b4e0a3187dcac76d4f8bef8115677ec5765d",
+      "bytes": 6885
+    },
+    {
+      "path": "validation/benchmark_unified_vba_20261123.py",
+      "sha256": "da7dc422ea3ba135ae64d88372feb989d8a0d21d1fe43a5f8aa0c97db2e0dd2c",
+      "bytes": 6614
+    },
+    {
+      "path": "data/ffc/ffc_graph.json",
+      "sha256": "97d42047f3a0c5c2b89c4b724be455e7c68a50540f19dff69d20603027cb2d05",
+      "bytes": 4319
+    },
+    {
+      "path": "data/fjh/fjh_graph.json",
+      "sha256": "52b9a33e85953c0f29fa80383276b6c9cb714d048f1709059c501bb45d0f24fb",
+      "bytes": 16366
+    },
+    {
+      "path": "data/lil/lil_graph.json",
+      "sha256": "d89bbe30b92ede6dd21469dc50b6d5bf1396c9b717dbb043e03fb423d3683a53",
+      "bytes": 7478
+    },
+    {
+      "path": "data/vba/vba_graph.json",
+      "sha256": "375dba3daffba5f66261d902aa7b36f6317c9b6ad4402ba12b28fd462f0f02a5",
+      "bytes": 20726
+    },
+    {
+      "path": "data/mof/ffc.cif",
+      "sha256": "ef7b3a9d5afda4f20d1210b096a67bd1624103fcee40bed49909a0ed35b972d8",
+      "bytes": 1491
+    },
+    {
+      "path": "data/mof/fjh.cif",
+      "sha256": "2336d0bb1b146118a3492787e027b45cc61818f92cabeaa6f39c43296d892707",
+      "bytes": 3767
+    },
+    {
+      "path": "data/mof/lil.cif",
+      "sha256": "be1fd83ae02e30ab1a426095aeb9ea6d9f35897166f4a74a45e8c85a2f5cb8f1",
+      "bytes": 2404
+    },
+    {
+      "path": "nodes/3c_B_Ch.cif",
+      "sha256": "04d5c8902fd79fae96534a2b5d532f863e5d42acbb40f87751a9987303f2dcce",
+      "bytes": 2047
+    },
+    {
+      "path": "nodes/3c_Cu_imadazoline_Ch.cif",
+      "sha256": "06235accfcd53cb328f626263456c15269fb97ee951152584eb63a3a9e99c165",
+      "bytes": 4159
+    },
+    {
+      "path": "nodes/3c_pyrrole_Ch.cif",
+      "sha256": "70debb7c8974767542889263b2259b4ed4a4f972300f5715401f4bf78df9e64a",
+      "bytes": 1722
+    },
+    {
+      "path": "nodes/3c_triazine_Ch.cif",
+      "sha256": "bba991d44a8223f19095d4ec0b2e894f66bffa9cb66103982143d96c37aee823",
+      "bytes": 1645
+    },
+    {
+      "path": "nodes/3c_uranyl.cif",
+      "sha256": "1110dfb230e9cfbd4e08cf4b6594a3208732423213a6bd48101020ecaec552a7",
+      "bytes": 2082
+    },
+    {
+      "path": "nodes/4c_1anC_Ch.cif",
+      "sha256": "3cc4fd37fb3b7423b1915df1a4ae34673cdbadd178d004e8ac0f4bb227cb1c8f",
+      "bytes": 1366
+    },
+    {
+      "path": "nodes/4c_4B_fused_Ch.cif",
+      "sha256": "9e544cf0efe68738a1c242eb75c2310295c7526a759e2e681699ca5dd4510653",
+      "bytes": 3892
+    },
+    {
+      "path": "nodes/4c_B_Ch.cif",
+      "sha256": "e608e81d718c3efc3dc333fd3a89514477c3472c8b92d02724ede9b2cce573e7",
+      "bytes": 1913
+    },
+    {
+      "path": "nodes/4c_Cd_1_Ch.cif",
+      "sha256": "f20012456536377e6bfe810c711049b40e552d6a9a7c8906b5a428c1b8ab5559",
+      "bytes": 2568
+    },
+    {
+      "path": "nodes/4c_Cu_1_Ch.cif",
+      "sha256": "cbd69139c97b02359ef2fdcc5f8497fb4af941087c6660cb1bee0bec8e6663b7",
+      "bytes": 2819
+    },
+    {
+      "path": "nodes/4c_In_1_Ch.cif",
+      "sha256": "31bae3bd204234b5561562d6223c198eacd8cff1772edb79a285046ab6c85e61",
+      "bytes": 2568
+    },
+    {
+      "path": "nodes/4c_Ni_1_Ch.cif",
+      "sha256": "788012e74918a35c21a78639af3bcfb636e05c7140aec03858dd0e6e3eb54c64",
+      "bytes": 2675
+    },
+    {
+      "path": "nodes/4c_V_1_Ch.cif",
+      "sha256": "bcbc3c3c0b2ddd36452c13dd7a6a684c3bdc985b5b856a8ee119a2c1f606c4b6",
+      "bytes": 2674
+    },
+    {
+      "path": "nodes/4c_Zn_tet.cif",
+      "sha256": "35d271d5650b5d783f68bc4d69c14fd9c3f2529b7074abac677a0fa61f39dd71",
+      "bytes": 431
+    },
+    {
+      "path": "nodes/4c_bicyclooctane_Ch.cif",
+      "sha256": "5eca1573134fb399e19c23a13879c8d73a5bf3aaaefd899846443064df8a0a4e",
+      "bytes": 2386
+    },
+    {
+      "path": "nodes/4c_ethene_Ch.cif",
+      "sha256": "6ae75d409f2bccfe54765a9f1fe4ce05bbce8bb081b2676891bd791c3d9381bc",
+      "bytes": 1063
+    },
+    {
+      "path": "nodes/4c_porphyrin_Ch.cif",
+      "sha256": "8157678a3c658b5236e78e41490ee3b85e5843ad4ee942d6d487dcafbe8915a7",
+      "bytes": 5231
+    },
+    {
+      "path": "nodes/4c_pyrene_Ch.cif",
+      "sha256": "9e544cf0efe68738a1c242eb75c2310295c7526a759e2e681699ca5dd4510653",
+      "bytes": 3892
+    },
+    {
+      "path": "nodes/4c_pyrene_NU_Ch.cif",
+      "sha256": "032124a053a24932149def7fce9b95eee48e9b556c12d84ddab6ddaa74f2a70b",
+      "bytes": 3351
+    },
+    {
+      "path": "nodes/4c_tetrathiafulvalene_Ch.cif",
+      "sha256": "d6dd1e85fc06ccb67c5030e8a1abf4d8a49524304bffb804f53f86f9b3f68661",
+      "bytes": 2141
+    },
+    {
+      "path": "assembler.py",
+      "sha256": "3ef10ab80ab6d0eeb52829ba700bfaf9977cd4908f6adbdb7615bdadb831e679",
+      "bytes": 38578,
+      "role": "import dependency"
+    },
+    {
+      "path": "structure_validator.py",
+      "sha256": "17ae3d3bf689666c1c093544efcd1fb4db10e4ed48ed6f4d2644c642d8b36ac6",
+      "bytes": 21764,
+      "role": "import dependency"
+    },
+    {
+      "path": "verification.py",
+      "sha256": "2eae1cbaa4953dd83c5f4f4b27f9d624aa42af3b22457624934ef39624e6dd7d",
+      "bytes": 2729,
+      "role": "import dependency"
+    },
+    {
+      "path": "utils/precompute_edges.py",
+      "sha256": "6c2ed9734a7014df31dbed42c4e6a33c689c0370758e8977c9cdf4eff873d617",
+      "bytes": 3494,
+      "role": "import dependency"
+    },
+    {
+      "path": "utils/refine_mof.py",
+      "sha256": "b0304218d67f13925f8a1d7de6e195365ace7ac619c9e534dba82d4563989b03",
+      "bytes": 1514,
+      "role": "import dependency"
+    },
+    {
+      "path": "utils/check_cifs.py",
+      "sha256": "c12f83b229b0711856d5cbb2e3e1755179337c1f90d44481522fe7fbecd0dc65",
+      "bytes": 1445,
+      "role": "import dependency"
+    },
+    {
+      "path": "utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "import dependency"
+    },
+    {
+      "path": "utils/build_graph.py",
+      "sha256": "f8e1e6defa4b80931421ab5296360148ab718e6d25626648af2f0c5b95b60b52",
+      "bytes": 11553,
+      "role": "import dependency"
+    },
+    {
+      "path": "utils/simple_check.py",
+      "sha256": "c45ac5918b176f800bffecbd65628fa123d07e1eb167197a8be734ceab8255a1",
+      "bytes": 1522,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/edge.py",
+      "sha256": "d77760974cff5d2bb33144dc4ab7da4b971a3bb43fabffd24c3577ceb07f0e39",
+      "bytes": 9495,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/node.py",
+      "sha256": "ad06e432cb9e8e70755690cf326af1b60f28f7988f6651541772e85f5bd4fd42",
+      "bytes": 7859,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/utils/modified.py",
+      "sha256": "913875ec1c355ff4b4020a7c6bf9f21d40b1ad465c44fe11edd575959abef49f",
+      "bytes": 19178,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/utils/crystal_structure_optimization.py",
+      "sha256": "770a222470a71accad6d4566cc2690e4d682d6b92033169dea7bc1c4525db0f5",
+      "bytes": 10100,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/utils/Bio.py",
+      "sha256": "e551f1cdebb2bdcc945e50e43594a51e120a4ae82b4cf1b8c5b8c689275c0463",
+      "bytes": 5843,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/utils/periodic_structure_analysis.py",
+      "sha256": "31df508d4f4e683d48aad27525149b84736d3d52fc206eecec1c836d5b0b8821",
+      "bytes": 27304,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/utils/parameter.py",
+      "sha256": "6e86394625175c215834c93082f8117c55292d994e6d84198575d69ccab0de6f",
+      "bytes": 4529,
+      "role": "import dependency"
+    },
+    {
+      "path": "external_lib/utils/SUPER_check.py",
+      "sha256": "c46e03e7e5edbf17a23f3c9d58b72027b6f23f20378f95db74278d613b1946f8",
+      "bytes": 4714,
+      "role": "import dependency"
+    }
+  ]
+}

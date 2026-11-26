@@ -1,0 +1,8 @@
+{
+  "replicate": "independent_replicate_005",
+  "created_utc": "2026-10-18T19:03:46.300646+00:00",
+  "candidate_count": 30,
+  "independent_phase_runs": 60,
+  "seed_policy": "RASPA default; emitted seed recorded; seeds checked unique and disjoint from replicate_002",
+  "simulation_binary": "/Users/jing/PyCharmMiscProject/CO2_N2/.conda-tools/bin/simulate"
+}

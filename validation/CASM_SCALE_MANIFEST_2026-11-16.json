@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-16",
+  "cases": [
+    [
+      "ffc",
+      2,
+      2
+    ],
+    [
+      "ffc",
+      3,
+      3
+    ],
+    [
+      "ffc",
+      4,
+      4
+    ],
+    [
+      "ffc",
+      5,
+      5
+    ],
+    [
+      "ffc",
+      5,
+      8
+    ],
+    [
+      "ffc",
+      5,
+      12
+    ],
+    [
+      "ffc",
+      5,
+      15
+    ],
+    [
+      "fjh",
+      1,
+      2
+    ],
+    [
+      "fjh",
+      2,
+      1
+    ],
+    [
+      "fjh",
+      1,
+      3
+    ],
+    [
+      "fjh",
+      1,
+      4
+    ],
+    [
+      "lil",
+      2,
+      2
+    ],
+    [
+      "lil",
+      3,
+      3
+    ],
+    [
+      "lil",
+      3,
+      4
+    ],
+    [
+      "lil",
+      4,
+      3
+    ]
+  ],
+  "repetitions": 3,
+  "worker_python": "python3.11",
+  "modes": [
+    "ours",
+    "casm_records",
+    "casm_count",
+    "casm_full"
+  ],
+  "single_thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "watchdog": {
+    "total_process_timeout_s": 180,
+    "process_rss_limit_mib": 1536
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "timing_boundary": "Enumeration entry including subgroup tasks/output records; graph/group construction, dependency import, verification normalization outside",
+  "excluded_candidates": [
+    {
+      "case": [
+        "lil",
+        4,
+        4
+      ],
+      "naive": 16777216,
+      "expected_orbits": 4197376,
+      "reason": "Expected record count exceeds chosen desktop-memory envelope"
+    },
+    {
+      "case": [
+        "fjh",
+        3,
+        1
+      ],
+      "naive": 43046721,
+      "orbit_lower_bound": 2690421,
+      "reason": "Expected record count exceeds chosen desktop-memory envelope"
+    }
+  ],
+  "source_sha256": {
+    "experiment/casm_scale_common.py": "75b4ef13460d8ff52bf4234cbe4f8b6660fdcefcbfe2fc5c1cf3c7fc882c471a",
+    "experiment/_casm_scale_worker.py": "3f6362389152d3f20c32b5066bfd1dc6bdf6881eebd297b2c195722ddc464a34",
+    "experiment/casm_scale_compare.py": "79206f2dc2558035270fbc52714cc3fb2e7ff234adc8d0e8a0089e449b5ad0aa",
+    "enumerator.py": "e4133b14588817eb90f8336a2bf301616d468dd9ec8595dc9798472afa6e8adb",
+    "enumerator_native.py": "08db916ff873819ed524d2e118a7ab1ce619d103b6cee2d1f74420d01f809565",
+    "enumerator_storage.py": "e22dbea8a21ad8cfe33dd0cdca35ef2c98b253f81d69442af7ed51420d75bd83",
+    "enumerator_casm_inspired.py": "3d35ecd39967a0e543d15adfb3ee48b2d5cdeeef76e527b654c9e7faf2a73748",
+    "enumerator_task_dedup.py": "a5a4b05afa2583ce12d47098887fa3756ce4cdb2322816b643f400d2bb93c4ce",
+    "native/enumeration_core.cpp": "e2a51e0e180bf03223d2afc8c4e93777354500fb5ff5f054cacad4b6900af2a2",
+    "native/libmof_enumeration.dylib": "d8bb2c73ac7e2910b3606e88b9499f3a5528d383f2e763f64ad9298f6d7b6e84",
+    "tools/build_enumeration_core.py": "9f468fef5ffd7a9b4a353e6704693a2c04be0eccab3242683f64e1ce5156038b",
+    "symmetry.py": "0c6029cadd8b20415890b4ba8ca8844811ffe2cbcd5167442f666ade749d9f8a",
+    "main.py": "c81f9975ba77b703bc524f28ba623c6908cb7a3c8a7b3bb0b6786fb79be3731b"
+  }
+}
